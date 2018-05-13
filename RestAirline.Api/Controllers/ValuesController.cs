@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
-namespace RestAireline.Api.Controllers
+namespace RestAirline.Api.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller

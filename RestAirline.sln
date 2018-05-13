@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAireline.Api", "RestAireline.Api\RestAireline.Api.csproj", "{D1D62447-76F6-4EE8-B71B-3FBFA4CF7FB3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Api", "RestAireline.Api\RestAirline.Api.csproj", "{D1D62447-76F6-4EE8-B71B-3FBFA4CF7FB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
