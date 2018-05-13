@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using RestAirline.Api.Domain.Booking.Checkin;
+using RestAirline.Api.Domain.Booking.Exceptions;
 using RestAirline.Api.Domain.Shared;
 
 namespace RestAirline.Api.Domain.Booking
@@ -13,25 +15,24 @@ namespace RestAirline.Api.Domain.Booking
 
         public Trip Trip { get; }
 
-        public IReadOnlyList<Seat> Seats => _passengers.Select(p => p.SelectedSeat).ToList().AsReadOnly();
+        public IReadOnlyList<Maybe<Seat>> Seats => _passengers.Select(p => p.SelectedSeat).ToList().AsReadOnly();
 
         public Maybe<AirportTransfer> AirportTransfer { get; set; }
 
-        public IReadOnlyList<CheckInResult> CheckInResults => _checkInResults.AsReadOnly();
-
-        private readonly List<CheckInResult> _checkInResults;
-
         private readonly List<Passenger> _passengers;
+
+        private readonly CheckinProcess _checkinProcess;
 
         private Booking(Trip trip, List<Passenger> passengers)
         {
             Id = Guid.NewGuid();
+            _checkinProcess = CheckinProcess.CreateCheckinProcess(this);
+
             Trip = trip;
             _passengers = passengers;
-            _checkInResults = new List<CheckInResult>();
         }
 
-        public Booking SelectTrip(Trip trip, List<Passenger> passengers)
+        public Booking AddTrip(Trip trip, List<Passenger> passengers)
         {
             //Validation for trip and passengers in here
 
@@ -40,12 +41,38 @@ namespace RestAirline.Api.Domain.Booking
             return booking;
         }
 
+        public void ChangeFlight(Trip.Journey journey, Flight flight)
+        {
+            // Checking is it eligible for changing flight;
+            var isEligible = journey.DepartureDate < DateTime.Now;
+
+            if (!isEligible)
+            {
+                var message = $"Journey from {journey.DepartureStation} to {journey.ArriveStation} is ineligible for changing to flight {flight.Number}";
+                throw new ChangingFlightIneligibleException(message);
+            }
+
+            Trip.ChangeFlight(journey.Id, flight);
+        }
+
         public void AssignSeat(Seat seat, Passenger passenger)
         {
             //Validation in here
 
             var p = _passengers.Single(s => s.Name.Equals(passenger.Name));
             p.AssignSeat(seat);
+        }
+
+        public void UnassignSeat(Passenger passenger)
+        {
+            var p = _passengers.Single(s => s.Name.Equals(passenger.Name));
+            if (!p.SelectedSeat.HasValue())
+            {
+                var message = $"There is not allocated seat for passenger {passenger.Name}";
+                throw new NoAllocatedSeatForPassengerException(message);
+            }
+
+            p.UnassignSeat();
         }
 
         public void AssignSeatsAutomaticallyForAllPassengers(ISeatAllocator seatAllocator)
@@ -66,15 +93,7 @@ namespace RestAirline.Api.Domain.Booking
 
         public void CheckIn(Passenger passenger, Trip.Journey journey, ICheckinEligibleValidator checkinEligibleValidator)
         {
-            var isEligible = checkinEligibleValidator.IsEligible(passenger, journey);
-
-            if (!isEligible)
-            {
-                var message = $"passenger:{passenger.Name} is not eligible checkin for {journey.DepartureStation} to {journey.ArriveStation}";
-                throw new PassengerNotEligibleForCheckinException(message);
-            }
-
-            _checkInResults.Add(new CheckInResult(passenger, journey));
+            _checkinProcess.Checkin(passenger, journey, checkinEligibleValidator);
         }
 
     }

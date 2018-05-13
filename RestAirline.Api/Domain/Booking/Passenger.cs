@@ -12,19 +12,25 @@ namespace RestAirline.Api.Domain.Booking
 
         public string Email { get; set; }
 
-        public Seat SelectedSeat { get; private set; }
+        public Maybe<Seat> SelectedSeat { get; private set; }
 
-        public Trip Trip { get; set; }
-
+        public Passenger()
+        {
+            SelectedSeat = Maybe.None<Seat>();
+        }
 
         public void AssignSeat(Seat seat)
         {
-            SelectedSeat = seat;
+            SelectedSeat = Maybe.Some(seat);
+        }
+
+        public void UnassignSeat()
+        {
+            SelectedSeat = Maybe.None<Seat>();
         }
 
         public void Checkin()
         {
-            IsCheckin = true;
         }
     }
 
