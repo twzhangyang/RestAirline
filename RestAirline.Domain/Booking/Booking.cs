@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using RestAirline.Api.Domain.Booking.Checkin;
-using RestAirline.Api.Domain.Booking.Exceptions;
-using RestAirline.Api.Domain.Shared;
+using RestAirline.Domain.Booking.Checkin;
+using RestAirline.Domain.Booking.Exceptions;
+using RestAirline.Domain.Shared;
 
-namespace RestAirline.Api.Domain.Booking
+namespace RestAirline.Domain.Booking
 {
     public class Booking
     {

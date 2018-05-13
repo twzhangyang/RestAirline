@@ -1,6 +1,6 @@
-﻿using RestAirline.Api.Domain.Shared;
+﻿using RestAirline.Domain.Shared;
 
-namespace RestAirline.Api.Domain.Booking
+namespace RestAirline.Domain.Booking
 {
     public class Passenger
     {

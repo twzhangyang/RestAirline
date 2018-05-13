@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using RestAirline.Api.Domain.Booking.Exceptions;
-using RestAirline.Api.Domain.Shared;
+using RestAirline.Domain.Booking.Checkin.Exceptions;
+using RestAirline.Domain.Shared;
 
-namespace RestAirline.Api.Domain.Booking.Checkin
+namespace RestAirline.Domain.Booking.Checkin
 {
     public class CheckinProcess
     {

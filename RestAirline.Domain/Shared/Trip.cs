@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RestAirline.Api.Domain.Shared
+namespace RestAirline.Domain.Shared
 {
     public class Trip
     {

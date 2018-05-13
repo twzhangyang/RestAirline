@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RestAirline.Api.Domain.Booking.Exceptions
+namespace RestAirline.Domain.Booking.Exceptions
 {
     public class NoAllocatedSeatForPassengerException : Exception
     {

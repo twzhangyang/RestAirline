@@ -1,7 +1,7 @@
 ﻿using System;
-using RestAirline.Api.Domain.Shared;
+using RestAirline.Domain.Shared;
 
-namespace RestAirline.Api.Domain.Booking.Checkin
+namespace RestAirline.Domain.Booking.Checkin
 {
     public class Checkin
     {

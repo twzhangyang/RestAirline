@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestAirline.Api", "RestAirline.Api\RestAirline.Api.csproj", "{14418F6B-C43C-411D-9197-664C2FAAF20E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Domain", "RestAirline.Domain\RestAirline.Domain.csproj", "{DA173A25-6100-4468-BE45-4633FDC0BD82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{14418F6B-C43C-411D-9197-664C2FAAF20E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14418F6B-C43C-411D-9197-664C2FAAF20E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14418F6B-C43C-411D-9197-664C2FAAF20E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA173A25-6100-4468-BE45-4633FDC0BD82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA173A25-6100-4468-BE45-4633FDC0BD82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA173A25-6100-4468-BE45-4633FDC0BD82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA173A25-6100-4468-BE45-4633FDC0BD82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

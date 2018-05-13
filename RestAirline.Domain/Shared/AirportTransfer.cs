@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RestAirline.Api.Domain.Shared
+namespace RestAirline.Domain.Shared
 {
     public class AirportTransfer
     {

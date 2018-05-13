@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RestAirline.Api.Domain.Booking.Checkin.Exceptions
+namespace RestAirline.Domain.Booking.Checkin.Exceptions
 {
     public class PassengerNotEligibleForCheckinException : Exception
     {
