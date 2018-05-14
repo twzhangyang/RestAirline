@@ -35,7 +35,7 @@ namespace RestAirline.Domain.Shared
 
             public string Description { get; set; }
 
-            public Flight Flight { get; private set; }
+            public Flight Flight { get; set; }
 
             public void ChangeFlight(Flight flight)
             {

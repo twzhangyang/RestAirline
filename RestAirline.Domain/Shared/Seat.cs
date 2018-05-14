@@ -4,7 +4,7 @@
     {
         public string Number { get; set; }
 
-        public SeatType Business { get; set; }
+        public SeatType SeatType { get; set; }
     }
 
     public enum SeatType
