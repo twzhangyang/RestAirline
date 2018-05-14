@@ -1,0 +1,15 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using RestAirline.Api.Resources;
+
+namespace RestAirline.Api.Controllers
+{
+    [Route("api/[controller]")]
+    public class HomeController : Controller
+    {
+        [Route("api/home")]
+        public RestAirlineHomeResource Index()
+        {
+            return new RestAirlineHomeResource(Url);
+        }
+    }
+}

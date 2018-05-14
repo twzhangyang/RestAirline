@@ -32,7 +32,7 @@ namespace RestAirline.Domain.Booking
             _passengers = passengers;
         }
 
-        public Booking AddTrip(Trip trip, List<Passenger> passengers)
+        public Booking SelectTrip(Trip trip, List<Passenger> passengers)
         {
             //Validation for trip and passengers in here
 
