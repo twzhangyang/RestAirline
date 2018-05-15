@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Controllers;
 using RestAirline.Api.HyperMedia;
+using RestAirline.Domain.Shared;
 
 namespace RestAirline.Api.Resources.Booking
 {
@@ -16,5 +17,11 @@ namespace RestAirline.Api.Resources.Booking
         {
 
         }
+
+        public Guid BookingId { get; set; }
+
+        public Trip.Journey Journey { get; set; }
+
+        public Flight Flight { get; set; }
     }
 }

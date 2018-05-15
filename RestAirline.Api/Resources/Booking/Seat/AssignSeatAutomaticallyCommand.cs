@@ -14,5 +14,7 @@ namespace RestAirline.Api.Resources.Booking.Seat
         {
 
         }
+
+        public Guid BookingId { get; set; }
     }
 }

@@ -17,6 +17,7 @@ namespace RestAirline.Api.Resources.Booking.Seat
 
         }
 
+        public Guid BookingId { get; set; }
         public Domain.Shared.Seat Seat { get; set; }
         public Passenger Passenger { get; set; }
     }
