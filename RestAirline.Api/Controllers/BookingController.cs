@@ -11,7 +11,7 @@ namespace RestAirline.Api.Controllers
         [HttpPost]
         public SelectTripResultResource SelectTrip(SelectTripCommand command)
         {
-            return new SelectTripResultResource(Url);
+            return new SelectTripResultResource(Url, Guid.NewGuid());
         }
 
         [Route("api/booking/{0}")]
@@ -25,28 +25,28 @@ namespace RestAirline.Api.Controllers
         [HttpPost]
         public ChangeFlightResultResource ChangeFlight(ChangeFlightCommand command)
         {
-            return new ChangeFlightResultResource(Url);
+            return new ChangeFlightResultResource(Url, Guid.NewGuid());
         }
 
         [Route("api/booking/{0}/seatAssignment")]
         [HttpPost]
         public AssignSeatResultResource AssignSeat(AssignSeatCommand command)
         {
-            return new AssignSeatResultResource(Url);
+            return new AssignSeatResultResource(Url, Guid.NewGuid());
         }
 
         [Route("api/booking/{0}/seatUnassign")]
         [HttpPost]
         public UnassignSeatResultResource UnassignSeat(UnassignSeatCommand command)
         {
-            return new UnassignSeatResultResource(Url);
+            return new UnassignSeatResultResource(Url, Guid.NewGuid());
         }
 
         [Route("api/booking/{0}/automaticallySeatAssignment")]
         [HttpPost]
         public AssignSeatAutomaticallyResultResource AssignSeatAutomatically(AssignSeatAutomaticallyCommand command)
         {
-            return new AssignSeatAutomaticallyResultResource(Url);
+            return new AssignSeatAutomaticallyResultResource(Url, Guid.NewGuid());
         }
 
         [Route("api/booking/{0}/airportTransferService")]

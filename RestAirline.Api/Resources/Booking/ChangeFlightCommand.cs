@@ -1,4 +1,6 @@
 ﻿using System;
+using Microsoft.AspNetCore.Mvc;
+using RestAirline.Api.Controllers;
 using RestAirline.Api.HyperMedia;
 
 namespace RestAirline.Api.Resources.Booking
@@ -10,7 +12,7 @@ namespace RestAirline.Api.Resources.Booking
         {
         }
 
-        public ChangeFlightCommand(Link<ChangeFlightResultResource> postUrl) : base(postUrl)
+        public ChangeFlightCommand(IUrlHelper urlHelper) : base(urlHelper.Link((BookingController c) => c.ChangeFlight(null)))
         {
 
         }

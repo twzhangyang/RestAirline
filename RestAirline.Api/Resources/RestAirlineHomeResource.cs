@@ -9,10 +9,7 @@ namespace RestAirline.Api.Resources
     public class RestAirlineHomeResource
     {
         [Obsolete("For serialization")]
-        public RestAirlineHomeResource()
-        {
-            
-        }
+        public RestAirlineHomeResource() { }
 
         public RestAirlineHomeResource(IUrlHelper urlHelper)
         {
@@ -27,22 +24,26 @@ namespace RestAirline.Api.Resources
 
         public class Commands
         {
+            private readonly IUrlHelper _urlHelper;
+
             public Commands(IUrlHelper urlHelper)
             {
-                SearchTripsCommand = new SearchTripsCommand(urlHelper.Link((TripAvailabilityController c) => c.SearchTrips(null)));
+                _urlHelper = urlHelper;
             }
 
-            public SearchTripsCommand SearchTripsCommand { get; set; }
+            public SearchTripsCommand SearchTripsCommand => new SearchTripsCommand(_urlHelper);
         }
 
         public class Links
         {
+            private readonly IUrlHelper _urlHelper;
+
             public Links(IUrlHelper urlHelper)
             {
-                Self = urlHelper.Link((HomeController c) => c.Index());
+                _urlHelper = urlHelper;
             }
 
-            public Link<RestAirlineHomeResource> Self { get; set; }
+            public Link<RestAirlineHomeResource> Self => _urlHelper.Link((HomeController c) => c.Index());
         }
     }
 }
