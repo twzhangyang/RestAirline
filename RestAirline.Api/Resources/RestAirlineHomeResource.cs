@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Controllers;
 using RestAirline.Api.HyperMedia;
+using RestAirline.Api.Resources.Availability;
 
 namespace RestAirline.Api.Resources
 {

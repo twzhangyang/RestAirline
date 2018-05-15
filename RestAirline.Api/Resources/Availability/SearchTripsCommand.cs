@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using RestAirline.Api.HyperMedia;
 using RestAirline.Domain.Booking;
 
-namespace RestAirline.Api.Resources
+namespace RestAirline.Api.Resources.Availability
 {
     public class SearchTripsCommand : HyperMediaCommand<TripAvailabilityResource>
     {

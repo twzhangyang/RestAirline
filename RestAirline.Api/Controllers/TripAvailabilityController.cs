@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Resources;
+using RestAirline.Api.Resources.Availability;
 
 namespace RestAirline.Api.Controllers
 {

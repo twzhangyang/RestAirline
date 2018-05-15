@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Routing;
 using RestAirline.Api.Controllers;
 using RestAirline.Api.HyperMedia;
+using RestAirline.Api.Resources.Booking;
 
-namespace RestAirline.Api.Resources
+namespace RestAirline.Api.Resources.Availability
 {
     public class TripAvailabilityResource
     {

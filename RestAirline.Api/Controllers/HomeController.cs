@@ -7,6 +7,7 @@ namespace RestAirline.Api.Controllers
     public class HomeController : Controller
     {
         [Route("api/home")]
+        [HttpGet]
         public RestAirlineHomeResource Index()
         {
             return new RestAirlineHomeResource(Url);

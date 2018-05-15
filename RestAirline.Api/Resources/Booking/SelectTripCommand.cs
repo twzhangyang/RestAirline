@@ -4,7 +4,7 @@ using RestAirline.Api.HyperMedia;
 using RestAirline.Domain.Booking;
 using RestAirline.Domain.Shared;
 
-namespace RestAirline.Api.Resources
+namespace RestAirline.Api.Resources.Booking
 {
     public class SelectTripCommand : HyperMediaCommand<SelectTripResultResource>
     {
