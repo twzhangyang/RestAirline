@@ -1,12 +1,12 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Controllers;
-using RestAirline.Api.HyperMedia;
+using RestAirline.Api.Hypermedia;
 using RestAirline.Domain.Shared;
 
 namespace RestAirline.Api.Resources.Booking
 {
-    public class ChangeFlightCommand : HyperMediaCommand<ChangeFlightResultResource>
+    public class ChangeFlightCommand : HypermediaCommand<ChangeFlightResultResource>
     {
         [Obsolete("For serialization")]
         public ChangeFlightCommand()

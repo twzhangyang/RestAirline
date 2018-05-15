@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Linq.Expressions;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Routing;
-using Microsoft.AspNetCore.Routing;
 
-namespace RestAirline.Api.HyperMedia
+namespace RestAirline.Api.Hypermedia
 {
     public static class TypedUrlHelper
     {

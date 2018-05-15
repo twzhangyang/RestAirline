@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using RestAirline.Domain.Availability;
 
-namespace RestAirline.Api.HyperMedia.Navigator
+namespace RestAirline.Api.Hypermedia.Navigator
 {
     public class RestAirlineApiClient
     {

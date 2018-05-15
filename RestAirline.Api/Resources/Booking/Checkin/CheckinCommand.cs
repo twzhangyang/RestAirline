@@ -1,9 +1,9 @@
 ﻿using System;
-using RestAirline.Api.HyperMedia;
+using RestAirline.Api.Hypermedia;
 
 namespace RestAirline.Api.Resources.Booking.Checkin
 {
-    public class CheckinCommand : HyperMediaCommand<CheckinResultResource>
+    public class CheckinCommand : HypermediaCommand<CheckinResultResource>
     {
         [Obsolete("For serialization")]
         public CheckinCommand()

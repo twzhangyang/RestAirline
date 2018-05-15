@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Controllers;
-using RestAirline.Api.HyperMedia;
+using RestAirline.Api.Hypermedia;
 using RestAirline.Domain.Availability;
 using RestAirline.Domain.Booking;
 
 namespace RestAirline.Api.Resources.Availability
 {
-    public class SearchTripsCommand : HyperMediaCommand<TripAvailabilityResource>
+    public class SearchTripsCommand : HypermediaCommand<TripAvailabilityResource>
     {
         [Obsolete("For serialization")]
         public SearchTripsCommand() { }

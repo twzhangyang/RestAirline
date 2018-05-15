@@ -1,12 +1,12 @@
 ﻿using System;
-using RestAirline.Api.HyperMedia;
 using RestAirline.Domain.Booking;
 using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Controllers;
+using RestAirline.Api.Hypermedia;
 
 namespace RestAirline.Api.Resources.Booking.Seat
 {
-    public class AssignSeatCommand : HyperMediaCommand<AssignSeatResultResource>
+    public class AssignSeatCommand : HypermediaCommand<AssignSeatResultResource>
     {
         [Obsolete("For serialization")]
         public AssignSeatCommand() { }

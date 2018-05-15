@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Controllers;
-using RestAirline.Api.HyperMedia;
+using RestAirline.Api.Hypermedia;
 using RestAirline.Api.Resources.Booking;
 using RestAirline.Domain.Shared;
 

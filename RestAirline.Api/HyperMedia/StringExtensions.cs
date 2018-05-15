@@ -1,4 +1,4 @@
-﻿namespace RestAirline.Api.HyperMedia
+﻿namespace RestAirline.Api.Hypermedia
 {
     public static class StringExtensions
     {

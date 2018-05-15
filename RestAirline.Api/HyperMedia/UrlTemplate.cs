@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace RestAirline.Api.HyperMedia
+namespace RestAirline.Api.Hypermedia
 {
     public class LinkTemplate1<TTargetResource, TArgument1>
     {

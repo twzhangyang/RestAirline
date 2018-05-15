@@ -1,16 +1,16 @@
 ﻿using System;
 
-namespace RestAirline.Api.HyperMedia
+namespace RestAirline.Api.Hypermedia
 {
-    public class HyperMediaCommand<TResponse>
+    public class HypermediaCommand<TResponse>
     {
         [Obsolete("For serialization")]
-        public HyperMediaCommand()
+        public HypermediaCommand()
         {
             
         }
 
-        public HyperMediaCommand(Link<TResponse> postUrl)
+        public HypermediaCommand(Link<TResponse> postUrl)
         {
             PostUrl = postUrl;
         }

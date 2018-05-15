@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace RestAirline.Api.HyperMedia.Navigator
+namespace RestAirline.Api.Hypermedia.Navigator
 {
     public class ApiNavigator<TResource>
     {
@@ -45,7 +45,7 @@ namespace RestAirline.Api.HyperMedia.Navigator
             }
         }
 
-        public async Task<TResourceToFetch> PostCommand<TResourceToFetch>(HyperMediaCommand<TResourceToFetch> command)
+        public async Task<TResourceToFetch> PostCommand<TResourceToFetch>(HypermediaCommand<TResourceToFetch> command)
         {
             using (var httpClient = new HttpClient())
             {

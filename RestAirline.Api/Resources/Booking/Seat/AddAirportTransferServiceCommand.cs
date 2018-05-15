@@ -1,12 +1,12 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Controllers;
-using RestAirline.Api.HyperMedia;
+using RestAirline.Api.Hypermedia;
 using RestAirline.Domain.Shared;
 
 namespace RestAirline.Api.Resources.Booking.Seat
 {
-    public class AddAirportTransferServiceCommand : HyperMediaCommand<AddAirportTransferServiceResultResource>
+    public class AddAirportTransferServiceCommand : HypermediaCommand<AddAirportTransferServiceResultResource>
     {
         [Obsolete("For serialization")]
         public AddAirportTransferServiceCommand() { }
