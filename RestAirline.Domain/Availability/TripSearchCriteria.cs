@@ -15,5 +15,10 @@ namespace RestAirline.Domain.Availability
         public DateTime ArriveDateTime { get; set; }
 
         public List<Passenger> Passengers { get; set; }
+
+        public static TripSearchCriteria DefaultTripSearchCriteria()
+        {
+            return new TripSearchCriteria();
+        }
     }
 }

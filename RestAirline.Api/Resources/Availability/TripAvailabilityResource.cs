@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Controllers;
 using RestAirline.Api.HyperMedia;
 using RestAirline.Api.Resources.Booking;
+using RestAirline.Domain.Shared;
 
 namespace RestAirline.Api.Resources.Availability
 {
@@ -13,6 +15,7 @@ namespace RestAirline.Api.Resources.Availability
             ResourceLinks = new Links(urlHelper);
         }
 
+        public List<Trip> AvailableTrips { get; set; }
         public Commands ResourceCommands { get; set; }
         public Links ResourceLinks { get; set; }
 

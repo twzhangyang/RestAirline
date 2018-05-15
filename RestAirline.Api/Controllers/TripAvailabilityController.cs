@@ -1,15 +1,28 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Resources;
 using RestAirline.Api.Resources.Availability;
+using RestAirline.Domain.Repository;
 
 namespace RestAirline.Api.Controllers
 {
     public class TripAvailabilityController : Controller
     {
+        private readonly ITripAvailabilityRepository _tripAvailabilityRepository;
+
+        public TripAvailabilityController(ITripAvailabilityRepository tripAvailabilityRepository)
+        {
+            _tripAvailabilityRepository = tripAvailabilityRepository;
+        }
+
         [Route("tripAvailability")]
         public TripAvailabilityResource SearchTrips(SearchTripsCommand command)
         {
-            return new TripAvailabilityResource(Url);
+            var trips = _tripAvailabilityRepository.Get().SearchTrips(command.SearchCriteria);
+
+            return new TripAvailabilityResource(Url)
+            {
+                AvailableTrips = trips
+            };
         }
     }
 }
