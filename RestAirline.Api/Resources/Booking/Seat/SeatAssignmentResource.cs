@@ -3,17 +3,15 @@ using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Controllers;
 using RestAirline.Api.Hypermedia;
 using RestAirline.Api.Resources.Availability;
-using RestAirline.Api.Resources.Booking.Seat;
 
-namespace RestAirline.Api.Resources.Booking
+namespace RestAirline.Api.Resources.Booking.Seat
 {
-    public class ChangeFlightResultResource
+    public class SeatAssignmentResource
     {
         [Obsolete("For serialization")]
-        public ChangeFlightResultResource() { }
+        public SeatAssignmentResource() { }
 
-
-        public ChangeFlightResultResource(IUrlHelper urlHelper, Guid bookingId)
+        public SeatAssignmentResource(IUrlHelper urlHelper, Guid bookingId)
         {
             ResourceLinks = new Links(urlHelper, bookingId);
             ResourceCommands = new Commands(urlHelper);
@@ -34,8 +32,8 @@ namespace RestAirline.Api.Resources.Booking
                 _bookingId = bookingId;
             }
 
-            public Link<ChangeFlightResultResource> Self => _urlHelper.Link((BookingController c) => c.ChangeFlight(null));
-            public Link<SelectTripResultResource> Parent => _urlHelper.Link((BookingController c) => c.SelectTrip(null));
+            public Link<SeatAssignmentResource> Self => _urlHelper.Link((BookingController c) => c.AssignSeat(null));
+            public Link<TripSelectionResource> Parent => _urlHelper.Link((BookingController c) => c.SelectTrip(null));
             public Link<BookingResource> Booking => _urlHelper.Link((BookingController c) => c.GetBooking(_bookingId));
         }
 
@@ -48,8 +46,9 @@ namespace RestAirline.Api.Resources.Booking
                 _urlHelper = urlHelper;
             }
 
-            public AssignSeatCommand AssignSeat => new AssignSeatCommand(_urlHelper);
-            public AssignSeatAutomaticallyCommand AssignSeatAutomaticallyCommand => new AssignSeatAutomaticallyCommand(_urlHelper);
+            public ChangeFlightCommand ChangeFlight => new ChangeFlightCommand(_urlHelper);
+            public UnassignSeatCommand UnassignSeat => new UnassignSeatCommand(_urlHelper);
+            public AddAirportTransferServiceCommand AddAirportTransferServiceCommand => new AddAirportTransferServiceCommand(_urlHelper);
         }
     }
 }

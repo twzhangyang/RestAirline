@@ -5,12 +5,13 @@ using RestAirline.Api.Hypermedia;
 
 namespace RestAirline.Api.Resources.Booking.Seat
 {
-    public class UnassignSeatResultResource
+    public class SeatAssignmentAutomaticallyResoruce
     {
         [Obsolete("For serialization")]
-        public UnassignSeatResultResource() { }
+        public SeatAssignmentAutomaticallyResoruce() { }
+       
 
-        public UnassignSeatResultResource(IUrlHelper urlHelper, Guid bookingId)
+        public SeatAssignmentAutomaticallyResoruce(IUrlHelper urlHelper, Guid bookingId)
         {
             ResourceLinks = new Links(urlHelper, bookingId);
             ResourceCommands = new Commands(urlHelper);
@@ -31,8 +32,8 @@ namespace RestAirline.Api.Resources.Booking.Seat
                 _bookingId = bookingId;
             }
 
-            public Link<UnassignSeatResultResource> Self => _urlHelper.Link((BookingController c) => c.UnassignSeat(null));
-            public Link<AssignSeatResultResource> Parent => _urlHelper.Link((BookingController c) => c.AssignSeat(null));
+            public Link<SeatAssignmentAutomaticallyResoruce> Self => _urlHelper.Link((BookingController c) => c.AssignSeatAutomatically(null));
+            public Link<TripSelectionResource> Parent => _urlHelper.Link((BookingController c) => c.SelectTrip(null));
             public Link<BookingResource> Booking => _urlHelper.Link((BookingController c) => c.GetBooking(_bookingId));
         }
 
@@ -46,9 +47,8 @@ namespace RestAirline.Api.Resources.Booking.Seat
             }
 
             public ChangeFlightCommand ChangeFlight => new ChangeFlightCommand(_urlHelper);
-            public AssignSeatCommand AssignSeat => new AssignSeatCommand(_urlHelper);
-            public AssignSeatAutomaticallyCommand AssignSeatAutomatically => new AssignSeatAutomaticallyCommand(_urlHelper);
+            public UnassignSeatCommand UnassignSeat => new UnassignSeatCommand(_urlHelper);
+            public AddAirportTransferServiceCommand AddAirportTransferServiceCommand => new AddAirportTransferServiceCommand(_urlHelper);
         }
-
     }
 }

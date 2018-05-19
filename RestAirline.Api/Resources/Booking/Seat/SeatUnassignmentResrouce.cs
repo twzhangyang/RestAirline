@@ -2,16 +2,15 @@
 using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Controllers;
 using RestAirline.Api.Hypermedia;
-using RestAirline.Api.Resources.Availability;
 
 namespace RestAirline.Api.Resources.Booking.Seat
 {
-    public class AssignSeatResultResource
+    public class SeatUnassignmentResrouce
     {
         [Obsolete("For serialization")]
-        public AssignSeatResultResource() { }
+        public SeatUnassignmentResrouce() { }
 
-        public AssignSeatResultResource(IUrlHelper urlHelper, Guid bookingId)
+        public SeatUnassignmentResrouce(IUrlHelper urlHelper, Guid bookingId)
         {
             ResourceLinks = new Links(urlHelper, bookingId);
             ResourceCommands = new Commands(urlHelper);
@@ -32,8 +31,8 @@ namespace RestAirline.Api.Resources.Booking.Seat
                 _bookingId = bookingId;
             }
 
-            public Link<AssignSeatResultResource> Self => _urlHelper.Link((BookingController c) => c.AssignSeat(null));
-            public Link<SelectTripResultResource> Parent => _urlHelper.Link((BookingController c) => c.SelectTrip(null));
+            public Link<SeatUnassignmentResrouce> Self => _urlHelper.Link((BookingController c) => c.UnassignSeat(null));
+            public Link<SeatAssignmentResource> Parent => _urlHelper.Link((BookingController c) => c.AssignSeat(null));
             public Link<BookingResource> Booking => _urlHelper.Link((BookingController c) => c.GetBooking(_bookingId));
         }
 
@@ -47,8 +46,9 @@ namespace RestAirline.Api.Resources.Booking.Seat
             }
 
             public ChangeFlightCommand ChangeFlight => new ChangeFlightCommand(_urlHelper);
-            public UnassignSeatCommand UnassignSeat => new UnassignSeatCommand(_urlHelper);
-            public AddAirportTransferServiceCommand AddAirportTransferServiceCommand => new AddAirportTransferServiceCommand(_urlHelper);
+            public AssignSeatCommand AssignSeat => new AssignSeatCommand(_urlHelper);
+            public AssignSeatAutomaticallyCommand AssignSeatAutomatically => new AssignSeatAutomaticallyCommand(_urlHelper);
         }
+
     }
 }

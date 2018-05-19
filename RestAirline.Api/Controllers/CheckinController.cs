@@ -6,9 +6,9 @@ namespace RestAirline.Api.Controllers
     public class CheckinController : Controller
     {
         [Route("api/booking/{0}/checkin")]
-        public CheckinResultResource Checkin(CheckinCommand command)
+        public CheckinResource Checkin(CheckinCommand command)
         {
-            return new CheckinResultResource();
+            return new CheckinResource();
         }
     }
 }

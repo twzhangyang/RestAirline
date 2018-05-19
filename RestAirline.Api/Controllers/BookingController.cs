@@ -20,11 +20,11 @@ namespace RestAirline.Api.Controllers
 
         [Route("api/booking/tripSelection")]
         [HttpPost]
-        public SelectTripResultResource SelectTrip(SelectTripCommand command)
+        public TripSelectionResource SelectTrip(SelectTripCommand command)
         {
             var booking = Booking.SelectTrip(command.Trip, command.Passengers);
 
-            return new SelectTripResultResource(Url, booking.Id);
+            return new TripSelectionResource(Url, booking.Id);
         }
 
         [Route("api/booking/{0}")]
@@ -37,53 +37,53 @@ namespace RestAirline.Api.Controllers
 
         [Route("api/booking/{0}/flightChange")]
         [HttpPost]
-        public ChangeFlightResultResource ChangeFlight(ChangeFlightCommand command)
+        public FlightChangeResource ChangeFlight(ChangeFlightCommand command)
         {
             var booking = _bookingRepository.Get(command.BookingId);
             booking.ChangeFlight(command.Journey, command.Flight);
 
 
-            return new ChangeFlightResultResource(Url, command.BookingId);
+            return new FlightChangeResource(Url, command.BookingId);
         }
 
         [Route("api/booking/{0}/seatAssignment")]
         [HttpPost]
-        public AssignSeatResultResource AssignSeat(AssignSeatCommand command)
+        public SeatAssignmentResource AssignSeat(AssignSeatCommand command)
         {
             var booking = _bookingRepository.Get(command.BookingId);
             booking.AssignSeat(command.Seat, command.Passenger);
 
-            return new AssignSeatResultResource(Url, command.BookingId);
+            return new SeatAssignmentResource(Url, command.BookingId);
         }
 
         [Route("api/booking/{0}/seatUnassign")]
         [HttpPost]
-        public UnassignSeatResultResource UnassignSeat(UnassignSeatCommand command)
+        public SeatUnassignmentResrouce UnassignSeat(UnassignSeatCommand command)
         {
             var booking = _bookingRepository.Get(command.BookingId);
             booking.UnassignSeat(command.Passenger);
 
-            return new UnassignSeatResultResource(Url, command.BookingId);
+            return new SeatUnassignmentResrouce(Url, command.BookingId);
         }
 
         [Route("api/booking/{0}/automaticallySeatAssignment")]
         [HttpPost]
-        public AssignSeatAutomaticallyResultResource AssignSeatAutomatically(AssignSeatAutomaticallyCommand command)
+        public SeatAssignmentAutomaticallyResoruce AssignSeatAutomatically(AssignSeatAutomaticallyCommand command)
         {
             var booking = _bookingRepository.Get(command.BookingId);
             booking.AssignSeatsAutomaticallyForAllPassengers(_seatAllocator);
 
-            return new AssignSeatAutomaticallyResultResource(Url, command.BookingId);
+            return new SeatAssignmentAutomaticallyResoruce(Url, command.BookingId);
         }
 
         [Route("api/booking/{0}/airportTransferService")]
         [HttpPost]
-        public AddAirportTransferServiceResultResource AddAirportTransferService(AddAirportTransferServiceCommand command)
+        public AirportTransferServiceAddedResource AddAirportTransferService(AddAirportTransferServiceCommand command)
         {
             var booking = _bookingRepository.Get(command.BookingId);
             booking.AddAirportTransferService(command.AirportTransfer);
 
-            return new AddAirportTransferServiceResultResource();
+            return new AirportTransferServiceAddedResource();
         }
     }
 

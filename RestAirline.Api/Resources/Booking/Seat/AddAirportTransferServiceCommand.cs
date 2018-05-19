@@ -6,7 +6,7 @@ using RestAirline.Domain.Shared;
 
 namespace RestAirline.Api.Resources.Booking.Seat
 {
-    public class AddAirportTransferServiceCommand : HypermediaCommand<AddAirportTransferServiceResultResource>
+    public class AddAirportTransferServiceCommand : HypermediaCommand<AirportTransferServiceAddedResource>
     {
         [Obsolete("For serialization")]
         public AddAirportTransferServiceCommand() { }

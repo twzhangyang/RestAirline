@@ -6,7 +6,7 @@ using RestAirline.Domain.Booking;
 
 namespace RestAirline.Api.Resources.Booking.Seat
 {
-    public class UnassignSeatCommand : HypermediaCommand<UnassignSeatResultResource>
+    public class UnassignSeatCommand : HypermediaCommand<SeatUnassignmentResrouce>
     {
         [Obsolete("For serialization")]
         public UnassignSeatCommand() { }

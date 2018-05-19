@@ -8,7 +8,7 @@ using RestAirline.Domain.Shared;
 
 namespace RestAirline.Api.Resources.Booking
 {
-    public class SelectTripCommand : HypermediaCommand<SelectTripResultResource>
+    public class SelectTripCommand : HypermediaCommand<TripSelectionResource>
     {
         [Obsolete("For serialization")]
         public SelectTripCommand() { }
@@ -18,7 +18,7 @@ namespace RestAirline.Api.Resources.Booking
             Passengers = new List<Passenger>();
         }
 
-        public SelectTripCommand(Link<SelectTripResultResource> postUrl) : base(postUrl)
+        public SelectTripCommand(Link<TripSelectionResource> postUrl) : base(postUrl)
         {
             Passengers = new List<Passenger>();
         }

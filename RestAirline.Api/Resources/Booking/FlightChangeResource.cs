@@ -2,16 +2,18 @@
 using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Controllers;
 using RestAirline.Api.Hypermedia;
+using RestAirline.Api.Resources.Availability;
+using RestAirline.Api.Resources.Booking.Seat;
 
-namespace RestAirline.Api.Resources.Booking.Seat
+namespace RestAirline.Api.Resources.Booking
 {
-    public class AssignSeatAutomaticallyResultResource
+    public class FlightChangeResource
     {
         [Obsolete("For serialization")]
-        public AssignSeatAutomaticallyResultResource() { }
-       
+        public FlightChangeResource() { }
 
-        public AssignSeatAutomaticallyResultResource(IUrlHelper urlHelper, Guid bookingId)
+
+        public FlightChangeResource(IUrlHelper urlHelper, Guid bookingId)
         {
             ResourceLinks = new Links(urlHelper, bookingId);
             ResourceCommands = new Commands(urlHelper);
@@ -32,8 +34,8 @@ namespace RestAirline.Api.Resources.Booking.Seat
                 _bookingId = bookingId;
             }
 
-            public Link<AssignSeatAutomaticallyResultResource> Self => _urlHelper.Link((BookingController c) => c.AssignSeatAutomatically(null));
-            public Link<SelectTripResultResource> Parent => _urlHelper.Link((BookingController c) => c.SelectTrip(null));
+            public Link<FlightChangeResource> Self => _urlHelper.Link((BookingController c) => c.ChangeFlight(null));
+            public Link<TripSelectionResource> Parent => _urlHelper.Link((BookingController c) => c.SelectTrip(null));
             public Link<BookingResource> Booking => _urlHelper.Link((BookingController c) => c.GetBooking(_bookingId));
         }
 
@@ -46,9 +48,8 @@ namespace RestAirline.Api.Resources.Booking.Seat
                 _urlHelper = urlHelper;
             }
 
-            public ChangeFlightCommand ChangeFlight => new ChangeFlightCommand(_urlHelper);
-            public UnassignSeatCommand UnassignSeat => new UnassignSeatCommand(_urlHelper);
-            public AddAirportTransferServiceCommand AddAirportTransferServiceCommand => new AddAirportTransferServiceCommand(_urlHelper);
+            public AssignSeatCommand AssignSeat => new AssignSeatCommand(_urlHelper);
+            public AssignSeatAutomaticallyCommand AssignSeatAutomaticallyCommand => new AssignSeatAutomaticallyCommand(_urlHelper);
         }
     }
 }

@@ -5,7 +5,7 @@ using RestAirline.Api.Hypermedia;
 
 namespace RestAirline.Api.Resources.Booking.Seat
 {
-    public class AssignSeatAutomaticallyCommand : HypermediaCommand<AssignSeatAutomaticallyResultResource>
+    public class AssignSeatAutomaticallyCommand : HypermediaCommand<SeatAssignmentAutomaticallyResoruce>
     {
         [Obsolete("For serialization")]
         public AssignSeatAutomaticallyCommand() { }

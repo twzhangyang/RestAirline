@@ -6,7 +6,7 @@ using RestAirline.Domain.Shared;
 
 namespace RestAirline.Api.Resources.Booking
 {
-    public class ChangeFlightCommand : HypermediaCommand<ChangeFlightResultResource>
+    public class ChangeFlightCommand : HypermediaCommand<FlightChangeResource>
     {
         [Obsolete("For serialization")]
         public ChangeFlightCommand()
@@ -24,4 +24,16 @@ namespace RestAirline.Api.Resources.Booking
 
         public Flight Flight { get; set; }
     }
+
+    public class ChangeFlightCommand1 : HypermediaCommand<FlightChangeResource>
+    {
+        public ChangeFlightCommand1(IUrlHelper urlHelper) : base(urlHelper.Link((BookingController c) => c.ChangeFlight(null)))
+        {
+        }
+
+        public Trip.Journey Journey { get; set; }
+
+        public Flight Flight { get; set; }
+    }
+
 }
