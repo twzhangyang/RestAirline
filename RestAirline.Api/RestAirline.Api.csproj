@@ -17,4 +17,28 @@
     <ProjectReference Include="..\RestAirline.Domain\RestAirline.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Resources\**" />
+    <Compile Remove="Controllers\**" />
+    <Compile Remove="HyperMedia\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Resources\**" />
+    <EmbeddedResource Remove="Controllers\**" />
+    <EmbeddedResource Remove="HyperMedia\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\**" />
+    <None Remove="Controllers\**" />
+    <None Remove="HyperMedia\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Resources\**" />
+    <Content Remove="Controllers\**" />
+    <Content Remove="HyperMedia\**" />
+  </ItemGroup>
+
 </Project>

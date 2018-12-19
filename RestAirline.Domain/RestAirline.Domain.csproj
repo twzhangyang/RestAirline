@@ -5,4 +5,8 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="EventFlow" Version="0.68.3728" />
+  </ItemGroup>
+
 </Project>

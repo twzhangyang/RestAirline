@@ -1,10 +1,11 @@
 ﻿using System;
 
-namespace RestAirline.Domain.Shared
+namespace RestAirline.Domain.Booking.Trip
 {
     public class Flight
     {
         public string Number { get; set; }
+        
         public DateTime DepartureDate { get; set; }
 
         public string DepartureStation { get; set; }

@@ -29,25 +29,6 @@
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="Bin" t="ExcludeRecursive" />
-        <e p="Controllers" t="Include">
-          <e p="BookingController.cs" t="Include" />
-          <e p="CheckinController.cs" t="Include" />
-          <e p="HomeController.cs" t="Include" />
-          <e p="TripAvailabilityController.cs" t="Include" />
-        </e>
-        <e p="HyperMedia" t="Include">
-          <e p="HyperMediaCommand.cs" t="Include" />
-          <e p="Link.cs" t="Include" />
-          <e p="Navigator" t="Include">
-            <e p="ApiNavigator.cs" t="Include" />
-            <e p="RestAirlineApiClient.cs" t="Include" />
-            <e p="RestAirlineApiNavigator.cs" t="Include" />
-            <e p="SubApiNavigator.cs" t="Include" />
-          </e>
-          <e p="StringExtensions.cs" t="Include" />
-          <e p="TypedUrlHelper.cs" t="Include" />
-          <e p="UrlTemplate.cs" t="Include" />
-        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp2.1" t="Include">
@@ -59,49 +40,22 @@
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
         </e>
-        <e p="Resources" t="Include">
-          <e p="Availability" t="Include">
-            <e p="SearchTripsCommand.cs" t="Include" />
-            <e p="TripAvailabilityResource.cs" t="Include" />
-          </e>
-          <e p="Booking" t="Include">
-            <e p="AirportTransferServiceAddedResource.cs" t="Include" />
-            <e p="BookingResource.cs" t="Include" />
-            <e p="ChangeFlightCommand.cs" t="Include" />
-            <e p="Checkin" t="Include">
-              <e p="CheckinCommand.cs" t="Include" />
-              <e p="CheckinResource.cs" t="Include" />
-            </e>
-            <e p="FlightChangeResource.cs" t="Include" />
-            <e p="Seat" t="Include">
-              <e p="AddAirportTransferServiceCommand.cs" t="Include" />
-              <e p="AssignSeatAutomaticallyCommand.cs" t="Include" />
-              <e p="AssignSeatCommand.cs" t="Include" />
-              <e p="SeatAssignmentAutomaticallyResoruce.cs" t="Include" />
-              <e p="SeatAssignmentResource.cs" t="Include" />
-              <e p="SeatUnassignmentResrouce.cs" t="Include" />
-              <e p="UnassignSeatCommand.cs" t="Include" />
-            </e>
-            <e p="SelectTripCommand.cs" t="Include" />
-            <e p="TripSelectionResource.cs" t="Include" />
-          </e>
-          <e p="RestAirlineHomeResource.cs" t="Include" />
-        </e>
         <e p="RestAirline.Api.csproj" t="IncludeRecursive" />
         <e p="Startup.cs" t="Include" />
       </e>
       <e p="RestAirline.Domain" t="IncludeRecursive">
-        <e p="Availability" t="Include">
-          <e p="SeatAvailability.cs" t="Include" />
-          <e p="TripAvailability.cs" t="Include" />
-          <e p="TripSearchCriteria.cs" t="Include" />
-        </e>
         <e p="Bin" t="ExcludeRecursive" />
         <e p="Booking" t="Include">
           <e p="Booking.cs" t="Include" />
           <e p="BookingId.cs" t="Include" />
           <e p="BookingState.cs" t="Include" />
-          <e p="Passenger.cs" t="Include" />
+          <e p="Passenger" t="Include">
+            <e p="Passenger.cs" t="Include" />
+          </e>
+          <e p="Trip" t="Include">
+            <e p="Flight.cs" t="Include" />
+            <e p="Trip.cs" t="Include" />
+          </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -110,18 +64,7 @@
             </e>
           </e>
         </e>
-        <e p="Repository" t="Include">
-          <e p="IBookingRepository.cs" t="Include" />
-          <e p="ITripAvailabilityRepository.cs" t="Include" />
-        </e>
         <e p="RestAirline.Domain.csproj" t="IncludeRecursive" />
-        <e p="Shared" t="Include">
-          <e p="AirportTransfer.cs" t="Include" />
-          <e p="Flight.cs" t="Include" />
-          <e p="Maybe.cs" t="Include" />
-          <e p="Seat.cs" t="Include" />
-          <e p="Trip.cs" t="Include" />
-        </e>
       </e>
       <e p="RestAirline.sln" t="IncludeFlat" />
     </e>
