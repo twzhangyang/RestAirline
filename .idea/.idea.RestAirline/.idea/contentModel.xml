@@ -49,6 +49,15 @@
           <e p="Booking.cs" t="Include" />
           <e p="BookingId.cs" t="Include" />
           <e p="BookingState.cs" t="Include" />
+          <e p="DomainEvents" t="Include">
+            <e p="JourneySelectedEvent.cs" t="Include" />
+          </e>
+          <e p="Exceptions" t="Include">
+            <e p="DomainException.cs" t="Include" />
+          </e>
+          <e p="extensions" t="Include">
+            <e p="DateTimeExtensions.cs" t="Include" />
+          </e>
           <e p="Passenger" t="Include">
             <e p="Passenger.cs" t="Include" />
           </e>

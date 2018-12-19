@@ -5,6 +5,8 @@ namespace RestAirline.Domain.Booking.Trip
 {
     public class Flight : ValueObject
     {
+        public string FlightKey { get; }
+        
         public string Number { get; }
 
         public DateTime DepartureDate { get; }
@@ -19,7 +21,7 @@ namespace RestAirline.Domain.Booking.Trip
 
         public Aircraft Aircraft { get; }
     }
-
+    
     public enum Aircraft
     {
         A320,
