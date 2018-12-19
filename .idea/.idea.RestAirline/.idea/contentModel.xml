@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.1/build/netcoreapp1.0/xunit.runner.reporters.netcoreapp10.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.1/build/netcoreapp1.0/xunit.runner.utility.netcoreapp10.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.1/build/netcoreapp1.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p="EventFlow.Example" t="IncludeRecursive">
+        <e p="Bin" t="ExcludeRecursive" />
+        <e p="EventFlow.Example.csproj" t="IncludeRecursive" />
+        <e p="ExampleAggregate.cs" t="Include" />
+        <e p="ExampleCommand.cs" t="Include" />
+        <e p="ExampleCommandHandler.cs" t="Include" />
+        <e p="ExampleEvent.cs" t="Include" />
+        <e p="ExampleId.cs" t="Include" />
+        <e p="ExampleReadModel.cs" t="Include" />
+        <e p="ExampleTests.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.1" t="Include">
+              <e p="EventFlow.Example.AssemblyInfo.cs" t="Include" />
+              <e p="EventFlow.Example.Program.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="RestAirline.Api" t="IncludeRecursive">
         <e p="appsettings.Development.json" t="Include" />
@@ -67,7 +89,6 @@
         </e>
         <e p="RestAirline.Api.csproj" t="IncludeRecursive" />
         <e p="Startup.cs" t="Include" />
-        <e p="wwwroot" t="Include" />
       </e>
       <e p="RestAirline.Domain" t="IncludeRecursive">
         <e p="Availability" t="Include">
@@ -78,19 +99,8 @@
         <e p="Bin" t="ExcludeRecursive" />
         <e p="Booking" t="Include">
           <e p="Booking.cs" t="Include" />
-          <e p="Checkin" t="Include">
-            <e p="CheckIn.cs" t="Include" />
-            <e p="CheckinProcess.cs" t="Include" />
-            <e p="Exceptions" t="Include">
-              <e p="PassengerNotEligibleForCheckinException.cs" t="Include" />
-            </e>
-            <e p="ICheckinEligibleValidator.cs" t="Include" />
-          </e>
-          <e p="Exceptions" t="Include">
-            <e p="ChangingFlightIneligibleException.cs" t="Include" />
-            <e p="NoAllocatedSeatForPassengerException.cs" t="Include" />
-          </e>
-          <e p="ISeatAllocator.cs" t="Include" />
+          <e p="BookingId.cs" t="Include" />
+          <e p="BookingState.cs" t="Include" />
           <e p="Passenger.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
