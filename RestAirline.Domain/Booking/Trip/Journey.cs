@@ -3,10 +3,8 @@ using EventFlow.ValueObjects;
 
 namespace RestAirline.Domain.Booking.Trip
 {
-    public class Flight : ValueObject
+    public class Journey : ValueObject
     {
-        public string Number { get; }
-
         public DateTime DepartureDate { get; }
 
         public string DepartureStation { get; }
@@ -15,17 +13,8 @@ namespace RestAirline.Domain.Booking.Trip
 
         public string ArriveStation { get; }
 
-        public decimal Price { get; }
+        public string Description { get; }
 
-        public Aircraft Aircraft { get; }
-    }
-
-    public enum Aircraft
-    {
-        A320,
-        A380,
-        Boeing707,
-        Boeing717,
-        Boeing737
+        public Flight Flight { get; }
     }
 }

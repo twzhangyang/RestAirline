@@ -1,4 +1,6 @@
-﻿using EventFlow.Aggregates;
+﻿using System.Collections.Generic;
+using EventFlow.Aggregates;
+using RestAirline.Domain.Booking.Trip;
 
 namespace RestAirline.Domain.Booking
 {
@@ -10,5 +12,8 @@ namespace RestAirline.Domain.Booking
         {
             Register(_state);
         }
+
+        public IReadOnlyList<Journey> Journeys => _state.Journeys;
+        
     }
 }

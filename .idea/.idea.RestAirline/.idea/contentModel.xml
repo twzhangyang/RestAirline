@@ -54,6 +54,7 @@
           </e>
           <e p="Trip" t="Include">
             <e p="Flight.cs" t="Include" />
+            <e p="Journey.cs" t="Include" />
             <e p="Trip.cs" t="Include" />
           </e>
         </e>
