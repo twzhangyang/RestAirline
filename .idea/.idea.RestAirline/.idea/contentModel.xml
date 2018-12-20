@@ -45,6 +45,7 @@
       </e>
       <e p="RestAirline.CommandHandlers" t="IncludeRecursive">
         <e p="Bin" t="ExcludeRecursive" />
+        <e p="CommandHandlersRegister.cs" t="Include" />
         <e p="Journey" t="Include">
           <e p="SelectJourneysCommandHandler.cs" t="Include" />
         </e>
@@ -57,8 +58,24 @@
         </e>
         <e p="RestAirline.CommandHandlers.csproj" t="IncludeRecursive" />
       </e>
+      <e p="RestAirline.CommandHandlers.Tests" t="IncludeRecursive">
+        <e p="Bin" t="ExcludeRecursive" />
+        <e p="Journey" t="Include">
+          <e p="SelectJourneysCommandHandlerTests.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.1" t="Include">
+              <e p="RestAirline.CommandHandlers.Tests.AssemblyInfo.cs" t="Include" />
+              <e p="RestAirline.CommandHandlers.Tests.Program.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="RestAirline.CommandHandlers.Tests.csproj" t="IncludeRecursive" />
+      </e>
       <e p="RestAirline.Commands" t="IncludeRecursive">
         <e p="Bin" t="ExcludeRecursive" />
+        <e p="CommandsRegister.cs" t="Include" />
         <e p="Journey" t="Include">
           <e p="SelectJourneysCommand.cs" t="Include" />
         </e>
@@ -107,8 +124,6 @@
       </e>
       <e p="RestAirline.Domain.Tests" t="IncludeRecursive">
         <e p="Bin" t="ExcludeRecursive" />
-        <e p="FlightBuilder.cs" t="Include" />
-        <e p="JourneysBuilder.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp2.1" t="Include">
@@ -121,6 +136,20 @@
         <e p="SelectJourneyTests.cs" t="Include" />
       </e>
       <e p="RestAirline.sln" t="IncludeFlat" />
+      <e p="RestAirline.TestsHelper" t="IncludeRecursive">
+        <e p="Bin" t="ExcludeRecursive" />
+        <e p="FlightBuilder.cs" t="Include" />
+        <e p="JourneysBuilder.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.1" t="Include">
+              <e p="RestAirline.TestsHelper.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="RestAirline.TestsHelper.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="Tests" t="Include" />
     </e>
     <e p="$USER_HOME$/Library/Caches/Rider2018.2/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/Library/Caches/Rider2018.2/resharper-host/local/Transient/ReSharperHost/v182/SolutionCaches/_RestAirline.-615792345.00" t="ExcludeRecursive" />

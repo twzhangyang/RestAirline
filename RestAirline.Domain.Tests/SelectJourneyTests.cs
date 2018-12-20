@@ -11,6 +11,7 @@ using EventFlow.Logs;
 using FluentAssertions;
 using RestAirline.Domain.Booking;
 using RestAirline.Domain.Booking.Trip;
+using RestAirline.TestsHelper;
 using Xunit;
 
 namespace RestAirline.Domain.Tests
@@ -26,7 +27,7 @@ namespace RestAirline.Domain.Tests
         {
             _bookingId = BookingId.New;
             _resolver = EventFlowOptions.New
-                .ConfigureBooking()
+                .ConfigureBookingDomain()
                 .CreateResolver();
 
             _aggregateStore = _resolver.Resolve<IAggregateStore>();

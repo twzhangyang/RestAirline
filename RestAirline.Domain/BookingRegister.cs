@@ -8,7 +8,7 @@ namespace RestAirline.Domain
     {
         public static Assembly Assembly { get; } = typeof(BookingRegister).Assembly;
         
-        public static IEventFlowOptions ConfigureBooking(this IEventFlowOptions eventFlowOptions)
+        public static IEventFlowOptions ConfigureBookingDomain(this IEventFlowOptions eventFlowOptions)
         {
             return eventFlowOptions
                 .AddDefaults(Assembly);

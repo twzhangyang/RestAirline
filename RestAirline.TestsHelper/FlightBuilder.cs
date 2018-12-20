@@ -1,7 +1,7 @@
 using System;
 using RestAirline.Domain.Booking.Trip;
 
-namespace RestAirline.Domain.Tests
+namespace RestAirline.TestsHelper
 {
     public class FlightBuilder
     {
