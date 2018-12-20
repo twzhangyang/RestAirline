@@ -2,16 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d58bee69-605a-4a1d-a200-e82f940e2924" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/RestAirline.Domain/Booking/DomainEvents/JourneySelectedEvent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RestAirline.Domain/Booking/Exceptions/DomainException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RestAirline.Domain/Booking/Extensions/DateTimeExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RestAirline.Domain.Tests/FlightBuilder.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RestAirline.Domain.Tests/JourneysBuilder.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RestAirline.Domain.Tests/SelectJourneyTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RestAirline.Domain/BookingRegister.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RestAirline/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RestAirline/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RestAirline/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RestAirline/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RestAirline.Domain/Booking/Booking.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RestAirline.Domain/Booking/Booking.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RestAirline.Domain/Booking/BookingId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RestAirline.Domain/Booking/BookingId.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RestAirline.Domain/Booking/BookingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RestAirline.Domain/Booking/BookingState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RestAirline/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RestAirline/riderModule.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RestAirline.Domain/Booking/Trip/Flight.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RestAirline.Domain/Booking/Trip/Flight.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RestAirline.Domain/Booking/Trip/Journey.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RestAirline.Domain/Booking/Trip/Journey.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RestAirline.sln" beforeDir="false" afterPath="$PROJECT_DIR$/RestAirline.sln" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,94 +23,46 @@
     <session id="-1935892945">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.1" value="2" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="cs" value="75" />
+          <entry key="cs" value="88" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="C#" value="75" />
+          <entry key="C#" value="88" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cs" value="1501" />
+          <entry key="cs" value="2846" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="C#" value="1501" />
+          <entry key="C#" value="2846" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.6182573">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Booking.cs">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="145">
-                  <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-                  <folding>
-                    <marker date="1545225188049" expanded="true" signature="6:270" ph="..." />
-                    <marker date="1545225188049" expanded="true" signature="308:1545" ph="{...}" />
-                    <marker date="1545225188049" expanded="true" signature="370:1543" ph="{...}" />
-                    <marker date="1545225188049" expanded="true" signature="500:550" ph="{...}" />
-                    <marker date="1545225188049" expanded="true" signature="678:1537" ph="{...}" />
-                    <marker date="1545225188049" expanded="true" signature="787:895" ph="{...}" />
-                    <marker date="1545225188049" expanded="true" signature="929:1034" ph="{...}" />
-                    <marker date="1545225188049" expanded="true" signature="1091:1179" ph="{...}" />
-                    <marker date="1545225188049" expanded="true" signature="1226:1431" ph="{...}" />
-                    <marker date="1545225188049" expanded="true" signature="1301:1417" ph="{...}" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Trip/Journey.cs">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="102">
-                  <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
-                  <folding>
-                    <marker date="1545224640182" expanded="false" signature="6:43" ph="..." />
-                    <marker date="1545224640182" expanded="true" signature="86:454" ph="{...}" />
-                    <marker date="1545224640182" expanded="true" signature="127:452" ph="{...}" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Trip/Flight.cs">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="17">
-                  <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
-                  <folding>
-                    <marker date="1545224601997" expanded="true" signature="6:43" ph="..." />
-                    <marker date="1545224601997" expanded="true" signature="86:624" ph="{...}" />
-                    <marker date="1545224601997" expanded="true" signature="126:496" ph="{...}" />
-                    <marker date="1545224601997" expanded="true" signature="526:622" ph="{...}" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/BookingState.cs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="272">
-                  <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+                <state relative-caret-position="238">
+                  <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
                   <folding>
-                    <marker date="1545225175827" expanded="true" signature="6:147" ph="..." />
+                    <marker date="1545225175827" expanded="false" signature="6:147" ph="..." />
                     <marker date="1545225175827" expanded="true" signature="185:585" ph="{...}" />
                     <marker date="1545225175827" expanded="true" signature="306:583" ph="{...}" />
                     <marker date="1545225175827" expanded="true" signature="508:577" ph="{...}" />
@@ -119,16 +71,35 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/DomainEvents/JourneySelectedEvent.cs">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/RestAirline.Domain.Tests/SelectJourneyTests.cs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+                <state relative-caret-position="413">
+                  <caret line="51" selection-start-line="51" selection-end-line="51" />
                   <folding>
-                    <marker date="1545225175831" expanded="false" signature="6:129" ph="..." />
-                    <marker date="1545225175831" expanded="true" signature="180:481" ph="{...}" />
-                    <marker date="1545225175831" expanded="true" signature="298:479" ph="{...}" />
-                    <marker date="1545225175831" expanded="true" signature="364:417" ph="{...}" />
+                    <marker date="1545339459392" expanded="true" signature="6:396" ph="..." />
+                    <marker date="1545339459392" expanded="true" signature="432:2335" ph="{...}" />
+                    <marker date="1545339459392" expanded="true" signature="484:2333" ph="{...}" />
+                    <marker date="1545339459392" expanded="true" signature="737:1042" ph="{...}" />
+                    <marker date="1545339459392" expanded="true" signature="1126:1616" ph="{...}" />
+                    <marker date="1545339459392" expanded="true" signature="1817:2210" ph="{...}" />
+                    <marker date="1545339459392" expanded="true" signature="1985:2115" ph="{...}" />
+                    <marker date="1545339459392" expanded="true" signature="2249:2327" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/RestAirline.Domain/BookingRegister.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="170">
+                  <caret line="10" column="56" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="56" />
+                  <folding>
+                    <marker date="1545337498128" expanded="true" signature="6:69" ph="..." />
+                    <marker date="1545337498128" expanded="true" signature="99:443" ph="{...}" />
+                    <marker date="1545337498128" expanded="true" signature="141:441" ph="{...}" />
+                    <marker date="1545337498128" expanded="true" signature="339:435" ph="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -141,7 +112,6 @@
                   <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
                   <folding>
                     <marker date="1545222817827" expanded="false" signature="6:63" ph="..." />
-                    <marker date="1545222817827" expanded="true" signature="106:292" ph="{...}" />
                     <marker date="1545222817827" expanded="true" signature="144:290" ph="{...}" />
                     <marker date="1545222817827" expanded="true" signature="220:284" ph="{...}" />
                   </folding>
@@ -155,7 +125,6 @@
                 <state>
                   <folding>
                     <marker date="1545111328724" expanded="false" signature="6:206" ph="..." />
-                    <marker date="1545111328724" expanded="true" signature="251:3638" ph="{...}" />
                     <marker date="1545111328724" expanded="true" signature="293:1965" ph="{...}" />
                     <marker date="1545111328724" expanded="true" signature="458:595" ph="{...}" />
                     <marker date="1545111328724" expanded="true" signature="772:1432" ph="{...}" />
@@ -180,7 +149,6 @@
                   <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
                   <folding>
                     <marker date="1545221011347" expanded="false" signature="6:101" ph="..." />
-                    <marker date="1545221011347" expanded="true" signature="149:1583" ph="{...}" />
                     <marker date="1545221011347" expanded="true" signature="189:1581" ph="{...}" />
                     <marker date="1545221011347" expanded="true" signature="356:440" ph="{...}" />
                     <marker date="1545221011347" expanded="true" signature="483:1575" ph="{...}" />
@@ -196,7 +164,6 @@
                 <state>
                   <folding>
                     <marker date="1545111328719" expanded="false" signature="6:89" ph="..." />
-                    <marker date="1545111328719" expanded="true" signature="137:3180" ph="{...}" />
                     <marker date="1545111328719" expanded="true" signature="180:3178" ph="{...}" />
                     <marker date="1545111328719" expanded="true" signature="327:377" ph="{...}" />
                     <marker date="1545111328719" expanded="true" signature="427:488" ph="{...}" />
@@ -223,14 +190,14 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Booking.cs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="119">
-                  <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+                <state relative-caret-position="136">
+                  <caret line="15" column="32" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="32" />
                   <folding>
-                    <marker date="1545225188049" expanded="true" signature="6:270" ph="..." />
+                    <marker date="1545225188049" expanded="false" signature="6:270" ph="..." />
                     <marker date="1545225188049" expanded="true" signature="308:1545" ph="{...}" />
                     <marker date="1545225188049" expanded="true" signature="370:1543" ph="{...}" />
                     <marker date="1545225188049" expanded="true" signature="500:550" ph="{...}" />
@@ -253,44 +220,50 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/BookingResource.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/BookingId.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8B8AFA32-5952-42F1-9CE8-4D0898BBD517/f2/2c286ca6/ReadModelByIdQuery`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8B8AFA32-5952-42F1-9CE8-4D0898BBD517/d1/eed25f6e/IDomainEvent`3.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Trip/Flight.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Trip/Trip.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Passenger/Passenger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Booking.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/DomainEvents/JourneySelectedEvent.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Extensions/DateTimeExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/EventFlow.Example/ExampleTests.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Controllers/CheckinController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/EventFlow.Example/ExampleReadModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Exceptions/DomainException.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/EventFlow.Example/ExampleId.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Controllers/TripAvailabilityController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/EventFlow.Example/ExampleEvent.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Controllers/BookingController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/EventFlow.Example/ExampleCommandHandler.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/EventFlow.Example/ExampleCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/EventFlow.Example/ExampleAggregate.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/RestAirline.Api/HyperMedia/Navigator/ApiNavigator.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/RestAirline.Api/HyperMedia/Navigator/RestAirlineApiClient.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Trip/Journey.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8B8AFA32-5952-42F1-9CE8-4D0898BBD517/7c/15cc4ade/ValueObject.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/Seat/SeatAssignmentAutomaticallyResoruce.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/Seat/SeatUnassignmentResrouce.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/Seat/AssignSeatAutomaticallyCommand.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/Seat/AddAirportTransferServiceCommand.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/Seat/SeatAssignmentResource.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/Seat/AssignSeatCommand.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/AirportTransferServiceAddedResource.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/ChangeFlightCommand.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/BookingState.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/FlightChangeResource.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/SelectTripCommand.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EventFlow.Example/ExampleReadModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/BookingId.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EventFlow.Example/ExampleTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EventFlow.Example/ExampleCommandHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Trip/Trip.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Trip/Flight.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Trip/Journey.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Domain.Tests/SelectJourneyTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Passenger/Passenger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Domain/BookingRegister.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Exceptions/DomainException.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Extensions/DateTimeExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/DomainEvents/JourneySelectedEvent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8B8AFA32-5952-42F1-9CE8-4D0898BBD517/ab/36935fab/DisposableExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Domain.Tests/JourneysBuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Domain.Tests/FlightBuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8B8AFA32-5952-42F1-9CE8-4D0898BBD517/d1/eed25f6e/IDomainEvent`3.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8B8AFA32-5952-42F1-9CE8-4D0898BBD517/f2/2c286ca6/ReadModelByIdQuery`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8B8AFA32-5952-42F1-9CE8-4D0898BBD517/86/d4d49a35/Identity`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8B8AFA32-5952-42F1-9CE8-4D0898BBD517/7c/15cc4ade/ValueObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/BookingResource.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/TripSelectionResource.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/SelectTripCommand.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8B8AFA32-5952-42F1-9CE8-4D0898BBD517/a1/df11b5ba/AggregateRoot`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/FlightChangeResource.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/ChangeFlightCommand.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/AirportTransferServiceAddedResource.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/Seat/AssignSeatCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/Seat/SeatAssignmentResource.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/Seat/AddAirportTransferServiceCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/Seat/AssignSeatAutomaticallyCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/Seat/SeatUnassignmentResrouce.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/Seat/SeatAssignmentAutomaticallyResoruce.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Api/HyperMedia/Navigator/RestAirlineApiClient.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Api/HyperMedia/Navigator/ApiNavigator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Controllers/BookingController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Controllers/TripAvailabilityController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RestAirline.Api/Controllers/CheckinController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EventFlow.Example/ExampleEvent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EventFlow.Example/ExampleId.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EventFlow.Example/ExampleCommand.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -313,12 +286,18 @@
         <option value="$PROJECT_DIR$/RestAirline.Domain/Booking/Extensions/DateTimeExtensions.cs" />
         <option value="$PROJECT_DIR$/RestAirline.Domain/Booking/BookingId.cs" />
         <option value="$PROJECT_DIR$/RestAirline.Domain/Booking/Trip/FlightKey.cs" />
-        <option value="$PROJECT_DIR$/RestAirline.Domain/Booking/Trip/Flight.cs" />
-        <option value="$PROJECT_DIR$/RestAirline.Domain/Booking/Trip/Journey.cs" />
         <option value="$PROJECT_DIR$/RestAirline.Domain/Booking/Exceptions/DomainException.cs" />
         <option value="$PROJECT_DIR$/RestAirline.Domain/Booking/BookingState.cs" />
         <option value="$PROJECT_DIR$/RestAirline.Domain/Booking/DomainEvents/JourneySelectedEvent.cs" />
         <option value="$PROJECT_DIR$/RestAirline.Domain/Booking/Booking.cs" />
+        <option value="$PROJECT_DIR$/RestAirline.Domain.Tests/Class1.cs" />
+        <option value="$PROJECT_DIR$/RestAirline.Domain/EventFlowExamplesShipping.cs" />
+        <option value="$PROJECT_DIR$/RestAirline.Domain/BookingRegister.cs" />
+        <option value="$PROJECT_DIR$/RestAirline.Domain/Booking/Trip/Flight.cs" />
+        <option value="$PROJECT_DIR$/RestAirline.Domain/Booking/Trip/Journey.cs" />
+        <option value="$PROJECT_DIR$/RestAirline.Domain.Tests/JourneysBuilder.cs" />
+        <option value="$PROJECT_DIR$/RestAirline.Domain.Tests/FlightBuilder.cs" />
+        <option value="$PROJECT_DIR$/RestAirline.Domain.Tests/SelectJourneyTests.cs" />
       </list>
     </option>
   </component>
@@ -330,9 +309,9 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1440" />
-    <option name="y" value="23" />
+    <option name="y" value="25" />
     <option name="width" value="1920" />
-    <option name="height" value="1057" />
+    <option name="height" value="1055" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -342,6 +321,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="FileSystemExplorer" />
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
@@ -352,36 +332,31 @@
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="RestAirline" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="EventFlow.Example" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="RestAirline" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="RestAirline.Api" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="RestAirline" type="24d0babc:SolutionExplorerModelNode" />
               <item name="RestAirline.Domain" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="RestAirline" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="RestAirline.Domain" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="RestAirline.Domain.Tests" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="RestAirline" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="RestAirline.Domain.Tests" type="24d0babc:SolutionExplorerModelNode" />
               <item name="Dependencies" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="RestAirline" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="RestAirline.Domain" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Booking" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="RestAirline.Domain.Tests" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Dependencies" type="24d0babc:SolutionExplorerModelNode" />
+              <item name=".NETCoreApp 2.1" type="24d0babc:SolutionExplorerModelNode" />
             </path>
           </expand>
           <select />
         </subPane>
         <option name="show-all-files" value="false" />
       </pane>
-      <pane id="FileSystemExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -435,12 +410,14 @@
       <option name="presentableId" value="Default" />
       <updated>1545111377838</updated>
       <workItem from="1545111379403" duration="4524000" />
-      <workItem from="1545207653928" duration="8782000" />
+      <workItem from="1545207653928" duration="11536000" />
+      <workItem from="1545307745453" duration="83000" />
+      <workItem from="1545312133187" duration="3398000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13306000" />
+    <option name="totallyTimeSpent" value="19541000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -452,10 +429,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="23" width="1920" height="1057" extended-state="6" />
+    <frame x="1440" y="25" width="1920" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16080937" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23003195" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -465,15 +442,15 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="NuGet" order="7" weight="0.3284974" />
+      <window_info anchor="bottom" id="NuGet" order="7" weight="0.3281412" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Unit Tests" order="11" weight="0.24559586" />
+      <window_info active="true" anchor="bottom" id="Unit Tests" order="11" visible="true" weight="0.24506749" />
       <window_info anchor="bottom" id="REST Client" order="12" />
       <window_info anchor="bottom" id="Terminal" order="13" />
       <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Build" order="15" visible="true" weight="0.49637306" />
+      <window_info anchor="bottom" id="Build" order="15" weight="0.53400224" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -498,43 +475,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/EventFlow.Example/Class1.cs">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EventFlow.Example/ExampleAggregate.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="48" column="31" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
-          <folding>
-            <marker date="1545207857179" expanded="true" signature="0:1241" ph="/* The MIT License (MIT) ... */" />
-            <marker date="1545207857179" expanded="true" signature="1249:1315" ph="..." />
-            <marker date="1545207857179" expanded="true" signature="1344:2290" ph="{...}" />
-            <marker date="1545207857179" expanded="true" signature="1489:2288" ph="{...}" />
-            <marker date="1545207857179" expanded="true" signature="1697:1940" ph="{...}" />
-            <marker date="1545207857179" expanded="true" signature="1950:2152" ph="/* We apply the event as part of the event sourcing system. EventFlow ... */" />
-            <marker date="1545207857179" expanded="true" signature="2207:2282" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8B8AFA32-5952-42F1-9CE8-4D0898BBD517/d1/eed25f6e/IDomainEvent`3.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/EventFlow.Example/ExampleCommand.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="449">
           <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
-          <folding>
-            <marker date="1545207857176" expanded="true" signature="0:1241" ph="/* The MIT License (MIT) ... */" />
-            <marker date="1545207857176" expanded="true" signature="1249:1313" ph="..." />
-            <marker date="1545207857176" expanded="true" signature="1342:1722" ph="{...}" />
-            <marker date="1545207857176" expanded="true" signature="1481:1720" ph="{...}" />
-            <marker date="1545207857176" expanded="true" signature="1614:1673" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -542,13 +486,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="466">
           <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
-          <folding>
-            <marker date="1545208480059" expanded="true" signature="0:1241" ph="/* The MIT License (MIT) ... */" />
-            <marker date="1545208480059" expanded="true" signature="1249:1367" ph="..." />
-            <marker date="1545208480059" expanded="true" signature="1396:1925" ph="{...}" />
-            <marker date="1545208480059" expanded="true" signature="1565:1923" ph="{...}" />
-            <marker date="1545208480059" expanded="true" signature="1764:1917" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -556,11 +493,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
-          <folding>
-            <marker date="1545208480055" expanded="true" signature="0:1245" ph="/* The MIT License (MIT) ... */" />
-            <marker date="1545208480055" expanded="true" signature="1297:1474" ph="{...}" />
-            <marker date="1545208480055" expanded="true" signature="1403:1472" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -575,13 +507,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="372">
           <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
-          <folding>
-            <marker date="1545208480058" expanded="true" signature="0:1245" ph="/* The MIT License (MIT) ... */" />
-            <marker date="1545208480058" expanded="true" signature="1253:1302" ph="..." />
-            <marker date="1545208480058" expanded="true" signature="1331:1794" ph="{...}" />
-            <marker date="1545208480058" expanded="true" signature="1493:1792" ph="{...}" />
-            <marker date="1545208480058" expanded="true" signature="1700:1786" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -589,31 +514,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
           <caret line="68" column="36" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="36" />
-          <folding>
-            <marker date="1545208480051" expanded="true" signature="0:1241" ph="/* The MIT License (MIT) ... */" />
-            <marker date="1545208480051" expanded="true" signature="1249:1386" ph="..." />
-            <marker date="1545208480051" expanded="true" signature="1415:3466" ph="{...}" />
-            <marker date="1545208480051" expanded="true" signature="1447:3464" ph="{...}" />
-            <marker date="1545208480051" expanded="true" signature="1518:3458" ph="{...}" />
-            <marker date="1545208480051" expanded="true" signature="1541:1738" ph="/* We wire up EventFlow with all of our classes. Instead of adding events, ... */" />
-            <marker date="1545208480051" expanded="true" signature="2058:3448" ph="{...}" />
-            <marker date="1545208480051" expanded="true" signature="2789:2986" ph="/* Resolve the query handler and use the built-in query for fetching ... */" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Availability/SeatAvailability.cs">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Availability/TripSearchCriteria.cs">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Exceptions/NoAllocatedSeatForPassengerException.cs">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Exceptions/ChangingFlightIneligibleException.cs">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Availability/SeatAvailability.cs" />
+    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Availability/TripSearchCriteria.cs" />
+    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Exceptions/NoAllocatedSeatForPassengerException.cs" />
+    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Exceptions/ChangingFlightIneligibleException.cs" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8B8AFA32-5952-42F1-9CE8-4D0898BBD517/86/d4d49a35/Identity`1.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -621,56 +528,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/ISeatAllocator.cs">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Availability/TripAvailability.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Shared/Trip.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/ISeatAllocator.cs" />
+    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Availability/TripAvailability.cs" />
+    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Shared/Trip.cs" />
     <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Passenger/Passenger.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-          <folding>
-            <marker date="1545220827746" expanded="true" signature="36:364" ph="{...}" />
-            <marker date="1545220827746" expanded="true" signature="65:257" ph="{...}" />
-            <marker date="1545220827746" expanded="true" signature="288:362" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/RestAirline.Api/Controllers/CheckinController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <marker date="1545111328717" expanded="false" signature="6:80" ph="..." />
-            <marker date="1545111328717" expanded="true" signature="119:351" ph="{...}" />
-            <marker date="1545111328717" expanded="true" signature="169:349" ph="{...}" />
-            <marker date="1545111328717" expanded="true" signature="281:343" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/RestAirline.Api/Controllers/BookingController.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-46">
           <caret column="31" selection-start-column="31" selection-end-column="31" />
-          <folding>
-            <marker date="1545220916208" expanded="true" signature="70:3139" ph="{...}" />
-            <marker date="1545220916208" expanded="true" signature="120:3136" ph="{...}" />
-            <marker date="1545220916208" expanded="true" signature="127:3130" ph="/* private readonly IBookingRepository _bookingRepository; ... */" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -678,12 +552,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="24" selection-start-line="7" selection-end-line="24" />
-          <folding>
-            <marker date="1545220916205" expanded="true" signature="6:77" ph="..." />
-            <marker date="1545220916205" expanded="true" signature="116:848" ph="{...}" />
-            <marker date="1545220916205" expanded="true" signature="175:846" ph="{...}" />
-            <marker date="1545220916205" expanded="true" signature="182:840" ph="/* private readonly ITripAvailabilityRepository _tripAvailabilityRepository; ... */" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -691,12 +559,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="17" column="45" selection-start-line="9" selection-start-column="9" selection-end-line="17" selection-end-column="45" />
-          <folding>
-            <marker date="1545220937832" expanded="false" signature="6:114" ph="..." />
-            <marker date="1545220937832" expanded="true" signature="164:611" ph="{...}" />
-            <marker date="1545220937832" expanded="true" signature="271:609" ph="{...}" />
-            <marker date="1545220937832" expanded="true" signature="278:603" ph="/* [Obsolete(&quot;For serialization&quot;)] ... */" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -704,137 +566,99 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="62" selection-start-line="9" selection-start-column="9" selection-end-line="17" selection-end-column="62" />
-          <folding>
-            <marker date="1545220945838" expanded="true" signature="6:114" ph="..." />
-            <marker date="1545220945838" expanded="true" signature="164:679" ph="{...}" />
-            <marker date="1545220945838" expanded="true" signature="273:677" ph="{...}" />
-            <marker date="1545220945838" expanded="true" signature="280:671" ph="/* [Obsolete(&quot;For serialization&quot;)] ... */" />
-            <marker date="1545220945838" expanded="true" signature="289:671" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/Seat/AssignSeatCommand.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <marker date="1545111328723" expanded="false" signature="6:148" ph="..." />
-            <marker date="1545111328723" expanded="true" signature="198:665" ph="{...}" />
-            <marker date="1545111328723" expanded="true" signature="279:663" ph="{...}" />
-            <marker date="1545111328723" expanded="true" signature="489:510" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/Seat/SeatAssignmentAutomaticallyResoruce.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <marker date="1545111328723" expanded="false" signature="6:114" ph="..." />
-            <marker date="1545111328723" expanded="true" signature="164:1961" ph="{...}" />
-            <marker date="1545111328723" expanded="true" signature="219:1959" ph="{...}" />
-            <marker date="1545111328723" expanded="true" signature="420:557" ph="{...}" />
-            <marker date="1545111328723" expanded="true" signature="734:1408" ph="{...}" />
-            <marker date="1545111328723" expanded="true" signature="906:1014" ph="{...}" />
-            <marker date="1545111328723" expanded="true" signature="1439:1953" ph="{...}" />
-            <marker date="1545111328723" expanded="true" signature="1552:1620" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/Seat/SeatAssignmentResource.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <marker date="1545111328724" expanded="false" signature="6:160" ph="..." />
-            <marker date="1545111328724" expanded="true" signature="210:1934" ph="{...}" />
-            <marker date="1545111328724" expanded="true" signature="252:1932" ph="{...}" />
-            <marker date="1545111328724" expanded="true" signature="419:556" ph="{...}" />
-            <marker date="1545111328724" expanded="true" signature="733:1381" ph="{...}" />
-            <marker date="1545111328724" expanded="true" signature="905:1013" ph="{...}" />
-            <marker date="1545111328724" expanded="true" signature="1412:1926" ph="{...}" />
-            <marker date="1545111328724" expanded="true" signature="1525:1593" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/Seat/SeatUnassignmentResrouce.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <marker date="1545111328724" expanded="false" signature="6:114" ph="..." />
-            <marker date="1545111328724" expanded="true" signature="164:1881" ph="{...}" />
-            <marker date="1545111328724" expanded="true" signature="208:1879" ph="{...}" />
-            <marker date="1545111328724" expanded="true" signature="379:516" ph="{...}" />
-            <marker date="1545111328724" expanded="true" signature="693:1346" ph="{...}" />
-            <marker date="1545111328724" expanded="true" signature="865:973" ph="{...}" />
-            <marker date="1545111328724" expanded="true" signature="1377:1872" ph="{...}" />
-            <marker date="1545111328724" expanded="true" signature="1490:1558" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/AirportTransferServiceAddedResource.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <marker date="1545111328721" expanded="true" signature="43:121" ph="{...}" />
-            <marker date="1545111328721" expanded="true" signature="98:119" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/BookingResource.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <marker date="1545111328721" expanded="true" signature="58:269" ph="{...}" />
-            <marker date="1545111328721" expanded="true" signature="93:267" ph="{...}" />
-            <marker date="1545111328721" expanded="true" signature="240:261" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/ChangeFlightCommand.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <marker date="1545220826910" expanded="false" signature="6:153" ph="..." />
-            <marker date="1545220826910" expanded="true" signature="198:1016" ph="{...}" />
-            <marker date="1545220826910" expanded="true" signature="279:677" ph="{...}" />
-            <marker date="1545220826910" expanded="true" signature="362:382" ph="{...}" />
-            <marker date="1545220826910" expanded="true" signature="510:531" ph="{...}" />
-            <marker date="1545220826910" expanded="true" signature="758:1013" ph="{...}" />
-            <marker date="1545220826910" expanded="true" signature="892:912" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/FlightChangeResource.cs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/SelectTripCommand.cs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8B8AFA32-5952-42F1-9CE8-4D0898BBD517/7c/15cc4ade/ValueObject.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="226">
+          <caret line="53" column="5" lean-forward="true" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Extensions/DateTimeExtensions.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/BookingId.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="9" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Trip/FlightKey.cs" />
+    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Exceptions/DomainException.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="24" column="83" selection-start-line="24" selection-start-column="83" selection-end-line="24" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EventFlow.Example/ExampleEvent.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8B8AFA32-5952-42F1-9CE8-4D0898BBD517/a1/df11b5ba/AggregateRoot`2.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-536">
+          <caret line="76" column="27" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/DomainEvents/JourneySelectedEvent.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
           <folding>
-            <marker date="1545111328722" expanded="false" signature="6:206" ph="..." />
-            <marker date="1545111328722" expanded="true" signature="251:1866" ph="{...}" />
-            <marker date="1545111328722" expanded="true" signature="291:1864" ph="{...}" />
-            <marker date="1545111328722" expanded="true" signature="455:592" ph="{...}" />
-            <marker date="1545111328722" expanded="true" signature="769:1417" ph="{...}" />
-            <marker date="1545111328722" expanded="true" signature="941:1049" ph="{...}" />
-            <marker date="1545111328722" expanded="true" signature="1448:1858" ph="{...}" />
-            <marker date="1545111328722" expanded="true" signature="1561:1629" ph="{...}" />
+            <marker date="1545225175831" expanded="false" signature="6:129" ph="..." />
+            <marker date="1545225175831" expanded="true" signature="298:479" ph="{...}" />
+            <marker date="1545225175831" expanded="true" signature="364:417" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RestAirline.Api/Resources/Booking/SelectTripCommand.cs">
+    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Trip/Trip.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="221">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
           <folding>
-            <marker date="1545220826911" expanded="false" signature="6:182" ph="..." />
-            <marker date="1545220826911" expanded="true" signature="227:843" ph="{...}" />
-            <marker date="1545220826911" expanded="true" signature="307:841" ph="{...}" />
-            <marker date="1545220826911" expanded="true" signature="516:584" ph="{...}" />
-            <marker date="1545220826911" expanded="true" signature="671:739" ph="{...}" />
+            <marker date="1545222817827" expanded="false" signature="6:63" ph="..." />
+            <marker date="1545222817827" expanded="true" signature="144:290" ph="{...}" />
+            <marker date="1545222817827" expanded="true" signature="220:284" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -844,7 +668,6 @@
         <state>
           <folding>
             <marker date="1545111328724" expanded="false" signature="6:206" ph="..." />
-            <marker date="1545111328724" expanded="true" signature="251:3638" ph="{...}" />
             <marker date="1545111328724" expanded="true" signature="293:1965" ph="{...}" />
             <marker date="1545111328724" expanded="true" signature="458:595" ph="{...}" />
             <marker date="1545111328724" expanded="true" signature="772:1432" ph="{...}" />
@@ -861,12 +684,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/RestAirline.Api/HyperMedia/Navigator/RestAirlineApiClient.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+          <folding>
+            <marker date="1545221011347" expanded="false" signature="6:101" ph="..." />
+            <marker date="1545221011347" expanded="true" signature="189:1581" ph="{...}" />
+            <marker date="1545221011347" expanded="true" signature="356:440" ph="{...}" />
+            <marker date="1545221011347" expanded="true" signature="483:1575" ph="{...}" />
+            <marker date="1545221011347" expanded="true" signature="494:1512" ph="/* 1. get home resource ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/RestAirline.Api/HyperMedia/Navigator/ApiNavigator.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
             <marker date="1545111328719" expanded="false" signature="6:89" ph="..." />
-            <marker date="1545111328719" expanded="true" signature="137:3180" ph="{...}" />
             <marker date="1545111328719" expanded="true" signature="180:3178" ph="{...}" />
             <marker date="1545111328719" expanded="true" signature="327:377" ph="{...}" />
             <marker date="1545111328719" expanded="true" signature="427:488" ph="{...}" />
@@ -889,148 +725,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RestAirline.Api/HyperMedia/Navigator/RestAirlineApiClient.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
-          <folding>
-            <marker date="1545221011347" expanded="false" signature="6:101" ph="..." />
-            <marker date="1545221011347" expanded="true" signature="149:1583" ph="{...}" />
-            <marker date="1545221011347" expanded="true" signature="189:1581" ph="{...}" />
-            <marker date="1545221011347" expanded="true" signature="356:440" ph="{...}" />
-            <marker date="1545221011347" expanded="true" signature="483:1575" ph="{...}" />
-            <marker date="1545221011347" expanded="true" signature="494:1512" ph="/* 1. get home resource ... */" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8B8AFA32-5952-42F1-9CE8-4D0898BBD517/7c/15cc4ade/ValueObject.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="53" column="5" lean-forward="true" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
-          <folding>
-            <marker date="1545222538973" expanded="true" signature="0:317" ph="/* Decompiled with JetBrains decompiler ... */" />
-            <marker date="1545222538973" expanded="false" signature="325:447" ph="..." />
-            <marker date="1545222538973" expanded="true" signature="481:2549" ph="{...}" />
-            <marker date="1545222538973" expanded="true" signature="519:2547" ph="{...}" />
-            <marker date="1545222538973" expanded="true" signature="744:1110" ph="{...}" />
-            <marker date="1545222538973" expanded="true" signature="1149:1330" ph="{...}" />
-            <marker date="1545222538973" expanded="true" signature="1403:1474" ph="{...}" />
-            <marker date="1545222538973" expanded="true" signature="1547:1619" ph="{...}" />
-            <marker date="1545222538973" expanded="true" signature="1658:1872" ph="{...}" />
-            <marker date="1545222538973" expanded="true" signature="1939:2078" ph="{...}" />
-            <marker date="1545222538973" expanded="true" signature="2143:2543" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Extensions/DateTimeExtensions.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
-          <folding>
-            <marker date="1545224156836" expanded="true" signature="62:281" ph="{...}" />
-            <marker date="1545224156836" expanded="true" signature="107:279" ph="{...}" />
-            <marker date="1545224156836" expanded="true" signature="176:273" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/BookingId.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="9" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-          <folding>
-            <marker date="1545224457752" expanded="true" signature="6:74" ph="..." />
-            <marker date="1545224457752" expanded="true" signature="112:306" ph="{...}" />
-            <marker date="1545224457752" expanded="true" signature="219:304" ph="{...}" />
-            <marker date="1545224457752" expanded="true" signature="278:298" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Trip/FlightKey.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Trip/Flight.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
-          <folding>
-            <marker date="1545224601997" expanded="true" signature="6:43" ph="..." />
-            <marker date="1545224601997" expanded="true" signature="86:624" ph="{...}" />
-            <marker date="1545224601997" expanded="true" signature="126:496" ph="{...}" />
-            <marker date="1545224601997" expanded="true" signature="526:622" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Trip/Trip.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-          <folding>
-            <marker date="1545222817827" expanded="false" signature="6:63" ph="..." />
-            <marker date="1545222817827" expanded="true" signature="106:292" ph="{...}" />
-            <marker date="1545222817827" expanded="true" signature="144:290" ph="{...}" />
-            <marker date="1545222817827" expanded="true" signature="220:284" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Exceptions/DomainException.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="24" column="83" selection-start-line="24" selection-start-column="83" selection-end-line="24" selection-end-column="83" />
-          <folding>
-            <marker date="1545224712640" expanded="false" signature="6:80" ph="..." />
-            <marker date="1545224712640" expanded="true" signature="129:785" ph="{...}" />
-            <marker date="1545224712640" expanded="true" signature="187:282" ph="{...}" />
-            <marker date="1545224712640" expanded="true" signature="256:276" ph="{...}" />
-            <marker date="1545224712640" expanded="true" signature="345:516" ph="{...}" />
-            <marker date="1545224712640" expanded="true" signature="490:510" ph="{...}" />
-            <marker date="1545224712640" expanded="true" signature="592:783" ph="{...}" />
-            <marker date="1545224712640" expanded="true" signature="757:777" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EventFlow.Example/ExampleEvent.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <marker date="1545207857181" expanded="true" signature="0:1245" ph="/* The MIT License (MIT) ... */" />
-            <marker date="1545207857181" expanded="false" signature="1253:1303" ph="..." />
-            <marker date="1545207857181" expanded="true" signature="1332:1660" ph="{...}" />
-            <marker date="1545207857181" expanded="true" signature="1501:1658" ph="{...}" />
-            <marker date="1545207857181" expanded="true" signature="1552:1611" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Trip/Journey.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
-          <folding>
-            <marker date="1545224640182" expanded="false" signature="6:43" ph="..." />
-            <marker date="1545224640182" expanded="true" signature="86:454" ph="{...}" />
-            <marker date="1545224640182" expanded="true" signature="127:452" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/RestAirline.Domain.Tests/Class1.cs">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/BookingState.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+        <state relative-caret-position="238">
+          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
           <folding>
-            <marker date="1545225175827" expanded="true" signature="6:147" ph="..." />
+            <marker date="1545225175827" expanded="false" signature="6:147" ph="..." />
             <marker date="1545225175827" expanded="true" signature="185:585" ph="{...}" />
             <marker date="1545225175827" expanded="true" signature="306:583" ph="{...}" />
             <marker date="1545225175827" expanded="true" signature="508:577" ph="{...}" />
@@ -1038,25 +741,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/DomainEvents/JourneySelectedEvent.cs">
+    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/BookingRegister.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+        <state relative-caret-position="170">
+          <caret line="10" column="56" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="56" />
           <folding>
-            <marker date="1545225175831" expanded="false" signature="6:129" ph="..." />
-            <marker date="1545225175831" expanded="true" signature="180:481" ph="{...}" />
-            <marker date="1545225175831" expanded="true" signature="298:479" ph="{...}" />
-            <marker date="1545225175831" expanded="true" signature="364:417" ph="{...}" />
+            <marker date="1545337498128" expanded="true" signature="6:69" ph="..." />
+            <marker date="1545337498128" expanded="true" signature="99:443" ph="{...}" />
+            <marker date="1545337498128" expanded="true" signature="141:441" ph="{...}" />
+            <marker date="1545337498128" expanded="true" signature="339:435" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8B8AFA32-5952-42F1-9CE8-4D0898BBD517/ab/36935fab/DisposableExtensions.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="7" lean-forward="true" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Booking.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+        <state relative-caret-position="136">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="32" />
           <folding>
-            <marker date="1545225188049" expanded="true" signature="6:270" ph="..." />
+            <marker date="1545225188049" expanded="false" signature="6:270" ph="..." />
             <marker date="1545225188049" expanded="true" signature="308:1545" ph="{...}" />
             <marker date="1545225188049" expanded="true" signature="370:1543" ph="{...}" />
             <marker date="1545225188049" expanded="true" signature="500:550" ph="{...}" />
@@ -1066,6 +776,77 @@
             <marker date="1545225188049" expanded="true" signature="1091:1179" ph="{...}" />
             <marker date="1545225188049" expanded="true" signature="1226:1431" ph="{...}" />
             <marker date="1545225188049" expanded="true" signature="1301:1417" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Trip/Flight.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+          <folding>
+            <marker date="1545338559146" expanded="false" signature="6:43" ph="..." />
+            <marker date="1545338559146" expanded="true" signature="86:652" ph="{...}" />
+            <marker date="1545338559146" expanded="true" signature="126:528" ph="{...}" />
+            <marker date="1545338559146" expanded="true" signature="554:650" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RestAirline.Domain.Tests/JourneysBuilder.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+          <folding>
+            <marker date="1545338796241" expanded="false" signature="6:86" ph="..." />
+            <marker date="1545338796241" expanded="true" signature="122:800" ph="{...}" />
+            <marker date="1545338796241" expanded="true" signature="157:798" ph="{...}" />
+            <marker date="1545338796241" expanded="true" signature="208:276" ph="{...}" />
+            <marker date="1545338796241" expanded="true" signature="308:792" ph="{...}" />
+            <marker date="1545338796241" expanded="true" signature="417:781" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RestAirline.Domain.Tests/FlightBuilder.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
+          <folding>
+            <marker date="1545339179605" expanded="false" signature="6:52" ph="..." />
+            <marker date="1545339179605" expanded="true" signature="88:598" ph="{...}" />
+            <marker date="1545339179605" expanded="true" signature="121:596" ph="{...}" />
+            <marker date="1545339179605" expanded="true" signature="157:590" ph="{...}" />
+            <marker date="1545339179605" expanded="true" signature="210:579" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RestAirline.Domain/Booking/Trip/Journey.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+          <folding>
+            <marker date="1545338660903" expanded="false" signature="6:43" ph="..." />
+            <marker date="1545338660903" expanded="true" signature="86:489" ph="{...}" />
+            <marker date="1545338660903" expanded="true" signature="127:487" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RestAirline.Domain.Tests/SelectJourneyTests.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
+          <folding>
+            <marker date="1545339459392" expanded="true" signature="6:396" ph="..." />
+            <marker date="1545339459392" expanded="true" signature="432:2335" ph="{...}" />
+            <marker date="1545339459392" expanded="true" signature="484:2333" ph="{...}" />
+            <marker date="1545339459392" expanded="true" signature="737:1042" ph="{...}" />
+            <marker date="1545339459392" expanded="true" signature="1126:1616" ph="{...}" />
+            <marker date="1545339459392" expanded="true" signature="1817:2210" ph="{...}" />
+            <marker date="1545339459392" expanded="true" signature="1985:2115" ph="{...}" />
+            <marker date="1545339459392" expanded="true" signature="2249:2327" ph="{...}" />
           </folding>
         </state>
       </provider>

@@ -5,18 +5,18 @@ namespace RestAirline.Domain.Booking.Trip
 {
     public class Journey : ValueObject
     {
-        public string JourneyKey { get; }
+        public string JourneyKey { get; set; }
 
-        public DateTime DepartureDate { get; }
+        public DateTime DepartureDate { get; set; }
 
-        public string DepartureStation { get; }
+        public string DepartureStation { get; set; }
 
-        public DateTime ArriveDate { get; }
+        public DateTime ArriveDate { get; set; }
 
-        public string ArriveStation { get; }
+        public string ArriveStation { get; set; }
 
-        public string Description { get; }
+        public string Description { get; set; }
 
-        public Flight Flight { get; }
+        public Flight Flight { get; set; }
     }
 }

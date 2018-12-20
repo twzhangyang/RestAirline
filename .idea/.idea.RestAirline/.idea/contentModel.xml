@@ -67,6 +67,7 @@
             <e p="Trip.cs" t="Include" />
           </e>
         </e>
+        <e p="BookingRegister.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp2.1" t="Include">
@@ -75,6 +76,21 @@
           </e>
         </e>
         <e p="RestAirline.Domain.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="RestAirline.Domain.Tests" t="IncludeRecursive">
+        <e p="Bin" t="ExcludeRecursive" />
+        <e p="FlightBuilder.cs" t="Include" />
+        <e p="JourneysBuilder.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.1" t="Include">
+              <e p="RestAirline.Domain.Tests.AssemblyInfo.cs" t="Include" />
+              <e p="RestAirline.Domain.Tests.Program.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="RestAirline.Domain.Tests.csproj" t="IncludeRecursive" />
+        <e p="SelectJourneyTests.cs" t="Include" />
       </e>
       <e p="RestAirline.sln" t="IncludeFlat" />
     </e>
