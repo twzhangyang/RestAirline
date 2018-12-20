@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventFlow.Example", "EventF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Domain.Tests", "RestAirline.Domain.Tests\RestAirline.Domain.Tests.csproj", "{0B0ABFE2-6613-45CB-B1AB-A180DBD61B05}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Commands", "RestAirline.Commands\RestAirline.Commands.csproj", "{A002BAB4-C7A3-4980-8231-5354C6755D8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.CommandHandlers", "RestAirline.CommandHandlers\RestAirline.CommandHandlers.csproj", "{A8F2F136-19DD-4D98-8AF6-82C84116022D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{0B0ABFE2-6613-45CB-B1AB-A180DBD61B05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B0ABFE2-6613-45CB-B1AB-A180DBD61B05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B0ABFE2-6613-45CB-B1AB-A180DBD61B05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A002BAB4-C7A3-4980-8231-5354C6755D8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A002BAB4-C7A3-4980-8231-5354C6755D8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A002BAB4-C7A3-4980-8231-5354C6755D8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A002BAB4-C7A3-4980-8231-5354C6755D8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8F2F136-19DD-4D98-8AF6-82C84116022D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8F2F136-19DD-4D98-8AF6-82C84116022D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8F2F136-19DD-4D98-8AF6-82C84116022D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8F2F136-19DD-4D98-8AF6-82C84116022D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

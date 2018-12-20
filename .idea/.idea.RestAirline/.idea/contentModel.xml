@@ -43,6 +43,34 @@
         <e p="RestAirline.Api.csproj" t="IncludeRecursive" />
         <e p="Startup.cs" t="Include" />
       </e>
+      <e p="RestAirline.CommandHandlers" t="IncludeRecursive">
+        <e p="Bin" t="ExcludeRecursive" />
+        <e p="Journey" t="Include">
+          <e p="SelectJourneysCommandHandler.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.1" t="Include">
+              <e p="RestAirline.CommandHandlers.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="RestAirline.CommandHandlers.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="RestAirline.Commands" t="IncludeRecursive">
+        <e p="Bin" t="ExcludeRecursive" />
+        <e p="Journey" t="Include">
+          <e p="SelectJourneysCommand.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.1" t="Include">
+              <e p="RestAirline.Commands.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="RestAirline.Commands.csproj" t="IncludeRecursive" />
+      </e>
       <e p="RestAirline.Domain" t="IncludeRecursive">
         <e p="Bin" t="ExcludeRecursive" />
         <e p="Booking" t="Include">

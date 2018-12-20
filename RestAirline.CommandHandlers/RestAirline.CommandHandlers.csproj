@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="EventFlow" Version="0.68.3728" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\RestAirline.Commands\RestAirline.Commands.csproj" />
+      <ProjectReference Include="..\RestAirline.Domain\RestAirline.Domain.csproj" />
+    </ItemGroup>
+
+</Project>

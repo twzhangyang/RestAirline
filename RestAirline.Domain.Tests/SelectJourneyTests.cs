@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Net.NetworkInformation;
 using System.Threading;
 using System.Threading.Tasks;
 using EventFlow;
@@ -41,7 +40,7 @@ namespace RestAirline.Domain.Tests
             void SelectJourney(Booking.Booking b) => b.SelectJourneys(_journeys);
 
             //Act
-            UpdateAsync(_bookingId, (Action<Booking.Booking>) SelectJourney);
+            await UpdateAsync(_bookingId, (Action<Booking.Booking>) SelectJourney);
             
             //Assert
             var booking =await _aggregateStore.LoadAsync<Booking.Booking,BookingId>(_bookingId,CancellationToken.None);
