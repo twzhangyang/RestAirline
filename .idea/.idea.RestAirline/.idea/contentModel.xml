@@ -147,6 +147,7 @@
         </e>
         <e p="ReadModelRegister.cs" t="Include" />
         <e p="RestAirline.ReadModel.csproj" t="IncludeRecursive" />
+        <e p="StationsReadModel.cs" t="Include" />
       </e>
       <e p="RestAirline.ReadModel.Tests" t="IncludeRecursive">
         <e p="Bin" t="ExcludeRecursive" />
@@ -160,6 +161,8 @@
           </e>
         </e>
         <e p="RestAirline.ReadModel.Tests.csproj" t="IncludeRecursive" />
+        <e p="StationReadModelTests.cs" t="Include" />
+        <e p="TestBase.cs" t="Include" />
       </e>
       <e p="RestAirline.sln" t="IncludeFlat" />
       <e p="RestAirline.TestsHelper" t="IncludeRecursive">

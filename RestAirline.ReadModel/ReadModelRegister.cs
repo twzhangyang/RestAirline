@@ -12,7 +12,8 @@ namespace RestAirline.ReadModel
         {
             return eventFlowOptions
                 .AddDefaults(Assembly)
-                .UseInMemoryReadStoreFor<BookingReadModel>();
+                .UseInMemoryReadStoreFor<BookingReadModel>()
+                .UseInMemoryReadStoreFor<StationsReadModel>();
         }
     }
 }
