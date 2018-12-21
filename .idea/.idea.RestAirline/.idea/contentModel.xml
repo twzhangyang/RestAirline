@@ -135,6 +135,51 @@
         <e p="RestAirline.Domain.Tests.csproj" t="IncludeRecursive" />
         <e p="SelectJourneyTests.cs" t="Include" />
       </e>
+      <e p="RestAirline.Queries" t="IncludeRecursive">
+        <e p="Bin" t="ExcludeRecursive" />
+        <e p="Journeys" t="Include">
+          <e p="GetDepartureStationsQuery.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.1" t="Include">
+              <e p="RestAirline.Queries.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="RestAirline.Queries.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="RestAirline.QueryHandlers" t="IncludeRecursive">
+        <e p="Bin" t="ExcludeRecursive" />
+        <e p="Journeys" t="Include">
+          <e p="GetDepartureStationQueryHandler.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.1" t="Include">
+              <e p="RestAirline.QueryHandlers.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="QueryHandlersRegister.cs" t="Include" />
+        <e p="RestAirline.QueryHandlers.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="RestAirline.QueryHandlers.Tests" t="IncludeRecursive">
+        <e p="Bin" t="ExcludeRecursive" />
+        <e p="Journeys" t="Include">
+          <e p="DepartureStationQueryHandlerTests.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.1" t="Include">
+              <e p="RestAirline.QueryHandlers.Tests.AssemblyInfo.cs" t="Include" />
+              <e p="RestAirline.QueryHandlers.Tests.Program.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="RestAirline.QueryHandlers.Tests.csproj" t="IncludeRecursive" />
+        <e p="TestBase.cs" t="Include" />
+      </e>
       <e p="RestAirline.ReadModel" t="IncludeRecursive">
         <e p="Bin" t="ExcludeRecursive" />
         <e p="BookingReadModel.cs" t="Include" />

@@ -25,6 +25,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel", "Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.Tests", "RestAirline.ReadModel.Tests\RestAirline.ReadModel.Tests.csproj", "{410E9A1A-50C6-436B-BDC7-48299988343C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Queries", "RestAirline.Queries\RestAirline.Queries.csproj", "{09101425-10AC-4577-906B-427F36CA6A2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.QueryHandlers", "RestAirline.QueryHandlers\RestAirline.QueryHandlers.csproj", "{FCAD9560-C3F2-49AC-83E7-E1F2A2D2FD64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.QueryHandlers.Tests", "RestAirline.QueryHandlers.Tests\RestAirline.QueryHandlers.Tests.csproj", "{8A53DC66-80AA-4F0C-8748-2BD9F2C9DEA3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +77,18 @@ Global
 		{410E9A1A-50C6-436B-BDC7-48299988343C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{410E9A1A-50C6-436B-BDC7-48299988343C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{410E9A1A-50C6-436B-BDC7-48299988343C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09101425-10AC-4577-906B-427F36CA6A2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09101425-10AC-4577-906B-427F36CA6A2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09101425-10AC-4577-906B-427F36CA6A2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09101425-10AC-4577-906B-427F36CA6A2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCAD9560-C3F2-49AC-83E7-E1F2A2D2FD64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCAD9560-C3F2-49AC-83E7-E1F2A2D2FD64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCAD9560-C3F2-49AC-83E7-E1F2A2D2FD64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCAD9560-C3F2-49AC-83E7-E1F2A2D2FD64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A53DC66-80AA-4F0C-8748-2BD9F2C9DEA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A53DC66-80AA-4F0C-8748-2BD9F2C9DEA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A53DC66-80AA-4F0C-8748-2BD9F2C9DEA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A53DC66-80AA-4F0C-8748-2BD9F2C9DEA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,5 +101,6 @@ Global
 		{F3FBB039-7DDE-44D6-B8E3-E365164B41CE} = {2B26D045-2A96-41AE-B592-E2156AFED446}
 		{87788AFB-D9EE-4878-B792-7A6475459C12} = {2B26D045-2A96-41AE-B592-E2156AFED446}
 		{410E9A1A-50C6-436B-BDC7-48299988343C} = {2B26D045-2A96-41AE-B592-E2156AFED446}
+		{8A53DC66-80AA-4F0C-8748-2BD9F2C9DEA3} = {2B26D045-2A96-41AE-B592-E2156AFED446}
 	EndGlobalSection
 EndGlobal
