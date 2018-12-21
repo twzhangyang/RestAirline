@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="EventFlow" Version="0.68.3728" />
+      <PackageReference Include="FluentAssertions" Version="5.5.3" />
+      <PackageReference Include="xunit" Version="2.4.1" />
+      <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\RestAirline.CommandHandlers\RestAirline.CommandHandlers.csproj" />
+      <ProjectReference Include="..\RestAirline.Commands\RestAirline.Commands.csproj" />
+      <ProjectReference Include="..\RestAirline.Domain\RestAirline.Domain.csproj" />
+      <ProjectReference Include="..\RestAirline.ReadModel\RestAirline.ReadModel.csproj" />
+      <ProjectReference Include="..\RestAirline.TestsHelper\RestAirline.TestsHelper.csproj" />
+    </ItemGroup>
+
+</Project>

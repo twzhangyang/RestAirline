@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.CommandHandlers
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.TestsHelper", "RestAirline.TestsHelper\RestAirline.TestsHelper.csproj", "{87788AFB-D9EE-4878-B792-7A6475459C12}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel", "RestAirline.ReadModel\RestAirline.ReadModel.csproj", "{4684C9A0-79FD-4CDC-A0C5-14E0A178C8C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.Tests", "RestAirline.ReadModel.Tests\RestAirline.ReadModel.Tests.csproj", "{410E9A1A-50C6-436B-BDC7-48299988343C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +63,14 @@ Global
 		{87788AFB-D9EE-4878-B792-7A6475459C12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87788AFB-D9EE-4878-B792-7A6475459C12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87788AFB-D9EE-4878-B792-7A6475459C12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4684C9A0-79FD-4CDC-A0C5-14E0A178C8C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4684C9A0-79FD-4CDC-A0C5-14E0A178C8C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4684C9A0-79FD-4CDC-A0C5-14E0A178C8C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4684C9A0-79FD-4CDC-A0C5-14E0A178C8C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{410E9A1A-50C6-436B-BDC7-48299988343C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{410E9A1A-50C6-436B-BDC7-48299988343C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{410E9A1A-50C6-436B-BDC7-48299988343C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{410E9A1A-50C6-436B-BDC7-48299988343C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,5 +82,6 @@ Global
 		{0B0ABFE2-6613-45CB-B1AB-A180DBD61B05} = {2B26D045-2A96-41AE-B592-E2156AFED446}
 		{F3FBB039-7DDE-44D6-B8E3-E365164B41CE} = {2B26D045-2A96-41AE-B592-E2156AFED446}
 		{87788AFB-D9EE-4878-B792-7A6475459C12} = {2B26D045-2A96-41AE-B592-E2156AFED446}
+		{410E9A1A-50C6-436B-BDC7-48299988343C} = {2B26D045-2A96-41AE-B592-E2156AFED446}
 	EndGlobalSection
 EndGlobal

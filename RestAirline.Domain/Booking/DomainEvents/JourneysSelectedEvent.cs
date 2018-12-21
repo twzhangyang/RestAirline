@@ -5,10 +5,10 @@ using RestAirline.Domain.Booking.Trip;
 
 namespace RestAirline.Domain.Booking.DomainEvents
 {
-    [EventVersion("JourneySelected", 1)]
-    public class JourneySelectedEvent : AggregateEvent<Booking, BookingId>
+    [EventVersion("JourneysSelected", 1)]
+    public class JourneysSelectedEvent : AggregateEvent<Booking, BookingId>
     {
-        public JourneySelectedEvent(List<Journey> journeys)
+        public JourneysSelectedEvent(List<Journey> journeys)
         {
             Journeys = journeys;
         }

@@ -95,7 +95,7 @@
           <e p="BookingId.cs" t="Include" />
           <e p="BookingState.cs" t="Include" />
           <e p="DomainEvents" t="Include">
-            <e p="JourneySelectedEvent.cs" t="Include" />
+            <e p="JourneysSelectedEvent.cs" t="Include" />
           </e>
           <e p="Exceptions" t="Include">
             <e p="DomainException.cs" t="Include" />
@@ -134,6 +134,32 @@
         </e>
         <e p="RestAirline.Domain.Tests.csproj" t="IncludeRecursive" />
         <e p="SelectJourneyTests.cs" t="Include" />
+      </e>
+      <e p="RestAirline.ReadModel" t="IncludeRecursive">
+        <e p="Bin" t="ExcludeRecursive" />
+        <e p="BookingReadModel.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.1" t="Include">
+              <e p="RestAirline.ReadModel.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="ReadModelRegister.cs" t="Include" />
+        <e p="RestAirline.ReadModel.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="RestAirline.ReadModel.Tests" t="IncludeRecursive">
+        <e p="Bin" t="ExcludeRecursive" />
+        <e p="BookingReadModelTest.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.1" t="Include">
+              <e p="RestAirline.ReadModel.Tests.AssemblyInfo.cs" t="Include" />
+              <e p="RestAirline.ReadModel.Tests.Program.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="RestAirline.ReadModel.Tests.csproj" t="IncludeRecursive" />
       </e>
       <e p="RestAirline.sln" t="IncludeFlat" />
       <e p="RestAirline.TestsHelper" t="IncludeRecursive">

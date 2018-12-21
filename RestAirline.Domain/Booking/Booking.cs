@@ -48,7 +48,7 @@ namespace RestAirline.Domain.Booking
             }
             
             //3. Raise event
-            Emit(new JourneySelectedEvent(journeys));
+            Emit(new JourneysSelectedEvent(journeys));
         }
     }
 }
