@@ -2,3 +2,5 @@
 obj/
 .vs/
 bin/
+.idea/
+**/.idea/
