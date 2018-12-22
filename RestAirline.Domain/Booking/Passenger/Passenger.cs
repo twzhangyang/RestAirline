@@ -4,6 +4,8 @@ namespace RestAirline.Domain.Booking
 {
     public class Passenger : ValueObject
     {
+        public string PassengerKey { get; set; }
+        
         public string Name { get; set; }
 
         public PassengerType PassengerType { get; set; }
