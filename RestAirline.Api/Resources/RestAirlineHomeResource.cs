@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Controllers;
 using RestAirline.Api.Hypermedia;
+using RestAirline.Api.Resources.Booking;
 
 namespace RestAirline.Api.Resources
 {
@@ -30,7 +31,7 @@ namespace RestAirline.Api.Resources
                 _urlHelper = urlHelper;
             }
 
-//            public SearchTripsCommand SearchTripsCommand => new SearchTripsCommand(_urlHelper);
+            public SelectJourneysCommand SelectJourneysCommand => new SelectJourneysCommand(_urlHelper);
         }
 
         public class Links

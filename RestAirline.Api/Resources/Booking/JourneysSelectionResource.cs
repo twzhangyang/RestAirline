@@ -3,13 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace RestAirline.Api.Resources.Booking
 {
-
-    public class TripSelectionResource
+    public class JourneysSelectionResource
     {
         [Obsolete("For serialization")]
-        public TripSelectionResource() { }
+        public JourneysSelectionResource() { }
 
-        public TripSelectionResource(IUrlHelper urlHelper, Guid bookingId)
+        public JourneysSelectionResource(IUrlHelper urlHelper, Guid bookingId)
         {
             ResourceLinks = new Links(urlHelper, bookingId);
             ResourceCommands = new Commands(urlHelper);
