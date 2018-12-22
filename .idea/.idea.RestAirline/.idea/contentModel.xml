@@ -29,6 +29,23 @@
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="Bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="BookingController.cs" t="Include" />
+          <e p="HomeController.cs" t="Include" />
+        </e>
+        <e p="HyperMedia" t="Include">
+          <e p="HyperMediaCommand.cs" t="Include" />
+          <e p="Link.cs" t="Include" />
+          <e p="Navigator" t="Include">
+            <e p="ApiNavigator.cs" t="Include" />
+            <e p="RestAirlineApiClient.cs" t="Include" />
+            <e p="RestAirlineApiNavigator.cs" t="Include" />
+            <e p="SubApiNavigator.cs" t="Include" />
+          </e>
+          <e p="StringExtensions.cs" t="Include" />
+          <e p="TypedUrlHelper.cs" t="Include" />
+          <e p="UrlTemplate.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp2.1" t="Include">
@@ -39,6 +56,14 @@
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Resources" t="Include">
+          <e p="Booking" t="Include">
+            <e p="BookingResource.cs" t="Include" />
+            <e p="SelectTripCommand.cs" t="Include" />
+            <e p="TripSelectionResource.cs" t="Include" />
+          </e>
+          <e p="RestAirlineHomeResource.cs" t="Include" />
         </e>
         <e p="RestAirline.Api.csproj" t="IncludeRecursive" />
         <e p="Startup.cs" t="Include" />
