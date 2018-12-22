@@ -1,6 +1,8 @@
-﻿namespace RestAirline.Domain.Booking
+﻿using EventFlow.ValueObjects;
+
+namespace RestAirline.Domain.Booking
 {
-    public class Passenger
+    public class Passenger : ValueObject
     {
         public string Name { get; set; }
 

@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using EventFlow.Aggregates;
-using RestAirline.Domain.Booking.DomainEvents;
+using EventFlow.Extensions;
+using RestAirline.Domain.Booking.Events;
 using RestAirline.Domain.Booking.Exceptions;
 using RestAirline.Domain.Booking.Extensions;
 using RestAirline.Domain.Booking.Trip;
+using RestAirline.Domain.Booking.Trip.Events;
 
 namespace RestAirline.Domain.Booking
 {
@@ -19,6 +21,8 @@ namespace RestAirline.Domain.Booking
         }
 
         public IReadOnlyList<Journey> Journeys => _state.Journeys;
+
+        public IReadOnlyList<Passenger> Passengers => _state.Passengers;
 
         public void SelectJourneys(List<Journey> journeys)
         {
@@ -49,6 +53,18 @@ namespace RestAirline.Domain.Booking
             
             //3. Raise event
             Emit(new JourneysSelectedEvent(journeys));
+        }
+        
+        public void AddPassenger(Passenger passenger)
+        {
+            if (passenger == null)
+            {
+                throw new ArgumentNullException($"{nameof(passenger)} is null");
+            }
+            
+            new PassengerIsValidSpecification(Passengers).ThrowDomainErrorIfNotSatisfied(passenger);
+            
+            Emit(new PassengerAddedEvent(passenger));
         }
     }
 }

@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using EventFlow.Aggregates;
 using EventFlow.EventStores;
-using RestAirline.Domain.Booking.Trip;
 
-namespace RestAirline.Domain.Booking.DomainEvents
+namespace RestAirline.Domain.Booking.Trip.Events
 {
     [EventVersion("JourneysSelected", 1)]
     public class JourneysSelectedEvent : AggregateEvent<Booking, BookingId>

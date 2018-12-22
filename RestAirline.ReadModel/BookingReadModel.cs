@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using EventFlow.Aggregates;
 using EventFlow.ReadStores;
 using RestAirline.Domain.Booking;
-using RestAirline.Domain.Booking.DomainEvents;
 using RestAirline.Domain.Booking.Trip;
+using RestAirline.Domain.Booking.Trip.Events;
 
 namespace RestAirline.ReadModel
 {
