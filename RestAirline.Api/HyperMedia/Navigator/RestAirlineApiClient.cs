@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Linq;
 using System.Threading.Tasks;
-using RestAirline.Domain.Availability;
 
 namespace RestAirline.Api.Hypermedia.Navigator
 {
