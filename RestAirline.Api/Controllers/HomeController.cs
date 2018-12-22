@@ -3,10 +3,9 @@ using RestAirline.Api.Resources;
 
 namespace RestAirline.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/home")]
     public class HomeController : Controller
     {
-        [Route("api/home")]
         [HttpGet]
         public RestAirlineHomeResource Index()
         {
