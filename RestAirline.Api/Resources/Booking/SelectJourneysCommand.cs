@@ -7,15 +7,18 @@ using RestAirline.Domain.Booking.Trip;
 
 namespace RestAirline.Api.Resources.Booking
 {
-    public class SelectJourneysCommand : HypermediaCommand<JourneysSelectionResource>
+    public class SelectJourneysCommand : HypermediaCommand<BookingResource>
     {
         [Obsolete("For serialization")]
-        public SelectJourneysCommand() { }
+        public SelectJourneysCommand()
+        {
+            JourneyIds = new List<string>();
+        }
 
-        public SelectJourneysCommand(IUrlHelper urlHelper) : base(urlHelper.Link((BookingController c) => c.SelectJourneys1()))
+        public SelectJourneysCommand(IUrlHelper urlHelper) : base(urlHelper.Link((BookingController c) => c.SelectJourneys(null)))
         {
         }
         
-        public List<Journey> Journeys { get; set; }
+        public List<string> JourneyIds { get; set; }
     }
 }

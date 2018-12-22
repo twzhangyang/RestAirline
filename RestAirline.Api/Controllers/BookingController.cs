@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using EventFlow;
 using EventFlow.ReadStores.InMemory;
@@ -25,7 +26,7 @@ namespace RestAirline.Api.Controllers
         
         [Route("journeys")]
         [HttpPost]
-        public async Task<BookingResource> SelectJourneys()
+        public async Task<BookingResource> SelectJourneys(List<string> journeyIds)
         {
             var journeys = new JourneysBuilder().BuildJourneys();
             var bookingId = BookingId.New;
@@ -36,11 +37,6 @@ namespace RestAirline.Api.Controllers
             var booking = await _readStore.GetAsync(bookingId.Value, CancellationToken.None);
             
             return new BookingResource(booking.ReadModel);
-        }
-        
-        public JourneysSelectionResource SelectJourneys1()
-        {
-            return null;
         }
     }
 }

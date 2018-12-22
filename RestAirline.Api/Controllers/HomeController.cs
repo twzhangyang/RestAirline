@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Resources;
 
 namespace RestAirline.Api.Controllers
@@ -7,9 +8,9 @@ namespace RestAirline.Api.Controllers
     public class HomeController : Controller
     {
         [HttpGet]
-        public RestAirlineHomeResource Index()
+        public Task<RestAirlineHomeResource> Index()
         {
-            return new RestAirlineHomeResource(Url);
+            return Task.FromResult(new RestAirlineHomeResource(Url));
         }
     }
 }
