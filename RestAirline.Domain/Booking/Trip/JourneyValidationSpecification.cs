@@ -15,11 +15,6 @@ namespace RestAirline.Domain.Booking.Trip
         
         protected override IEnumerable<string> IsNotSatisfiedBecause(IReadOnlyList<Journey> journeys)
         {
-            if (journeys == null)
-            {
-                throw new ArgumentNullException($"{nameof(journeys)} is null");
-            }
-           
             if (!journeys.Any())
             {
                 yield return $"{nameof(journeys)} is empty";

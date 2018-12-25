@@ -28,7 +28,5 @@ namespace RestAirline.Domain.Tests.Journeys
             var booking =await AggregateStore.LoadAsync<Booking.Booking,BookingId>(BookingId,CancellationToken.None);
             booking.Journeys.Should().NotBeEmpty();
         }
-
-       
     }
 }

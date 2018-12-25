@@ -10,16 +10,6 @@ namespace RestAirline.Domain.Tests.Journeys
     public class JourneyValidationSpecificationTests
     {
         [Fact]
-        public void WhenJourneysAreNullShouldThrowException()
-        {
-            //Arrange
-            var spec = JourneyValidationSpecification.Create();
-
-            //Act
-            Assert.Throws<ArgumentNullException>(() => spec.IsSatisfiedBy(null));
-        }
-
-        [Fact]
         public void WhenJourneyIsEmptyShouldReturnFalse()
         {
             //Arrange

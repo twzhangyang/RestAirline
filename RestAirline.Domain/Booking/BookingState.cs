@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using EventFlow.Aggregates;
 using RestAirline.Domain.Booking.Events;
 using RestAirline.Domain.Booking.Trip;
@@ -8,7 +9,8 @@ namespace RestAirline.Domain.Booking
 {
     public class BookingState : AggregateState<Booking, BookingId, BookingState>,
         IApply<JourneysSelectedEvent>,
-        IApply<PassengerAddedEvent>
+        IApply<PassengerAddedEvent>,
+        IApply<PassengerNameUpdatedEvent>
     {
         public IReadOnlyList<Journey> Journeys => _journeys.AsReadOnly();
 
@@ -33,6 +35,12 @@ namespace RestAirline.Domain.Booking
         public void Apply(PassengerAddedEvent aggregateEvent)
         {
             _passengers.Add(aggregateEvent.Passenger);
+        }
+
+        public void Apply(PassengerNameUpdatedEvent aggregateEvent)
+        {
+            var passenger = _passengers.Single(p => p.PassengerKey == aggregateEvent.PassengerKey);
+            passenger.UpdateName(aggregateEvent.Name);
         }
     }
 }

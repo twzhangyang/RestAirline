@@ -13,6 +13,11 @@ namespace RestAirline.Domain.Booking
         public int Age { get; set; }
 
         public string Email { get; set; }
+
+        public void UpdateName(string newName)
+        {
+            Name = newName;
+        }
     }
 
     public enum PassengerType
