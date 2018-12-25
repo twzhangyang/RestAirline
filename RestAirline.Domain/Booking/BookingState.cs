@@ -21,6 +21,7 @@ namespace RestAirline.Domain.Booking
         public BookingState()
         {
             _passengers = new List<Passenger>();
+            _journeys = new List<Journey>();
         }
 
         public void Apply(JourneysSelectedEvent aggregateEvent)

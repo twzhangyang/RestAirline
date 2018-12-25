@@ -15,7 +15,7 @@ namespace RestAirline.Domain.Tests.Passengers
             var passenger = new PassengerBuilder().CreatePassenger()
                 .Mutate(p => p.Name = null);
 
-            var specification = new PassengerIsValidSpecification(new List<Passenger>());
+            var specification = new PassengerValidationSpecification(new List<Passenger>());
 
             //Act
             var result = specification.IsSatisfiedBy(passenger);

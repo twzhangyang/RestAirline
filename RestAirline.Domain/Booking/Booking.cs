@@ -6,6 +6,7 @@ using EventFlow.Extensions;
 using RestAirline.Domain.Booking.Events;
 using RestAirline.Domain.Booking.Exceptions;
 using RestAirline.Domain.Booking.Extensions;
+using RestAirline.Domain.Booking.Specs;
 using RestAirline.Domain.Booking.Trip;
 using RestAirline.Domain.Booking.Trip.Events;
 
@@ -26,32 +27,11 @@ namespace RestAirline.Domain.Booking
 
         public void SelectJourneys(List<Journey> journeys)
         {
-            //1. Argument validation. keep domain state is valid
-            if (journeys == null)
-            {
-                throw new ArgumentNullException($"{nameof(journeys)} is null");
-            }
-
-            if (!journeys.Any())
-            {
-                throw new ArgumentException($"{nameof(journeys)} is empty");
-            }
-
-            //2. Business rules
-            if (!IsNew)
-            {
-                throw new AggregateIsNotNewException(this);
-            }
-
-            foreach (var journey in journeys)
-            {
-                if (!journey.DepartureDate.IsGreatThanNow())
-                {
-                    throw new DepartureDateTimeIsLessThanNowException(journey);
-                }
-            }
+            AggregateIsNewSpecification.Create().ThrowDomainErrorIfNotSatisfied(this);
             
-            //3. Raise event
+            JourneyValidationSpecification.Create().ThrowDomainErrorIfNotSatisfied(journeys);
+            
+            // Raise event
             Emit(new JourneysSelectedEvent(journeys));
         }
         
@@ -62,7 +42,7 @@ namespace RestAirline.Domain.Booking
                 throw new ArgumentNullException($"{nameof(passenger)} is null");
             }
             
-            new PassengerIsValidSpecification(Passengers).ThrowDomainErrorIfNotSatisfied(passenger);
+            new PassengerValidationSpecification(Passengers).ThrowDomainErrorIfNotSatisfied(passenger);
             
             Emit(new PassengerAddedEvent(passenger));
         }

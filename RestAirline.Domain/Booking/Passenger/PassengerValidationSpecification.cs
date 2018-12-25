@@ -4,11 +4,11 @@ using EventFlow.Specifications;
 
 namespace RestAirline.Domain.Booking
 {
-    public class PassengerIsValidSpecification : Specification<Passenger>
+    public class PassengerValidationSpecification : Specification<Passenger>
     {
         public IReadOnlyList<Passenger> Passengers { get; }
 
-        public PassengerIsValidSpecification(IReadOnlyList<Passenger> passengers)
+        public PassengerValidationSpecification(IReadOnlyList<Passenger> passengers)
         {
             Passengers = passengers;
         }

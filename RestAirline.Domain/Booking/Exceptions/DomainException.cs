@@ -10,20 +10,4 @@ namespace RestAirline.Domain.Booking.Exceptions
         {
         }
     }
-
-    public class AggregateIsNotNewException : DomainException
-    {
-        public AggregateIsNotNewException(IAggregateRoot obj) : base(
-            "'{obj.Name}' with ID '{obj.GetIdentity()}' is not new")
-        {
-        }
-    }
-
-    public class DepartureDateTimeIsLessThanNowException : DomainException
-    {
-        public DepartureDateTimeIsLessThanNowException(Journey journey) 
-            : base($"Departure time of Jouney {journey.JourneyKey} is less than now")
-        {
-        }
-    }
 }
