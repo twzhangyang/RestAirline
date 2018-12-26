@@ -40,12 +40,12 @@ namespace RestAirline.CommandHandlers.Tests.Journey
             //Arrange
             var journeys = new JourneysBuilder().BuildJourneys();
             var selectJourneysCommand = new SelectJourneysCommand(_bookingId, journeys);
-            
+
             //Act
             await _commandBus.PublishAsync(selectJourneysCommand, CancellationToken.None);
-            
+
             //Assert
-            var booking =await _aggregateStore.LoadAsync<Booking,BookingId>(_bookingId,CancellationToken.None);
+            var booking = await _aggregateStore.LoadAsync<Booking, BookingId>(_bookingId, CancellationToken.None);
             booking.Journeys.Should().NotBeEmpty();
         }
 
