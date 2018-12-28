@@ -4,6 +4,9 @@ using Autofac.Extensions.DependencyInjection;
 using EventFlow;
 using EventFlow.AspNetCore.Extensions;
 using EventFlow.Autofac.Extensions;
+using EventFlow.MsSql;
+using EventFlow.MsSql.EventStores;
+using EventFlow.MsSql.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -35,6 +38,8 @@ namespace RestAirline.Api
             var container = EventFlowOptions.New
                 .UseAutofacContainerBuilder(containerBuilder)
                 .AddAspNetCoreMetadataProviders()
+                .ConfigureMsSql(MsSqlConfiguration.New.SetConnectionString("Server=localhost;Database=RestAirline;User Id=sa;Password=RestAirline123"))
+                .UseMssqlEventStore()
                 .ConfigureBookingCommands()
                 .ConfigureBookingCommandHandlers()
                 .ConfigureReadModel()
@@ -42,6 +47,8 @@ namespace RestAirline.Api
                 .ConfigureBookingDomain()
                 .CreateContainer();
 
+            var msSqlDatabaseMigrator = container.Resolve<IMsSqlDatabaseMigrator>();
+            EventFlowEventStoresMsSql.MigrateDatabase(msSqlDatabaseMigrator);
             
             return new AutofacServiceProvider(container);
         }
