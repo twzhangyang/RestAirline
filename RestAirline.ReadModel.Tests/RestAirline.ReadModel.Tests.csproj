@@ -15,6 +15,7 @@
       <ProjectReference Include="..\RestAirline.CommandHandlers\RestAirline.CommandHandlers.csproj" />
       <ProjectReference Include="..\RestAirline.Commands\RestAirline.Commands.csproj" />
       <ProjectReference Include="..\RestAirline.Domain\RestAirline.Domain.csproj" />
+      <ProjectReference Include="..\RestAirline.ReadModel.InMemory\RestAirline.ReadModel.InMemory.csproj" />
       <ProjectReference Include="..\RestAirline.ReadModel\RestAirline.ReadModel.csproj" />
       <ProjectReference Include="..\RestAirline.TestsHelper\RestAirline.TestsHelper.csproj" />
     </ItemGroup>

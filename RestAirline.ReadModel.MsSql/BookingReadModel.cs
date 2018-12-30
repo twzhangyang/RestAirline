@@ -6,9 +6,10 @@ using RestAirline.Domain.Booking;
 using RestAirline.Domain.Booking.Events;
 using RestAirline.Domain.Booking.Trip.Events;
 using RestAirline.ReadModel.Booking;
+using RestAirline.ReadModel.EntityFramework;
 using Passenger = RestAirline.ReadModel.Booking.Passenger;
 
-namespace RestAirline.ReadModel.EntityFramework
+namespace RestAirline.ReadModel.MsSql
 {
     public class BookingReadModel : VersionedReadModel,
         IAmReadModelFor<Domain.Booking.Booking, BookingId, JourneysSelectedEvent>,

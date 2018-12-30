@@ -1,16 +1,18 @@
 using System.Collections.Generic;
+using System.Linq;
 using EventFlow.Aggregates;
 using EventFlow.ReadStores;
 using RestAirline.Domain.Booking;
 using RestAirline.Domain.Booking.Events;
-using RestAirline.Domain.Booking.Trip;
 using RestAirline.Domain.Booking.Trip.Events;
+using RestAirline.ReadModel.Booking;
+using Passenger = RestAirline.ReadModel.Booking.Passenger;
 
 namespace RestAirline.ReadModel
 {
     public class BookingReadModel : IReadModel,
-        IAmReadModelFor<Booking, BookingId, JourneysSelectedEvent>,
-        IAmReadModelFor<Booking, BookingId, PassengerAddedEvent>
+        IAmReadModelFor<Domain.Booking.Booking, BookingId, JourneysSelectedEvent>,
+        IAmReadModelFor<Domain.Booking.Booking, BookingId, PassengerAddedEvent>
     {
         public BookingId Id { get; private set; }
 
@@ -25,17 +27,17 @@ namespace RestAirline.ReadModel
         }
 
         public void Apply(IReadModelContext context,
-            IDomainEvent<Booking, BookingId, JourneysSelectedEvent> domainEvent)
+            IDomainEvent<Domain.Booking.Booking, BookingId, JourneysSelectedEvent> domainEvent)
         {
             Id = domainEvent.AggregateIdentity;
 
-            Journeys = domainEvent.AggregateEvent.Journeys;
+            Journeys = domainEvent.AggregateEvent.Journeys.Select(j=>j.ToReadModel()).ToList();
         }
 
 
-        public void Apply(IReadModelContext context, IDomainEvent<Booking, BookingId, PassengerAddedEvent> domainEvent)
+        public void Apply(IReadModelContext context, IDomainEvent<Domain.Booking.Booking, BookingId, PassengerAddedEvent> domainEvent)
         {
-            Passengers.Add(domainEvent.AggregateEvent.Passenger);
+            Passengers.Add(domainEvent.AggregateEvent.Passenger.ToReadModel());
         }
     }
 }

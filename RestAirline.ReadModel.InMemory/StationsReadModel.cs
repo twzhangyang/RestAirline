@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using EventFlow.Aggregates;
@@ -9,38 +8,27 @@ using RestAirline.Domain.Booking.Trip.Events;
 namespace RestAirline.ReadModel
 {
     public class StationsReadModel : IReadModel,
-        IAmReadModelFor<Booking, BookingId, JourneysSelectedEvent>
+        IAmReadModelFor<Domain.Booking.Booking, BookingId, JourneysSelectedEvent>
     {
-        public List<Item> Items { get; private set; }
+        public List<StationItem> Items { get; private set; }
 
         public StationsReadModel()
         {
-            Items = new List<Item>();
+            Items = new List<StationItem>();
         }
 
         public void Apply(IReadModelContext context,
-            IDomainEvent<Booking, BookingId, JourneysSelectedEvent> domainEvent)
+            IDomainEvent<Domain.Booking.Booking, BookingId, JourneysSelectedEvent> domainEvent)
         {
             var journeys = domainEvent.AggregateEvent.Journeys;
 
-            Items = journeys.Select(j => new Item
+            Items = journeys.Select(j => new StationItem
             {
                 Id = domainEvent.AggregateIdentity.Value,
                 DepartureDate = j.DepartureDate,
                 DepartureStation = j.DepartureStation,
                 ArriveStation = j.ArriveStation
             }).ToList();
-        }
-
-        public class Item
-        {
-            public string Id { get; set; }
-            
-            public DateTime DepartureDate { get; set; }
-
-            public string DepartureStation { get; set; }
-
-            public string ArriveStation { get; set; }
         }
     }
 }

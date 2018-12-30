@@ -6,8 +6,7 @@
 
     <ItemGroup>
       <PackageReference Include="EventFlow" Version="0.68.3728" />
-      <PackageReference Include="EventFlow.EntityFramework" Version="0.68.3728" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.0" />
+      <PackageReference Include="EventFlow.MsSql" Version="0.68.3728" />
     </ItemGroup>
 
     <ItemGroup>

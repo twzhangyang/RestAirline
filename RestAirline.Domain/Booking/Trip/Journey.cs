@@ -5,9 +5,6 @@ namespace RestAirline.Domain.Booking.Trip
 {
     public class Journey : ValueObject
     {
-        //TODO: used for EF
-        public string Id { get; set; }
-        
         public string JourneyKey { get; set; }
 
         public DateTime DepartureDate { get; set; }

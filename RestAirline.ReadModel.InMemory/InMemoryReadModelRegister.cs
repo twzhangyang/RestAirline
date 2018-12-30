@@ -2,13 +2,13 @@ using System.Reflection;
 using EventFlow;
 using EventFlow.Extensions;
 
-namespace RestAirline.ReadModel
+namespace RestAirline.ReadModel.InMemory
 {
-    public static class ReadModelRegister
+    public static class InMemoryReadModelRegister
     {
-        public static Assembly Assembly { get; } = typeof(ReadModelRegister).Assembly;
+        public static Assembly Assembly { get; } = typeof(InMemoryReadModelRegister).Assembly;
         
-        public static IEventFlowOptions ConfigureReadModel(this IEventFlowOptions eventFlowOptions)
+        public static IEventFlowOptions ConfigureInMemoryReadModel(this IEventFlowOptions eventFlowOptions)
         {
             return eventFlowOptions
                 .AddDefaults(Assembly)

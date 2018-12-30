@@ -33,6 +33,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.QueryHandlers.T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.EntityFramework", "RestAirline.ReadModel.EntityFramework\RestAirline.ReadModel.EntityFramework.csproj", "{1A0DBFC6-32F9-46C7-9DDB-DB0219CA6F95}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.MsSql", "RestAirline.ReadModel.MsSql\RestAirline.ReadModel.MsSql.csproj", "{30060237-9212-474B-B655-8E96E10FE1F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.InMemory", "RestAirline.ReadModel.InMemory\RestAirline.ReadModel.InMemory.csproj", "{A974563A-7BBF-43E0-AA98-B24243C72E76}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,6 +99,14 @@ Global
 		{1A0DBFC6-32F9-46C7-9DDB-DB0219CA6F95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A0DBFC6-32F9-46C7-9DDB-DB0219CA6F95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A0DBFC6-32F9-46C7-9DDB-DB0219CA6F95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30060237-9212-474B-B655-8E96E10FE1F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30060237-9212-474B-B655-8E96E10FE1F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30060237-9212-474B-B655-8E96E10FE1F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30060237-9212-474B-B655-8E96E10FE1F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A974563A-7BBF-43E0-AA98-B24243C72E76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A974563A-7BBF-43E0-AA98-B24243C72E76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A974563A-7BBF-43E0-AA98-B24243C72E76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A974563A-7BBF-43E0-AA98-B24243C72E76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

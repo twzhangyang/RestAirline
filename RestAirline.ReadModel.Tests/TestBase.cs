@@ -3,20 +3,21 @@ using EventFlow;
 using EventFlow.Configuration;
 using RestAirline.CommandHandlers;
 using RestAirline.Domain;
+using RestAirline.ReadModel.InMemory;
 
 namespace RestAirline.ReadModel.Tests
 {
     public class TestBase : IDisposable
     {
-        protected IRootResolver Resolver;
-        protected ICommandBus CommandBus;
+        protected readonly IRootResolver Resolver;
+        protected readonly ICommandBus CommandBus;
 
         public TestBase()
         {
             Resolver = EventFlowOptions.New.ConfigureBookingDomain()
                 .ConfigureBookingCommands()
                 .ConfigureBookingCommandHandlers()
-                .ConfigureReadModel()
+                .ConfigureInMemoryReadModel()
                 .CreateResolver();
 
             CommandBus = Resolver.Resolve<ICommandBus>();

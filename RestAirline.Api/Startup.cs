@@ -14,8 +14,8 @@ using Microsoft.Extensions.DependencyInjection;
 using RestAirline.CommandHandlers;
 using RestAirline.Domain;
 using RestAirline.QueryHandlers;
-using RestAirline.ReadModel;
 using RestAirline.ReadModel.EntityFramework;
+using RestAirline.ReadModel.InMemory;
 
 namespace RestAirline.Api
 {
@@ -43,10 +43,12 @@ namespace RestAirline.Api
                 .UseMssqlEventStore()
                 .ConfigureBookingCommands()
                 .ConfigureBookingCommandHandlers()
-                .ConfigureReadModel()
+                .ConfigureInMemoryReadModel()
                 .ConfigureBookingQueryHandlers()
                 .ConfigureBookingDomain()
                 .ConfigureEntityFrameworkReadModel()
+                //EventFlow expect the read model to exist, and thus any maintenance of the database schema for the read models must be handled before EventFlow is initialized.
+//                .ConfigureMsSqlReadModel() 
                 .CreateContainer();
 
             var msSqlDatabaseMigrator = container.Resolve<IMsSqlDatabaseMigrator>();

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using RestAirline.Domain.Booking.Trip;
 using RestAirline.ReadModel;
+using RestAirline.ReadModel.Booking;
 
 namespace RestAirline.Api.Resources.Booking
 {

@@ -24,6 +24,7 @@
     <ProjectReference Include="..\RestAirline.Queries\RestAirline.Queries.csproj" />
     <ProjectReference Include="..\RestAirline.QueryHandlers\RestAirline.QueryHandlers.csproj" />
     <ProjectReference Include="..\RestAirline.ReadModel.EntityFramework\RestAirline.ReadModel.EntityFramework.csproj" />
+    <ProjectReference Include="..\RestAirline.ReadModel.MsSql\RestAirline.ReadModel.MsSql.csproj" />
     <ProjectReference Include="..\RestAirline.ReadModel\RestAirline.ReadModel.csproj" />
     <ProjectReference Include="..\RestAirline.TestsHelper\RestAirline.TestsHelper.csproj" />
   </ItemGroup>
