@@ -5,6 +5,9 @@ namespace RestAirline.Domain.Booking.Trip
 {
     public class Flight : ValueObject
     {
+        //TODO: used for EF
+        public string Id { get; set; }
+        
         public string FlightKey { get; set; }
 
         public string Number { get; set; }

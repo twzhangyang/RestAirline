@@ -15,6 +15,7 @@ using RestAirline.CommandHandlers;
 using RestAirline.Domain;
 using RestAirline.QueryHandlers;
 using RestAirline.ReadModel;
+using RestAirline.ReadModel.EntityFramework;
 
 namespace RestAirline.Api
 {
@@ -45,6 +46,7 @@ namespace RestAirline.Api
                 .ConfigureReadModel()
                 .ConfigureBookingQueryHandlers()
                 .ConfigureBookingDomain()
+                .ConfigureEntityFrameworkReadModel()
                 .CreateContainer();
 
             var msSqlDatabaseMigrator = container.Resolve<IMsSqlDatabaseMigrator>();

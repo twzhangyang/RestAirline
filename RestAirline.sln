@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.QueryHandlers",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.QueryHandlers.Tests", "RestAirline.QueryHandlers.Tests\RestAirline.QueryHandlers.Tests.csproj", "{8A53DC66-80AA-4F0C-8748-2BD9F2C9DEA3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.EntityFramework", "RestAirline.ReadModel.EntityFramework\RestAirline.ReadModel.EntityFramework.csproj", "{1A0DBFC6-32F9-46C7-9DDB-DB0219CA6F95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -89,6 +91,10 @@ Global
 		{8A53DC66-80AA-4F0C-8748-2BD9F2C9DEA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A53DC66-80AA-4F0C-8748-2BD9F2C9DEA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A53DC66-80AA-4F0C-8748-2BD9F2C9DEA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A0DBFC6-32F9-46C7-9DDB-DB0219CA6F95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A0DBFC6-32F9-46C7-9DDB-DB0219CA6F95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A0DBFC6-32F9-46C7-9DDB-DB0219CA6F95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A0DBFC6-32F9-46C7-9DDB-DB0219CA6F95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
