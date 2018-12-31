@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Controllers;
 using RestAirline.Api.Hypermedia;
-using RestAirline.Domain.Booking.Trip;
 
-namespace RestAirline.Api.Resources.Booking
+namespace RestAirline.Api.Resources.Booking.Journey
 {
-    public class SelectJourneysCommand : HypermediaCommand<BookingResource>
+    public class SelectJourneysCommand : HypermediaCommand<JourneysSelectionResource>
     {
         [Obsolete("For serialization")]
         public SelectJourneysCommand()

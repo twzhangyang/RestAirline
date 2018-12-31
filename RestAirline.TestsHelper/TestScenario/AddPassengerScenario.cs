@@ -9,6 +9,8 @@ namespace RestAirline.TestsHelper.TestScenario
     public class AddPassengerScenario : ScenarioBase
     {
         private readonly Passenger _passenger;
+        
+        public string PassengerKey { get; private set; }
 
         public AddPassengerScenario(ICommandBus commandBus, BookingId bookingId = null, Passenger passenger = null) :
             base(commandBus)
@@ -29,6 +31,7 @@ namespace RestAirline.TestsHelper.TestScenario
            
             var passenger = _passenger ?? new PassengerBuilder().CreatePassenger();
             var command = new AddPassengerCommand(BookingId, passenger);
+            PassengerKey = passenger.PassengerKey;
 
             CommandBus.PublishAsync(command, CancellationToken.None);
         }

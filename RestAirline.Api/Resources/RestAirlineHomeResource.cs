@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Controllers;
 using RestAirline.Api.Hypermedia;
-using RestAirline.Api.Resources.Booking;
+using RestAirline.Api.Resources.Booking.Journey;
 
 namespace RestAirline.Api.Resources
 {

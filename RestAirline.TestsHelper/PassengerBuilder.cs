@@ -9,6 +9,7 @@ namespace RestAirline.TestsHelper
         {
             var p = new Passenger
             {
+                PassengerKey = Guid.NewGuid().ToString(),
                 Name = "Yang",
                 Age = 12,
                 Email = "yang@test.com",

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 
 namespace RestAirline.Api.Hypermedia
 {
@@ -25,7 +26,7 @@ namespace RestAirline.Api.Hypermedia
                 if (value != null)
                 {
                     var valueType = value.GetType();
-                    if (valueType.IsValueType)
+                    if (valueType.IsPrimitive || valueType == typeof(string))
                     {
                         routes.Add(name, value);
                     }
@@ -44,6 +45,17 @@ namespace RestAirline.Api.Hypermedia
             if (expression.NodeType == ExpressionType.Constant)
             {
                 return ((ConstantExpression) expression).Value;
+            }
+
+            if (expression.NodeType == ExpressionType.MemberAccess)
+            {
+                var me = (MemberExpression) expression;
+                object obj = (me.Expression != null ? GetValue(me.Expression) : null);
+                if (me.Member is FieldInfo)
+                    return ((FieldInfo) me.Member).GetValue(obj);
+                if (me.Member is PropertyInfo)
+                    return ((PropertyInfo) me.Member).GetValue(obj, null);
+                throw new NotSupportedException("Unsupported member access type");
             }
 
             throw new NotSupportedException("Unsupported parameter expression");

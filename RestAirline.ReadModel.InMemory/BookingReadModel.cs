@@ -12,7 +12,8 @@ namespace RestAirline.ReadModel
 {
     public class BookingReadModel : IReadModel,
         IAmReadModelFor<Domain.Booking.Booking, BookingId, JourneysSelectedEvent>,
-        IAmReadModelFor<Domain.Booking.Booking, BookingId, PassengerAddedEvent>
+        IAmReadModelFor<Domain.Booking.Booking, BookingId, PassengerAddedEvent>,
+        IAmReadModelFor<Domain.Booking.Booking, BookingId, PassengerNameUpdatedEvent>
     {
         public BookingId Id { get; private set; }
 
@@ -38,6 +39,12 @@ namespace RestAirline.ReadModel
         public void Apply(IReadModelContext context, IDomainEvent<Domain.Booking.Booking, BookingId, PassengerAddedEvent> domainEvent)
         {
             Passengers.Add(domainEvent.AggregateEvent.Passenger.ToReadModel());
+        }
+        
+        public void Apply(IReadModelContext context, IDomainEvent<Domain.Booking.Booking, BookingId, PassengerNameUpdatedEvent> domainEvent)
+        {
+            var passenger = Passengers.Single(p => p.PassengerKey == domainEvent.AggregateEvent.PassengerKey);
+            passenger.Name = domainEvent.AggregateEvent.Name;
         }
     }
 }
