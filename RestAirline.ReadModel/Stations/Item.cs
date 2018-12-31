@@ -1,9 +1,11 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace RestAirline.ReadModel
 {
     public class StationItem
     {
+        [Key]
         public string Id { get; set; }
             
         public DateTime DepartureDate { get; set; }

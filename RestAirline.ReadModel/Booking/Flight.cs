@@ -1,9 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace RestAirline.ReadModel.Booking
 {
     public class Flight
     {
+        [Key]
         public string Id { get; set; }
 
         public string FlightKey { get; set; }
@@ -29,6 +31,7 @@ namespace RestAirline.ReadModel.Booking
         {
             var model = new Flight
             {
+                Id = flight.FlightKey,
                 FlightKey = flight.FlightKey,
                 Aircraft = (Aircraft) flight.Aircraft,
                 Number = flight.Number,

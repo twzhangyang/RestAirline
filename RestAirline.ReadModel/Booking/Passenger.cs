@@ -1,7 +1,10 @@
-﻿namespace RestAirline.ReadModel.Booking
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace RestAirline.ReadModel.Booking
 {
     public class Passenger
     {
+        [Key]
         public string Id { get; set; }
 
         public string PassengerKey { get; set; }
@@ -21,6 +24,7 @@
         {
             var model = new Passenger
             {
+                Id = passenger.PassengerKey,
                 PassengerKey = passenger.PassengerKey,
                 Name = passenger.Name,
                 PassengerType = (PassengerType) passenger.PassengerType,

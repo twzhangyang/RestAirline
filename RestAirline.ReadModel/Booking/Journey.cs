@@ -1,9 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace RestAirline.ReadModel.Booking
 {
     public class Journey
     {
+        [Key]
         public string Id { get; set; }
 
         public string JourneyKey { get; set; }
@@ -27,6 +29,7 @@ namespace RestAirline.ReadModel.Booking
         {
             var model = new Journey
             {
+                Id=journey.JourneyKey,
                 Flight = journey.Flight.ToReadModel(),
                 ArriveDate = journey.ArriveDate,
                 DepartureDate = journey.DepartureDate,
