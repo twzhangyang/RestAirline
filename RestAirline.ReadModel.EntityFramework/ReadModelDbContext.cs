@@ -1,5 +1,8 @@
 using EventFlow.EntityFramework.Extensions;
 using Microsoft.EntityFrameworkCore;
+using RestAirline.ReadModel.Booking;
+using Journey = RestAirline.ReadModel.EntityFramework.Booking.Journey;
+using Passenger = RestAirline.ReadModel.EntityFramework.Booking.Passenger;
 
 namespace RestAirline.ReadModel.EntityFramework
 {
@@ -11,13 +14,11 @@ namespace RestAirline.ReadModel.EntityFramework
         
         public DbSet<BookingReadModel> Bookings { get; set; }
         
-        public DbSet<StationsReadModel> Stations { get; set; }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-//            modelBuilder
-//                .AddEventFlowEvents()
-//                .AddEventFlowSnapshots();
+            modelBuilder
+                .AddEventFlowEvents()
+                .AddEventFlowSnapshots();
         }
     }
 }

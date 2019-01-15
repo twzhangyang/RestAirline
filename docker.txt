@@ -2,8 +2,32 @@ docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RestAirline123' -e 'MSSQL_PID=Deve
 
 docker exec -it <container_id|container_name> /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P <your_password>
 
+Server=localhost;Database=RestAirline;User Id=sa;Password=RestAirline123
+
+Microsoft.EntityFrameworkCore – the Entity Framework Core framework
+Microsoft.EntityFrameworkCore.SqlServer – the SQL Server database driver (other databases are supported as well)
+Microsoft.EntityFrameworkCore.Design – the Entity Framework Core design tooling
+Microsoft.EntityFrameworkCore.SqlServer.Design – SQL Server-specific tooling
+Microsoft.EntityFrameworkCore.Tools.DotNet – the cross-platform command line tools 
+
+<ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet"></DotNetCliToolReference>
+</ItemGroup>
+
+Package Manager Console
+dotnet ef
+dotnet ef migrations add AddOrder
+dotnet ef database update
+
+
+
 npm install -g sql-cli
 mssql -p RestAirline123
 .help
+
+
+dotnet --list-sdks
+export MSBuildSDKsPath=/usr/local/share/dotnet/sdk/2.1.302/Sdks
+
 
 

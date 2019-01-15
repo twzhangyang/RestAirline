@@ -68,8 +68,8 @@ namespace RestAirline.Api.Controllers
             string name)
         {
             name = "new-name";
-            var command = new UpdatePassengerNameCommand(new BookingId(bookingId), passengerKey, name);
-            await _commandBus.PublishAsync(command, CancellationToken.None);
+//            var command = new UpdatePassengerNameCommand(new BookingId(bookingId), passengerKey, name);
+//            await _commandBus.PublishAsync(command, CancellationToken.None);
 
             return new PassengerNameUpdatesResource(Url, bookingId);
         }

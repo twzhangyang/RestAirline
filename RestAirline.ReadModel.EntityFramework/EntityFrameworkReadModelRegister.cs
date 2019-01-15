@@ -15,7 +15,6 @@ namespace RestAirline.ReadModel.EntityFramework
             return eventFlowOptions
                 .AddDefaults(Assembly)
                 .UseEntityFrameworkReadModel<BookingReadModel, ReadModelDbContext>()
-                .UseEntityFrameworkReadModel<StationsReadModel, ReadModelDbContext>()
                 .ConfigureEntityFramework(EntityFrameworkConfiguration.New)
                 .AddDbContextProvider<ReadModelDbContext, ReadModelDbContextProvider>();
 

@@ -1,47 +1,40 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using EventFlow.Aggregates;
 using EventFlow.ReadStores;
 using RestAirline.Domain.Booking;
 using RestAirline.Domain.Booking.Events;
 using RestAirline.Domain.Booking.Trip.Events;
-using RestAirline.ReadModel.Booking;
-using Passenger = RestAirline.ReadModel.Booking.Passenger;
+using RestAirline.ReadModel.EntityFramework.Booking;
+using Journey = RestAirline.ReadModel.EntityFramework.Booking.Journey;
+using Passenger = RestAirline.ReadModel.EntityFramework.Booking.Passenger;
 
 namespace RestAirline.ReadModel.EntityFramework
 {
-    public class BookingReadModel : VersionedReadModel,
+    public class BookingReadModel : IReadModel,
         IAmReadModelFor<Domain.Booking.Booking, BookingId, JourneysSelectedEvent>,
-        IAmReadModelFor<Domain.Booking.Booking, BookingId, PassengerAddedEvent>,
-        IAmReadModelFor<Domain.Booking.Booking, BookingId, PassengerNameUpdatedEvent>
+        IAmReadModelFor<Domain.Booking.Booking, BookingId, PassengerAddedEvent>
     {
-        public List<Journey> Journeys { get; private set; }
-
-        public List<Passenger> Passengers { get; private set; }
-
-        public BookingReadModel()
-        {
-            Journeys = new List<Journey>();
-            Passengers = new List<Passenger>();
-        }
-
+        [Key]
+        public string Id { get; protected set; }
+        
+        [ConcurrencyCheck] 
+        public long Version { get; set; }
+        
+        public string DepartureStation { get; set; }
+        
+        public int PingsReceived { get; set; }
+        
         public void Apply(IReadModelContext context,
             IDomainEvent<Domain.Booking.Booking, BookingId, JourneysSelectedEvent> domainEvent)
         {
-            Id = domainEvent.AggregateIdentity.Value;
-
-            Journeys = domainEvent.AggregateEvent.Journeys.Select(j=>j.ToReadModel()).ToList();
+            DepartureStation = domainEvent.AggregateEvent.Journeys.First().DepartureStation;
         }
 
         public void Apply(IReadModelContext context, IDomainEvent<Domain.Booking.Booking, BookingId, PassengerAddedEvent> domainEvent)
         {
-            Passengers.Add(domainEvent.AggregateEvent.Passenger.ToReadModel());
-        }
-
-        public void Apply(IReadModelContext context, IDomainEvent<Domain.Booking.Booking, BookingId, PassengerNameUpdatedEvent> domainEvent)
-        {
-            var passenger = Passengers.Single(p => p.PassengerKey == domainEvent.AggregateEvent.PassengerKey);
-            passenger.Name = domainEvent.AggregateEvent.Name;
+            PingsReceived++;
         }
     }
 }

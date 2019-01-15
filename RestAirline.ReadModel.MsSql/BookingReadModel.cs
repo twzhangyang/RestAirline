@@ -34,7 +34,6 @@ namespace RestAirline.ReadModel.MsSql
 
         }
 
-
         public void Apply(IReadModelContext context, IDomainEvent<Domain.Booking.Booking, BookingId, PassengerAddedEvent> domainEvent)
         {
             Passengers.Add(domainEvent.AggregateEvent.Passenger.ToReadModel());

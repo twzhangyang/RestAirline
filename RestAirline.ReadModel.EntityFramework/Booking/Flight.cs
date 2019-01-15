@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace RestAirline.ReadModel.Booking
+namespace RestAirline.ReadModel.EntityFramework.Booking
 {
     public class Flight
     {

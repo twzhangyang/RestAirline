@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using EventFlow.Aggregates;
 using EventFlow.ReadStores;
@@ -7,9 +8,14 @@ using RestAirline.Domain.Booking.Trip.Events;
 
 namespace RestAirline.ReadModel.EntityFramework
 {
-    public class StationsReadModel : VersionedReadModel,
+    public class StationsReadModel : IReadModel,
         IAmReadModelFor<Domain.Booking.Booking, BookingId, JourneysSelectedEvent>
     {
+        [Key]
+        public string Id { get; protected set; }
+
+        [ConcurrencyCheck] public long Version { get; set; }
+        
         public List<StationItem> Items { get; private set; }
 
         public StationsReadModel()
