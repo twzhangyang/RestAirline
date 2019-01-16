@@ -15,6 +15,6 @@ services:
     environment:
     - SA_PASSWORD=RestAirline123
     - ACCEPT_EULA=Y
-    - EVENTSTORE_DB= RestAirline
+    - EVENTSTORE_DB=RestAirline
     ports:
     - "1433:1433"  
