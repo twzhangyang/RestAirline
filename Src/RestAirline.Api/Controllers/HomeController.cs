@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using RestAirline.Api.Resources;
@@ -9,18 +10,21 @@ namespace RestAirline.Api.Controllers
     public class HomeController : Controller
     {
         private readonly IConfiguration _configuration;
+        private readonly IHostingEnvironment _hostingEnvironment;
 
-        public HomeController(IConfiguration configuration)
+        public HomeController(IConfiguration configuration, IHostingEnvironment hostingEnvironment)
         {
             _configuration = configuration;
+            _hostingEnvironment = hostingEnvironment;
         }
         
-        [Route("settings")]
-        public object Settings()
+        [Route("hello")]
+        public object Hello()
         {
             var settings = new
             {
-                Server = _configuration["SERVER"]
+                Server = _configuration["SERVER"],
+                Message ="Hello, Welcome to RestAirline Api"
             };
 
             return settings;

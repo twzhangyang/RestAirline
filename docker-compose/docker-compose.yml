@@ -16,7 +16,7 @@ services:
   mssql.data:
     image: restairline.mssql:${TAG:-latest}
     build:
-      context: ../Sql
+      context: ../mssql
       dockerfile: ./Dockerfile
     container_name: restairline_mssql
     
