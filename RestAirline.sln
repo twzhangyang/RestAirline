@@ -41,6 +41,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.TestsHelper", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Shared", "Src\RestAirline.Shared\RestAirline.Shared.csproj", "{9D2D838F-D647-4B93-8FB1-7776949D9A09}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "docker-compose", "docker-compose\docker-compose.csproj", "{FEA0C318-FFED-4D39-8781-265718CA43DD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{E36E0025-10A3-492D-BAD2-054936759F7E}"
+ProjectSection(SolutionItems) = preProject
+	Sql\connect.sql = Sql\connect.sql
+	Sql\create_db.sql = Sql\create_db.sql
+	Sql\Dockerfile = Sql\Dockerfile
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,5 +144,6 @@ Global
 		{2721C6E3-CF57-487F-9EF4-E2C21E4694EC} = {2B26D045-2A96-41AE-B592-E2156AFED446}
 		{89D9E208-A642-43AF-85E3-F26C6D77A638} = {2B26D045-2A96-41AE-B592-E2156AFED446}
 		{9D2D838F-D647-4B93-8FB1-7776949D9A09} = {2CF93039-EC81-4CB0-8940-9D0AB9C1FD38}
+		{FEA0C318-FFED-4D39-8781-265718CA43DD} = {48D05111-8BB6-45F3-A81D-DDE054DADE2F}
 	EndGlobalSection
 EndGlobal

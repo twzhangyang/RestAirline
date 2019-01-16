@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+
+  restairline.api:
+    image: restairline:${TAG:-latest}
+    build:
+      args:
+        Version: "1"
+      context: ../Src
+      dockerfile: ./RestAirline.Api/Dockerfile
+    depends_on:
+      - mssql.data
+    container_name: restairline_api
+
+  mssql.data:
+    image: restairline.mssql:${TAG:-latest}
+    build:
+      context: ../Sql
+      dockerfile: ./Dockerfile
+    container_name: restairline_mssql
+    

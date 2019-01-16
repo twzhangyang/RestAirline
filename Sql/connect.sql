@@ -1,1 +1,0 @@
-Select top 1* from Customer

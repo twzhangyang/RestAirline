@@ -31,6 +31,7 @@ namespace RestAirline.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            
             services.AddMvc();
 
             var containerBuilder = new ContainerBuilder();
@@ -39,7 +40,7 @@ namespace RestAirline.Api
             var container = EventFlowOptions.New
                 .UseAutofacContainerBuilder(containerBuilder)
                 .AddAspNetCoreMetadataProviders()
-                .ConfigureMsSql(MsSqlConfiguration.New.SetConnectionString("Server=localhost;Database=RestAirline;User Id=sa;Password=RestAirline123"))
+                .ConfigureMsSql(MsSqlConfiguration.New.SetConnectionString($"Server=mssql.data;Database=RestAirline;User Id=sa;Password=RestAirline123"))
                 .UseMssqlEventStore()
                 .ConfigureBookingCommands()
                 .ConfigureBookingCommandHandlers()

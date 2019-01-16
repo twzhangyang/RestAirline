@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+
+  restairline.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - SERVER=sql.data
+    ports:
+      - "5000:80"
+      
+
+  mssql.data:
+    environment:
+    - SA_PASSWORD=RestAirline123
+    - ACCEPT_EULA=Y
+    - EVENTSTORE_DB= RestAirline
+    ports:
+    - "1433:1433"  

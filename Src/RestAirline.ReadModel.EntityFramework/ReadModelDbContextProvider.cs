@@ -11,7 +11,7 @@ namespace RestAirline.ReadModel.EntityFramework
         public ReadModelDbContextProvider()
         {
             _options = new DbContextOptionsBuilder<ReadModelDbContext>()
-                .UseSqlServer(@"Server=localhost;Database=RestAirlineRead;User Id=sa;Password=RestAirline123")
+                .UseSqlServer(@"Server=mssql.data;Database=RestAirlineRead;User Id=sa;Password=RestAirline123")
                 .Options;
         }
 
