@@ -41,14 +41,14 @@ http://localhost:5000/api/home/
 ```
 
 ## Business 
-The example is regarding online booking for an airline compnay. An airline compnay named 'RestAirline' is offering online booking. 
-* After passegner submited one of the available journey that means this passenger starting create an online booking.
-* Passegner can submit multiple available journeys, every journey including a flight.
-* After passegner added journeys, he/she can add passengers.
-* Once passegners have been added in booking, passegner can update passegner name for each passenger.
-* Passegner can submit available seats for each flight and each passenger, seat may just including seat number.
+The example is regarding online booking for an airline company. An airline company named 'RestAirline' is offering online booking. 
+* After passenger submited one of the available journey that means this passenger starting create an online booking.
+* passenger can submit multiple available journeys, every journey including a flight.
+* After passenger added journeys, he/she can add passengers.
+* Once passenger have been added in booking, passenger can update passenger name for each passenger.
+* passenger can submit available seats for each flight and each passenger, seat may just including seat number.
 * Once passegner submitted seats, passenger still can update seat.
-* After all of these steps, passenger have a change to order insurance for all ppasegners or some of them.
+* After all of these steps, passenger have a change to order insurance for all passenger some of them.
 * Last step is pay for all booking, if payment is successful then create a pnr(six digit) for this booking.
 * Online checkin is allowed for all the flights. Passenger can checkin at below time window:
 
