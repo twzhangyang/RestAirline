@@ -19,7 +19,6 @@ docker-compose build
 ```
 
 ## Running the container
-
 Modify the env variables to your liking in the `docker-compose.yml`.
 
 Then spin up a new container using `docker-compose`
@@ -40,3 +39,26 @@ Try to input home api link in Postman:
 ```
 http://localhost:5000/api/home/
 ```
+
+## Business 
+The example is regarding online booking for an airline compnay. An airline compnay named 'RestAirline' is offering online booking. 
+* After passegner submited one of the available journey that means this passenger starting create an online booking.
+* Passegner can submit multiple available journeys, every journey including a flight.
+* After passegner added journeys, he/she can add passengers.
+* Once passegners have been added in booking, passegner can update passegner name for each passenger.
+* Passegner can submit available seats for each flight and each passenger, seat may just including seat number.
+* Once passegner submitted seats, passenger still can update seat.
+* After all of these steps, passenger have a change to order insurance for all ppasegners or some of them.
+* Last step is pay for all booking, if payment is successful then create a pnr(six digit) for this booking.
+* Online checkin is allowed for all the flights. Passenger can checkin at below time window:
+
+    ```2h <= timewindow <= departure time - 30m``` 
+* Passeger can do online checkin, after this step passegner start to his/her journey. 
+
+## Possible Domain
+There are three possbile Domain for above business:
+But let's focus on `Booking` for now and mock other two domains even if you can hardcode data from these two domains.
+
+![domain](https://user-images.githubusercontent.com/22952792/51812860-4c596a80-22ee-11e9-9d42-439b107cc052.png)
+
+
