@@ -48,7 +48,7 @@ The example is regarding online booking for an airline company. An airline compa
 * Once passenger have been added in booking, passenger can update passenger name for each passenger.
 * passenger can submit available seats for each flight and each passenger, seat may just including seat number.
 * Once passegner submitted seats, passenger still can update seat.
-* After all of these steps, passenger have a change to order insurance for all passenger some of them.
+* After all of these steps, passenger have a chance to order insurance for all passenger some of them.
 * Last step is pay for all booking, if payment is successful then create a pnr(six digit) for this booking.
 * Online checkin is allowed for all the flights. Passenger can checkin at below time window:
 
