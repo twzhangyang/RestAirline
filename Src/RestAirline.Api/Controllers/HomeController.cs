@@ -30,6 +30,18 @@ namespace RestAirline.Api.Controllers
             return settings;
         }
         
+        [Route("vars")]
+        public object PrintVariables()
+        {
+            var settings = new
+            {
+                EventStoreConnectString = _configuration["EventStoreConnectionString"],
+                ReadModelConnectString = _configuration["ReadModelConnectionString"]
+            };
+
+            return settings;
+        }
+        
         [HttpGet]
         public Task<RestAirlineHomeResource> Index()
         {

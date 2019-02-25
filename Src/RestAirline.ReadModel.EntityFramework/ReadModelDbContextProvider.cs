@@ -1,6 +1,7 @@
 using System;
 using EventFlow.EntityFramework;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace RestAirline.ReadModel.EntityFramework
 {
@@ -8,10 +9,10 @@ namespace RestAirline.ReadModel.EntityFramework
     {
         private readonly DbContextOptions<ReadModelDbContext> _options;
 
-        public ReadModelDbContextProvider()
+        public ReadModelDbContextProvider(IConfiguration configuration)
         {
             _options = new DbContextOptionsBuilder<ReadModelDbContext>()
-                .UseSqlServer(@"Server=localhost;Database=RestAirlineRead;User Id=sa;Password=RestAirline123")
+                .UseSqlServer(configuration["ReadModelConnectionString"])
                 .Options;
         }
 

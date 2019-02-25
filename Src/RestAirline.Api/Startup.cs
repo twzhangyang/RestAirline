@@ -40,7 +40,7 @@ namespace RestAirline.Api
             var container = EventFlowOptions.New
                 .UseAutofacContainerBuilder(containerBuilder)
                 .AddAspNetCoreMetadataProviders()
-                .ConfigureMsSql(MsSqlConfiguration.New.SetConnectionString($"Server=localhost;Database=RestAirline;User Id=sa;Password=RestAirline123"))
+                .ConfigureMsSql(MsSqlConfiguration.New.SetConnectionString(Configuration["EventStoreConnectionString"]))
                 .UseMssqlEventStore()
                 .ConfigureBookingCommands()
                 .ConfigureBookingCommandHandlers()

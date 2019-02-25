@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 
 namespace RestAirline.Api
 {
@@ -12,6 +13,12 @@ namespace RestAirline.Api
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((buildContext, config) =>
+                {
+                    config.AddJsonFile("settings.json");
+                    config.AddEnvironmentVariables();
+
+                })
                 .UseStartup<Startup>()
                 .Build();
     }

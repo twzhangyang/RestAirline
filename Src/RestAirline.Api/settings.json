@@ -1,3 +1,4 @@
 {
-  
+  "EventStoreConnectionString": "Server=localhost;Database=RestAirline;User Id=sa;Password=RestAirline123",
+  "ReadModelConnectionString": "Server=localhost;Database=RestAirlineRead;User Id=sa;Password=RestAirline123",
 }
