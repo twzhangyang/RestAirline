@@ -14,9 +14,5 @@ services:
     container_name: restairline_api
 
   mssql.data:
-    image: restairline.mssql:${TAG:-latest}
-    build:
-      context: ../mssql
-      dockerfile: ./Dockerfile
-    container_name: restairline_mssql
+    image: microsoft/mssql-server-linux:2017-latest
     

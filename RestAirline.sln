@@ -45,14 +45,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "docker-compose", "docker-co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{E36E0025-10A3-492D-BAD2-054936759F7E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mssql", "mssql", "{8EFC39D9-4E45-49D2-AEAC-851058DC4553}"
-ProjectSection(SolutionItems) = preProject
-	mssql\configure-db.sh = mssql\configure-db.sh
-	mssql\Dockerfile = mssql\Dockerfile
-	mssql\entrypoint.sh = mssql\entrypoint.sh
-	mssql\setup.sql = mssql\setup.sql
-EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -148,6 +140,5 @@ Global
 		{89D9E208-A642-43AF-85E3-F26C6D77A638} = {2B26D045-2A96-41AE-B592-E2156AFED446}
 		{9D2D838F-D647-4B93-8FB1-7776949D9A09} = {2CF93039-EC81-4CB0-8940-9D0AB9C1FD38}
 		{FEA0C318-FFED-4D39-8781-265718CA43DD} = {48D05111-8BB6-45F3-A81D-DDE054DADE2F}
-		{8EFC39D9-4E45-49D2-AEAC-851058DC4553} = {E36E0025-10A3-492D-BAD2-054936759F7E}
 	EndGlobalSection
 EndGlobal
