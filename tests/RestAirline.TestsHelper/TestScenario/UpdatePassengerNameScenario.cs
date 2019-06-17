@@ -29,7 +29,7 @@ namespace RestAirline.TestsHelper.TestScenario
             NewName = _name ?? "newName";
             var command = new UpdatePassengerNameCommand(BookingId, PassengerKey, NewName);
 
-            CommandBus.PublishAsync(command, CancellationToken.None);
+            await CommandBus.PublishAsync(command, CancellationToken.None);
         }
     }
 }

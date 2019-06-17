@@ -34,7 +34,7 @@ namespace RestAirline.TestsHelper.TestScenario
             var command = new AddPassengerCommand(BookingId, passenger);
             PassengerKey = passenger.PassengerKey;
 
-            CommandBus.PublishAsync(command, CancellationToken.None);
+            await CommandBus.PublishAsync(command, CancellationToken.None);
         }
     }
 }
