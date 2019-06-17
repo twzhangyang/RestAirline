@@ -7,7 +7,7 @@ services:
     build:
       args:
         Version: "1"
-      context: ../Src
+      context: ../src
       dockerfile: ./RestAirline.Api/Dockerfile
     depends_on:
       - mssql.data

@@ -3,43 +3,43 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2B26D045-2A96-41AE-B592-E2156AFED446}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{2B26D045-2A96-41AE-B592-E2156AFED446}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{2CF93039-EC81-4CB0-8940-9D0AB9C1FD38}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2CF93039-EC81-4CB0-8940-9D0AB9C1FD38}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker-compose", "docker-compose", "{48D05111-8BB6-45F3-A81D-DDE054DADE2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Api", "Src\RestAirline.Api\RestAirline.Api.csproj", "{A31DBFC0-0630-46CA-9275-7AF4F2A48E8F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Api", "src\RestAirline.Api\RestAirline.Api.csproj", "{A31DBFC0-0630-46CA-9275-7AF4F2A48E8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.CommandHandlers", "Src\RestAirline.CommandHandlers\RestAirline.CommandHandlers.csproj", "{32F211CA-F68A-4923-9B7E-9234CA763608}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.CommandHandlers", "src\RestAirline.CommandHandlers\RestAirline.CommandHandlers.csproj", "{32F211CA-F68A-4923-9B7E-9234CA763608}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Commands", "Src\RestAirline.Commands\RestAirline.Commands.csproj", "{F116811C-2798-4F99-B372-6440CDF0CB1F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Commands", "src\RestAirline.Commands\RestAirline.Commands.csproj", "{F116811C-2798-4F99-B372-6440CDF0CB1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Domain", "Src\RestAirline.Domain\RestAirline.Domain.csproj", "{45F9423A-8DB7-416B-960B-1D6FDCE6272A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Domain", "src\RestAirline.Domain\RestAirline.Domain.csproj", "{45F9423A-8DB7-416B-960B-1D6FDCE6272A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Queries", "Src\RestAirline.Queries\RestAirline.Queries.csproj", "{6F693D74-E998-4671-B9DF-5F46907395C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Queries", "src\RestAirline.Queries\RestAirline.Queries.csproj", "{6F693D74-E998-4671-B9DF-5F46907395C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.QueryHandlers", "Src\RestAirline.QueryHandlers\RestAirline.QueryHandlers.csproj", "{97447961-C943-4C1F-8724-ABC4925776B0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.QueryHandlers", "src\RestAirline.QueryHandlers\RestAirline.QueryHandlers.csproj", "{97447961-C943-4C1F-8724-ABC4925776B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel", "Src\RestAirline.ReadModel\RestAirline.ReadModel.csproj", "{763BF0E4-37FC-4134-BCAC-79B4720619C3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel", "src\RestAirline.ReadModel\RestAirline.ReadModel.csproj", "{763BF0E4-37FC-4134-BCAC-79B4720619C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.EntityFramework", "Src\RestAirline.ReadModel.EntityFramework\RestAirline.ReadModel.EntityFramework.csproj", "{1593B8EB-66A9-48EF-94E2-08434FE24A77}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.EntityFramework", "src\RestAirline.ReadModel.EntityFramework\RestAirline.ReadModel.EntityFramework.csproj", "{1593B8EB-66A9-48EF-94E2-08434FE24A77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.InMemory", "Src\RestAirline.ReadModel.InMemory\RestAirline.ReadModel.InMemory.csproj", "{C278427C-2A40-4FB3-B406-A08BC29BD6E1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.InMemory", "src\RestAirline.ReadModel.InMemory\RestAirline.ReadModel.InMemory.csproj", "{C278427C-2A40-4FB3-B406-A08BC29BD6E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.MsSql", "Src\RestAirline.ReadModel.MsSql\RestAirline.ReadModel.MsSql.csproj", "{9F312444-EDD1-4AD0-816F-2DDF638174CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.MsSql", "src\RestAirline.ReadModel.MsSql\RestAirline.ReadModel.MsSql.csproj", "{9F312444-EDD1-4AD0-816F-2DDF638174CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.CommandHandlers.Tests", "Tests\RestAirline.CommandHandlers.Tests\RestAirline.CommandHandlers.Tests.csproj", "{6D348A95-5991-472B-B884-FE2767738B9A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.CommandHandlers.Tests", "tests\RestAirline.CommandHandlers.Tests\RestAirline.CommandHandlers.Tests.csproj", "{6D348A95-5991-472B-B884-FE2767738B9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Domain.Tests", "Tests\RestAirline.Domain.Tests\RestAirline.Domain.Tests.csproj", "{59988F26-E7E7-4C19-BB0A-56FCE353472D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Domain.Tests", "tests\RestAirline.Domain.Tests\RestAirline.Domain.Tests.csproj", "{59988F26-E7E7-4C19-BB0A-56FCE353472D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.QueryHandlers.Tests", "Tests\RestAirline.QueryHandlers.Tests\RestAirline.QueryHandlers.Tests.csproj", "{B29E6FC3-8FC6-40EE-AB0F-4DD0EF8184E3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.QueryHandlers.Tests", "tests\RestAirline.QueryHandlers.Tests\RestAirline.QueryHandlers.Tests.csproj", "{B29E6FC3-8FC6-40EE-AB0F-4DD0EF8184E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.Tests", "Tests\RestAirline.ReadModel.Tests\RestAirline.ReadModel.Tests.csproj", "{2721C6E3-CF57-487F-9EF4-E2C21E4694EC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.Tests", "tests\RestAirline.ReadModel.Tests\RestAirline.ReadModel.Tests.csproj", "{2721C6E3-CF57-487F-9EF4-E2C21E4694EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.TestsHelper", "Tests\RestAirline.TestsHelper\RestAirline.TestsHelper.csproj", "{89D9E208-A642-43AF-85E3-F26C6D77A638}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.TestsHelper", "tests\RestAirline.TestsHelper\RestAirline.TestsHelper.csproj", "{89D9E208-A642-43AF-85E3-F26C6D77A638}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Shared", "Src\RestAirline.Shared\RestAirline.Shared.csproj", "{9D2D838F-D647-4B93-8FB1-7776949D9A09}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Shared", "src\RestAirline.Shared\RestAirline.Shared.csproj", "{9D2D838F-D647-4B93-8FB1-7776949D9A09}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "docker-compose", "docker-compose\docker-compose.csproj", "{FEA0C318-FFED-4D39-8781-265718CA43DD}"
 EndProject

@@ -6,17 +6,15 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://0.0.0.0:80
-      - SERVER=mssql.data
       - EventStoreConnectionString=${EVENT_STORE_DB:-Server=mssql.data;Database=RestAirline;User Id=sa;Password=RestAirline123}
       - ReadModelConnectionString=${READ_MODEL_DB:-Server=mssql.data;Database=RestAirlineRead;User Id=sa;Password=RestAirline123}
     ports:
-      - "5000:80"
+      - "61200:80"
       
 
   mssql.data:
     environment:
     - SA_PASSWORD=RestAirline123
     - ACCEPT_EULA=Y
-    - EVENTSTORE_DB=RestAirline
     ports:
     - "1433:1433"  

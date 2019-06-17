@@ -23,7 +23,6 @@ namespace RestAirline.Api.Controllers
         {
             var settings = new
             {
-                Server = _configuration["SERVER"],
                 Message ="Hello, Welcome to RestAirline Api"
             };
 
