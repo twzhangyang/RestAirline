@@ -35,10 +35,25 @@ docker exec -it restairline_mssql /opt/mssql-tools/bin/sqlcmd -S localhost -U sa
 
 
 ## Run the API
-Try to input home api link in Postman:
+1. Try to input home api link in Postman:
 ```
-http://localhost:5000/api/home/
+GET http://localhost:61200/api/home/
 ```
+2. Select Journey
+```
+POST api/booking/journeys
+```
+![add journey]()
+3. Add passenger
+```
+POST api/booking-{id}/passenger
+```
+![add booking]()
+4. Get booking
+```
+GET api/booking/booking-{id}
+```
+![get booking]()
 
 ## Business 
 The example is regarding online booking for an airline company. An airline company named 'RestAirline' is offering online booking. 
