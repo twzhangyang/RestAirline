@@ -74,9 +74,9 @@ The example is regarding online booking for an airline company. An airline compa
 * Passeger can do online checkin, after this step passegner start to his/her journey. 
 
 ## Possible Domain
-There are three possbile Domain for above business:
+There are four possbile Domains for above business:
 But let's focus on `Booking` for now and mock other two domains even if you can hardcode data from these two domains.
 
-![domain](https://user-images.githubusercontent.com/22952792/51812860-4c596a80-22ee-11e9-9d42-439b107cc052.png)
+![domain](https://user-images.githubusercontent.com/22952792/59654760-3c252780-91ca-11e9-944c-1eb8b4de19f1.png)
 
 
