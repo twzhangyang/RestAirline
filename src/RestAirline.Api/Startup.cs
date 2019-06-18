@@ -44,7 +44,7 @@ namespace RestAirline.Api
 
             var container = EventFlowOptions.New
                 .UseAutofacContainerBuilder(containerBuilder)
-                .AddAspNetCoreMetadataProviders()
+                .AddAspNetCore()
                 .ConfigureMsSql(MsSqlConfiguration.New.SetConnectionString(Configuration["EventStoreConnectionString"]))
                 .UseMssqlEventStore()
                 .ConfigureBookingCommands()
@@ -52,7 +52,7 @@ namespace RestAirline.Api
                 .ConfigureInMemoryReadModel()
                 .ConfigureBookingQueryHandlers()
                 .ConfigureBookingDomain()
-//                .ConfigureEntityFrameworkReadModel()
+                .ConfigureEntityFrameworkReadModel()
                 //EventFlow expect the read model to exist, and thus any maintenance of the database schema for the read models must be handled before EventFlow is initialized.
 //                .ConfigureMsSqlReadModel() 
                 .CreateContainer();

@@ -1,13 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>netcoreapp2.2</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="EventFlow" Version="0.68.3728" />
-      <PackageReference Include="EventFlow.EntityFramework" Version="0.68.3728" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.0" />
+      <PackageReference Include="EventFlow" Version="0.73.3933" />
+      <PackageReference Include="EventFlow.EntityFramework" Version="0.73.3933" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.4" />
     </ItemGroup>
 
     <ItemGroup>
