@@ -39,21 +39,24 @@ docker exec -it restairline_mssql /opt/mssql-tools/bin/sqlcmd -S localhost -U sa
 ```
 GET http://localhost:61200/api/home/
 ```
+---
 2. Select Journey
 ```
 POST api/booking/journeys
 ```
-![add journey]()
+![add journey](https://user-images.githubusercontent.com/22952792/59654415-a046ec00-91c8-11e9-9147-32fe157339e3.png)
+---
 3. Add passenger
 ```
 POST api/booking-{id}/passenger
 ```
-![add booking]()
+![add booking](https://user-images.githubusercontent.com/22952792/59654417-a2a94600-91c8-11e9-8d98-dc9b7b4b4607.png)
+---
 4. Get booking
 ```
 GET api/booking/booking-{id}
 ```
-![get booking]()
+![get booking](https://user-images.githubusercontent.com/22952792/59654419-a63ccd00-91c8-11e9-90b8-b307b30a7e94.png)
 
 ## Business 
 The example is regarding online booking for an airline company. An airline company named 'RestAirline' is offering online booking. 
