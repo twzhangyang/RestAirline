@@ -1,0 +1,8 @@
+mssql:
+kubectl apply -f volumeClaim.yaml
+kubectl get pv
+kubectl get pvc
+
+kubectl create secret generic mssql --from-literal=SA_PASSWORD="RestAirline123" --from-literal=EventStoreConnectionString="Server=mssql;Database=RestAirline;User Id=sa;Password=RestAirline123" --from-literal=ReadModelConnectionString="Server=mssql;Database=RestAirlineRead;User Id=sa;Password=RestAirline123"
+
+kubectl apply -f sql-deployment.yaml
