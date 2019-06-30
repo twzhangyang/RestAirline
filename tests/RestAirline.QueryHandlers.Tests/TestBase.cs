@@ -16,7 +16,7 @@ namespace RestAirline.ReadModel.Tests
         public TestBase()
         {
             Resolver = EventFlowOptions.New
-                .RegisterModule<BookingModule>()
+                .RegisterModule<BookingDomainModule>()
                 .RegisterModule<CommandModule>()
                 .RegisterModule<InMemoryReadModelModule>()
                 .RegisterModule<CommandHandlersModule>()

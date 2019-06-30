@@ -5,8 +5,7 @@ namespace RestAirline.ReadModel.EntityFramework.Booking
 {
     public class Journey
     {
-        [Key]
-        public string Id { get; set; }
+        [Key] public string Id { get; set; }
 
         public string JourneyKey { get; set; }
 
@@ -20,11 +19,9 @@ namespace RestAirline.ReadModel.EntityFramework.Booking
 
         public string Description { get; set; }
 
-//        public Flight Flight { get; set; }
-        
+        public Flight Flight { get; set; }
+
         public BookingReadModel BookingReadModel { get; set; }
-        
-        public string BookinglId { get; set; }
     }
 
     public static class JourneyMapper
@@ -33,8 +30,8 @@ namespace RestAirline.ReadModel.EntityFramework.Booking
         {
             var model = new Journey
             {
-                Id=journey.JourneyKey,
-//                Flight = journey.Flight.ToReadModel(),
+                Id = journey.JourneyKey,
+                Flight = journey.Flight.ToReadModel(),
                 ArriveDate = journey.ArriveDate,
                 DepartureDate = journey.DepartureDate,
                 ArriveStation = journey.ArriveStation,

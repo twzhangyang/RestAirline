@@ -1,0 +1,9 @@
+USE master;
+GO
+ALTER DATABASE RestAirlineRead SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+GO
+
+
+drop database RestAirlineRead
+
+create database RestAirlineRead

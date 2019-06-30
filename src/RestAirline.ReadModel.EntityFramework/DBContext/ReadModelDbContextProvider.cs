@@ -3,7 +3,7 @@ using EventFlow.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace RestAirline.ReadModel.EntityFramework
+namespace RestAirline.ReadModel.EntityFramework.DBContext
 {
     public class ReadModelDbContextProvider : IDbContextProvider<ReadModelDbContext>, IDisposable
     {
@@ -19,7 +19,7 @@ namespace RestAirline.ReadModel.EntityFramework
         public ReadModelDbContext CreateContext()
         {
             var context = new ReadModelDbContext(_options);
-            context.Database.EnsureCreated();
+            context.Database.Migrate();
             return context;
         }
 

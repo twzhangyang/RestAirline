@@ -16,6 +16,12 @@ namespace RestAirline.ReadModel.EntityFramework
         IAmReadModelFor<Domain.Booking.Booking, BookingId, JourneysSelectedEvent>,
         IAmReadModelFor<Domain.Booking.Booking, BookingId, PassengerAddedEvent>
     {
+        public BookingReadModel()
+        {
+            Passengers = new List<Passenger>();
+            Journeys= new List<Journey>();
+        }
+        
         [Key]
         public string Id { get; protected set; }
         
@@ -24,17 +30,22 @@ namespace RestAirline.ReadModel.EntityFramework
         
         public string DepartureStation { get; set; }
         
-        public int PingsReceived { get; set; }
+        public List<Passenger> Passengers { get; set; }
+        
+        public List<Journey> Journeys { get; set; }
         
         public void Apply(IReadModelContext context,
             IDomainEvent<Domain.Booking.Booking, BookingId, JourneysSelectedEvent> domainEvent)
         {
+            var journeys = domainEvent.AggregateEvent.Journeys.Select(j => j.ToReadModel());
+            
             DepartureStation = domainEvent.AggregateEvent.Journeys.First().DepartureStation;
+            Journeys = journeys.ToList();
         }
 
         public void Apply(IReadModelContext context, IDomainEvent<Domain.Booking.Booking, BookingId, PassengerAddedEvent> domainEvent)
         {
-            PingsReceived++;
+            Passengers.Add(domainEvent.AggregateEvent.Passenger.ToReadModel());
         }
     }
 }

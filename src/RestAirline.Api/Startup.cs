@@ -32,18 +32,11 @@ namespace RestAirline.Api
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
 
-            services.AddScoped<IHttpContextAccessor, HttpContextAccessor>();
-
-//            services.AddDbContext<EventStoreContext>(options =>
-//            {
-//                options.UseSqlServer(Configuration["EventStoreConnectionString"]);
-//            });
-            
+            services.AddHttpContextAccessor();
 
             var serviceProvider = EventFlowOptions.New
                 .UseServiceCollection(services)
@@ -52,20 +45,16 @@ namespace RestAirline.Api
                 .UseMssqlEventStore()
                 .RegisterModule<CommandModule>()
                 .RegisterModule<CommandHandlersModule>()
-                .RegisterModule<InMemoryReadModelModule>()
                 .RegisterModule<QueryHandlersModule>()
-                .RegisterModule<BookingModule>()
+                .RegisterModule<BookingDomainModule>()
+                .RegisterModule<InMemoryReadModelModule>()
+                .RegisterModule<EntityFrameworkReadModelModule>()
                 .CreateServiceProvider();
 
             return serviceProvider;
 
-//            var msSqlDatabaseMigrator = container.Resolve<IMsSqlDatabaseMigrator>();
-//            EventFlowEventStoresMsSql.MigrateDatabase(msSqlDatabaseMigrator);
-//
-//            return new AutofacServiceProvider(container);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())

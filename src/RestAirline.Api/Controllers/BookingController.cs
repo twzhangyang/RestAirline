@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using EventFlow;
+using EventFlow.EntityFramework.ReadStores;
 using EventFlow.ReadStores.InMemory;
 using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Resources.Booking;
@@ -21,11 +22,14 @@ namespace RestAirline.Api.Controllers
     {
         private readonly ICommandBus _commandBus;
         private readonly IInMemoryReadStore<BookingReadModel> _readStore;
+        private readonly IEntityFrameworkReadModelStore<ReadModel.EntityFramework.BookingReadModel> _efReadStore;
 
-        public BookingController(ICommandBus commandBus, IInMemoryReadStore<BookingReadModel> readStore)
+        public BookingController(ICommandBus commandBus, IInMemoryReadStore<BookingReadModel> readStore, 
+            IEntityFrameworkReadModelStore<ReadModel.EntityFramework.BookingReadModel> efReadStore)
         {
             _commandBus = commandBus;
             _readStore = readStore;
+            _efReadStore = efReadStore;
         }
 
         [Route("journeys")]
@@ -46,6 +50,8 @@ namespace RestAirline.Api.Controllers
         public async Task<BookingResource> GetBooking(string bookingId)
         {
             var booking = await _readStore.GetAsync(bookingId, CancellationToken.None);
+            
+            var booking2 = await _efReadStore.GetAsync(bookingId, CancellationToken.None);
 
             return new BookingResource(Url, booking.ReadModel);
         }

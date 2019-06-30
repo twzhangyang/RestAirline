@@ -8,13 +8,13 @@ using RestAirline.Domain.EventSourcing;
 
 namespace RestAirline.Domain
 {
-    public class BookingModule : IModule
+    public class BookingDomainModule : IModule
     {
         public void Register(IEventFlowOptions eventFlowOptions)
         {
             eventFlowOptions
                 .ConfigureEntityFramework(EntityFrameworkConfiguration.New)
-                .AddDefaults(typeof(BookingModule).Assembly)
+                .AddDefaults(typeof(BookingDomainModule).Assembly)
                 .AddDbContextProvider<EventStoreContext, EventStoreContextProvider>()
                 .UseEntityFrameworkEventStore<EventStoreContext>()
                 .UseEntityFrameworkSnapshotStore<EventStoreContext>();

@@ -25,6 +25,8 @@ namespace RestAirline.ReadModel.EntityFramework.Booking
         public Aircraft Aircraft { get; set; }
         
         public Journey Journey { get; set; }
+        
+        public string JourneyKey { get; set; }
     }
 
     public static class FlightMapper

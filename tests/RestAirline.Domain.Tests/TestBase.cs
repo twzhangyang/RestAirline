@@ -19,7 +19,7 @@ namespace RestAirline.Domain.Tests
         {
             BookingId = BookingId.New;
             Resolver = EventFlowOptions.New
-                .RegisterModule<BookingModule>()
+                .RegisterModule<BookingDomainModule>()
                 .CreateResolver();
 
             AggregateStore = Resolver.Resolve<IAggregateStore>();
