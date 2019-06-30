@@ -11,10 +11,12 @@ using EventFlow.MsSql.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RestAirline.CommandHandlers;
 using RestAirline.Domain;
+using RestAirline.Domain.EventSourcing;
 using RestAirline.QueryHandlers;
 using RestAirline.ReadModel.EntityFramework;
 using RestAirline.ReadModel.InMemory;
@@ -41,6 +43,7 @@ namespace RestAirline.Api
 //            {
 //                options.UseSqlServer(Configuration["EventStoreConnectionString"]);
 //            });
+            
 
             var serviceProvider = EventFlowOptions.New
                 .UseServiceCollection(services)

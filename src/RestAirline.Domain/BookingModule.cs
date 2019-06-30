@@ -1,7 +1,10 @@
 using System.Reflection;
 using EventFlow;
 using EventFlow.Configuration;
+using EventFlow.EntityFramework;
+using EventFlow.EntityFramework.Extensions;
 using EventFlow.Extensions;
+using RestAirline.Domain.EventSourcing;
 
 namespace RestAirline.Domain
 {
@@ -10,7 +13,11 @@ namespace RestAirline.Domain
         public void Register(IEventFlowOptions eventFlowOptions)
         {
             eventFlowOptions
-                .AddDefaults(typeof(BookingModule).Assembly);
+                .ConfigureEntityFramework(EntityFrameworkConfiguration.New)
+                .AddDefaults(typeof(BookingModule).Assembly)
+                .AddDbContextProvider<EventStoreContext, EventStoreContextProvider>()
+                .UseEntityFrameworkEventStore<EventStoreContext>()
+                .UseEntityFrameworkSnapshotStore<EventStoreContext>();
         }
     }
 }
