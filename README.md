@@ -60,8 +60,8 @@ GET api/booking/booking-{id}
 If you want to change Entity framework read model, please follow EF migration steps:
 * Update data structures in ReadModelDbContext
 * Go to `RestAirline/src/RestAirline.ReadModel.EntityFramework` folder
-* dotnet ef migrations add "migration names"
-* dotnet ef database update
+* `dotnet ef migrations add "migration names"`
+* `dotnet ef database update`
 
 ## Business 
 The example is regarding online booking for an airline company. An airline company named 'RestAirline' is offering online booking. 
