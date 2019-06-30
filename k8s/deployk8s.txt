@@ -1,0 +1,12 @@
+1. docker-compose build
+2. az acr list
+restairlinetest.azurecr.io
+3. docker tag restairline:latest restairlinetest.azurecr.io/restairline:v1
+4. docker login restairlinetest.azurecr.io
+5. docker push restairlinetest.azurecr.io/restairline:v1
+6. kubectl create secret docker-registry registry-key --docker-server=restairlinetest.azurecr.io --docker-username=restairlinetest --docker-password=M3mf3N1MkZFf+P0etGVk7njib6qGweJO --docker-email=test@test.com
+7. kubectl apply -f conf_local.yaml
+8. kubectl apply -f sql-data.yaml 
+9. kubectl apply -f restairlineapi.yaml 
+
+

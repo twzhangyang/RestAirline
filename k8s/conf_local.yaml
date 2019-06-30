@@ -5,5 +5,5 @@ metadata:
   labels:
     app: restairline
 data:
-  EventStoreConnectionString: Server=mssql;Database=RestAirline;User Id=sa;Password=RestAirline123
-  ReadModelConnectionString: Server=mssql;Database=RestAirlineRead;User Id=sa;Password=RestAirline123
+  EventStoreConnectionString: Server=sql-data;Database=RestAirline;User Id=sa;Password=RestAirline123
+  ReadModelConnectionString: Server=sql-data;Database=RestAirlineRead;User Id=sa;Password=RestAirline123

@@ -1,0 +1,18 @@
+Create acr:
+1. az group create -g restairline-group -l eastasia
+2. az acr create -n restairlinetest -l eastasia --admin-enabled true -g restairline-group --sku Basic
+3. az acr credential show --name restairlinetest
+
+Create aks:
+1. az aks get-versions
+2. az aks create -g restairline-group -n restairlineCluster -k 1.13.5 --node-count 1 --node-vm-size Standard_D2_v2 --generate-ssh-keys --no-wait 
+3. az aks get-credentials -n restairlineCluster -g restairline-group
+4. kubectl version
+5. kubectl cluster-info
+6. az aks browse --resource-group restairline-group --name restairlineCluster
+7. kubectl create clusterrolebinding kubernetes-dashboard -n kube-system --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
+
+
+kubectl config get-contexts
+kubectl config get-clusters
+kubectl config unset current-context

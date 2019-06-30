@@ -1,4 +1,4 @@
-mssql:
+mssql with volume claim:
 kubectl apply -f volumeClaim.yaml
 kubectl get pv
 kubectl get pvc
