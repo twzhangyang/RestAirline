@@ -5,7 +5,7 @@ Param(
     [parameter(Mandatory=$true)][string]$dnsNamePrefix,
     [parameter(Mandatory=$false)][string]$registryName,
     [parameter(Mandatory=$true)][string]$createAcr=$true,
-    [parameter(Mandatory=$false)][int]$nodeCount=3,
+    [parameter(Mandatory=$false)][int]$nodeCount=2,
     [parameter(Mandatory=$false)][string]$nodeVMSize="Standard_D2_v2"
 )
 

@@ -32,6 +32,22 @@ To connect to the SQL Server in the container, you can docker exec with sqlcmd.
 ```
 docker exec -it restairline_mssql /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P $SA_PASSWORD -Q "select 1"
 ```
+
+## Run in local
+This project based on .NET Core SDK 2.2.103, please install corresponding SDK for your operating system:
+[Window](https://dotnet.microsoft.com/download/thank-you/dotnet-sdk-2.2.103-windows-x64-installer)
+[Mac](https://dotnet.microsoft.com/download/thank-you/dotnet-sdk-2.2.103-macos-x64-installer)
+After installing, please run below command to make sure current .NET Core version is 2.2.103
+`dotnet --version`
+
+## Run k8s on AKS
+Please follow up steps under `k8s/steps`:
+* Create Azure Kubernetes Service (AKS) and Azure Container Registry(ACR) - `1.aks.txt`
+* Once you have ACR you can push docker image into your private docker image repository - `2.image.txt`
+* Deploy k8s by yaml file - `deployk8s.txt`
+* k8s scale up/down, roll back, rolling update - `4.scale.txt`
+* Clear up - `5.clearup.txt`
+
 ## Run the API
 1. Try to input home api link in Postman:
 ```

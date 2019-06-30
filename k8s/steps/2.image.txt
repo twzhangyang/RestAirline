@@ -1,0 +1,6 @@
+1. docker-compose build
+2. az acr list
+restairlinetest.azurecr.io
+3. docker tag restairline:latest restairlinetest.azurecr.io/restairline:v1
+4. docker login restairlinetest.azurecr.io
+5. docker push restairlinetest.azurecr.io/restairline:v1

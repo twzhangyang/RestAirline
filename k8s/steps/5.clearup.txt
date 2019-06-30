@@ -1,0 +1,8 @@
+Clear up
+1. kubectl delete deployments -l app=restairline
+2. kubectl delete service -l app=restairline
+3. kubectl delete configmaps -l app=restairline
+4. az group delete --resource-group restairline-group --no-wait
+5. kubectl config delete-context restairlineCluster
+6. kubectl config delete-cluster restairlineCluster 
+7. kubectl config unset current-context
