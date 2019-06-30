@@ -32,8 +32,6 @@ To connect to the SQL Server in the container, you can docker exec with sqlcmd.
 ```
 docker exec -it restairline_mssql /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P $SA_PASSWORD -Q "select 1"
 ```
-
-
 ## Run the API
 1. Try to input home api link in Postman:
 ```
@@ -57,6 +55,13 @@ POST api/booking-{id}/passenger
 GET api/booking/booking-{id}
 ```
 ![get booking](https://user-images.githubusercontent.com/22952792/59654419-a63ccd00-91c8-11e9-90b8-b307b30a7e94.png)
+
+## Migrate Entity framework read model
+If you want to change Entity framework read model, please follow EF migration steps:
+* Update data structures in ReadModelDbContext
+* Go to `RestAirline/src/RestAirline.ReadModel.EntityFramework` folder
+* dotnet ef migrations add "migration names"
+* dotnet ef database update
 
 ## Business 
 The example is regarding online booking for an airline company. An airline company named 'RestAirline' is offering online booking. 
