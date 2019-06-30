@@ -1,20 +1,45 @@
+using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 
 namespace RestAirline.Api
 {
+    public class User
+    {
+        [Key] public int Id { get; set; }
+
+        public string Name { get; set; }
+
+        public string Email { get; set; }
+
+        public byte[] Timestamp { get; set; }
+    }
+
     public class EventStoreContext : DbContext
     {
-        private readonly IConfiguration _configuration;
+        public DbSet<User> Users { get; set; }
 
-        public EventStoreContext(IConfiguration configuration)
+        public EventStoreContext(DbContextOptions<EventStoreContext> options) : base(options)
         {
-            _configuration = configuration;
         }
-        
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            optionsBuilder.UseSqlServer(_configuration["EventStoreConnectionString"]);
+            modelBuilder.Entity<User>()
+                .Property(p => p.Timestamp)
+                .IsRowVersion();
+        }
+    }
+    
+    public class EventStoreContextDesignFactory : IDesignTimeDbContextFactory<EventStoreContext>
+    {
+        public EventStoreContext CreateDbContext(string[] args)
+        {
+            var optionsBuilder =  new DbContextOptionsBuilder<EventStoreContext>()
+                .UseSqlServer("Server=localhost;Database=RestAirline;User Id=sa;Password=RestAirline123");
+
+            return new EventStoreContext(optionsBuilder.Options);
         }
     }
 }

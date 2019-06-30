@@ -14,10 +14,10 @@ namespace RestAirline.ReadModel.Tests
 
         public TestBase()
         {
-            Resolver = EventFlowOptions.New.ConfigureBookingDomain()
-                .ConfigureBookingCommands()
-                .ConfigureBookingCommandHandlers()
-                .ConfigureInMemoryReadModel()
+            Resolver = EventFlowOptions.New.RegisterModule<BookingModule>()
+                .RegisterModule<CommandModule>()
+                .RegisterModule<CommandHandlersModule>()
+                .RegisterModule<InMemoryReadModelModule>()
                 .CreateResolver();
 
             CommandBus = Resolver.Resolve<ICommandBus>();

@@ -1,0 +1,45 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: restairline-api
+  labels:
+    app: restairline
+    tier: backend
+spec:
+  selector:
+    matchLabels:
+      app: restairline
+      tier: backend
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: restairline 
+        tier: backend
+    spec:
+      containers:
+        - name: restairline-api
+          image: restairelineacr.azurecr.io/restairline:v1
+          imagePullPolicy: Always
+          env:
+            - name: EventStoreConnectionString
+              valueFrom:
+                configMapKeyRef:
+                  name: externalcfg
+                  key: EventStoreConnectionString
+            - name: ReadModelConnectionString
+              valueFrom:
+                configMapKeyRef:
+                  name: externalcfg
+                  key: ReadModelConnectionString
+            - name: OrchestratorType
+              value: 'K8S'
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Test 
+          ports:
+            - containerPort: 80
+
+      imagePullSecrets:
+        - name: registry-key
+---
+

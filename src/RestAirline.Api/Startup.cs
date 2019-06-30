@@ -4,11 +4,13 @@ using Autofac.Extensions.DependencyInjection;
 using EventFlow;
 using EventFlow.AspNetCore.Extensions;
 using EventFlow.Autofac.Extensions;
+using EventFlow.DependencyInjection.Extensions;
 using EventFlow.MsSql;
 using EventFlow.MsSql.EventStores;
 using EventFlow.MsSql.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RestAirline.CommandHandlers;
@@ -31,36 +33,33 @@ namespace RestAirline.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            
             services.AddMvc();
 
-            var containerBuilder = new ContainerBuilder();
-            containerBuilder.Populate(services);
+            services.AddScoped<IHttpContextAccessor, HttpContextAccessor>();
 
-            using (var eventStore = new EventStoreContext(Configuration))
-            {
-                eventStore.Database.EnsureCreated();
-            }
+//            services.AddDbContext<EventStoreContext>(options =>
+//            {
+//                options.UseSqlServer(Configuration["EventStoreConnectionString"]);
+//            });
 
-            var container = EventFlowOptions.New
-                .UseAutofacContainerBuilder(containerBuilder)
-                .AddAspNetCore()
+            var serviceProvider = EventFlowOptions.New
+                .UseServiceCollection(services)
+                .AddAspNetCore(options => { options.AddUserClaimsMetadata(); })
                 .ConfigureMsSql(MsSqlConfiguration.New.SetConnectionString(Configuration["EventStoreConnectionString"]))
                 .UseMssqlEventStore()
-                .ConfigureBookingCommands()
-                .ConfigureBookingCommandHandlers()
-                .ConfigureInMemoryReadModel()
-                .ConfigureBookingQueryHandlers()
-                .ConfigureBookingDomain()
-                .ConfigureEntityFrameworkReadModel()
-                //EventFlow expect the read model to exist, and thus any maintenance of the database schema for the read models must be handled before EventFlow is initialized.
-//                .ConfigureMsSqlReadModel() 
-                .CreateContainer();
+                .RegisterModule<CommandModule>()
+                .RegisterModule<CommandHandlersModule>()
+                .RegisterModule<InMemoryReadModelModule>()
+                .RegisterModule<QueryHandlersModule>()
+                .RegisterModule<BookingModule>()
+                .CreateServiceProvider();
 
-            var msSqlDatabaseMigrator = container.Resolve<IMsSqlDatabaseMigrator>();
-            EventFlowEventStoresMsSql.MigrateDatabase(msSqlDatabaseMigrator);
-            
-            return new AutofacServiceProvider(container);
+            return serviceProvider;
+
+//            var msSqlDatabaseMigrator = container.Resolve<IMsSqlDatabaseMigrator>();
+//            EventFlowEventStoresMsSql.MigrateDatabase(msSqlDatabaseMigrator);
+//
+//            return new AutofacServiceProvider(container);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

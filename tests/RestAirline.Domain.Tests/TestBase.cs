@@ -19,12 +19,12 @@ namespace RestAirline.Domain.Tests
         {
             BookingId = BookingId.New;
             Resolver = EventFlowOptions.New
-                .ConfigureBookingDomain()
+                .RegisterModule<BookingModule>()
                 .CreateResolver();
 
             AggregateStore = Resolver.Resolve<IAggregateStore>();
         }
-        
+
         protected async Task UpdateAsync<TAggregate, TIdentity>(TIdentity id, Action<TAggregate> action)
             where TAggregate : IAggregateRoot<TIdentity>
             where TIdentity : IIdentity

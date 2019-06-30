@@ -26,9 +26,9 @@ namespace RestAirline.CommandHandlers.Tests.Journey
         {
             _bookingId = BookingId.New;
             _resolver = EventFlowOptions.New
-                .ConfigureBookingDomain()
-                .ConfigureBookingCommands()
-                .ConfigureBookingCommandHandlers()
+                .RegisterModule<BookingModule>()
+                .RegisterModule<CommandModule>()
+                .RegisterModule<CommandHandlersModule>()
                 .CreateResolver();
 
             _commandBus = _resolver.Resolve<ICommandBus>();

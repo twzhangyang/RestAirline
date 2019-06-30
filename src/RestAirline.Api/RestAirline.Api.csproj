@@ -9,6 +9,7 @@
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.4.0" />
     <PackageReference Include="EventFlow.AspNetCore" Version="0.73.3933" />
     <PackageReference Include="EventFlow.Autofac" Version="0.73.3933" />
+    <PackageReference Include="EventFlow.DependencyInjection" Version="0.73.3933" />
     <PackageReference Include="EventFlow.MsSql" Version="0.73.3933" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.2.1" />
   </ItemGroup>

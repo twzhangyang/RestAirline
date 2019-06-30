@@ -17,18 +17,19 @@ namespace RestAirline.Api.Controllers
             _configuration = configuration;
             _hostingEnvironment = hostingEnvironment;
         }
-        
+
         [Route("hello")]
         public object Hello()
         {
             var settings = new
             {
-                Message ="Hello, Welcome to RestAirline Api"
+                Message = "Hello, Welcome to RestAirline Api",
+                EnvironmentName = _hostingEnvironment.EnvironmentName
             };
 
             return settings;
         }
-        
+
         [Route("vars")]
         public object PrintVariables()
         {
@@ -40,7 +41,7 @@ namespace RestAirline.Api.Controllers
 
             return settings;
         }
-        
+
         [HttpGet]
         public Task<RestAirlineHomeResource> Index()
         {
