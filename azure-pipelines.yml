@@ -28,11 +28,18 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
-      - task: Docker@2
-        inputs:
-          repository: 'https://cloud.docker.com/repository/docker/richieyangs/'
-          command: 'build'
-          Dockerfile: '**/src/RestAirline.Api/Dockerfile'
+        - task: Docker@2
+          displayName: Login to Docker hub
+          inputs:
+            command: 'login'
+            containerRegistry: https://cloud.docker.com/repository/docker/richieyangs/
+        - task: Docker@2
+          inputs:
+            command: buildAndPush
+            Dockerfile: '**/src/RestAirline.Api/Dockerfile'
+            containerRegistry: https://cloud.docker.com/repository/docker/richieyangs/
+
+            
 
 
 
