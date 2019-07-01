@@ -28,12 +28,11 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
-    - task: Docker@2
-      displayName: Build and push an image to container registry
-      inputs:
-        command: buildAndPush
-        repository: $(imageRepository)
-        dockerfile: $(dockerfilePath)
-        containerRegistry: $(dockerRegistryServiceConnection)
-        tags: |
-          $(tag)
+      - task: Docker@2
+        inputs:
+          repository: 'https://cloud.docker.com/repository/docker/richieyangs/'
+          command: 'build'
+          Dockerfile: '**/src/RestAirline.Api/Dockerfile'
+
+
+
