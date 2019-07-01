@@ -53,6 +53,7 @@ steps:
   displayName: Build and Push
   inputs:
     command: buildAndPush
+    Dockerfile: '**/src/Restairline.Api/Dockerfile'
     tags: |
       tag1
       tag2
