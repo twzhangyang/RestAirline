@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\RestAirline.CommandHandlers\RestAirline.CommandHandlers.csproj" />
     <ProjectReference Include="..\RestAirline.Commands\RestAirline.Commands.csproj" />
     <ProjectReference Include="..\RestAirline.Domain\RestAirline.Domain.csproj" />

@@ -11,3 +11,6 @@ Create aks:
 5. kubectl cluster-info
 6. az aks browse --resource-group restairline-group --name restairlineCluster
 7. kubectl create clusterrolebinding kubernetes-dashboard -n kube-system --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
+
+
+Please use ./gen-k8s-env.ps1 instead of these commands
