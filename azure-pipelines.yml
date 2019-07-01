@@ -1,5 +1,5 @@
-# Docker
-# Build and push an image to Azure Container Registry
+# Docker image, Azure Container Registry, and Azure Web App
+# Build a Docker image, push it to an Azure Container Registry, and deploy it to an Azure Web App.
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 trigger:
@@ -9,38 +9,95 @@ resources:
 - repo: self
 
 variables:
-  # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '{{ containerRegistryConnection.Id }}'
-  imageRepository: '{{#toAlphaNumericString imageRepository 50}}{{/toAlphaNumericString}}'
-  containerRegistry: '{{ containerRegistryConnection.Authorization.Parameters.loginServer }}'
-  dockerfilePath: '{{ dockerfilePath }}'
-  tag: '$(Build.BuildId)'
+  # ========================================================================
+  #                          Mandatory variables 
+  # ========================================================================
+
+ # Update Azure.ResourceGroupName value with Azure resource group name.
+  Azure.ResourceGroupName: 'restairline-group'
+
+  # Update Azure.ServiceConnectionId value with AzureRm service endpoint.
+  Azure.ServiceConnectionId: '{{ azureServiceConnectionId }}'
+
+  # Update Azure.Location value with Azure Location.
+  Azure.Location: 'eastasia'
+
+  # Update ACR.Name value with ACR name. Please note ACR names should be all lower-case and alphanumeric only.
+  ACR.Name: 'restairline'
   
-  # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+  # Update Web.Name value with a name that identifies your new Web app. Valid characters are a-z, 0-9, and -.
+  WebApp.Name: 'restairline-api'
+  
+  # Update ServicePlan.Name value with a name of the app service plan.
+  ServicePlan.Name: '{{#toAlphaNumericString repositoryName 45}}{{/toAlphaNumericString}}-plan'
 
-stages:
-- stage: Build
-  displayName: Build and push stage
-  jobs:  
-  - job: Build
-    displayName: Build
-    pool:
-      vmImage: $(vmImageName)
-    steps:
-        - task: Docker@2
-          displayName: Login to Docker hub
-          inputs:
-            command: 'login'
-            containerRegistry: https://cloud.docker.com/repository/docker/richieyangs/
-        - task: Docker@2
-          inputs:
-            command: buildAndPush
-            Dockerfile: '**/src/RestAirline.Api/Dockerfile'
-            containerRegistry: https://cloud.docker.com/repository/docker/richieyangs/
-            tags: $(tag)
+  # ========================================================================
+  #                           Optional variables 
+  # ========================================================================
+  
+  ACR.ImageName: '$(ACR.Name):$(Build.BuildId)'
+  ACR.FullName: '$(ACR.Name).azurecr.io'
+  Azure.CreateResources: 'true' # Update Azure.CreateResources to false if you have already created resources like resource group and azure container registry.
+  System.Debug: 'false'
 
-            
+jobs:
 
+- job: CreateResources
+  displayName: Create resources
+  condition: and(succeeded(), eq(variables['Azure.CreateResources'], 'true'))
 
+  pool:
+    vmImage: 'ubuntu-latest'
 
+  steps:
+  - task: AzureResourceGroupDeployment@2
+    displayName: 'Azure Deployment:Create Azure Container Registry, Azure WebApp Service'
+    inputs:
+      azureSubscription: '$(Azure.ServiceConnectionId)'
+      resourceGroupName: '$(Azure.ResourceGroupName)'
+      location: '$(Azure.Location)'
+      templateLocation: 'URL of the file'
+      csmFileLink: 'https://raw.githubusercontent.com/Microsoft/azure-pipelines-yaml/master/templates/resources/arm/webapp-on-containers.json'
+      overrideParameters: '-registryName "$(ACR.Name)" -registryLocation "$(Azure.Location)" -imageName "$(ACR.ImageName)" -webAppName "$(WebApp.Name)" -hostingPlanName "$(ServicePlan.Name)"'
+
+- job: BuildImage
+  displayName: Build
+  dependsOn: CreateResources
+  condition: or(succeeded(), ne(variables['Azure.CreateResources'], 'true'))
+
+  pool:
+    vmImage: 'ubuntu-latest'
+
+  steps:
+  - task: Docker@1
+    displayName: 'Build an image'
+    inputs:
+      azureSubscriptionEndpoint: '$(Azure.ServiceConnectionId)'
+      azureContainerRegistry: '$(ACR.FullName)'
+      imageName: '$(ACR.ImageName)'
+      command: build
+      dockerFile: '**/Dockerfile'
+
+  - task: Docker@1
+    displayName: 'Push an image'
+    inputs:
+      azureSubscriptionEndpoint: '$(Azure.ServiceConnectionId)'
+      azureContainerRegistry: '$(ACR.FullName)'
+      imageName: '$(ACR.ImageName)'
+      command: push
+
+- job: DeployApp
+  displayName: Deploy
+  dependsOn: BuildImage
+  condition: succeeded()
+
+  pool:
+    vmImage: 'ubuntu-latest'
+
+  steps:
+  - task: AzureWebAppContainer@1
+    displayName: 'Azure Web App on Container Deploy: $(WebApp.Name)'
+    inputs:
+      azureSubscription: '$(Azure.ServiceConnectionId)'
+      appName: $(WebApp.Name)
+      imageName: '$(ACR.FullName)/$(ACR.ImageName)'
