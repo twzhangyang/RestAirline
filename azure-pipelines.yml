@@ -53,7 +53,7 @@ steps:
   displayName: Build and Push
   inputs:
     command: buildAndPush
-    Dockerfile: 'src/Restairline.Api/Dockerfile'
+    Dockerfile: 'src/RestAirline.Api/Dockerfile'
     buildContext: '**'
     tags: |
       tag1
