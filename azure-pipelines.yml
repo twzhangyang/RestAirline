@@ -42,5 +42,11 @@ variables:
 
 steps:
   - task: Bash@3
+    displayName: build
     inputs:
       filePath: './buildscript/build.bash'
+
+  - task: Bash@3
+    displayName: Unit test
+    inputs:
+      filePath: './buildscript/unitTest.bash'
