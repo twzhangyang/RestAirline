@@ -41,21 +41,19 @@ variables:
 
 
 steps:
-  - task: Docker@1
+  - task: Docker@0
     displayName: 'Build an image'
     inputs:
-      azureSubscriptionEndpoint: '$(Azure.ServiceConnectionId)'
-      azureContainerRegistry: '$(ACR.FullName)'
-      imageName: '$(ACR.ImageName):$(Build.BuildId)'
-      command: Build an image
+      azureSubscription: 'Visual Studio Enterprise (8e5414cf-26ac-43c3-bac4-3e9235fbcbda)'
+      azureContainerRegistry: '{"loginServer":"restairline.azurecr.io", "id" : "/subscriptions/8e5414cf-26ac-43c3-bac4-3e9235fbcbda/resourceGroups/restairline-group/providers/Microsoft.ContainerRegistry/registries/restairline"}'
+      includeLatestTag: true
       dockerFile: '**/src/RestAirline.Api/Dockerfile'
 
-  - task: Docker@1
+  - task: Docker@0
     displayName: 'Push an image'
     inputs:
-      azureSubscriptionEndpoint: '$(Azure.ServiceConnectionId)'
-      azureContainerRegistry: '$(ACR.FullName)'
-      imageName: $(ACR.ImageName):$(Build.BuildId)
-      command: Push an image
+      azureSubscription: 'Visual Studio Enterprise (8e5414cf-26ac-43c3-bac4-3e9235fbcbda)'
+      azureContainerRegistry: '{"loginServer":"restairline.azurecr.io", "id" : "/subscriptions/8e5414cf-26ac-43c3-bac4-3e9235fbcbda/resourceGroups/restairline-group/providers/Microsoft.ContainerRegistry/registries/restairline"}'
+      action: 'Push an image'
 
       
