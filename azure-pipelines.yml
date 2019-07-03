@@ -17,7 +17,7 @@ variables:
   Azure.ResourceGroupName: 'restairline-group'
 
   # Update Azure.ServiceConnectionId value with AzureRm service endpoint.
-  Azure.ServiceConnectionId: '8e5414cf-26ac-43c3-bac4-3e9235fbcbda'
+  Azure.ServiceConnectionId: 'Visual Studio Enterprise(8e5414cf-26ac-43c3-bac4-3e9235fbcbda)'
 
   # Update Azure.Location value with Azure Location.
   Azure.Location: 'eastasia'
@@ -44,7 +44,7 @@ steps:
   - task: Docker@0
     displayName: 'Build an image'
     inputs:
-      azureSubscription: 'restairline - Azure'
+      azureSubscription: $(Azure.ServiceConnectionId)
       azureContainerRegistry: '{"loginServer":"restairline.azurecr.io", "id" : "/subscriptions/8e5414cf-26ac-43c3-bac4-3e9235fbcbda/resourceGroups/restairline-group/providers/Microsoft.ContainerRegistry/registries/restairline"}'
       includeLatestTag: true
       dockerFile: '**/src/RestAirline.Api/Dockerfile'
@@ -52,14 +52,13 @@ steps:
   - task: Docker@0
     displayName: 'Push an image'
     inputs:
-      azureSubscription: 'restairline - Azure'
+      azureSubscription: $(Azure.ServiceConnectionId)
       azureContainerRegistry: '{"loginServer":"restairline.azurecr.io", "id" : "/subscriptions/8e5414cf-26ac-43c3-bac4-3e9235fbcbda/resourceGroups/restairline-group/providers/Microsoft.ContainerRegistry/registries/restairline"}'
       action: 'Push an image'
 
   - task: AzureRmWebAppDeployment@4
     inputs:
-      ConnectionType: 'AzureRM'
-      azureSubscription: 'restairline - Azure'
+      azureSubscription: $(Azure.ServiceConnectionId)
       appType: 'webAppContainer'
       WebAppName: 'restairline-test'
       DockerNamespace: 'restairline.azurecr.io'
