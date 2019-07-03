@@ -45,6 +45,7 @@ steps:
     displayName: build
     inputs:
       filePath: './buildscript/build.bash'
+      #arguments: '$(Build.BuildId)'
 
   - task: Bash@3
     displayName: Unit test
