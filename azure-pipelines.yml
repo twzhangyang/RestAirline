@@ -44,7 +44,7 @@ steps:
   - task: Docker@0
     displayName: 'Build an image'
     inputs:
-      azureSubscription: 'Visual Studio Enterprise (8e5414cf-26ac-43c3-bac4-3e9235fbcbda)'
+      azureSubscription: 'restairline - Azure'
       azureContainerRegistry: '{"loginServer":"restairline.azurecr.io", "id" : "/subscriptions/8e5414cf-26ac-43c3-bac4-3e9235fbcbda/resourceGroups/restairline-group/providers/Microsoft.ContainerRegistry/registries/restairline"}'
       includeLatestTag: true
       dockerFile: '**/src/RestAirline.Api/Dockerfile'
@@ -52,18 +52,19 @@ steps:
   - task: Docker@0
     displayName: 'Push an image'
     inputs:
-      azureSubscription: 'Visual Studio Enterprise (8e5414cf-26ac-43c3-bac4-3e9235fbcbda)'
+      azureSubscription: 'restairline - Azure'
       azureContainerRegistry: '{"loginServer":"restairline.azurecr.io", "id" : "/subscriptions/8e5414cf-26ac-43c3-bac4-3e9235fbcbda/resourceGroups/restairline-group/providers/Microsoft.ContainerRegistry/registries/restairline"}'
       action: 'Push an image'
 
   - task: AzureRmWebAppDeployment@4
     inputs:
       ConnectionType: 'AzureRM'
-      azureSubscription: 'Visual Studio Enterprise(8e5414cf-26ac-43c3-bac4-3e9235fbcbda)'
+      azureSubscription: 'restairline - Azure'
       appType: 'webAppContainer'
       WebAppName: 'restairline-test'
       DockerNamespace: 'restairline.azurecr.io'
       DockerRepository: 'restairline:$(Build.BuildId)'
+
   
 
       
