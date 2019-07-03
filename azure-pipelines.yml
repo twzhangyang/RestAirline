@@ -55,6 +55,7 @@ steps:
     inputs:
       azureSubscriptionEndpoint: '$(Azure.ServiceConnectionId)'
       azureContainerRegistry: '$(ACR.FullName)'
+      imageName: $(ACR.ImageName)
       command: Push an image
 
       
