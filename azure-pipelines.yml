@@ -43,4 +43,4 @@ variables:
 steps:
   - task: Bash@3
     inputs:
-      filePath: '**/buildscript/build.bash'
+      filePath: './buildscript/build.bash'
