@@ -56,4 +56,14 @@ steps:
       azureContainerRegistry: '{"loginServer":"restairline.azurecr.io", "id" : "/subscriptions/8e5414cf-26ac-43c3-bac4-3e9235fbcbda/resourceGroups/restairline-group/providers/Microsoft.ContainerRegistry/registries/restairline"}'
       action: 'Push an image'
 
+  - task: AzureRmWebAppDeployment@4
+    inputs:
+      ConnectionType: 'AzureRM'
+      azureSubscription: 'Visual Studio Enterprise(8e5414cf-26ac-43c3-bac4-3e9235fbcbda)'
+      appType: 'webAppContainer'
+      WebAppName: 'restairline-test'
+      DockerNamespace: 'restairline.azurecr.io'
+      DockerRepository: 'restairline:$(Build.BuildId)'
+  
+
       
