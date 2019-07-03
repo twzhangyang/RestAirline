@@ -41,10 +41,6 @@ variables:
 
 
 steps:
-  - task: BatchScript@1
+  - task: Bash@3
     inputs:
-      filename: '**/buildscript/build.bash'
-
-  
-
-      
+      filePath: '**/buildscript/build.bash'
