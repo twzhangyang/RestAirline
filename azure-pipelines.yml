@@ -17,7 +17,7 @@ variables:
   Azure.ResourceGroupName: 'restairline-group'
 
   # Update Azure.ServiceConnectionId value with AzureRm service endpoint.
-  Azure.ServiceConnectionId: '{{ azureServiceConnectionId }}'
+  Azure.ServiceConnectionId: '8e5414cf-26ac-43c3-bac4-3e9235fbcbda'
 
   # Update Azure.Location value with Azure Location.
   Azure.Location: 'eastasia'
@@ -41,21 +41,20 @@ variables:
 
 
 steps:
-- task: Docker@2
-  displayName: Login to ACR
-  inputs:
-    command: login
-    containerRegistry: $(ACR.FullName)
-- task: Docker@2
-  displayName: Build docker image
-  inputs:
-    command: build
-    Dockerfile: '**/src/RestAirline.Api/Dockerfile'
-    buildContext: '**'
-    containerRegistry: $(ACR.FullName)
-    tags: $(BuildId)
+  - task: Docker@1
+    displayName: 'Build an image'
+    inputs:
+      azureSubscriptionEndpoint: '$(Azure.ServiceConnectionId)'
+      azureContainerRegistry: '$(ACR.FullName)'
+      imageName: '$(ACR.ImageName)'
+      command: Build an image
+      dockerFile: '**/src/RestAirline.Api/Dockerfile'
 
-- task: Docker@2
-  inputs:
-    containerRegistry: $(ACR.FullName)
-    command: 'push'
+  - task: Docker@1
+    displayName: 'Push an image'
+    inputs:
+      azureSubscriptionEndpoint: '$(Azure.ServiceConnectionId)'
+      azureContainerRegistry: '$(ACR.FullName)'
+      command: Push an image
+
+      
