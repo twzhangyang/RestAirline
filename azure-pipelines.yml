@@ -5,16 +5,10 @@
 trigger:
 - master
 
-resources:
-- repo: self
-
 variables:
   # ========================================================================
   #                          Mandatory variables 
   # ========================================================================
-
-  DockerHub.Endpoint: 'restairline-dockerhub'
-
  # Update Azure.ResourceGroupName value with Azure resource group name.
   Azure.ResourceGroupName: 'restairline-group'
 
@@ -28,7 +22,7 @@ variables:
   ACR.Name: 'restairline'
   
   # Update Web.Name value with a name that identifies your new Web app. Valid characters are a-z, 0-9, and -.
-  WebApp.Name: 'restairline-api'
+  WebApp.Name: 'restairline-test'
   
   # Update ServicePlan.Name value with a name of the app service plan.
   ServicePlan.Name: '{{#toAlphaNumericString repositoryName 45}}{{/toAlphaNumericString}}-plan'
@@ -39,7 +33,6 @@ variables:
   
   ACR.ImageName: '$(ACR.Name):$(Build.BuildId)'
   ACR.FullName: '$(ACR.Name).azurecr.io'
-  Azure.CreateResources: 'true' # Update Azure.CreateResources to false if you have already created resources like resource group and azure container registry.
   System.Debug: 'false'
 
 
@@ -48,13 +41,17 @@ steps:
   displayName: Login to Docker Hub
   inputs:
     command: login
-    containerRegistry: $(DockerHub.Endpoint)
+    containerRegistry: $(ACR.FullName)
 - task: Docker@2
-  displayName: Build and Push
+  displayName: Build docker image
   inputs:
-    command: buildAndPush
-    Dockerfile: 'src/RestAirline.Api/Dockerfile'
+    command: build
+    Dockerfile: '**/src/RestAirline.Api/Dockerfile'
     buildContext: '**'
-    tags: |
-      tag1
-      tag2
+    containerRegistry: $(ACR.FullName)
+    tags: $(BuildId)
+
+- task: Docker@2
+  inputs:
+    containerRegistry: $(ACR.FullName)
+    command: 'push'
