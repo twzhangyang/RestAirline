@@ -58,6 +58,7 @@ jobs:
       containerRegistry: restairline
       repository: restairline
       command: push
+      tags: $Build.BuildId
 
 #  - task: Bash@3
 #    displayName: Push image
