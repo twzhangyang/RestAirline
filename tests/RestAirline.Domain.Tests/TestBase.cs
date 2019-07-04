@@ -5,7 +5,10 @@ using EventFlow;
 using EventFlow.Aggregates;
 using EventFlow.Configuration;
 using EventFlow.Core;
+using EventFlow.DependencyInjection.Extensions;
+using Microsoft.Extensions.DependencyInjection;
 using RestAirline.Domain.Booking;
+using RestAirline.TestsHelper;
 
 namespace RestAirline.Domain.Tests
 {
@@ -17,8 +20,12 @@ namespace RestAirline.Domain.Tests
 
         public TestBase()
         {
+            var services = new ServiceCollection();
+            ConfigurationRootCreator.Create(services);
+            
             BookingId = BookingId.New;
             Resolver = EventFlowOptions.New
+                .UseServiceCollection(services)
                 .RegisterModule<BookingDomainModule>()
                 .CreateResolver();
 

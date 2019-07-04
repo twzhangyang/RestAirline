@@ -13,11 +13,7 @@ namespace RestAirline.Domain
         public void Register(IEventFlowOptions eventFlowOptions)
         {
             eventFlowOptions
-                .ConfigureEntityFramework(EntityFrameworkConfiguration.New)
-                .AddDefaults(typeof(BookingDomainModule).Assembly)
-                .AddDbContextProvider<EventStoreContext, EventStoreContextProvider>()
-                .UseEntityFrameworkEventStore<EventStoreContext>()
-                .UseEntityFrameworkSnapshotStore<EventStoreContext>();
+                .AddDefaults(typeof(BookingDomainModule).Assembly);
         }
     }
 }

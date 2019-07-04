@@ -4,7 +4,10 @@ using System.Threading.Tasks;
 using EventFlow;
 using EventFlow.Aggregates;
 using EventFlow.Configuration;
+using EventFlow.DependencyInjection.Extensions;
 using FluentAssertions;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using RestAirline.Commands.Journey;
 using RestAirline.Domain;
 using RestAirline.Domain.Booking;
@@ -24,8 +27,12 @@ namespace RestAirline.CommandHandlers.Tests.Journey
 
         public SelectJourneysCommandHandlerTests()
         {
+            var services = new ServiceCollection();
+            ConfigurationRootCreator.Create(services);
+              
             _bookingId = BookingId.New;
             _resolver = EventFlowOptions.New
+                .UseServiceCollection(services)
                 .RegisterModule<BookingDomainModule>()
                 .RegisterModule<CommandModule>()
                 .RegisterModule<CommandHandlersModule>()

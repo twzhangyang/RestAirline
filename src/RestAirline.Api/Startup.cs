@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using RestAirline.Api.ServiceModules;
 using RestAirline.CommandHandlers;
 using RestAirline.Domain;
 using RestAirline.Domain.EventSourcing;
@@ -43,6 +44,7 @@ namespace RestAirline.Api
                 .AddAspNetCore(options => { options.AddUserClaimsMetadata(); })
                 .ConfigureMsSql(MsSqlConfiguration.New.SetConnectionString(Configuration["EventStoreConnectionString"]))
                 .UseMssqlEventStore()
+                .RegisterModule<EventStoreModule>()
                 .RegisterModule<CommandModule>()
                 .RegisterModule<CommandHandlersModule>()
                 .RegisterModule<QueryHandlersModule>()
