@@ -53,10 +53,19 @@ steps:
 #    inputs:
 #      filePath: './buildscript/unitTest.bash'
 
-  - task: Bash@3
-    displayName: Push image
-    inputs:
-      filePath: './buildscript/push.bash'      
+#  - task: Bash@3
+#    displayName: Push image
+#    inputs:
+#      filePath: './buildscript/push.bash'      
+
+- task: Docker@2
+  displayName: Push image
+  inputs:
+    command: push
+    repository: restairline
+    tags: |
+      $(Build.BuildId)
+      latest
 
   - task: Bash@3
     displayName: Deploy to test
