@@ -62,7 +62,7 @@ steps:
     displayName: Push image
     inputs:
       command: push
-      repository: restairline
+      repository: restairline.azurecr.io/restairline
       tags: |
         $(Build.BuildId)
         latest
