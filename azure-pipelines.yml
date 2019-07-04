@@ -52,12 +52,13 @@ jobs:
 #    inputs:
 #      filePath: './buildscript/unitTest.bash'
 
-  - task: Docker@2
+  - task: Docker@1
     displayName: push
     inputs:
-      containerRegistry: restairline.azurecr.io
-      repository: restairline
-      command: push
+      azureContainerRegistry: restairline.azurecr.io
+      imageName: $ACR.ImageName
+      command: Push an image
+    
 
 #  - task: Bash@3
 #    displayName: Push image
