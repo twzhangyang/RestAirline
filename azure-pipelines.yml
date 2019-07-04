@@ -48,24 +48,15 @@ steps:
     inputs:
       filePath: './buildscript/build.bash'
 
-#  - task: Bash@3
-#    displayName: Unit test
-#    inputs:
-#      filePath: './buildscript/unitTest.bash'
+  - task: Bash@3
+    displayName: Unit test
+    inputs:
+      filePath: './buildscript/unitTest.bash'
 
-#  - task: Bash@3
-#    displayName: Push image
-#    inputs:
-#      filePath: './buildscript/push.bash'      
-
-  - task: Docker@2
+  - task: Bash@3
     displayName: Push image
     inputs:
-      command: push
-      repository: restairline.azurecr.io/restairline
-      tags: |
-        $(Build.BuildId)
-        latest
+      filePath: './buildscript/push.bash'      
 
   - task: Bash@3
     displayName: Deploy to test
