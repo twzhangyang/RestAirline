@@ -5,7 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Src\RestAirline.CommandHandlers\RestAirline.CommandHandlers.csproj" />
+      <ProjectReference Include="..\..\src\RestAirline.CommandHandlers\RestAirline.CommandHandlers.csproj" />
       <ProjectReference Include="..\RestAirline.TestsHelper\RestAirline.TestsHelper.csproj" />
     </ItemGroup>
 
