@@ -6,7 +6,7 @@ REPOSITORY=restairline.azurecr.io/restairline
 
 # docker login
 
-docker push $REPOSITORY::$VERSION
+docker push $REPOSITORY:$VERSION
 docker push $REPOSITORY:latest
 
 echo "Cleaning docker images..."
