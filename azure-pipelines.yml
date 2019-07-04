@@ -40,10 +40,8 @@ variables:
   System.Debug: 'false'
 
 jobs:
-- job: DeployApp
-  displayName: Deploy
-  dependsOn: BuildImage
-  condition: succeeded()
+- job: Build
+  displayName: Build
   steps:
   - bash: printenv | sort
 
@@ -58,7 +56,7 @@ jobs:
   #      filePath: './buildscript/unitTest.bash'
 
   - task: Docker@1
-    displayName: 'Push an image'
+    displayName: Push an image
     inputs:
       azureSubscriptionEndpoint: '$(Azure.ServiceConnectionId)'
       azureContainerRegistry: '$(ACR.FullName)'
@@ -74,8 +72,6 @@ jobs:
   #    displayName: Deploy to test
   #    inputs:
   #      filePath: './buildscript/deployappservice.bash'      
-
-
 
 - job: DeployApp
   displayName: Deploy
