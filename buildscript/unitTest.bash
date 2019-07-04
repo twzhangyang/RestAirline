@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -ex
 #cd $(dirname $0)/..
-FOLDER=${BUILD_ARTIFACTSTAGINGDIRECTORY:-'$(pwd)'}
+FOLDER=${BUILD_REPOSITORY_LOCALPATH:-'$(pwd)'}
 
 for PROJECT in $(ls -1 ./tests | grep -e RestAirline | grep -v TestsHelper)
 do
