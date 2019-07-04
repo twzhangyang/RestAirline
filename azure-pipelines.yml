@@ -41,11 +41,15 @@ variables:
 
 
 steps:
+  - bash: echo $Build.BuildId
+
   - task: Bash@3
     displayName: build
     inputs:
       filePath: './buildscript/build.bash'
-      #arguments: '$(Build.BuildId)'
+      arguments: 
+        $(Build.BuildId)
+        $(Build.BuildNumber)
 
   - task: Bash@3
     displayName: Unit test
