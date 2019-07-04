@@ -12,8 +12,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Src\RestAirline.CommandHandlers\RestAirline.CommandHandlers.csproj" />
-      <ProjectReference Include="..\..\Src\RestAirline.ReadModel.InMemory\RestAirline.ReadModel.InMemory.csproj" />
+      <ProjectReference Include="..\..\src\RestAirline.CommandHandlers\RestAirline.CommandHandlers.csproj" />
+      <ProjectReference Include="..\..\src\RestAirline.ReadModel.InMemory\RestAirline.ReadModel.InMemory.csproj" />
       <ProjectReference Include="..\RestAirline.TestsHelper\RestAirline.TestsHelper.csproj" />
     </ItemGroup>
 
