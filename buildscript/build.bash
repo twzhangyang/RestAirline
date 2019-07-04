@@ -1,9 +1,9 @@
 #!/bin/bash
 set -ex
 
-BASEDIR=$(dirname "$0")
-VERSION=${Build_Id:-'DEV'}
-REPOSITORY='restairline.azurecr.io'
+VERSION=${BUILD_BUILDID:-'dev'}
+LABEL=${BUILD_BUILDID:-'1'}
 
+REPOSITORY=restairline.azurecr.io/restairline
 
-docker build -f $BASEDIR/../src/RestAirline.Api/Dockerfile $BASEDIR/../src --tag $REPOSITORY:$VERSION --tag $REPOSITORY:latest 
+docker build --build-arg Version=$LABEL.0.0 -f ./src/RestAirline.Api/Dockerfile ./src --tag $REPOSITORY:$VERSION --tag $REPOSITORY:latest
