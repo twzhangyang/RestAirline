@@ -1,9 +1,8 @@
 #!/bin/bash
 set -ex
 
-
-VERSION=${Build.BuildId:-'dev'}
-LABEL=${Build.BuildId:-'1'}
+VERSION=${BUILD_BUILDID:-'dev'}
+LABEL=${BUILD_BUILDID:-'1'}
 
 REPOSITORY=restairline.azurecr.io/restairline
 
