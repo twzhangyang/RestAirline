@@ -41,15 +41,12 @@ variables:
 
 
 steps:
-  - bash: echo $Build.BuildId
+  - bash: printenv | sort
 
   - task: Bash@3
     displayName: build
     inputs:
       filePath: './buildscript/build.bash'
-      arguments: 
-        $(Build.BuildId)
-        $(Build.BuildNumber)
 
   - task: Bash@3
     displayName: Unit test
