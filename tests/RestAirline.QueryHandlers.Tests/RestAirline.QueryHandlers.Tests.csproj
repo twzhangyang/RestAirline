@@ -5,7 +5,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="EventFlow" Version="0.73.3933" />
+      <PackageReference Include="EventFlow" Version="0.74.3948" />
+      <PackageReference Include="EventFlow.DependencyInjection" Version="0.74.3948" />
       <PackageReference Include="FluentAssertions" Version="5.7.0" />
       <PackageReference Include="xunit" Version="2.4.1" />
       <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
@@ -17,6 +18,13 @@
       <ProjectReference Include="..\..\src\RestAirline.QueryHandlers\RestAirline.QueryHandlers.csproj" />
       <ProjectReference Include="..\..\src\RestAirline.ReadModel.InMemory\RestAirline.ReadModel.InMemory.csproj" />
       <ProjectReference Include="..\RestAirline.TestsHelper\RestAirline.TestsHelper.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="unittest.json">
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>
