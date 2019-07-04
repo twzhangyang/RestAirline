@@ -2,7 +2,7 @@
 set -ex
 
 VERSION=${BUILD_BUILDID:-'dev'}
-LABEL=${BUILD_BUILDID:-'1'}
+LABEL=${BUILD_BUILDNUMBER:-'1'}
 
 REPOSITORY=restairline.azurecr.io/restairline
 
