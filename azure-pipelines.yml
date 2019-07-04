@@ -44,7 +44,7 @@ steps:
   - bash: printenv | sort
 
   - task: Bash@3
-    displayName: build
+    displayName: Build
     inputs:
       filePath: './buildscript/build.bash'
 
@@ -52,3 +52,8 @@ steps:
     displayName: Unit test
     inputs:
       filePath: './buildscript/unitTest.bash'
+
+  - task: Bash@3
+    displayName: Push image
+    inputs:
+      filePath: './buildscript/push.bash'      
