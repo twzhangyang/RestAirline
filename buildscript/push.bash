@@ -5,6 +5,7 @@ VERSION=${BUILD_BUILDID:-'dev'}
 REPOSITORY=restairline.azurecr.io/restairline
 
 # docker login
+az acr login --name restairline
 
 docker push $REPOSITORY:$VERSION
 docker push $REPOSITORY:latest
