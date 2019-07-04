@@ -55,7 +55,7 @@ jobs:
   - task: Docker@2
     displayName: push
     inputs:
-      containerRegistry: restairline
+      containerRegistry: restairline.azurecr.io
       repository: restairline
       command: push
 
