@@ -48,12 +48,17 @@ steps:
     inputs:
       filePath: './buildscript/build.bash'
 
-  - task: Bash@3
-    displayName: Unit test
-    inputs:
-      filePath: './buildscript/unitTest.bash'
+#  - task: Bash@3
+#    displayName: Unit test
+#    inputs:
+#      filePath: './buildscript/unitTest.bash'
 
   - task: Bash@3
     displayName: Push image
     inputs:
       filePath: './buildscript/push.bash'      
+
+  - task: Bash@3
+    displayName: Deploy to test
+    inputs:
+      filePath: './buildscript/deployappservice.bash'      
