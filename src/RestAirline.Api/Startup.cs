@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using RestAirline.Api.Filters;
 using RestAirline.Api.ServiceModules;
 using RestAirline.CommandHandlers;
 using RestAirline.Domain;
@@ -35,7 +36,10 @@ namespace RestAirline.Api
 
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc(options =>
+            {
+                options.Filters.Add<UnhandledExceptionFilter>();
+            });
 
             services.AddHttpContextAccessor();
 

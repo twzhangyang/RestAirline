@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using FluentAssertions;
 using RestAirline.Domain.Booking.Trip;
 using RestAirline.Shared;
+using RestAirline.Shared.ModelBuilders;
 using RestAirline.TestsHelper;
 using Xunit;
 

@@ -1,6 +1,6 @@
 using System;
 
-namespace RestAirline.Shared
+namespace RestAirline.Shared.Extensions
 {
     public static class ObjectExtensions
     {

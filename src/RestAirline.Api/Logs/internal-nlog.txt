@@ -1,0 +1,2 @@
+2019-07-07 11:33:36.3939 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: file
+2019-07-07 11:35:59.6565 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: file

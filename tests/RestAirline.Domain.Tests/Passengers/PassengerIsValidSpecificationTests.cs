@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using FluentAssertions;
 using RestAirline.Domain.Booking;
 using RestAirline.Shared;
+using RestAirline.Shared.Extensions;
+using RestAirline.Shared.ModelBuilders;
 using RestAirline.TestsHelper;
 using Xunit;
 

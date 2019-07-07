@@ -9,6 +9,7 @@ using RestAirline.Domain.Booking;
 using RestAirline.Queries.Journeys;
 using RestAirline.ReadModel.Tests;
 using RestAirline.Shared;
+using RestAirline.Shared.ModelBuilders;
 using RestAirline.TestsHelper;
 using Xunit;
 

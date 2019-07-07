@@ -4,6 +4,7 @@ using EventFlow;
 using RestAirline.CommandHandlers.Passenger;
 using RestAirline.Domain.Booking;
 using RestAirline.Shared;
+using RestAirline.Shared.ModelBuilders;
 
 namespace RestAirline.TestsHelper.TestScenario
 {

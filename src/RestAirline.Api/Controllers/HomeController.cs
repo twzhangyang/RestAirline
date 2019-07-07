@@ -1,7 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using RestAirline.Api.Resources;
 
 namespace RestAirline.Api.Controllers
@@ -11,20 +13,25 @@ namespace RestAirline.Api.Controllers
     {
         private readonly IConfiguration _configuration;
         private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(IConfiguration configuration, IHostingEnvironment hostingEnvironment)
+        public HomeController(IConfiguration configuration, IHostingEnvironment hostingEnvironment, ILogger<HomeController> logger)
         {
             _configuration = configuration;
             _hostingEnvironment = hostingEnvironment;
+            _logger = logger;
         }
 
         [Route("hello")]
         public object Hello()
         {
+            var dt = DateTime.Now;
             var settings = new
             {
                 Message = "Hello, Welcome to RestAirline Api",
-                EnvironmentName = _hostingEnvironment.EnvironmentName
+                EnvironmentName = _hostingEnvironment.EnvironmentName,
+                LocalDate = dt,
+                UtcDate=dt.ToUniversalTime()
             };
 
             return settings;

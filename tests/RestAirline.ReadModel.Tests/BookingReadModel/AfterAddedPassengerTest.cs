@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using EventFlow.ReadStores.InMemory;
 using FluentAssertions;
 using RestAirline.Shared;
+using RestAirline.Shared.ModelBuilders;
 using RestAirline.TestsHelper;
 using RestAirline.TestsHelper.TestScenario;
 using Xunit;

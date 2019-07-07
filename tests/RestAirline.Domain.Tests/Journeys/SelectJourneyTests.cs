@@ -6,6 +6,7 @@ using FluentAssertions;
 using RestAirline.Domain.Booking;
 using RestAirline.Domain.Booking.Trip;
 using RestAirline.Shared;
+using RestAirline.Shared.ModelBuilders;
 using RestAirline.TestsHelper;
 using Xunit;
 

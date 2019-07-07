@@ -11,6 +11,7 @@ using RestAirline.Api.Resources.Booking.Passenger;
 using RestAirline.Domain.Booking;
 using RestAirline.ReadModel;
 using RestAirline.Shared;
+using RestAirline.Shared.ModelBuilders;
 using AddPassengerCommand = RestAirline.CommandHandlers.Passenger.AddPassengerCommand;
 using SelectJourneysCommand = RestAirline.Commands.Journey.SelectJourneysCommand;
 using UpdatePassengerNameCommand = RestAirline.CommandHandlers.Passenger.UpdatePassengerNameCommand;

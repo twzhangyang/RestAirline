@@ -12,6 +12,7 @@ using RestAirline.Commands.Journey;
 using RestAirline.Domain;
 using RestAirline.Domain.Booking;
 using RestAirline.Shared;
+using RestAirline.Shared.ModelBuilders;
 using RestAirline.TestsHelper;
 using Xunit;
 
