@@ -38,6 +38,8 @@ namespace RestAirline.Api
 
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            services.AddApplicationInsightsTelemetry();
+            
             services.AddMvc(options =>
             {
                 options.Filters.Add<UnhandledExceptionFilter>();
@@ -45,6 +47,8 @@ namespace RestAirline.Api
             
             SwaggerServicesConfiguration.Confirure(services);
 
+            services.AddHealthChecks();
+            
             services.AddHttpContextAccessor();
 
             var serviceProvider = EventFlowOptions.New
@@ -78,6 +82,8 @@ namespace RestAirline.Api
                     .AllowAnyHeader()
                     .AllowAnyMethod();
             });
+            
+            app.UseHealthChecks("/health");
             
             app.UseMvc();
             app.UseSwagger();
