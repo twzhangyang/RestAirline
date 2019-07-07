@@ -13,13 +13,11 @@ namespace RestAirline.Api.Controllers
     {
         private readonly IConfiguration _configuration;
         private readonly IHostingEnvironment _hostingEnvironment;
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(IConfiguration configuration, IHostingEnvironment hostingEnvironment, ILogger<HomeController> logger)
+        public HomeController(IConfiguration configuration, IHostingEnvironment hostingEnvironment)
         {
             _configuration = configuration;
             _hostingEnvironment = hostingEnvironment;
-            _logger = logger;
         }
 
         [Route("hello")]
