@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/restairline/restairline/_apis/build/status/restairline?branchName=master)](https://dev.azure.com/restairline/restairline/_build/latest?definitionId=4&branchName=master)
+
 # Overview
 
 * A example of DDD+CQRS+EventSourcing+Hypermedia api+ASP.NET Core 2.2
