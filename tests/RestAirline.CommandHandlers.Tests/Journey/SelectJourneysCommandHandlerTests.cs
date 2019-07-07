@@ -1,46 +1,20 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
-using EventFlow;
-using EventFlow.Aggregates;
-using EventFlow.Configuration;
-using EventFlow.DependencyInjection.Extensions;
 using FluentAssertions;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using RestAirline.Commands.Journey;
-using RestAirline.Domain;
 using RestAirline.Domain.Booking;
-using RestAirline.Shared;
 using RestAirline.Shared.ModelBuilders;
-using RestAirline.TestsHelper;
 using Xunit;
 
 namespace RestAirline.CommandHandlers.Tests.Journey
 {
-    public class SelectJourneysCommandHandlerTests : IDisposable
+    public class SelectJourneysCommandHandlerTests : TestBase 
     {
-        private readonly IRootResolver _resolver;
-        private readonly ICommandBus _commandBus;
         private readonly BookingId _bookingId;
-        private readonly IAggregateStore _aggregateStore;
-
 
         public SelectJourneysCommandHandlerTests()
         {
-            var services = new ServiceCollection();
-            ConfigurationRootCreator.Create(services);
-              
             _bookingId = BookingId.New;
-            _resolver = EventFlowOptions.New
-                .UseServiceCollection(services)
-                .RegisterModule<BookingDomainModule>()
-                .RegisterModule<CommandModule>()
-                .RegisterModule<CommandHandlersModule>()
-                .CreateResolver();
-
-            _commandBus = _resolver.Resolve<ICommandBus>();
-            _aggregateStore = _resolver.Resolve<IAggregateStore>();
         }
 
         [Fact]
@@ -51,16 +25,11 @@ namespace RestAirline.CommandHandlers.Tests.Journey
             var selectJourneysCommand = new SelectJourneysCommand(_bookingId, journeys);
 
             //Act
-            await _commandBus.PublishAsync(selectJourneysCommand, CancellationToken.None);
+            await CommandBus.PublishAsync(selectJourneysCommand, CancellationToken.None);
 
             //Assert
-            var booking = await _aggregateStore.LoadAsync<Booking, BookingId>(_bookingId, CancellationToken.None);
+            var booking = await AggregateStore.LoadAsync<Booking, BookingId>(_bookingId, CancellationToken.None);
             booking.Journeys.Should().NotBeEmpty();
-        }
-
-        public void Dispose()
-        {
-            _resolver?.Dispose();
         }
     }
 }
