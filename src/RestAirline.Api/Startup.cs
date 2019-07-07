@@ -16,12 +16,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RestAirline.Api.Filters;
 using RestAirline.Api.ServiceModules;
+using RestAirline.Api.Swagger;
 using RestAirline.CommandHandlers;
 using RestAirline.Domain;
 using RestAirline.Domain.EventSourcing;
 using RestAirline.QueryHandlers;
 using RestAirline.ReadModel.EntityFramework;
 using RestAirline.ReadModel.InMemory;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace RestAirline.Api
 {
@@ -40,6 +42,8 @@ namespace RestAirline.Api
             {
                 options.Filters.Add<UnhandledExceptionFilter>();
             });
+            
+            SwaggerServicesConfiguration.Confirure(services);
 
             services.AddHttpContextAccessor();
 
@@ -76,6 +80,11 @@ namespace RestAirline.Api
             });
             
             app.UseMvc();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
         }
     }
 }
