@@ -5,20 +5,20 @@ using Microsoft.Extensions.Configuration;
 
 namespace RestAirline.ReadModel.EntityFramework.DBContext
 {
-    public class ReadModelDbContextProvider : IDbContextProvider<ReadModelDbContext>, IDisposable
+    public class ReadModelDbContextProvider : IDbContextProvider<ReadModelContext>, IDisposable
     {
-        private readonly DbContextOptions<ReadModelDbContext> _options;
+        private readonly DbContextOptions<ReadModelContext> _options;
 
         public ReadModelDbContextProvider(IConfiguration configuration)
         {
-            _options = new DbContextOptionsBuilder<ReadModelDbContext>()
+            _options = new DbContextOptionsBuilder<ReadModelContext>()
                 .UseSqlServer(configuration["ReadModelConnectionString"])
                 .Options;
         }
 
-        public ReadModelDbContext CreateContext()
+        public ReadModelContext CreateContext()
         {
-            var context = new ReadModelDbContext(_options);
+            var context = new ReadModelContext(_options);
             context.Database.Migrate();
             return context;
         }

@@ -12,28 +12,10 @@ namespace RestAirline.Api.Controllers
     public class HomeController : Controller
     {
         private readonly IConfiguration _configuration;
-        private readonly IHostingEnvironment _hostingEnvironment;
 
-        public HomeController(IConfiguration configuration, IHostingEnvironment hostingEnvironment)
+        public HomeController(IConfiguration configuration)
         {
             _configuration = configuration;
-            _hostingEnvironment = hostingEnvironment;
-        }
-
-        [Route("hello")]
-        [HttpGet]
-        public object Hello()
-        {
-            var dt = DateTime.Now;
-            var settings = new
-            {
-                Message = "Hello, Welcome to RestAirline Api",
-                EnvironmentName = _hostingEnvironment.EnvironmentName,
-                LocalDate = dt,
-                UtcDate=dt.ToUniversalTime()
-            };
-
-            return settings;
         }
 
         [Route("vars")]

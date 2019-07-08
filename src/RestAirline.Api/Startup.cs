@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using EventFlow;
@@ -9,12 +10,17 @@ using EventFlow.MsSql;
 using EventFlow.MsSql.EventStores;
 using EventFlow.MsSql.Extensions;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Hosting;
 using RestAirline.Api.Filters;
+using RestAirline.Api.HealthCheck;
 using RestAirline.Api.ServiceModules;
 using RestAirline.Api.Swagger;
 using RestAirline.CommandHandlers;
@@ -23,7 +29,9 @@ using RestAirline.Domain.EventSourcing;
 using RestAirline.QueryHandlers;
 using RestAirline.ReadModel.EntityFramework;
 using RestAirline.ReadModel.InMemory;
+using RestAirline.Shared.Extensions;
 using Swashbuckle.AspNetCore.Swagger;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace RestAirline.Api
 {
@@ -39,16 +47,13 @@ namespace RestAirline.Api
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddApplicationInsightsTelemetry();
-            
-            services.AddMvc(options =>
-            {
-                options.Filters.Add<UnhandledExceptionFilter>();
-            });
-            
+
+            services.AddMvc(options => { options.Filters.Add<UnhandledExceptionFilter>(); });
+
             SwaggerServicesConfiguration.Confirure(services);
 
-            services.AddHealthChecks();
-            
+            RegisterHealthCheck(services);
+
             services.AddHttpContextAccessor();
 
             var serviceProvider = EventFlowOptions.New
@@ -66,7 +71,6 @@ namespace RestAirline.Api
                 .CreateServiceProvider();
 
             return serviceProvider;
-
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -82,15 +86,56 @@ namespace RestAirline.Api
                     .AllowAnyHeader()
                     .AllowAnyMethod();
             });
-            
-            app.UseHealthChecks("/health");
-            
+
+            var healthCheckResponseWriterProvider = new HealthCheckerResponseProvider(env);
+            app.UseHealthChecks("/health/ready", new HealthCheckOptions
+            {
+                Predicate = (check) => check.Tags.Contains("ready"),
+                ResponseWriter = healthCheckResponseWriterProvider.Writer
+            });
+
+            app.UseHealthChecks("/health/live", new HealthCheckOptions
+            {
+                Predicate = (_) => false,
+                ResponseWriter = healthCheckResponseWriterProvider.Writer
+            });
+
             app.UseMvc();
             app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-            });
+            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
+        }
+        
+        private void RegisterHealthCheck(IServiceCollection services)
+        {
+            services.AddHostedService<StartupHostedService>();
+            services.AddSingleton<StartupHostedServiceHealthCheck>();
+
+            services.AddHealthChecks()
+                .AddCheck<StartupHostedServiceHealthCheck>(
+                    "hosted_service_startup",
+                    failureStatus: HealthStatus.Degraded,
+                    tags: new[] {"ready"});
+
+//            services.Configure<HealthCheckPublisherOptions>(options =>
+//            {
+//                options.Delay = TimeSpan.FromSeconds(2);
+//                options.Predicate = (check) => check.Tags.Contains("ready");
+//            });
+//
+//            // The following workaround permits adding an IHealthCheckPublisher 
+//            // instance to the service container when one or more other hosted 
+//            // services have already been added to the app. This workaround
+//            // won't be required with the release of ASP.NET Core 3.0. For more 
+//            // information, see: https://github.com/aspnet/Extensions/issues/639.
+//            string HealthCheckServiceAssembly =
+//                "Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherHostedService";
+//
+//            services.TryAddEnumerable(
+//                ServiceDescriptor.Singleton(typeof(IHostedService),
+//                    typeof(HealthCheckPublisherOptions).Assembly
+//                        .GetType(HealthCheckServiceAssembly)));
+//
+//            services.AddSingleton<IHealthCheckPublisher, ReadinessPublisher>();
         }
     }
 }

@@ -8,7 +8,7 @@ using RestAirline.ReadModel.EntityFramework.DBContext;
 
 namespace RestAirline.ReadModel.EntityFramework.Migrations
 {
-    [DbContext(typeof(ReadModelDbContext))]
+    [DbContext(typeof(ReadModelContext))]
     partial class ReadModelDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

@@ -14,8 +14,8 @@ namespace RestAirline.ReadModel.EntityFramework
         {
             eventFlowOptions.ConfigureEntityFramework(EntityFrameworkConfiguration.New)
                 .AddDefaults(typeof(EntityFrameworkReadModelModule).Assembly)
-                .AddDbContextProvider<ReadModelDbContext, ReadModelDbContextProvider>()
-                .UseEntityFrameworkReadModel<BookingReadModel, ReadModelDbContext>()
+                .AddDbContextProvider<ReadModelContext, ReadModelDbContextProvider>()
+                .UseEntityFrameworkReadModel<BookingReadModel, ReadModelContext>()
                 ;
         }
     }
