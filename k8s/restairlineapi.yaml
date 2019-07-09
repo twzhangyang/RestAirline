@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: restairline-api
-          image: restairlinetest.azurecr.io/restairline:v1
+          image: restairline.azurecr.io/restairline:107
           imagePullPolicy: Always
           env:
             - name: EventStoreConnectionString
@@ -33,12 +33,23 @@ spec:
                   name: externalcfg
                   key: ReadModelConnectionString
             - name: OrchestratorType
-              value: 'K8S'
+              value: 'k8s'
             - name: ASPNETCORE_ENVIRONMENT
               value: Test 
           ports:
             - containerPort: 80
-
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 20
+          livenessProbe:
+            httpGet:
+              path: /health/live
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 20
       imagePullSecrets:
         - name: registry-key
 ---

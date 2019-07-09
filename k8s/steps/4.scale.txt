@@ -1,7 +1,7 @@
 scale up/down, rolling update, roll back, 
 
-1. docker push restairlinetest.azurecr.io/restairline:v2
-2. kubectl set image deployment restairline-api restairline-api=restairlinetest.azurecr.io/restairline:v2
+1. docker push restairline.azurecr.io/restairline:v2
+2. kubectl set image deployment restairline-api restairline-api=restairline.azurecr.io/restairline:v2
 3. kubectl scale deployment restairline-api --replicas=3
 4. kubectl rollout undo deployments restairline-api 
 5. az aks scale --name restairlineCluster --resource-group restairline-group -c 2

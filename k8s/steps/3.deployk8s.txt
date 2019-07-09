@@ -1,6 +1,6 @@
 deploy:
 
-1. kubectl create secret docker-registry registry-key --docker-server=restairlinetest.azurecr.io --docker-username=restairlinetest --docker-password=M3mf3N1MkZFf+P0etGVk7njib6qGweJO --docker-email=test@test.com
+1. kubectl create secret docker-registry registry-key --docker-server=restairline.azurecr.io --docker-username=restairline --docker-password={password} --docker-email=test@test.com
 2. kubectl apply -f conf_local.yaml
 3. kubectl apply -f sql-data.yaml 
 4. kubectl apply -f restairlineapi.yaml 
