@@ -11,7 +11,6 @@ namespace RestAirline.Api.HealthCheck
 {
     public class StartupHostedService : IHostedService, IDisposable
     {
-        private readonly int _delaySeconds = 15;
         private readonly ILogger _logger;
         private readonly StartupHostedServiceHealthCheck _startupHostedServiceHealthCheck;
         private readonly IDbContextProvider<EventStoreContext> _eventStoreContextProvider;
@@ -32,8 +31,7 @@ namespace RestAirline.Api.HealthCheck
         {
             _logger.LogInformation($"Start preparing downstream infrastructure");
 
-            // Simulate the effect of a long-running startup task.
-            Task.Run(async () =>
+            Task.Run(() =>
             {
                 _eventStoreContextProvider.CreateContext();
                 _readModelContextProvider.CreateContext();
@@ -41,7 +39,7 @@ namespace RestAirline.Api.HealthCheck
                 _startupHostedServiceHealthCheck.StartupTaskCompleted = true;
 
                 _logger.LogInformation($"Downstream infrastructure is ready");
-            });
+            }, cancellationToken);
 
             return Task.CompletedTask;
         }

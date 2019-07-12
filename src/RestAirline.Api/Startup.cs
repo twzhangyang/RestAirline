@@ -104,7 +104,7 @@ namespace RestAirline.Api
             app.UseSwagger();
             app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
         }
-        
+
         private void RegisterHealthCheck(IServiceCollection services)
         {
             services.AddHostedService<StartupHostedService>();
@@ -115,27 +115,6 @@ namespace RestAirline.Api
                     "hosted_service_startup",
                     failureStatus: HealthStatus.Degraded,
                     tags: new[] {"ready"});
-
-//            services.Configure<HealthCheckPublisherOptions>(options =>
-//            {
-//                options.Delay = TimeSpan.FromSeconds(2);
-//                options.Predicate = (check) => check.Tags.Contains("ready");
-//            });
-//
-//            // The following workaround permits adding an IHealthCheckPublisher 
-//            // instance to the service container when one or more other hosted 
-//            // services have already been added to the app. This workaround
-//            // won't be required with the release of ASP.NET Core 3.0. For more 
-//            // information, see: https://github.com/aspnet/Extensions/issues/639.
-//            string HealthCheckServiceAssembly =
-//                "Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherHostedService";
-//
-//            services.TryAddEnumerable(
-//                ServiceDescriptor.Singleton(typeof(IHostedService),
-//                    typeof(HealthCheckPublisherOptions).Assembly
-//                        .GetType(HealthCheckServiceAssembly)));
-//
-//            services.AddSingleton<IHealthCheckPublisher, ReadinessPublisher>();
         }
     }
 }
