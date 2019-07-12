@@ -35,7 +35,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Domain.Tests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.QueryHandlers.Tests", "tests\RestAirline.QueryHandlers.Tests\RestAirline.QueryHandlers.Tests.csproj", "{B29E6FC3-8FC6-40EE-AB0F-4DD0EF8184E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.Tests", "tests\RestAirline.ReadModel.Tests\RestAirline.ReadModel.Tests.csproj", "{2721C6E3-CF57-487F-9EF4-E2C21E4694EC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.InMemory.Tests", "tests\RestAirline.ReadModel.InMemory.Tests\RestAirline.ReadModel.InMemory.Tests.csproj", "{2721C6E3-CF57-487F-9EF4-E2C21E4694EC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.TestsHelper", "tests\RestAirline.TestsHelper\RestAirline.TestsHelper.csproj", "{89D9E208-A642-43AF-85E3-F26C6D77A638}"
 EndProject

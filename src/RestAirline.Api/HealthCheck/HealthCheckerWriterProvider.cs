@@ -26,7 +26,7 @@ namespace RestAirline.Api
                 EnvironmentName = _hostingEnvironment.EnvironmentName,
                 LocalDate = dt,
                 UtcDate = dt.ToUniversalTime(),
-                Status = result.Status
+                Status = result.Status.ToString()
             };
 
             return httpContext.Response.WriteAsync(settings.SerializeToCamelCase());
