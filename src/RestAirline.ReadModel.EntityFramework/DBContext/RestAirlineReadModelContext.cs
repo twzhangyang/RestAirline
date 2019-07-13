@@ -4,9 +4,9 @@ using RestAirline.ReadModel.EntityFramework.Booking;
 
 namespace RestAirline.ReadModel.EntityFramework.DBContext
 {
-    public class ReadModelContext : DbContext
+    public class RestAirlineReadModelContext : DbContext
     {
-        public ReadModelContext(DbContextOptions<ReadModelContext> options) : base(options)
+        public RestAirlineReadModelContext(DbContextOptions<RestAirlineReadModelContext> options) : base(options)
         {
         }
 
@@ -38,14 +38,14 @@ namespace RestAirline.ReadModel.EntityFramework.DBContext
         }
     }
 
-    public class ReadModelDbContextDesignFactory : IDesignTimeDbContextFactory<ReadModelContext>
+    public class ReadModelDbContextDesignFactory : IDesignTimeDbContextFactory<RestAirlineReadModelContext>
     {
-        public ReadModelContext CreateDbContext(string[] args)
+        public RestAirlineReadModelContext CreateDbContext(string[] args)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<ReadModelContext>()
+            var optionsBuilder = new DbContextOptionsBuilder<RestAirlineReadModelContext>()
                 .UseSqlServer("Server=localhost;Database=RestAirlineRead;User Id=sa;Password=RestAirline123");
 
-            return new ReadModelContext(optionsBuilder.Options);
+            return new RestAirlineReadModelContext(optionsBuilder.Options);
         }
     }
 }

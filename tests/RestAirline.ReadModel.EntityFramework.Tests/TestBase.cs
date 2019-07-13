@@ -2,9 +2,11 @@ using System;
 using EventFlow;
 using EventFlow.Configuration;
 using EventFlow.DependencyInjection.Extensions;
+using EventFlow.EntityFramework;
 using Microsoft.Extensions.DependencyInjection;
 using RestAirline.CommandHandlers;
 using RestAirline.Domain;
+using RestAirline.ReadModel.EntityFramework.DBContext;
 using RestAirline.TestsHelper;
 
 namespace RestAirline.ReadModel.EntityFramework.Tests
@@ -25,6 +27,10 @@ namespace RestAirline.ReadModel.EntityFramework.Tests
                 .RegisterModule<CommandModule>()
                 .RegisterModule<CommandHandlersModule>()
                 .RegisterModule<EntityFrameworkReadModelModule>()
+                .RegisterServices(register =>
+                {
+                    register.Register<IDbContextProvider<RestAirlineReadModelContext>, FakedEntityFramewokReadModelDbContextProvider>();
+                })
                 .CreateResolver();
 
             CommandBus = Resolver.Resolve<ICommandBus>();

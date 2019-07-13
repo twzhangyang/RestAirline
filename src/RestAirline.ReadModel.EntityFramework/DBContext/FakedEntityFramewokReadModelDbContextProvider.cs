@@ -3,16 +3,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace RestAirline.ReadModel.EntityFramework.DBContext
 {
-    public class FakedEntityFramewokReadModelDbContextProvider : IDbContextProvider<ReadModelContext>
+    public class FakedEntityFramewokReadModelDbContextProvider : IDbContextProvider<RestAirlineReadModelContext>
     {
-        public ReadModelContext CreateContext()
+        public RestAirlineReadModelContext CreateContext()
         {
-            var options = new DbContextOptionsBuilder<ReadModelContext>()
+            var options = new DbContextOptionsBuilder<RestAirlineReadModelContext>()
                 .UseInMemoryDatabase("for testing")
                 .Options;
 
-            var context = new ReadModelContext(options);
-            context.Database.Migrate();
+            var context= new RestAirlineReadModelContext(options);
             return context;
         }
     }

@@ -14,12 +14,12 @@ namespace RestAirline.Api.HealthCheck
         private readonly ILogger _logger;
         private readonly StartupHostedServiceHealthCheck _startupHostedServiceHealthCheck;
         private readonly IDbContextProvider<EventStoreContext> _eventStoreContextProvider;
-        private readonly IDbContextProvider<ReadModelContext> _readModelContextProvider;
+        private readonly IDbContextProvider<RestAirlineReadModelContext> _readModelContextProvider;
 
         public StartupHostedService(ILogger<StartupHostedService> logger,
             StartupHostedServiceHealthCheck startupHostedServiceHealthCheck,
             IDbContextProvider<EventStoreContext> eventStoreContextProvider,
-            IDbContextProvider<ReadModelContext> readModelContextProvider)
+            IDbContextProvider<RestAirlineReadModelContext> readModelContextProvider)
         {
             _logger = logger;
             _startupHostedServiceHealthCheck = startupHostedServiceHealthCheck;

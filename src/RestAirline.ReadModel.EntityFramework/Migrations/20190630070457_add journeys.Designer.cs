@@ -9,7 +9,7 @@ using RestAirline.ReadModel.EntityFramework.DBContext;
 
 namespace RestAirline.ReadModel.EntityFramework.Migrations
 {
-    [DbContext(typeof(ReadModelContext))]
+    [DbContext(typeof(RestAirlineReadModelContext))]
     [Migration("20190630070457_add journeys")]
     partial class addjourneys
     {

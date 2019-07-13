@@ -8,7 +8,7 @@ using RestAirline.ReadModel.EntityFramework.DBContext;
 
 namespace RestAirline.ReadModel.EntityFramework.Migrations
 {
-    [DbContext(typeof(ReadModelContext))]
+    [DbContext(typeof(RestAirlineReadModelContext))]
     [Migration("20190630070307_initalize booking read model")]
     partial class initalizebookingreadmodel
     {
