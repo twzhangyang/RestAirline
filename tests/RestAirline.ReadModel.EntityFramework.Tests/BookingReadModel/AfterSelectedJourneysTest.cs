@@ -11,7 +11,7 @@ namespace RestAirline.ReadModel.EntityFramework.Tests.BookingReadModel
 {
     public class AfterSelectedJourneysTest : TestBase
     {
-        private FakedEntityFramewokReadModelDbContextProvider _contextProvider;
+        private readonly FakedEntityFramewokReadModelDbContextProvider _contextProvider;
 
         public AfterSelectedJourneysTest()
         {

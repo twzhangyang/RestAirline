@@ -3,8 +3,10 @@ using EventFlow;
 using EventFlow.Aggregates;
 using EventFlow.Configuration;
 using EventFlow.DependencyInjection.Extensions;
+using EventFlow.EntityFramework;
 using Microsoft.Extensions.DependencyInjection;
 using RestAirline.Domain;
+using RestAirline.Domain.EventSourcing;
 using RestAirline.TestsHelper;
 
 namespace RestAirline.CommandHandlers.Tests
@@ -19,14 +21,15 @@ namespace RestAirline.CommandHandlers.Tests
         {
             var services = new ServiceCollection();
             ConfigurationRootCreator.Create(services);
-            
+
             Resolver = EventFlowOptions.New
                 .UseServiceCollection(services)
                 .RegisterModule<BookingDomainModule>()
                 .RegisterModule<CommandModule>()
                 .RegisterModule<CommandHandlersModule>()
+                .RegisterServices(r => r.Register<IDbContextProvider<EventStoreContext>, FakedEventStoreContextProvider>())
                 .CreateResolver();
-            
+
             CommandBus = Resolver.Resolve<ICommandBus>();
             AggregateStore = Resolver.Resolve<IAggregateStore>();
         }

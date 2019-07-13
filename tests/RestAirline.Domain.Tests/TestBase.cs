@@ -6,8 +6,10 @@ using EventFlow.Aggregates;
 using EventFlow.Configuration;
 using EventFlow.Core;
 using EventFlow.DependencyInjection.Extensions;
+using EventFlow.EntityFramework;
 using Microsoft.Extensions.DependencyInjection;
 using RestAirline.Domain.Booking;
+using RestAirline.Domain.EventSourcing;
 using RestAirline.TestsHelper;
 
 namespace RestAirline.Domain.Tests
@@ -27,6 +29,7 @@ namespace RestAirline.Domain.Tests
             Resolver = EventFlowOptions.New
                 .UseServiceCollection(services)
                 .RegisterModule<BookingDomainModule>()
+                .RegisterServices(r => r.Register<IDbContextProvider<EventStoreContext>, FakedEventStoreContextProvider>())
                 .CreateResolver();
 
             AggregateStore = Resolver.Resolve<IAggregateStore>();

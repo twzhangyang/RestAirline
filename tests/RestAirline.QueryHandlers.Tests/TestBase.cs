@@ -6,6 +6,7 @@ using EventFlow.EntityFramework;
 using Microsoft.Extensions.DependencyInjection;
 using RestAirline.CommandHandlers;
 using RestAirline.Domain;
+using RestAirline.Domain.EventSourcing;
 using RestAirline.QueryHandlers;
 using RestAirline.ReadModel.EntityFramework;
 using RestAirline.ReadModel.EntityFramework.DBContext;
@@ -36,6 +37,7 @@ namespace RestAirline.ReadModel.Tests
                 {
                     register.Register<IDbContextProvider<RestAirlineReadModelContext>, FakedEntityFramewokReadModelDbContextProvider>();
                     register.Register<FakedEntityFramewokReadModelDbContextProvider, FakedEntityFramewokReadModelDbContextProvider>();
+                    register.Register<IDbContextProvider<EventStoreContext>, FakedEventStoreContextProvider>();
                 })
                 .CreateResolver();
 
