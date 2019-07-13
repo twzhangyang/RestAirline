@@ -11,7 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="EventFlow" Version="0.73.3933" />
+      <PackageReference Include="EventFlow" Version="0.74.3948" />
       <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
     </ItemGroup>
 
