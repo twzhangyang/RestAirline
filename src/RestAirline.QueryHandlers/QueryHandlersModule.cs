@@ -2,7 +2,8 @@ using System.Reflection;
 using EventFlow;
 using EventFlow.Configuration;
 using EventFlow.Extensions;
-using RestAirline.QueryHandlers.Journeys;
+using RestAirline.QueryHandlers.Booking;
+using RestAirline.QueryHandlers.Stations;
 
 namespace RestAirline.QueryHandlers
 {
@@ -10,7 +11,10 @@ namespace RestAirline.QueryHandlers
     {
         public void Register(IEventFlowOptions eventFlowOptions)
         {
-            eventFlowOptions.AddQueryHandlers(typeof(GetDepartureStationQueryHandler));
+            // Not sure why this not work
+//            eventFlowOptions.AddQueryHandlers(typeof(QueryHandlersModule).Assembly);
+
+            eventFlowOptions.RegisterServices(r => { r.Register<BookingQueryHandler, BookingQueryHandler>(); });
         }
     }
 }

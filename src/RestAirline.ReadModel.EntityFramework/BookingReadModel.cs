@@ -28,8 +28,6 @@ namespace RestAirline.ReadModel.EntityFramework
         [ConcurrencyCheck] 
         public long Version { get; set; }
         
-        public string DepartureStation { get; set; }
-        
         public List<Passenger> Passengers { get; set; }
         
         public List<Journey> Journeys { get; set; }
@@ -39,7 +37,6 @@ namespace RestAirline.ReadModel.EntityFramework
         {
             var journeys = domainEvent.AggregateEvent.Journeys.Select(j => j.ToReadModel());
             
-            DepartureStation = domainEvent.AggregateEvent.Journeys.First().DepartureStation;
             Journeys = journeys.ToList();
         }
 

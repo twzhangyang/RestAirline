@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using EventFlow.Queries;
 
-namespace RestAirline.Queries.Journeys
+namespace RestAirline.Queries.Stations
 {
     public class GetDepartureStationsQuery : IQuery<List<string>>
     {

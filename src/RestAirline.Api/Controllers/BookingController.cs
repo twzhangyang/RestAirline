@@ -2,12 +2,14 @@
 using System.Threading;
 using System.Threading.Tasks;
 using EventFlow;
-using EventFlow.EntityFramework.ReadStores;
+using EventFlow.Queries;
 using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Resources.Booking;
 using RestAirline.Api.Resources.Booking.Journey;
 using RestAirline.Api.Resources.Booking.Passenger;
 using RestAirline.Domain.Booking;
+using RestAirline.QueryHandlers.Booking;
+using RestAirline.ReadModel.EntityFramework;
 using RestAirline.Shared.ModelBuilders;
 using AddPassengerCommand = RestAirline.CommandHandlers.Passenger.AddPassengerCommand;
 using SelectJourneysCommand = RestAirline.Commands.Journey.SelectJourneysCommand;
@@ -19,13 +21,17 @@ namespace RestAirline.Api.Controllers
     public class BookingController : Controller
     {
         private readonly ICommandBus _commandBus;
-        private readonly IEntityFrameworkReadModelStore<ReadModel.EntityFramework.BookingReadModel> _efReadStore;
+        private readonly IQueryHandler<ReadModelByIdQuery<BookingReadModel>, BookingReadModel> _bookingQueryHandler;
+        private readonly BookingQueryHandler _queryHandler;
 
         public BookingController(ICommandBus commandBus,  
-            IEntityFrameworkReadModelStore<ReadModel.EntityFramework.BookingReadModel> efReadStore)
+            IQueryHandler<ReadModelByIdQuery<BookingReadModel>, BookingReadModel> bookingQueryHandle,
+            BookingQueryHandler queryHandler
+            )
         {
             _commandBus = commandBus;
-            _efReadStore = efReadStore;
+            _bookingQueryHandler = bookingQueryHandle;
+            _queryHandler = queryHandler;
         }
 
         [Route("journeys")]
@@ -45,9 +51,16 @@ namespace RestAirline.Api.Controllers
         [HttpGet]
         public async Task<BookingResource> GetBooking(string bookingId)
         {
-            var booking = await _efReadStore.GetAsync(bookingId, CancellationToken.None);
-
-            return new BookingResource(Url, booking.ReadModel);
+            // Not sure why this does not work
+//            var booking = await _bookingQueryHandler.ExecuteQueryAsync(
+//                new ReadModelByIdQuery<BookingReadModel>(bookingId),
+//                new CancellationToken());
+            
+            var booking = await _queryHandler.ExecuteQueryAsync(
+                new ReadModelByIdQuery<BookingReadModel>(bookingId),
+                new CancellationToken());
+            
+            return new BookingResource(Url, booking);
         }
 
         [Route("/{bookingId}/passenger")]

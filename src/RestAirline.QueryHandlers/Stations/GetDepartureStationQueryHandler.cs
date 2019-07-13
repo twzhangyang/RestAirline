@@ -4,11 +4,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using EventFlow.Queries;
 using EventFlow.ReadStores.InMemory;
-using RestAirline.Queries.Journeys;
-using RestAirline.ReadModel;
+using RestAirline.Queries.Stations;
 using RestAirline.ReadModel.InMemory;
 
-namespace RestAirline.QueryHandlers.Journeys
+namespace RestAirline.QueryHandlers.Stations
 {
     public class GetDepartureStationQueryHandler : IQueryHandler<GetDepartureStationsQuery, List<string>>
     {

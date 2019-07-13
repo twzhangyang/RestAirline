@@ -22,12 +22,12 @@ namespace RestAirline.ReadModel.EntityFramework.DBContext
         {
             modelBuilder.Entity<BookingReadModel>()
                 .HasMany<Passenger>()
-                .WithOne(p => p.BookingReadModel)
+                .WithOne()
                 ;
 
             modelBuilder.Entity<BookingReadModel>()
                 .HasMany<Journey>()
-                .WithOne(j => j.BookingReadModel)
+                .WithOne()
                 ;
 
             modelBuilder.Entity<Journey>()

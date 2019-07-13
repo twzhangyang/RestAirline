@@ -6,7 +6,7 @@ using EventFlow.Queries;
 using FluentAssertions;
 using RestAirline.Commands.Journey;
 using RestAirline.Domain.Booking;
-using RestAirline.Queries.Journeys;
+using RestAirline.Queries.Stations;
 using RestAirline.ReadModel.Tests;
 using RestAirline.Shared;
 using RestAirline.Shared.ModelBuilders;

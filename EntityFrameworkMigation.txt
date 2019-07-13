@@ -6,4 +6,6 @@ GO
 
 drop database RestAirlineRead
 
-create database RestAirlineRead
+
+dotnet ef migrations add "migration names"
+dotnet ef database update

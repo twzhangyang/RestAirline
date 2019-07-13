@@ -23,8 +23,6 @@ namespace RestAirline.Api.Resources.Booking.Journey
         public decimal Price { get; set; }
 
         public Aircraft Aircraft { get; set; }
-        
-        public Journey Journey { get; set; }
     }
 
     public static class FlightMapper

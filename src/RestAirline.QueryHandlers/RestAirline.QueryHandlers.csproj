@@ -10,6 +10,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\RestAirline.Queries\RestAirline.Queries.csproj" />
+      <ProjectReference Include="..\RestAirline.ReadModel.EntityFramework\RestAirline.ReadModel.EntityFramework.csproj" />
       <ProjectReference Include="..\RestAirline.ReadModel.InMemory\RestAirline.ReadModel.InMemory.csproj" />
     </ItemGroup>
 

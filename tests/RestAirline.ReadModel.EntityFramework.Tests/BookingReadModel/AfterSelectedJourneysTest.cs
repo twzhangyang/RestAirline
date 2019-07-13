@@ -2,6 +2,8 @@
 using System.Threading.Tasks;
 using EventFlow.EntityFramework.ReadStores;
 using FluentAssertions;
+using Microsoft.EntityFrameworkCore;
+using RestAirline.ReadModel.EntityFramework.DBContext;
 using RestAirline.TestsHelper.TestScenario;
 using Xunit;
 
@@ -9,11 +11,11 @@ namespace RestAirline.ReadModel.EntityFramework.Tests.BookingReadModel
 {
     public class AfterSelectedJourneysTest : TestBase
     {
-        private readonly IEntityFrameworkReadModelStore<EntityFramework.BookingReadModel> _bookingReadModel;
+        private FakedEntityFramewokReadModelDbContextProvider _contextProvider;
 
         public AfterSelectedJourneysTest()
         {
-            _bookingReadModel = Resolver.Resolve<IEntityFrameworkReadModelStore<EntityFramework.BookingReadModel>>();
+            _contextProvider = Resolver.Resolve<FakedEntityFramewokReadModelDbContextProvider>();
         }
 
         [Fact]
@@ -25,11 +27,16 @@ namespace RestAirline.ReadModel.EntityFramework.Tests.BookingReadModel
             //Act
             await selectJourneysScenario.Execute();
             var bookingId = selectJourneysScenario.BookingId;
-            
+
             //Assert
-            var bookings = await _bookingReadModel.GetAsync(bookingId.Value, CancellationToken.None);
-            var booking = bookings.ReadModel;
-            booking.Journeys.Should().NotBeEmpty();
+            using (var context = _contextProvider.CreateContext())
+            {
+                var booking = await context.Bookings
+                    .Include(x => x.Journeys)
+                    .Include(x => x.Passengers)
+                    .SingleAsync(x => x.Id == bookingId.Value, CancellationToken.None);
+                booking.Journeys.Should().NotBeEmpty();
+            }
         }
     }
 }

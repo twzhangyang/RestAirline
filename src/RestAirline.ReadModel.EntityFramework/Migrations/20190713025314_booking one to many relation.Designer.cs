@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RestAirline.ReadModel.EntityFramework.DBContext;
 
 namespace RestAirline.ReadModel.EntityFramework.Migrations
 {
     [DbContext(typeof(RestAirlineReadModelContext))]
-    partial class ReadModelDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190713025314_booking one to many relation")]
+    partial class bookingonetomanyrelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,9 +62,9 @@ namespace RestAirline.ReadModel.EntityFramework.Migrations
 
                     b.Property<string>("ArriveStation");
 
-                    b.Property<string>("BookingReadModelId");
+                    b.Property<string>("BookingId");
 
-                    b.Property<string>("BookingReadModelId1");
+                    b.Property<string>("BookingReadModelId");
 
                     b.Property<DateTime>("DepartureDate");
 
@@ -74,9 +76,9 @@ namespace RestAirline.ReadModel.EntityFramework.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BookingReadModelId");
+                    b.HasIndex("BookingId");
 
-                    b.HasIndex("BookingReadModelId1");
+                    b.HasIndex("BookingReadModelId");
 
                     b.ToTable("Journeys");
                 });
@@ -88,9 +90,9 @@ namespace RestAirline.ReadModel.EntityFramework.Migrations
 
                     b.Property<int>("Age");
 
-                    b.Property<string>("BookingReadModelId");
+                    b.Property<string>("BookingId");
 
-                    b.Property<string>("BookingReadModelId1");
+                    b.Property<string>("BookingReadModelId");
 
                     b.Property<string>("Email");
 
@@ -105,9 +107,9 @@ namespace RestAirline.ReadModel.EntityFramework.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BookingReadModelId");
+                    b.HasIndex("BookingId");
 
-                    b.HasIndex("BookingReadModelId1");
+                    b.HasIndex("BookingReadModelId");
 
                     b.ToTable("Passengers");
                 });
@@ -136,24 +138,24 @@ namespace RestAirline.ReadModel.EntityFramework.Migrations
 
             modelBuilder.Entity("RestAirline.ReadModel.EntityFramework.Booking.Journey", b =>
                 {
+                    b.HasOne("RestAirline.ReadModel.EntityFramework.BookingReadModel")
+                        .WithMany()
+                        .HasForeignKey("BookingId");
+
                     b.HasOne("RestAirline.ReadModel.EntityFramework.BookingReadModel", "BookingReadModel")
                         .WithMany("Journeys")
                         .HasForeignKey("BookingReadModelId");
-
-                    b.HasOne("RestAirline.ReadModel.EntityFramework.BookingReadModel")
-                        .WithMany()
-                        .HasForeignKey("BookingReadModelId1");
                 });
 
             modelBuilder.Entity("RestAirline.ReadModel.EntityFramework.Booking.Passenger", b =>
                 {
+                    b.HasOne("RestAirline.ReadModel.EntityFramework.BookingReadModel")
+                        .WithMany()
+                        .HasForeignKey("BookingId");
+
                     b.HasOne("RestAirline.ReadModel.EntityFramework.BookingReadModel", "BookingReadModel")
                         .WithMany("Passengers")
                         .HasForeignKey("BookingReadModelId");
-
-                    b.HasOne("RestAirline.ReadModel.EntityFramework.BookingReadModel")
-                        .WithMany()
-                        .HasForeignKey("BookingReadModelId1");
                 });
 #pragma warning restore 612, 618
         }

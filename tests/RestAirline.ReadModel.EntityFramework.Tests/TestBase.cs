@@ -30,6 +30,7 @@ namespace RestAirline.ReadModel.EntityFramework.Tests
                 .RegisterServices(register =>
                 {
                     register.Register<IDbContextProvider<RestAirlineReadModelContext>, FakedEntityFramewokReadModelDbContextProvider>();
+                    register.Register<FakedEntityFramewokReadModelDbContextProvider, FakedEntityFramewokReadModelDbContextProvider>();
                 })
                 .CreateResolver();
 
