@@ -12,7 +12,7 @@ namespace RestAirline.QueryHandlers
         public void Register(IEventFlowOptions eventFlowOptions)
         {
             // Not sure why this not work
-//            eventFlowOptions.AddQueryHandlers(typeof(QueryHandlersModule).Assembly);
+            eventFlowOptions.AddQueryHandlers(typeof(QueryHandlersModule).Assembly);
 
             eventFlowOptions.RegisterServices(r => { r.Register<BookingQueryHandler, BookingQueryHandler>(); });
         }
