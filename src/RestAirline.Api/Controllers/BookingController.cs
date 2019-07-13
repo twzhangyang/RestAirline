@@ -3,14 +3,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using EventFlow;
 using EventFlow.EntityFramework.ReadStores;
-using EventFlow.ReadStores.InMemory;
 using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Resources.Booking;
 using RestAirline.Api.Resources.Booking.Journey;
 using RestAirline.Api.Resources.Booking.Passenger;
 using RestAirline.Domain.Booking;
-using RestAirline.ReadModel;
-using RestAirline.Shared;
 using RestAirline.Shared.ModelBuilders;
 using AddPassengerCommand = RestAirline.CommandHandlers.Passenger.AddPassengerCommand;
 using SelectJourneysCommand = RestAirline.Commands.Journey.SelectJourneysCommand;
@@ -22,14 +19,12 @@ namespace RestAirline.Api.Controllers
     public class BookingController : Controller
     {
         private readonly ICommandBus _commandBus;
-        private readonly IInMemoryReadStore<BookingReadModel> _readStore;
         private readonly IEntityFrameworkReadModelStore<ReadModel.EntityFramework.BookingReadModel> _efReadStore;
 
-        public BookingController(ICommandBus commandBus, IInMemoryReadStore<BookingReadModel> readStore, 
+        public BookingController(ICommandBus commandBus,  
             IEntityFrameworkReadModelStore<ReadModel.EntityFramework.BookingReadModel> efReadStore)
         {
             _commandBus = commandBus;
-            _readStore = readStore;
             _efReadStore = efReadStore;
         }
 
@@ -50,16 +45,14 @@ namespace RestAirline.Api.Controllers
         [HttpGet]
         public async Task<BookingResource> GetBooking(string bookingId)
         {
-            var booking = await _readStore.GetAsync(bookingId, CancellationToken.None);
-            
-            var booking2 = await _efReadStore.GetAsync(bookingId, CancellationToken.None);
+            var booking = await _efReadStore.GetAsync(bookingId, CancellationToken.None);
 
             return new BookingResource(Url, booking.ReadModel);
         }
 
         [Route("/{bookingId}/passenger")]
         [HttpPost]
-        public async Task<PassengerAdditionResource> AddPassenger(string bookingId, Passenger passenger)
+        public async Task<PassengerAdditionResource> AddPassenger(string bookingId, Domain.Booking.Passenger passenger)
         {
             passenger = new PassengerBuilder().CreatePassenger();
 

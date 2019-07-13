@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RestAirline.ReadModel.Booking
+namespace RestAirline.Api.Resources.Booking.Passenger
 {
     public class Passenger
     {
@@ -16,13 +16,11 @@ namespace RestAirline.ReadModel.Booking
         public int Age { get; set; }
 
         public string Email { get; set; }
-        
-        public int BookingReadModelId { get; set; }
     }
 
     public static class PassengerMapper
     {
-        public static Passenger ToReadModel(this Domain.Booking.Passenger passenger)
+        public static Passenger ToResource(this ReadModel.EntityFramework.Booking.Passenger passenger)
         {
             var model = new Passenger
             {

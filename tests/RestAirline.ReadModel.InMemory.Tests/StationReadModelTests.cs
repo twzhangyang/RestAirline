@@ -5,6 +5,7 @@ using EventFlow.ReadStores.InMemory;
 using FluentAssertions;
 using RestAirline.Commands.Journey;
 using RestAirline.Domain.Booking;
+using RestAirline.ReadModel.InMemory;
 using RestAirline.Shared;
 using RestAirline.Shared.ModelBuilders;
 using Xunit;

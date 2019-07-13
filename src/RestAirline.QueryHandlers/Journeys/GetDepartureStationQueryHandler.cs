@@ -6,6 +6,7 @@ using EventFlow.Queries;
 using EventFlow.ReadStores.InMemory;
 using RestAirline.Queries.Journeys;
 using RestAirline.ReadModel;
+using RestAirline.ReadModel.InMemory;
 
 namespace RestAirline.QueryHandlers.Journeys
 {

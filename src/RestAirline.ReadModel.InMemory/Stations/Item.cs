@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace RestAirline.ReadModel
+namespace RestAirline.ReadModel.InMemory.Stations
 {
     public class StationItem
     {

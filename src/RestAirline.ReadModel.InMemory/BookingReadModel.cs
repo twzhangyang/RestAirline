@@ -5,10 +5,10 @@ using EventFlow.ReadStores;
 using RestAirline.Domain.Booking;
 using RestAirline.Domain.Booking.Events;
 using RestAirline.Domain.Booking.Trip.Events;
-using RestAirline.ReadModel.Booking;
-using Passenger = RestAirline.ReadModel.Booking.Passenger;
+using RestAirline.ReadModel.InMemory.Booking;
+using Passenger = RestAirline.ReadModel.InMemory.Booking.Passenger;
 
-namespace RestAirline.ReadModel
+namespace RestAirline.ReadModel.InMemory
 {
     public class BookingReadModel : IReadModel,
         IAmReadModelFor<Domain.Booking.Booking, BookingId, JourneysSelectedEvent>,

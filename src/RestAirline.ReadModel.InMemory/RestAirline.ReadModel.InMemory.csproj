@@ -10,7 +10,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\RestAirline.Domain\RestAirline.Domain.csproj" />
-      <ProjectReference Include="..\RestAirline.ReadModel\RestAirline.ReadModel.csproj" />
     </ItemGroup>
 
 </Project>

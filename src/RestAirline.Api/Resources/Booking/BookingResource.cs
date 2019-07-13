@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Controllers;
 using RestAirline.Api.Hypermedia;
-using RestAirline.ReadModel;
+using RestAirline.Api.Resources.Booking.Journey;
+using RestAirline.Api.Resources.Booking.Passenger;
+using RestAirline.ReadModel.EntityFramework;
 
 namespace RestAirline.Api.Resources.Booking
 {
@@ -16,17 +19,17 @@ namespace RestAirline.Api.Resources.Booking
 
         public BookingResource(IUrlHelper urlHelper, BookingReadModel booking)
         {
-            Id = booking.Id.Value;
+            Id = booking.Id;
             ResourceLinks = new Links(urlHelper, Id);
-            Journeys = booking.Journeys;
-            Passengers = booking.Passengers;
+            Journeys = booking.Journeys.Select(j=>j.ToResource()).ToList();
+            Passengers = booking.Passengers.Select(p=>p.ToResource()).ToList();
         }
 
         public string Id { get; }
 
-        public List<ReadModel.Booking.Journey> Journeys { get; }
+        public List<Journey.Journey> Journeys { get; }
 
-        public List<ReadModel.Booking.Passenger> Passengers { get; }
+        public List<Passenger.Passenger> Passengers { get; }
 
         public Links ResourceLinks { get; set; }
 
