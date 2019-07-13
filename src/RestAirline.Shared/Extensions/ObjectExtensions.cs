@@ -10,5 +10,15 @@ namespace RestAirline.Shared.Extensions
 
             return @this;
         }
+        
+        public static bool IsNull<T>(this T @this)
+        {
+            return @this == null;
+        }
+
+        public static bool IsNotNull<T>(this T @this)
+        {
+            return !@this.IsNull();
+        }
     }
 }
