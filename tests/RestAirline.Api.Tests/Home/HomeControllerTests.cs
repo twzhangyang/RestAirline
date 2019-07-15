@@ -14,6 +14,7 @@ namespace RestAirline.Api.Tests.Home
             
             //Assert
             home.ResourceLinks.Should().NotBeNull();
+            home.ResourceLinks.Self.Should().NotBeNull();
         }
     }
 }

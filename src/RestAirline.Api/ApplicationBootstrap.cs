@@ -30,9 +30,6 @@ namespace RestAirline.Api
 
         public static IServiceProvider RegisterServices(IServiceCollection services, IConfiguration configuration)
         {
-            RegisterHealthCheck(services);
-            SwaggerServicesConfiguration.Confirure(services);
-
             var eventFlowOptions = RegisterCommonServices(services);
 
             _serviceProvider = eventFlowOptions.CreateServiceProvider();
@@ -60,18 +57,8 @@ namespace RestAirline.Api
         public static IEventFlowOptions RegisterCommonServices(IServiceCollection services)
         {
             services.AddHttpContextAccessor();
-//            services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
-//            
-//            services.AddScoped(typeof(IUrlHelper), s =>
-//            {
-//                var context = s.ResolveService<IActionContextAccessor>();
-//                if (context.ActionContext.IsNull())
-//                {
-//                    return new UrlHelper(new ActionContext(){RouteData = new RouteData()});
-//                }
-//                var urlHelper = s.ResolveService<IUrlHelperFactory>().GetUrlHelper(context.ActionContext);
-//                return urlHelper;
-//            });
+            RegisterHealthCheck(services);
+            SwaggerServicesConfiguration.Confirure(services);
 
             var eventFlowOptions = EventFlowOptions.New
                 .UseServiceCollection(services)

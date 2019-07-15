@@ -27,7 +27,7 @@ namespace RestAirline.Api
             services.AddMvc(options => { options.Filters.Add<UnhandledExceptionFilter>(); });
 
             services.AddCors();
-            
+
             if (Environment.IsEnvironment("UnitTest"))
             {
                 return ApplicationBootstrap.RegisterServicesForTesting(services);
@@ -52,23 +52,20 @@ namespace RestAirline.Api
 
             app.UseMvc();
 
-            if (!Environment.IsEnvironment("UnitTest"))
+            var healthCheckResponseWriterProvider = new HealthCheckerResponseProvider(env);
+            app.UseHealthChecks("/health/ready", new HealthCheckOptions
             {
-                var healthCheckResponseWriterProvider = new HealthCheckerResponseProvider(env);
-                app.UseHealthChecks("/health/ready", new HealthCheckOptions
-                {
-                    Predicate = (check) => check.Tags.Contains("ready"),
-                    ResponseWriter = healthCheckResponseWriterProvider.Writer
-                });
+                Predicate = (check) => check.Tags.Contains("ready"),
+                ResponseWriter = healthCheckResponseWriterProvider.Writer
+            });
 
-                app.UseHealthChecks("/health/live", new HealthCheckOptions
-                {
-                    Predicate = (_) => false,
-                    ResponseWriter = healthCheckResponseWriterProvider.Writer
-                });
-                app.UseSwagger();
-                app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
-            }
+            app.UseHealthChecks("/health/live", new HealthCheckOptions
+            {
+                Predicate = (_) => false,
+                ResponseWriter = healthCheckResponseWriterProvider.Writer
+            });
+            app.UseSwagger();
+            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
         }
     }
 }

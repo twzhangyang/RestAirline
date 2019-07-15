@@ -9,7 +9,9 @@ namespace RestAirline.Api.Resources
     public class RestAirlineHomeResource
     {
         [Obsolete("For serialization")]
-        public RestAirlineHomeResource() { }
+        public RestAirlineHomeResource()
+        {
+        }
 
         public RestAirlineHomeResource(IUrlHelper urlHelper)
         {
@@ -26,24 +28,36 @@ namespace RestAirline.Api.Resources
         {
             private readonly IUrlHelper _urlHelper;
 
+            [Obsolete("For serialization")]
+            public Commands()
+            {
+            }
+
             public Commands(IUrlHelper urlHelper)
             {
                 _urlHelper = urlHelper;
+                SelectJourneysCommand = new SelectJourneysCommand(_urlHelper);
             }
 
-            public SelectJourneysCommand SelectJourneysCommand => new SelectJourneysCommand(_urlHelper);
+            public SelectJourneysCommand SelectJourneysCommand { get; set; }
         }
 
         public class Links
         {
             private readonly IUrlHelper _urlHelper;
 
+            [Obsolete("For serialization")]
+            public Links()
+            {
+            }
+
             public Links(IUrlHelper urlHelper)
             {
                 _urlHelper = urlHelper;
+                Self = _urlHelper.Link((HomeController c) => c.Index());
             }
 
-            public Link<RestAirlineHomeResource> Self => _urlHelper.Link((HomeController c) => c.Index());
+            public Link<RestAirlineHomeResource> Self { get; set; }
         }
     }
 }
