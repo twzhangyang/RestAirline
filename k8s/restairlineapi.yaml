@@ -51,7 +51,7 @@ spec:
             initialDelaySeconds: 5
             periodSeconds: 20
       imagePullSecrets:
-        - name: registry-key
+      - name: registry-key
 ---
 apiVersion: v1
 kind: Service
