@@ -11,10 +11,11 @@ namespace RestAirline.Api.Tests.Home
         {
             //Act
             var home = await Get<RestAirlineHomeResource>("api/home");
-            
+
             //Assert
             home.ResourceLinks.Should().NotBeNull();
             home.ResourceLinks.Self.Should().NotBeNull();
+            home.ResourceCommands.SelectJourneysCommand.Should().NotBeNull();
         }
     }
 }

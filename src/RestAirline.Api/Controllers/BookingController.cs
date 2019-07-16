@@ -36,7 +36,7 @@ namespace RestAirline.Api.Controllers
 
         [Route("journeys")]
         [HttpPost]
-        public async Task<JourneysSelectionResource> SelectJourneys(List<string> journeyIds)
+        public async Task<JourneysSelectedResource> SelectJourneys(List<string> journeyIds)
         {
             var journeys = new JourneysBuilder().BuildJourneys();
             var bookingId = BookingId.New;
@@ -44,7 +44,7 @@ namespace RestAirline.Api.Controllers
             var command = new SelectJourneysCommand(bookingId, journeys);
             await _commandBus.PublishAsync(command, CancellationToken.None);
 
-            return new JourneysSelectionResource(Url, bookingId.Value);
+            return new JourneysSelectedResource(Url, bookingId.Value);
         }
 
         [Route("{bookingId}")]
@@ -63,28 +63,28 @@ namespace RestAirline.Api.Controllers
             return new BookingResource(Url, booking);
         }
 
-        [Route("/{bookingId}/passenger")]
+        [Route("{bookingId}/passenger")]
         [HttpPost]
-        public async Task<PassengerAdditionResource> AddPassenger(string bookingId, Domain.Booking.Passenger passenger)
+        public async Task<PassengerAddedResource> AddPassenger(string bookingId, AddPassengerCommand addPassengerCommand)
         {
-            passenger = new PassengerBuilder().CreatePassenger();
+            var passenger = new PassengerBuilder().CreatePassenger();
 
             var command = new AddPassengerCommand(new BookingId(bookingId), passenger);
             await _commandBus.PublishAsync(command, CancellationToken.None);
             
-            return new PassengerAdditionResource(Url, bookingId, passenger.PassengerKey);
+            return new PassengerAddedResource(Url, bookingId, passenger.PassengerKey);
         }
 
-        [Route("/{bookingId}/passenger/{passengerKey}/name")]
+        [Route("{bookingId}/passenger/{passengerKey}/name")]
         [HttpPost]
-        public async Task<PassengerNameUpdatesResource> UpdatePassengerName(string bookingId, string passengerKey,
+        public async Task<PassengerNameUpdatedResource> UpdatePassengerName(string bookingId, string passengerKey,
             string name)
         {
             name = "new-name";
             var command = new UpdatePassengerNameCommand(new BookingId(bookingId), passengerKey, name);
             await _commandBus.PublishAsync(command, CancellationToken.None);
 
-            return new PassengerNameUpdatesResource(Url, bookingId);
+            return new PassengerNameUpdatedResource(Url, bookingId);
         }
     }
 }

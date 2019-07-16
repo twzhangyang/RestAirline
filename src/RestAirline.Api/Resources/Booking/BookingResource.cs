@@ -21,15 +21,15 @@ namespace RestAirline.Api.Resources.Booking
         {
             Id = booking.Id;
             ResourceLinks = new Links(urlHelper, Id);
-            Journeys = booking.Journeys.Select(j=>j.ToResource()).ToList();
-            Passengers = booking.Passengers.Select(p=>p.ToResource()).ToList();
+            Journeys = booking.Journeys.Select(j => j.ToResource()).ToList();
+            Passengers = booking.Passengers.Select(p => p.ToResource()).ToList();
         }
 
-        public string Id { get; }
+        public string Id { get; set; }
 
-        public List<Journey.Journey> Journeys { get; }
+        public List<Journey.Journey> Journeys { get; set; }
 
-        public List<Passenger.Passenger> Passengers { get; }
+        public List<Passenger.Passenger> Passengers { get; set; }
 
         public Links ResourceLinks { get; set; }
 
@@ -38,14 +38,21 @@ namespace RestAirline.Api.Resources.Booking
             private readonly IUrlHelper _urlHelper;
             private readonly string _bookingId;
 
+            [Obsolete("For serialization")]
+            public Links()
+            {
+            }
+
             public Links(IUrlHelper urlHelper, string bookingId)
             {
                 _urlHelper = urlHelper;
                 _bookingId = bookingId;
+                Self = _urlHelper.Link((BookingController c) => c.GetBooking(_bookingId));
+                Home = _urlHelper.Link((HomeController c) => c.Index());
             }
 
-            public Link<BookingResource> Self => _urlHelper.Link((BookingController c) => c.GetBooking(_bookingId));
-            public Link<RestAirlineHomeResource> Home => _urlHelper.Link((HomeController c) => c.Index());
+            public Link<BookingResource> Self { get; set; }
+            public Link<RestAirlineHomeResource> Home { get; set; }
         }
     }
 }

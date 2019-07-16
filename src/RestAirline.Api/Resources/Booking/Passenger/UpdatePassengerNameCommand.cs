@@ -5,7 +5,7 @@ using RestAirline.Api.Hypermedia;
 
 namespace RestAirline.Api.Resources.Booking.Passenger
 {
-    public class UpdatePassengerNameCommand : HypermediaCommand<PassengerNameUpdatesResource>
+    public class UpdatePassengerNameCommand : HypermediaCommand<PassengerNameUpdatedResource>
     {
         [Obsolete("For serialization")]
         public UpdatePassengerNameCommand()

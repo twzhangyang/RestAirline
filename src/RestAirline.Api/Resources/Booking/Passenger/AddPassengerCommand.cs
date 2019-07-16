@@ -5,7 +5,7 @@ using RestAirline.Api.Hypermedia;
 
 namespace RestAirline.Api.Resources.Booking.Passenger
 {
-    public class AddPassengerCommand : HypermediaCommand<PassengerAdditionResource>
+    public class AddPassengerCommand : HypermediaCommand<PassengerAddedResource>
     {
         [Obsolete("For serialization")]
         public AddPassengerCommand()

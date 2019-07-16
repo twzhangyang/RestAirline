@@ -6,7 +6,7 @@ using RestAirline.Api.Hypermedia;
 
 namespace RestAirline.Api.Resources.Booking.Journey
 {
-    public class SelectJourneysCommand : HypermediaCommand<JourneysSelectionResource>
+    public class SelectJourneysCommand : HypermediaCommand<JourneysSelectedResource>
     {
         [Obsolete("For serialization")]
         public SelectJourneysCommand()
