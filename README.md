@@ -19,6 +19,8 @@ docker-compose up
 ```
 Note: add a `-d` to run the container in background
 
+An API service and mssql will run in docker
+
 ## Run in local
 This project based on .NET Core SDK 2.2.103, please install corresponding SDK for your operating system:
 
@@ -28,6 +30,10 @@ This project based on .NET Core SDK 2.2.103, please install corresponding SDK fo
 
 After installing, please run below command to make sure current .NET Core version is 2.2.103
 `dotnet --version`
+
+The EventStore and ReadModel are based on EF Core and connect to MSSQL, before run this service please update EventStore connect string and
+ReadModel connect string in `settings.json` under `RestAirline.Api` project.
+After set connect string two database will be migrate automatically by the API service.
 
 ## Run the API
 1. Try to input home api link in Postman:
