@@ -15,4 +15,5 @@ services:
 
   mssql.data:
     image: microsoft/mssql-server-linux:2017-latest
+    container_name: restairline_mssql
     

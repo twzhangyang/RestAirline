@@ -2,8 +2,9 @@
 
 # Overview
 
-* A example of DDD+CQRS+EventSourcing+Hypermedia api+ASP.NET Core 2.2
+* A classic DDD with CQRS-ES, Hypermedia API project based on EventFlow. It's targeted to ASP.NET Core 2.2 and can be deployed to docker and k8s.
 * Based on [EventFlow](https://github.com/eventflow/EventFlow)
+* [Wiki](https://github.com/twzhangyang/RestAirline/wiki) is in progress
 
 # How to Run
 ## Clone this repo
@@ -11,29 +12,12 @@
 git clone https://github.com/twzhangyang/RestAirline.git
 ```
 
-## Building the image for the first time
-If you want to modify the files in the image, then you'll have to build locally.
-go to `docker-compose` folder:
-
-Build with `docker-compose`:
-```
-docker-compose build
-```
-
 ## Running the container
-Modify the env variables to your liking in the `docker-compose.yml`.
-
 Then spin up a new container using `docker-compose`
 ```
 docker-compose up
 ```
 Note: add a `-d` to run the container in background
-
-## Connecting to the container
-To connect to the SQL Server in the container, you can docker exec with sqlcmd.
-```
-docker exec -it restairline_mssql /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P $SA_PASSWORD -Q "select 1"
-```
 
 ## Run in local
 This project based on .NET Core SDK 2.2.103, please install corresponding SDK for your operating system:
@@ -43,14 +27,6 @@ This project based on .NET Core SDK 2.2.103, please install corresponding SDK fo
 
 After installing, please run below command to make sure current .NET Core version is 2.2.103
 `dotnet --version`
-
-## Run k8s on AKS
-Please follow up steps under `k8s/steps`:
-* Create Azure Kubernetes Service (AKS) and Azure Container Registry(ACR) - `1.aks.txt`
-* Once you have ACR you can push docker image into your private docker image repository - `2.image.txt`
-* Deploy k8s by yaml file - `3.deployk8s.txt`
-* k8s scale up/down, roll back, rolling update - `4.scale.txt`
-* Clear up - `5.clearup.txt`
 
 ## Run the API
 1. Try to input home api link in Postman:
@@ -76,12 +52,6 @@ GET api/booking/booking-{id}
 ```
 ![get booking](https://user-images.githubusercontent.com/22952792/59654419-a63ccd00-91c8-11e9-90b8-b307b30a7e94.png)
 
-## Migrate Entity framework read model
-If you want to change Entity framework read model, please follow EF migration steps:
-* Update data structures in ReadModelDbContext
-* Go to `RestAirline/src/RestAirline.ReadModel.EntityFramework` folder
-* `dotnet ef migrations add "migration names"`
-* `dotnet ef database update`
 
 ## Business 
 The example is regarding online booking for an airline company. An airline company named 'RestAirline' is offering online booking. 
