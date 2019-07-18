@@ -23,6 +23,7 @@ Note: add a `-d` to run the container in background
 This project based on .NET Core SDK 2.2.103, please install corresponding SDK for your operating system:
 
 [Window](https://dotnet.microsoft.com/download/thank-you/dotnet-sdk-2.2.103-windows-x64-installer)
+
 [Mac](https://dotnet.microsoft.com/download/thank-you/dotnet-sdk-2.2.103-macos-x64-installer)
 
 After installing, please run below command to make sure current .NET Core version is 2.2.103
