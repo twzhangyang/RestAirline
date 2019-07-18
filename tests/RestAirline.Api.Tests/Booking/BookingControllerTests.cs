@@ -10,8 +10,16 @@ using AddPassengerCommand = RestAirline.CommandHandlers.Passenger.AddPassengerCo
 
 namespace RestAirline.Api.Tests.Booking
 {
+    [Collection("api tests")]
     public class BookingControllerTests : TestBase
     {
+        private readonly ApiTestClient _apiTestClient;
+
+        public BookingControllerTests()
+        {
+           _apiTestClient = new ApiTestClient(HttpClient); 
+        }
+        
         [Fact]
         public async Task ShouldSelectJourney()
         {
@@ -31,7 +39,7 @@ namespace RestAirline.Api.Tests.Booking
             var bookingId = journeyResource.BookingId;
             
             //Act
-            var booking = await Get<BookingResource>($"api/booking/{bookingId}");
+            var booking = await _apiTestClient.Get<BookingResource>($"api/booking/{bookingId}");
             
             //Assert
             booking.Id.Should().NotBeNull();
@@ -48,7 +56,7 @@ namespace RestAirline.Api.Tests.Booking
             var addPassengerCommand = new AddPassengerCommand(new BookingId(journeyResource.BookingId), null);
 
             //Act
-            var resource = await Post<AddPassengerCommand, PassengerAddedResource>( $"api/booking/{journeyResource.BookingId}/passenger", addPassengerCommand);
+            var resource = await _apiTestClient.Post<AddPassengerCommand, PassengerAddedResource>( $"api/booking/{journeyResource.BookingId}/passenger", addPassengerCommand);
             
             //Assert
             resource.ResourceLinks.Should().NotBeNull();
@@ -59,7 +67,7 @@ namespace RestAirline.Api.Tests.Booking
         {
             var journeys = new List<string>();
             
-            var resource = Post<List<string>, JourneysSelectedResource>("api/booking/journeys", journeys);
+            var resource = _apiTestClient.Post<List<string>, JourneysSelectedResource>("api/booking/journeys", journeys);
 
             return resource;
         }
