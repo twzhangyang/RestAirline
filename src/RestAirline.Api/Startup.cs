@@ -1,10 +1,12 @@
 ﻿using System;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RestAirline.Api.Filters;
+using RestAirline.CommandHandlers.Passenger;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace RestAirline.Api
@@ -24,7 +26,8 @@ namespace RestAirline.Api
         {
             services.AddApplicationInsightsTelemetry();
 
-            services.AddMvc(options => { options.Filters.Add<UnhandledExceptionFilter>(); });
+            services.AddMvc(options => { options.Filters.Add<UnhandledExceptionFilter>(); })
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<AddPassengerCommandValidator>());;
 
             services.AddCors();
 

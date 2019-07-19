@@ -12,6 +12,7 @@
     <PackageReference Include="EventFlow.Autofac" Version="0.73.3933" />
     <PackageReference Include="EventFlow.DependencyInjection" Version="0.74.3948" />
     <PackageReference Include="EventFlow.MsSql" Version="0.73.3933" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="8.4.0" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.7.1" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.2.1" />
     <PackageReference Include="NLog" Version="4.6.5" />

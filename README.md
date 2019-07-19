@@ -33,7 +33,7 @@ After installing, please run below command to make sure current .NET Core versio
 
 The EventStore and ReadModel are based on EF Core and connect to MSSQL, before run this service please update EventStore connect string and
 ReadModel connect string in `settings.json` under `RestAirline.Api` project.
-After set connect string two database will be migrate automatically by the API service.
+After set connect string two database will be migrated automatically by the API service.
 
 ## Run the API
 1. Try to input home api link in Postman:

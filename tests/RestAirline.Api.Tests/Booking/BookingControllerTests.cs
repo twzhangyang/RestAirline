@@ -6,7 +6,7 @@ using RestAirline.Api.Resources.Booking.Journey;
 using RestAirline.Api.Resources.Booking.Passenger;
 using RestAirline.Domain.Booking;
 using Xunit;
-using AddPassengerCommand = RestAirline.CommandHandlers.Passenger.AddPassengerCommand;
+using PassengerType = RestAirline.Domain.Booking.PassengerType;
 
 namespace RestAirline.Api.Tests.Booking
 {
@@ -53,7 +53,14 @@ namespace RestAirline.Api.Tests.Booking
         {
             //Arrange
             var journeyResource = await SelectJourney();
-            var addPassengerCommand = new AddPassengerCommand(new BookingId(journeyResource.BookingId), null);
+            var addPassengerCommand = new AddPassengerCommand
+            {
+                BookingId = journeyResource.BookingId,
+                Age = 40,
+                Email = "test@test.com",
+                Name = "test",
+                PassengerType = PassengerType.Male
+            };
 
             //Act
             var resource = await _apiTestClient.Post<AddPassengerCommand, PassengerAddedResource>( $"api/booking/{journeyResource.BookingId}/passenger", addPassengerCommand);

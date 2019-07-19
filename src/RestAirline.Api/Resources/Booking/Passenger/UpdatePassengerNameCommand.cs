@@ -7,10 +7,7 @@ namespace RestAirline.Api.Resources.Booking.Passenger
 {
     public class UpdatePassengerNameCommand : HypermediaCommand<PassengerNameUpdatedResource>
     {
-        [Obsolete("For serialization")]
-        public UpdatePassengerNameCommand()
-        {
-        }
+        public UpdatePassengerNameCommand(){}
 
         public UpdatePassengerNameCommand(IUrlHelper urlHelper, string bookingId, string passengerKey)
             : base(urlHelper.Link((BookingController c) => c.UpdatePassengerName(bookingId, passengerKey, null)))

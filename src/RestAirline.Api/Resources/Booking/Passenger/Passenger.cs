@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using RestAirline.Domain.Booking;
 
 namespace RestAirline.Api.Resources.Booking.Passenger
 {
     public class Passenger
     {
-        [Key]
-        public string Id { get; set; }
+        [Key] public string Id { get; set; }
 
         public string PassengerKey { get; set; }
 
@@ -34,13 +34,5 @@ namespace RestAirline.Api.Resources.Booking.Passenger
 
             return model;
         }
-    }
-
-    public enum PassengerType
-    {
-        Male,
-        Female,
-        Infant,
-        Unknown
     }
 }

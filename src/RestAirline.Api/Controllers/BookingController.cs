@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EventFlow;
@@ -11,7 +12,6 @@ using RestAirline.Domain.Booking;
 using RestAirline.QueryHandlers.Booking;
 using RestAirline.ReadModel.EntityFramework;
 using RestAirline.Shared.ModelBuilders;
-using AddPassengerCommand = RestAirline.CommandHandlers.Passenger.AddPassengerCommand;
 using SelectJourneysCommand = RestAirline.Commands.Journey.SelectJourneysCommand;
 using UpdatePassengerNameCommand = RestAirline.CommandHandlers.Passenger.UpdatePassengerNameCommand;
 
@@ -24,10 +24,10 @@ namespace RestAirline.Api.Controllers
         private readonly IQueryHandler<ReadModelByIdQuery<BookingReadModel>, BookingReadModel> _bookingQueryHandler;
         private readonly BookingQueryHandler _queryHandler;
 
-        public BookingController(ICommandBus commandBus,  
+        public BookingController(ICommandBus commandBus,
             IQueryHandler<ReadModelByIdQuery<BookingReadModel>, BookingReadModel> bookingQueryHandle,
             BookingQueryHandler queryHandler
-            )
+        )
         {
             _commandBus = commandBus;
             _bookingQueryHandler = bookingQueryHandle;
@@ -55,24 +55,40 @@ namespace RestAirline.Api.Controllers
 //            var booking = await _bookingQueryHandler.ExecuteQueryAsync(
 //                new ReadModelByIdQuery<BookingReadModel>(bookingId),
 //                new CancellationToken());
-            
+
             var booking = await _queryHandler.ExecuteQueryAsync(
                 new ReadModelByIdQuery<BookingReadModel>(bookingId),
                 new CancellationToken());
-            
+
             return new BookingResource(Url, booking);
         }
 
+        /// <summary>
+        /// Add a passenger in booking
+        /// </summary>
+        /// <param name="bookingId">A unique id for current booking</param>
+        /// <param name="addPassengerCommand">Request for adding passenger</param>
+        /// <returns></returns>
         [Route("{bookingId}/passenger")]
         [HttpPost]
-        public async Task<PassengerAddedResource> AddPassenger(string bookingId, AddPassengerCommand addPassengerCommand)
+        public async Task<PassengerAddedResource> AddPassenger(string bookingId,
+            [FromBody]AddPassengerCommand addPassengerCommand)
         {
-            var passenger = new PassengerBuilder().CreatePassenger();
-
-            var command = new AddPassengerCommand(new BookingId(bookingId), passenger);
-            await _commandBus.PublishAsync(command, CancellationToken.None);
+            var command = new CommandHandlers.Passenger.AddPassengerCommand(new BookingId(bookingId))
+            {
+                Age = addPassengerCommand.Age,
+                Email = addPassengerCommand.Email,
+                Name = addPassengerCommand.Name,
+                PassengerType = addPassengerCommand.PassengerType
+            };
             
-            return new PassengerAddedResource(Url, bookingId, passenger.PassengerKey);
+            await _commandBus.PublishAsync(command, CancellationToken.None);
+
+            var booking = await _queryHandler.ExecuteQueryAsync(
+                new ReadModelByIdQuery<BookingReadModel>(bookingId),
+                new CancellationToken());
+
+            return new PassengerAddedResource(Url, bookingId, booking.Passengers.Last().PassengerKey);
         }
 
         [Route("{bookingId}/passenger/{passengerKey}/name")]

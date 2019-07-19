@@ -8,4 +8,8 @@
       <ProjectReference Include="..\RestAirline.Domain\RestAirline.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="FluentValidation" Version="8.4.0" />
+    </ItemGroup>
+
 </Project>

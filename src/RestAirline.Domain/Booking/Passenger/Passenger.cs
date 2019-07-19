@@ -1,4 +1,5 @@
-﻿using EventFlow.ValueObjects;
+﻿using System;
+using EventFlow.ValueObjects;
 
 namespace RestAirline.Domain.Booking
 {
@@ -13,6 +14,11 @@ namespace RestAirline.Domain.Booking
         public int Age { get; set; }
 
         public string Email { get; set; }
+
+        public Passenger()
+        {
+            
+        }
 
         public void UpdateName(string newName)
         {

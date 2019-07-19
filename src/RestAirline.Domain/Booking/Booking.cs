@@ -47,7 +47,7 @@ namespace RestAirline.Domain.Booking
                 throw new ArgumentNullException($"{nameof(passenger)} is null");
             }
 
-           // new PassengerValidationSpecification(Passengers).ThrowDomainErrorIfNotSatisfied(passenger);
+           new PassengerValidationSpecification(Passengers).ThrowDomainErrorIfNotSatisfied(passenger);
 
             Emit(new PassengerAddedEvent(passenger));
         }

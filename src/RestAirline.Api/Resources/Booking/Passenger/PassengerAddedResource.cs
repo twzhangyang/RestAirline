@@ -3,15 +3,14 @@ using Microsoft.AspNetCore.Mvc;
 using Remotion.Linq.Clauses.ResultOperators;
 using RestAirline.Api.Controllers;
 using RestAirline.Api.Hypermedia;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace RestAirline.Api.Resources.Booking.Passenger
 {
+    [SwaggerSchemaFilter(typeof(PassengerAddedResourceSchemaFilter))]
     public class PassengerAddedResource
     {
-        [Obsolete("For serialization")]
-        public PassengerAddedResource()
-        {
-        }
+        public PassengerAddedResource(){}
 
         public PassengerAddedResource(IUrlHelper urlHelper, string bookingId, string passengerKey)
         {
@@ -27,10 +26,7 @@ namespace RestAirline.Api.Resources.Booking.Passenger
             private readonly IUrlHelper _urlHelper;
             private readonly string _bookingId;
 
-            [Obsolete("For serialization")]
-            public Links()
-            {
-            }
+            public Links(){}
 
             public Links(IUrlHelper urlHelper, string bookingId)
             {
@@ -50,10 +46,7 @@ namespace RestAirline.Api.Resources.Booking.Passenger
             private readonly string _bookingId;
             private readonly string _passengerKey;
 
-            [Obsolete("For serialization")]
-            public Commands()
-            {
-            }
+            public Commands(){}
 
             public Commands(IUrlHelper urlHelper, string bookingId, string passengerKey)
             {
