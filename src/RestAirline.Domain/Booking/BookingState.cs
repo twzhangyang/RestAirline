@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using EventFlow.Aggregates;
 using RestAirline.Domain.Booking.Events;
+using RestAirline.Domain.Booking.Snapshots;
 using RestAirline.Domain.Booking.Trip;
 using RestAirline.Domain.Booking.Trip.Events;
 
@@ -18,7 +19,7 @@ namespace RestAirline.Domain.Booking
 
         private List<Journey> _journeys;
 
-        private readonly List<Passenger> _passengers;
+        private List<Passenger> _passengers;
 
         public BookingState()
         {
@@ -26,11 +27,16 @@ namespace RestAirline.Domain.Booking
             _journeys = new List<Journey>();
         }
 
+        public void LoadSnapshot(BookingSnapshot snapshot)
+        {
+            _journeys = snapshot.Journeys.ToList();
+            _passengers = snapshot.Passengers.ToList();
+        }
+        
         public void Apply(JourneysSelectedEvent aggregateEvent)
         {
             _journeys = aggregateEvent.Journeys;
         }
-
 
         public void Apply(PassengerAddedEvent aggregateEvent)
         {

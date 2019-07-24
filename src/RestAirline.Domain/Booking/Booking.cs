@@ -1,22 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
+using System.Threading.Tasks;
 using EventFlow.Aggregates;
 using EventFlow.Extensions;
+using EventFlow.Snapshots;
+using EventFlow.Snapshots.Strategies;
 using RestAirline.Domain.Booking.Events;
 using RestAirline.Domain.Booking.Exceptions;
 using RestAirline.Domain.Booking.Extensions;
+using RestAirline.Domain.Booking.Snapshots;
 using RestAirline.Domain.Booking.Specs;
 using RestAirline.Domain.Booking.Trip;
 using RestAirline.Domain.Booking.Trip.Events;
 
 namespace RestAirline.Domain.Booking
 {
-    public class Booking : AggregateRoot<Booking, BookingId>
+    public class Booking : SnapshotAggregateRoot<Booking, BookingId, BookingSnapshot>
     {
         private readonly BookingState _state = new BookingState();
 
-        public Booking(BookingId id) : base(id)
+        private const int SnapshotEveryVersion = 2;
+
+        public Booking(BookingId id) : base(id, SnapshotEveryFewVersionsStrategy.With(SnapshotEveryVersion))
         {
             Register(_state);
         }
@@ -47,7 +55,7 @@ namespace RestAirline.Domain.Booking
                 throw new ArgumentNullException($"{nameof(passenger)} is null");
             }
 
-           new PassengerValidationSpecification(Passengers).ThrowDomainErrorIfNotSatisfied(passenger);
+            new PassengerValidationSpecification(Passengers).ThrowDomainErrorIfNotSatisfied(passenger);
 
             Emit(new PassengerAddedEvent(passenger));
         }
@@ -62,6 +70,21 @@ namespace RestAirline.Domain.Booking
             passenger.UpdateName(name);
 
             Emit(new PassengerNameUpdatedEvent(passengerKey, name));
+        }
+
+        protected override Task<BookingSnapshot> CreateSnapshotAsync(CancellationToken cancellationToken)
+        {
+            var snapshot = new BookingSnapshot(Journeys, Passengers);
+
+            return Task.FromResult(snapshot);
+        }
+
+        protected override Task LoadSnapshotAsync(BookingSnapshot snapshot, ISnapshotMetadata metadata,
+            CancellationToken cancellationToken)
+        {
+            _state.LoadSnapshot(snapshot);
+            
+            return Task.CompletedTask;
         }
     }
 }
