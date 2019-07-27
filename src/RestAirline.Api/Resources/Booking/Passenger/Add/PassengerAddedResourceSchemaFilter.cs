@@ -4,7 +4,7 @@ using RestAirline.Domain.Booking;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace RestAirline.Api.Resources.Booking.Passenger
+namespace RestAirline.Api.Resources.Booking.Passenger.Add
 {
     public class PassengerAddedResourceSchemaFilter : ISchemaFilter
     {

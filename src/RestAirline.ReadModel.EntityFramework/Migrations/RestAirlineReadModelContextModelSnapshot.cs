@@ -3,17 +3,15 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RestAirline.ReadModel.EntityFramework.DBContext;
 
 namespace RestAirline.ReadModel.EntityFramework.Migrations
 {
     [DbContext(typeof(RestAirlineReadModelContext))]
-    [Migration("20190713025314_booking one to many relation")]
-    partial class bookingonetomanyrelation
+    partial class RestAirlineReadModelContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -23,7 +21,7 @@ namespace RestAirline.ReadModel.EntityFramework.Migrations
 
             modelBuilder.Entity("RestAirline.ReadModel.EntityFramework.Booking.Flight", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("Aircraft");
@@ -38,7 +36,7 @@ namespace RestAirline.ReadModel.EntityFramework.Migrations
 
                     b.Property<string>("FlightKey");
 
-                    b.Property<string>("JourneyKey");
+                    b.Property<Guid>("JourneyId");
 
                     b.Property<string>("Number");
 
@@ -46,25 +44,24 @@ namespace RestAirline.ReadModel.EntityFramework.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("JourneyKey")
-                        .IsUnique()
-                        .HasFilter("[JourneyKey] IS NOT NULL");
+                    b.HasIndex("JourneyId")
+                        .IsUnique();
 
                     b.ToTable("Flights");
                 });
 
             modelBuilder.Entity("RestAirline.ReadModel.EntityFramework.Booking.Journey", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("ArriveDate");
 
                     b.Property<string>("ArriveStation");
 
-                    b.Property<string>("BookingId");
-
                     b.Property<string>("BookingReadModelId");
+
+                    b.Property<string>("BookingReadModelId1");
 
                     b.Property<DateTime>("DepartureDate");
 
@@ -76,23 +73,23 @@ namespace RestAirline.ReadModel.EntityFramework.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BookingId");
-
                     b.HasIndex("BookingReadModelId");
+
+                    b.HasIndex("BookingReadModelId1");
 
                     b.ToTable("Journeys");
                 });
 
             modelBuilder.Entity("RestAirline.ReadModel.EntityFramework.Booking.Passenger", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("Age");
 
-                    b.Property<string>("BookingId");
-
                     b.Property<string>("BookingReadModelId");
+
+                    b.Property<string>("BookingReadModelId1");
 
                     b.Property<string>("Email");
 
@@ -107,9 +104,9 @@ namespace RestAirline.ReadModel.EntityFramework.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BookingId");
-
                     b.HasIndex("BookingReadModelId");
+
+                    b.HasIndex("BookingReadModelId1");
 
                     b.ToTable("Passengers");
                 });
@@ -118,8 +115,6 @@ namespace RestAirline.ReadModel.EntityFramework.Migrations
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<string>("DepartureStation");
 
                     b.Property<long>("Version")
                         .IsConcurrencyToken();
@@ -133,29 +128,30 @@ namespace RestAirline.ReadModel.EntityFramework.Migrations
                 {
                     b.HasOne("RestAirline.ReadModel.EntityFramework.Booking.Journey", "Journey")
                         .WithOne("Flight")
-                        .HasForeignKey("RestAirline.ReadModel.EntityFramework.Booking.Flight", "JourneyKey");
+                        .HasForeignKey("RestAirline.ReadModel.EntityFramework.Booking.Flight", "JourneyId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("RestAirline.ReadModel.EntityFramework.Booking.Journey", b =>
                 {
-                    b.HasOne("RestAirline.ReadModel.EntityFramework.BookingReadModel")
-                        .WithMany()
-                        .HasForeignKey("BookingId");
-
                     b.HasOne("RestAirline.ReadModel.EntityFramework.BookingReadModel", "BookingReadModel")
                         .WithMany("Journeys")
                         .HasForeignKey("BookingReadModelId");
+
+                    b.HasOne("RestAirline.ReadModel.EntityFramework.BookingReadModel")
+                        .WithMany()
+                        .HasForeignKey("BookingReadModelId1");
                 });
 
             modelBuilder.Entity("RestAirline.ReadModel.EntityFramework.Booking.Passenger", b =>
                 {
-                    b.HasOne("RestAirline.ReadModel.EntityFramework.BookingReadModel")
-                        .WithMany()
-                        .HasForeignKey("BookingId");
-
                     b.HasOne("RestAirline.ReadModel.EntityFramework.BookingReadModel", "BookingReadModel")
                         .WithMany("Passengers")
                         .HasForeignKey("BookingReadModelId");
+
+                    b.HasOne("RestAirline.ReadModel.EntityFramework.BookingReadModel")
+                        .WithMany()
+                        .HasForeignKey("BookingReadModelId1");
                 });
 #pragma warning restore 612, 618
         }

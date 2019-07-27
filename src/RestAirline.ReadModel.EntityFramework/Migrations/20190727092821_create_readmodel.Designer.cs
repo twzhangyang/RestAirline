@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RestAirline.ReadModel.EntityFramework.DBContext;
 
 namespace RestAirline.ReadModel.EntityFramework.Migrations
 {
     [DbContext(typeof(RestAirlineReadModelContext))]
-    partial class ReadModelDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190727092821_create_readmodel")]
+    partial class create_readmodel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,7 +23,7 @@ namespace RestAirline.ReadModel.EntityFramework.Migrations
 
             modelBuilder.Entity("RestAirline.ReadModel.EntityFramework.Booking.Flight", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("Aircraft");
@@ -36,7 +38,7 @@ namespace RestAirline.ReadModel.EntityFramework.Migrations
 
                     b.Property<string>("FlightKey");
 
-                    b.Property<string>("JourneyKey");
+                    b.Property<Guid>("JourneyId");
 
                     b.Property<string>("Number");
 
@@ -44,16 +46,15 @@ namespace RestAirline.ReadModel.EntityFramework.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("JourneyKey")
-                        .IsUnique()
-                        .HasFilter("[JourneyKey] IS NOT NULL");
+                    b.HasIndex("JourneyId")
+                        .IsUnique();
 
                     b.ToTable("Flights");
                 });
 
             modelBuilder.Entity("RestAirline.ReadModel.EntityFramework.Booking.Journey", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("ArriveDate");
@@ -83,7 +84,7 @@ namespace RestAirline.ReadModel.EntityFramework.Migrations
 
             modelBuilder.Entity("RestAirline.ReadModel.EntityFramework.Booking.Passenger", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("Age");
@@ -117,8 +118,6 @@ namespace RestAirline.ReadModel.EntityFramework.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("DepartureStation");
-
                     b.Property<long>("Version")
                         .IsConcurrencyToken();
 
@@ -131,7 +130,8 @@ namespace RestAirline.ReadModel.EntityFramework.Migrations
                 {
                     b.HasOne("RestAirline.ReadModel.EntityFramework.Booking.Journey", "Journey")
                         .WithOne("Flight")
-                        .HasForeignKey("RestAirline.ReadModel.EntityFramework.Booking.Flight", "JourneyKey");
+                        .HasForeignKey("RestAirline.ReadModel.EntityFramework.Booking.Flight", "JourneyId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("RestAirline.ReadModel.EntityFramework.Booking.Journey", b =>

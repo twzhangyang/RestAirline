@@ -1,11 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace RestAirline.ReadModel.EntityFramework.Booking
 {
     public class Passenger
     {
         [Key]
-        public string Id { get; set; }
+        public Guid Id { get; set; }
 
         [ConcurrencyCheck] 
         public long Version { get; set; }
@@ -29,12 +30,12 @@ namespace RestAirline.ReadModel.EntityFramework.Booking
         {
             var model = new Passenger
             {
-                Id = passenger.PassengerKey,
+                Id = Guid.NewGuid(),
                 PassengerKey = passenger.PassengerKey,
                 Name = passenger.Name,
                 PassengerType = (PassengerType) passenger.PassengerType,
                 Age = passenger.Age,
-                Email = passenger.Email,
+                Email = passenger.Email
             };
 
             return model;

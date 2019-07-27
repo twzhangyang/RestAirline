@@ -5,7 +5,7 @@ namespace RestAirline.ReadModel.EntityFramework.Booking
 {
     public class Journey
     {
-        [Key] public string Id { get; set; }
+        [Key] public Guid Id { get; set; }
 
         public string JourneyKey { get; set; }
 
@@ -30,7 +30,7 @@ namespace RestAirline.ReadModel.EntityFramework.Booking
         {
             var model = new Journey
             {
-                Id = journey.JourneyKey,
+                Id = Guid.NewGuid(),
                 Flight = journey.Flight.ToReadModel(),
                 ArriveDate = journey.ArriveDate,
                 DepartureDate = journey.DepartureDate,

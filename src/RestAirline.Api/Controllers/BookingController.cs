@@ -8,11 +8,11 @@ using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Resources.Booking;
 using RestAirline.Api.Resources.Booking.Journey;
 using RestAirline.Api.Resources.Booking.Passenger;
+using RestAirline.Api.Resources.Booking.Passenger.Add;
 using RestAirline.Domain.Booking;
 using RestAirline.QueryHandlers.Booking;
 using RestAirline.ReadModel.EntityFramework;
 using RestAirline.Shared.ModelBuilders;
-using SelectJourneysCommand = RestAirline.Commands.Journey.SelectJourneysCommand;
 using UpdatePassengerNameCommand = RestAirline.CommandHandlers.Passenger.UpdatePassengerNameCommand;
 
 namespace RestAirline.Api.Controllers
@@ -36,12 +36,14 @@ namespace RestAirline.Api.Controllers
 
         [Route("journeys")]
         [HttpPost]
-        public async Task<JourneysSelectedResource> SelectJourneys(List<string> journeyIds)
+        public async Task<JourneysSelectedResource> SelectJourneys(SelectJourneysCommand selectJourneysCommand)
         {
+            //Will integrate journey availability micro-service before select journey, passenger query journey availability micro-service in UI
+            //Get journey from journey availability micro-service
             var journeys = new JourneysBuilder().BuildJourneys();
             var bookingId = BookingId.New;
 
-            var command = new SelectJourneysCommand(bookingId, journeys);
+            var command = new Commands.Journey.SelectJourneysCommand(bookingId, journeys);
             await _commandBus.PublishAsync(command, CancellationToken.None);
 
             return new JourneysSelectedResource(Url, bookingId.Value);

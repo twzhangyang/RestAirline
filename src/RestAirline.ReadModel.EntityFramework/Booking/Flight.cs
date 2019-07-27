@@ -6,7 +6,7 @@ namespace RestAirline.ReadModel.EntityFramework.Booking
     public class Flight
     {
         [Key]
-        public string Id { get; set; }
+        public Guid Id { get; set; }
 
         public string FlightKey { get; set; }
 
@@ -26,7 +26,7 @@ namespace RestAirline.ReadModel.EntityFramework.Booking
         
         public Journey Journey { get; set; }
         
-        public string JourneyKey { get; set; }
+        public Guid JourneyId { get; set; }
     }
 
     public static class FlightMapper
@@ -35,7 +35,7 @@ namespace RestAirline.ReadModel.EntityFramework.Booking
         {
             var model = new Flight
             {
-                Id = flight.FlightKey,
+                Id = Guid.NewGuid(),
                 FlightKey = flight.FlightKey,
                 Aircraft = (Aircraft) flight.Aircraft,
                 Number = flight.Number,

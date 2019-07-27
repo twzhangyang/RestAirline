@@ -1,7 +1,7 @@
 using FluentValidation;
 using RestAirline.Domain.Booking;
 
-namespace RestAirline.CommandHandlers.Passenger
+namespace RestAirline.Api.Resources.Booking.Passenger.Add
 {
     public class AddPassengerCommandValidator : AbstractValidator<AddPassengerCommand>
     {

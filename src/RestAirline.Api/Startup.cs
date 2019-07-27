@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RestAirline.Api.Filters;
+using RestAirline.Api.Resources.Booking.Passenger.Add;
 using RestAirline.CommandHandlers.Passenger;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
@@ -26,7 +27,11 @@ namespace RestAirline.Api
         {
             services.AddApplicationInsightsTelemetry();
 
-            services.AddMvc(options => { options.Filters.Add<UnhandledExceptionFilter>(); })
+            services.AddMvc(options =>
+                {
+                    options.Filters.Add<UnhandledExceptionFilter>();
+                    options.Filters.Add<ModelValidationFilter>();
+                })
                 .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<AddPassengerCommandValidator>());;
 
             services.AddCors();
@@ -58,13 +63,13 @@ namespace RestAirline.Api
             var healthCheckResponseWriterProvider = new HealthCheckerResponseProvider(env);
             app.UseHealthChecks("/health/ready", new HealthCheckOptions
             {
-                Predicate = (check) => check.Tags.Contains("ready"),
+                Predicate = check => check.Tags.Contains("ready"),
                 ResponseWriter = healthCheckResponseWriterProvider.Writer
             });
 
             app.UseHealthChecks("/health/live", new HealthCheckOptions
             {
-                Predicate = (_) => false,
+                Predicate = _ => false,
                 ResponseWriter = healthCheckResponseWriterProvider.Writer
             });
             app.UseSwagger();

@@ -8,7 +8,6 @@ namespace RestAirline.Api.Resources.Booking.Journey
 {
     public class SelectJourneysCommand : HypermediaCommand<JourneysSelectedResource>
     {
-        [Obsolete("For serialization")]
         public SelectJourneysCommand()
         {
             JourneyIds = new List<string>();

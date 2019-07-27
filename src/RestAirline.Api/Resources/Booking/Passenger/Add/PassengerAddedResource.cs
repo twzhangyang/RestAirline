@@ -1,11 +1,9 @@
-using System;
 using Microsoft.AspNetCore.Mvc;
-using Remotion.Linq.Clauses.ResultOperators;
 using RestAirline.Api.Controllers;
 using RestAirline.Api.Hypermedia;
 using Swashbuckle.AspNetCore.Annotations;
 
-namespace RestAirline.Api.Resources.Booking.Passenger
+namespace RestAirline.Api.Resources.Booking.Passenger.Add
 {
     [SwaggerSchemaFilter(typeof(PassengerAddedResourceSchemaFilter))]
     public class PassengerAddedResource

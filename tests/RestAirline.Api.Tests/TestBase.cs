@@ -3,9 +3,11 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using EventFlow;
 using EventFlow.EntityFramework;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
+using Microsoft.Extensions.DependencyInjection;
 using RestAirline.Domain.EventSourcing;
 using RestAirline.ReadModel.EntityFramework.DBContext;
 using RestAirline.Shared.Extensions;
@@ -33,12 +35,15 @@ namespace RestAirline.Api.Tests
 
             _server = new TestServer(hostBuilder);
             HttpClient = _server.CreateClient();
+            CommandBus = ServiceProvider.GetService<ICommandBus>();
         }
         
         protected readonly HttpClient HttpClient;
 
         protected IServiceProvider ServiceProvider => ApplicationBootstrap.ServiceProvider;
 
+        protected ICommandBus CommandBus { get; private set; }
+        
         public void Dispose()
         {
             _server.Dispose();

@@ -4,10 +4,8 @@ namespace RestAirline.Api.Hypermedia
 {
     public class HypermediaCommand<TResponse>
     {
-        [Obsolete("For serialization")]
         public HypermediaCommand()
         {
-            
         }
 
         public HypermediaCommand(Link<TResponse> postUrl)

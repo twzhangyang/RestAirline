@@ -33,7 +33,7 @@ namespace RestAirline.ReadModel.EntityFramework.DBContext
             modelBuilder.Entity<Journey>()
                 .HasOne(j => j.Flight)
                 .WithOne(f => f.Journey)
-                .HasForeignKey<Flight>(f => f.JourneyKey)
+                .HasForeignKey<Flight>(f => f.JourneyId)
                 ;
         }
     }

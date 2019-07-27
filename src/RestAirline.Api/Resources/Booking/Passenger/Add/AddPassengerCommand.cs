@@ -1,10 +1,9 @@
-using System;
 using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Controllers;
 using RestAirline.Api.Hypermedia;
 using RestAirline.Domain.Booking;
 
-namespace RestAirline.Api.Resources.Booking.Passenger
+namespace RestAirline.Api.Resources.Booking.Passenger.Add
 {
     public class AddPassengerCommand : HypermediaCommand<PassengerAddedResource>
     {
@@ -14,6 +13,7 @@ namespace RestAirline.Api.Resources.Booking.Passenger
             (BookingController c) => c.AddPassenger(bookingId, null)
         ))
         {
+            BookingId = bookingId;
         }
         
         public string BookingId { get; set; }
