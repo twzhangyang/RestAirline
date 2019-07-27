@@ -35,48 +35,102 @@ The EventStore and ReadModel are based on EF Core and connect to MSSQL, before r
 ReadModel connect string in `settings.json` under `RestAirline.Api` project.
 After set connect string two database will be migrated automatically by the API service.
 
+## Migrate ReadModel
+Because one of the read model was implemented by Entity Framework core, before run app please do migration:
+in `RestAirline/src/RestAirline.ReadModel.EntityFramework`:
+`dotnet ef database update`
+
 ## Run the API
 1. Try to input home api link in Postman:
 ```
 GET http://localhost:61200/api/home/
 ```
 ---
-2. Select Journey
+2. Select Journeys
+Journey items are come from another micro-service named flight availability, for now let's build a 
+journey in the api automatically for convenience. So you need not pass any journey id to this api.
+
 ```
 POST api/booking/journeys
 ```
-![add journey](https://user-images.githubusercontent.com/22952792/59654415-a046ec00-91c8-11e9-9147-32fe157339e3.png)
+![add journey](https://user-images.githubusercontent.com/22952792/61993523-7625fb00-b09f-11e9-98a4-5fdd52774996.png)
 ---
-3. Add passenger
-```
-POST api/booking-{id}/passenger
-```
-![add booking](https://user-images.githubusercontent.com/22952792/59654417-a2a94600-91c8-11e9-8d98-dc9b7b4b4607.png)
----
-4. Get booking
-```
-GET api/booking/booking-{id}
-```
-![get booking](https://user-images.githubusercontent.com/22952792/59654419-a63ccd00-91c8-11e9-90b8-b307b30a7e94.png)
 
+3. Add passenger
+We can get request body schema from last Api response become the whole Api is designed by Hypermedia.
+The api definition is totally described by last api response under `resourceCommands\addPassengerCommand`:
+```
+"addPassengerCommand": 
+{
+    "bookingId": "booking-352cb1f3-0f68-4e04-a2f7-24036eb53ce7",
+    "name": null,
+    "passengerType": 0,
+    "age": 0,
+    "email": null,
+    "postUrl": {
+        "uri": "/api/booking/booking-352cb1f3-0f68-4e04-a2f7-24036eb53ce7/passenger"
+    }
+}
+```
+Obviously the endpoint is: 
+```
+http://localhost:61100/api/booking/booking-352cb1f3-0f68-4e04-a2f7-24036eb53ce7/passenger
+```
+The payload schema is:
+```
+{
+	"bookingId": "booking-352cb1f3-0f68-4e04-a2f7-24036eb53ce7",
+    "name": null,
+    "passengerType": 0,
+    "age": 0,
+    "email": null,
+}
+```
+`bookingId` is filled already, please try to fill other parameters, eg:
+```
+{
+	"bookingId": "booking-352cb1f3-0f68-4e04-a2f7-24036eb53ce7",
+    "name": "test",
+    "passengerType": 0,
+    "age": 22,
+    "email": "test@test.com",
+}
+```
+Send request:
+
+```
+POST api/{bookingId}/passenger
+```
+![add booking](https://user-images.githubusercontent.com/22952792/61993532-b8e7d300-b09f-11e9-9567-75ba0ea0a8d9.png)
+---
+
+4. Get booking
+According to response of last api, you can either get the booking by `resourceLinks` post data by `resourceCommand`.
+
+```
+GET api/booking/{bookingId}
+```
+![get booking](https://user-images.githubusercontent.com/22952792/61993549-ffd5c880-b09f-11e9-9679-e708a7f087d3.png)
+
+5. Update passenger Name
 
 ## Business 
 The example is regarding online booking for an airline company. An airline company named 'RestAirline' is offering online booking. 
-* After passenger submited one of the available journey that means this passenger starting create an online booking.
+* After passenger submitted one of the available journey that means this passenger starting create an online booking.
 * passenger can submit multiple available journeys, every journey including a flight.
 * After passenger added journeys, he/she can add passengers.
 * Once passenger have been added in booking, passenger can update passenger name for each passenger.
 * passenger can submit available seats for each flight and each passenger, seat may just including seat number.
-* Once passegner submitted seats, passenger still can update seat.
+* Once passenger submitted seats, passenger still can update seat.
 * After all of these steps, passenger have a chance to order insurance for all passenger some of them.
 * Last step is pay for all booking, if payment is successful then create a pnr(six digit) for this booking.
 * Online checkin is allowed for all the flights. Passenger can checkin at below time window:
 
-    ```2h <= timewindow <= departure time - 30m``` 
-* Passeger can do online checkin, after this step passegner start to his/her journey. 
+    ```2h <= timeWindow <= departure time - 30m``` 
+* Passenger can do online checkin, after this step passenger start to his/her journey. 
 
 ## Possible Domain
-There are four possbile Domains for above business:
+There are four possible Domains for above business:
 But let's focus on `Booking` for now and mock other two domains even if you can hardcode data from these two domains.
 
 ![domain](https://user-images.githubusercontent.com/22952792/59654892-bbb2f680-91ca-11e9-8465-a628a57e13b2.png)

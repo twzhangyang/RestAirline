@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Controllers;
 using RestAirline.Api.Hypermedia;
+using RestAirline.Api.Resources.Booking.Passenger.Update;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace RestAirline.Api.Resources.Booking.Passenger.Add
@@ -8,15 +9,23 @@ namespace RestAirline.Api.Resources.Booking.Passenger.Add
     [SwaggerSchemaFilter(typeof(PassengerAddedResourceSchemaFilter))]
     public class PassengerAddedResource
     {
-        public PassengerAddedResource(){}
-
-        public PassengerAddedResource(IUrlHelper urlHelper, string bookingId, string passengerKey)
+        public PassengerAddedResource()
         {
-            ResourceLinks = new Links(urlHelper, bookingId);
-            ResourceCommands = new Commands(urlHelper, bookingId, passengerKey);
         }
 
+        public PassengerAddedResource(IUrlHelper urlHelper, string bookingId,
+            ReadModel.EntityFramework.Booking.Passenger passenger
+        )
+        {
+            ResourceLinks = new Links(urlHelper, bookingId);
+            ResourceCommands = new Commands(urlHelper, bookingId, passenger.PassengerKey);
+            Passenger = passenger.ToResource();
+        }
+
+        public Passenger Passenger { get; set; }
+
         public Links ResourceLinks { get; set; }
+        
         public Commands ResourceCommands { get; set; }
 
         public class Links
@@ -24,7 +33,9 @@ namespace RestAirline.Api.Resources.Booking.Passenger.Add
             private readonly IUrlHelper _urlHelper;
             private readonly string _bookingId;
 
-            public Links(){}
+            public Links()
+            {
+            }
 
             public Links(IUrlHelper urlHelper, string bookingId)
             {
@@ -40,19 +51,19 @@ namespace RestAirline.Api.Resources.Booking.Passenger.Add
 
         public class Commands
         {
-            private readonly IUrlHelper _urlHelper;
             private readonly string _bookingId;
             private readonly string _passengerKey;
 
-            public Commands(){}
+            public Commands()
+            {
+            }
 
             public Commands(IUrlHelper urlHelper, string bookingId, string passengerKey)
             {
-                _urlHelper = urlHelper;
                 _bookingId = bookingId;
                 _passengerKey = passengerKey;
-                AddPassengerCommand = new AddPassengerCommand(_urlHelper, _bookingId);
-                UpdatePassengerNameCommand = new UpdatePassengerNameCommand(_urlHelper, _bookingId, _passengerKey);
+                AddPassengerCommand = new AddPassengerCommand(urlHelper, _bookingId);
+                UpdatePassengerNameCommand = new UpdatePassengerNameCommand(urlHelper, _bookingId, _passengerKey);
             }
 
             public AddPassengerCommand AddPassengerCommand { get; set; }

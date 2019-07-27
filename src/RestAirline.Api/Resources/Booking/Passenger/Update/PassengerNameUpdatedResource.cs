@@ -1,25 +1,24 @@
-using System;
 using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Controllers;
 using RestAirline.Api.Hypermedia;
 using RestAirline.Api.Resources.Booking.Passenger.Add;
 
-namespace RestAirline.Api.Resources.Booking.Passenger
+namespace RestAirline.Api.Resources.Booking.Passenger.Update
 {
     public class PassengerNameUpdatedResource
     {
-        [Obsolete("For serialization")]
         public PassengerNameUpdatedResource()
         {
         }
 
-        public PassengerNameUpdatedResource(IUrlHelper urlHelper, string bookingId)
+        public PassengerNameUpdatedResource(IUrlHelper urlHelper, string bookingId, ReadModel.EntityFramework.Booking.Passenger passenger)
         {
             ResourceLinks = new Links(urlHelper, bookingId);
-            ResourceCommands = new Commands(urlHelper, bookingId);
+            ResourceCommands = new Commands(urlHelper, bookingId, passenger.PassengerKey);
+            Passenger = passenger.ToResource();
         }
 
-
+        public Passenger Passenger { get; set; }
         public Links ResourceLinks { get; set; }
         public Commands ResourceCommands { get; set; }
 
@@ -28,7 +27,6 @@ namespace RestAirline.Api.Resources.Booking.Passenger
             private readonly IUrlHelper _urlHelper;
             private readonly string _bookingId;
 
-            [Obsolete("For serialization")]
             public Links()
             {
             }
@@ -50,19 +48,21 @@ namespace RestAirline.Api.Resources.Booking.Passenger
             private readonly IUrlHelper _urlHelper;
             private readonly string _bookingId;
 
-            [Obsolete("For serialization")]
             public Commands()
             {
             }
 
-            public Commands(IUrlHelper urlHelper, string bookingId)
+            public Commands(IUrlHelper urlHelper, string bookingId, string passengerKey)
             {
                 _urlHelper = urlHelper;
                 _bookingId = bookingId;
                 AddPassengerCommand = new AddPassengerCommand(_urlHelper, _bookingId);
+                UpdatePassengerNameCommand = new UpdatePassengerNameCommand(_urlHelper, bookingId, passengerKey);
             }
 
             public AddPassengerCommand AddPassengerCommand { get; set; }
+
+            public UpdatePassengerNameCommand UpdatePassengerNameCommand { get; set; }
         }
     }
 }

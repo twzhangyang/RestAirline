@@ -14,7 +14,8 @@ namespace RestAirline.ReadModel.EntityFramework
 {
     public class BookingReadModel : IReadModel,
         IAmReadModelFor<Domain.Booking.Booking, BookingId, JourneysSelectedEvent>,
-        IAmReadModelFor<Domain.Booking.Booking, BookingId, PassengerAddedEvent>
+        IAmReadModelFor<Domain.Booking.Booking, BookingId, PassengerAddedEvent>,
+        IAmReadModelFor<Domain.Booking.Booking, BookingId, PassengerNameUpdatedEvent>
     {
         public BookingReadModel()
         {
@@ -39,10 +40,18 @@ namespace RestAirline.ReadModel.EntityFramework
             
             Journeys = journeys.ToList();
         }
-
+        
         public void Apply(IReadModelContext context, IDomainEvent<Domain.Booking.Booking, BookingId, PassengerAddedEvent> domainEvent)
         {
             Passengers.Add(domainEvent.AggregateEvent.Passenger.ToReadModel());
+        }
+
+        public void Apply(IReadModelContext context, IDomainEvent<Domain.Booking.Booking, BookingId, PassengerNameUpdatedEvent> domainEvent)
+        {
+            //TODO: Not sure why there is not element in passenger list
+//            var passenger = Passengers.Single(x => x.PassengerKey == domainEvent.AggregateEvent.PassengerKey);
+
+//            passenger.Name = domainEvent.AggregateEvent.Name;
         }
     }
 }

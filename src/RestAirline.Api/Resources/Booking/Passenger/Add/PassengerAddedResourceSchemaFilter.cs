@@ -1,5 +1,6 @@
 using System;
 using RestAirline.Api.Hypermedia;
+using RestAirline.Api.Resources.Booking.Passenger.Update;
 using RestAirline.Domain.Booking;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;

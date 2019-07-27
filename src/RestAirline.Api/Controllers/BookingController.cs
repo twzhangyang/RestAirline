@@ -9,6 +9,7 @@ using RestAirline.Api.Resources.Booking;
 using RestAirline.Api.Resources.Booking.Journey;
 using RestAirline.Api.Resources.Booking.Passenger;
 using RestAirline.Api.Resources.Booking.Passenger.Add;
+using RestAirline.Api.Resources.Booking.Passenger.Update;
 using RestAirline.Domain.Booking;
 using RestAirline.QueryHandlers.Booking;
 using RestAirline.ReadModel.EntityFramework;
@@ -74,7 +75,7 @@ namespace RestAirline.Api.Controllers
         [Route("{bookingId}/passenger")]
         [HttpPost]
         public async Task<PassengerAddedResource> AddPassenger(string bookingId,
-            [FromBody]AddPassengerCommand addPassengerCommand)
+            [FromBody] AddPassengerCommand addPassengerCommand)
         {
             var command = new CommandHandlers.Passenger.AddPassengerCommand(new BookingId(bookingId))
             {
@@ -83,26 +84,32 @@ namespace RestAirline.Api.Controllers
                 Name = addPassengerCommand.Name,
                 PassengerType = addPassengerCommand.PassengerType
             };
-            
+
             await _commandBus.PublishAsync(command, CancellationToken.None);
 
             var booking = await _queryHandler.ExecuteQueryAsync(
                 new ReadModelByIdQuery<BookingReadModel>(bookingId),
                 new CancellationToken());
+            var passenger = booking.Passengers.Last();
 
-            return new PassengerAddedResource(Url, bookingId, booking.Passengers.Last().PassengerKey);
+            return new PassengerAddedResource(Url, bookingId, passenger);
         }
 
-        [Route("{bookingId}/passenger/{passengerKey}/name")]
+        [Route("{bookingId}/passenger/name")]
         [HttpPost]
-        public async Task<PassengerNameUpdatedResource> UpdatePassengerName(string bookingId, string passengerKey,
-            string name)
+        public async Task<PassengerNameUpdatedResource> UpdatePassengerName(string bookingId,
+            [FromBody] Resources.Booking.Passenger.Update.UpdatePassengerNameCommand updatePassengerNameCommand)
         {
-            name = "new-name";
-            var command = new UpdatePassengerNameCommand(new BookingId(bookingId), passengerKey, name);
+            var command = new UpdatePassengerNameCommand(new BookingId(bookingId),
+                updatePassengerNameCommand.PassengerKey, updatePassengerNameCommand.Name);
             await _commandBus.PublishAsync(command, CancellationToken.None);
 
-            return new PassengerNameUpdatedResource(Url, bookingId);
+            var booking = await _queryHandler.ExecuteQueryAsync(
+                new ReadModelByIdQuery<BookingReadModel>(bookingId),
+                new CancellationToken());
+            var passenger = booking.Passengers.Last();
+
+            return new PassengerNameUpdatedResource(Url, bookingId, passenger);
         }
     }
 }
