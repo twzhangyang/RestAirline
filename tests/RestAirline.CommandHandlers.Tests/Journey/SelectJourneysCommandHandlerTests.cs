@@ -21,7 +21,12 @@ namespace RestAirline.CommandHandlers.Tests.Journey
         public async Task WhenSendSelectJourneysCommandShouldAddJourneys()
         {
             //Arrange
-         
+            var journeys = new JourneysBuilder().BuildJourneys();
+            var selectJourneysCommand = new SelectJourneysCommand(_bookingId, journeys);
+            
+            //Act
+            await CommandBus.PublishAsync(selectJourneysCommand, CancellationToken.None);
+
             //Assert
             var booking = await AggregateStore.LoadAsync<Booking, BookingId>(_bookingId, CancellationToken.None);
             booking.Journeys.Should().NotBeEmpty();
