@@ -34,11 +34,6 @@ The EventStore and ReadModel are based on EF Core and connect to MSSQL, before r
 ReadModel connect string in `settings.json` under `RestAirline.Api` project.
 After set connect string two database will be migrated automatically by the API service.
 
-## Migrate ReadModel
-Because one of the read model was implemented by Entity Framework core, before run app please do migration:
-in `RestAirline/src/RestAirline.ReadModel.EntityFramework`:
-> dotnet ef database update
-
 ## Run the API
 
 ### 1. Try to input home api link in Postman:
