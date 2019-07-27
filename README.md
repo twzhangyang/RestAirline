@@ -2,7 +2,7 @@
 
 # Overview
 
-* A classic DDD with CQRS-ES, Hypermedia API project based on EventFlow. It's targeted to ASP.NET Core 2.2 and can be deployed to docker and k8s.
+* A classic DDD with CQRS-ES, Hypermedia API and Ubiquitous unit test project based on EventFlow. It's targeted to ASP.NET Core 2.2 and can be deployed to docker and k8s.
 * Based on [EventFlow](https://github.com/eventflow/EventFlow)
 * [Wiki](https://github.com/twzhangyang/RestAirline/wiki) is in progress
 
@@ -39,6 +39,7 @@ After set connect string two database will be migrated automatically by the API 
 ### 1. Try to input home api link in Postman:
 
 > GET http://localhost:61200/api/home/
+
 ---
 
 ### 2. Select Journeys
