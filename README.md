@@ -47,7 +47,7 @@ in `RestAirline/src/RestAirline.ReadModel.EntityFramework`:
 ---
 
 ### 2. Select Journeys
-Journey items are come from another micro-service named flight availability, for now let's build a 
+Journey items should come from another micro-service named flight availability, for now let's build a 
 journey in the api automatically for convenience. So you need not pass any journey id to this api.
 
 >POST api/booking/journeys
@@ -103,7 +103,7 @@ Send request:
 ---
 
 ### 4. Get booking
-According to response of last api, you can either get the booking by `resourceLinks` post data by `resourceCommand`.
+According to response of last api, you can either get the booking by `resourceLinks` or post data by `resourceCommand`.
 
 > GET api/booking/{bookingId}
 
@@ -123,7 +123,7 @@ The example is regarding online booking for an airline company. An airline compa
 * Last step is pay for all booking, if payment is successful then create a pnr(six digit) for this booking.
 * Online checkin is allowed for all the flights. Passenger can checkin at below time window:
 
-> 2h <= timeWindow <= departure time - 30m``` 
+> 2h <= timeWindow <= departure time - 30m 
 
 * Passenger can do online checkin, after this step passenger start to his/her journey. 
 
