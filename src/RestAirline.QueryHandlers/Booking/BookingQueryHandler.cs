@@ -3,12 +3,13 @@ using System.Threading.Tasks;
 using EventFlow.EntityFramework;
 using EventFlow.Queries;
 using Microsoft.EntityFrameworkCore;
+using RestAirline.Queries.Booking;
 using RestAirline.ReadModel.EntityFramework;
 using RestAirline.ReadModel.EntityFramework.DBContext;
 
 namespace RestAirline.QueryHandlers.Booking
 {
-    public class BookingQueryHandler : IQueryHandler<ReadModelByIdQuery<BookingReadModel>, BookingReadModel>
+    public class BookingQueryHandler : IQueryHandler<BookingIdQuery, BookingReadModel>
     {
         private readonly IDbContextProvider<RestAirlineReadModelContext> _contextProvider;
 
@@ -17,8 +18,7 @@ namespace RestAirline.QueryHandlers.Booking
             _contextProvider = contextProvider;
         }
 
-        public async Task<BookingReadModel> ExecuteQueryAsync(ReadModelByIdQuery<BookingReadModel> query,
-            CancellationToken cancellationToken)
+        public async Task<BookingReadModel> ExecuteQueryAsync(BookingIdQuery query, CancellationToken cancellationToken)
         {
             using (var context = _contextProvider.CreateContext())
             {
@@ -26,7 +26,7 @@ namespace RestAirline.QueryHandlers.Booking
                     .Include(x => x.Journeys)
                     .ThenInclude(x=>x.Flight)
                     .Include(x => x.Passengers)
-                    .SingleAsync(x => x.Id == query.Id, cancellationToken);
+                    .SingleAsync(x => x.Id == query.BookingId, cancellationToken);
 
                 return readModel;
             }

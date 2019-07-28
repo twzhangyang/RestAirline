@@ -8,4 +8,8 @@
       <PackageReference Include="EventFlow" Version="0.74.3948" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\RestAirline.ReadModel.EntityFramework\RestAirline.ReadModel.EntityFramework.csproj" />
+    </ItemGroup>
+
 </Project>

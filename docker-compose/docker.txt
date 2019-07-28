@@ -19,3 +19,8 @@ Kibana: http://localhost:5601
 
 ## Clear up images
 docker images | grep "restairline" | awk '{print $1 ":" $2}' | xargs docker rmi
+
+
+## Migration:
+dotnet ef database update create_readmodel
+dotnet ef migrations remove

@@ -1,19 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using EventFlow;
+using EventFlow.EntityFramework;
 using EventFlow.Queries;
+using Microsoft.AspNetCore.Hosting.Internal;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using RestAirline.Api.Resources.Booking;
 using RestAirline.Api.Resources.Booking.Journey;
-using RestAirline.Api.Resources.Booking.Passenger;
 using RestAirline.Api.Resources.Booking.Passenger.Add;
 using RestAirline.Api.Resources.Booking.Passenger.Update;
 using RestAirline.Domain.Booking;
-using RestAirline.QueryHandlers.Booking;
-using RestAirline.ReadModel.EntityFramework;
+using RestAirline.Queries.Booking;
+using RestAirline.ReadModel.EntityFramework.DBContext;
 using RestAirline.Shared.ModelBuilders;
+using BookingReadModel = RestAirline.ReadModel.InMemory.BookingReadModel;
 using UpdatePassengerNameCommand = RestAirline.CommandHandlers.Passenger.UpdatePassengerNameCommand;
 
 namespace RestAirline.Api.Controllers
@@ -22,17 +26,14 @@ namespace RestAirline.Api.Controllers
     public class BookingController : Controller
     {
         private readonly ICommandBus _commandBus;
-        private readonly IQueryHandler<ReadModelByIdQuery<BookingReadModel>, BookingReadModel> _bookingQueryHandler;
-        private readonly BookingQueryHandler _queryHandler;
+        private readonly IQueryProcessor _queryProcessor;
+        private readonly IDbContextProvider<RestAirlineReadModelContext> _contextProvider;
 
-        public BookingController(ICommandBus commandBus,
-            IQueryHandler<ReadModelByIdQuery<BookingReadModel>, BookingReadModel> bookingQueryHandle,
-            BookingQueryHandler queryHandler
-        )
+        public BookingController(ICommandBus commandBus, IQueryProcessor queryProcessor, IDbContextProvider<RestAirlineReadModelContext> contextProvider)
         {
             _commandBus = commandBus;
-            _bookingQueryHandler = bookingQueryHandle;
-            _queryHandler = queryHandler;
+            _queryProcessor = queryProcessor;
+            _contextProvider = contextProvider;
         }
 
         [Route("journeys")]
@@ -54,18 +55,12 @@ namespace RestAirline.Api.Controllers
         [HttpGet]
         public async Task<BookingResource> GetBooking(string bookingId)
         {
-            // Not sure why this does not work
-//            var booking = await _bookingQueryHandler.ExecuteQueryAsync(
-//                new ReadModelByIdQuery<BookingReadModel>(bookingId),
-//                new CancellationToken());
-
-            var booking = await _queryHandler.ExecuteQueryAsync(
-                new ReadModelByIdQuery<BookingReadModel>(bookingId),
-                new CancellationToken());
+            
+            var booking = await _queryProcessor.ProcessAsync(new BookingIdQuery(bookingId), CancellationToken.None);
 
             return new BookingResource(Url, booking);
         }
-
+        
         /// <summary>
         /// Add a passenger in booking
         /// </summary>
@@ -87,9 +82,7 @@ namespace RestAirline.Api.Controllers
 
             await _commandBus.PublishAsync(command, CancellationToken.None);
 
-            var booking = await _queryHandler.ExecuteQueryAsync(
-                new ReadModelByIdQuery<BookingReadModel>(bookingId),
-                new CancellationToken());
+            var booking = await _queryProcessor.ProcessAsync(new BookingIdQuery(bookingId), CancellationToken.None);
             var passenger = booking.Passengers.Last();
 
             return new PassengerAddedResource(Url, bookingId, passenger);
@@ -104,9 +97,7 @@ namespace RestAirline.Api.Controllers
                 updatePassengerNameCommand.PassengerKey, updatePassengerNameCommand.Name);
             await _commandBus.PublishAsync(command, CancellationToken.None);
 
-            var booking = await _queryHandler.ExecuteQueryAsync(
-                new ReadModelByIdQuery<BookingReadModel>(bookingId),
-                new CancellationToken());
+            var booking = await _queryProcessor.ProcessAsync(new BookingIdQuery(bookingId), CancellationToken.None);
             var passenger = booking.Passengers.Last();
 
             return new PassengerNameUpdatedResource(Url, bookingId, passenger);
