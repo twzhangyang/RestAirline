@@ -9,12 +9,12 @@
 # How to Run
 ## Clone this repo
 
->git clone https://github.com/twzhangyang/RestAirline.git
+> git clone https://github.com/twzhangyang/RestAirline.git
 
 ## Running the container
 Then spin up a new container using `docker-compose`
 
->docker-compose up
+> docker-compose up
 
 Note: add a `-d` to run the container in background
 
@@ -46,7 +46,7 @@ After set connect string two database will be migrated automatically by the API 
 Journey items should come from another micro-service named flight availability, for now let's build a 
 journey in the api automatically for convenience. So you need not pass any journey id to this api.
 
->POST api/booking/journeys
+> POST api/booking/journeys
 
 ![add journey](https://user-images.githubusercontent.com/22952792/61993523-7625fb00-b09f-11e9-98a4-5fdd52774996.png)
 ---
@@ -104,6 +104,7 @@ According to response of last api, you can either get the booking by `resourceLi
 > GET api/booking/{bookingId}
 
 ![get booking](https://user-images.githubusercontent.com/22952792/61993549-ffd5c880-b09f-11e9-9679-e708a7f087d3.png)
+---
 
 ### 5. Update passenger Name
 

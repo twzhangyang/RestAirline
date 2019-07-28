@@ -1,0 +1,21 @@
+## setup mssql
+
+docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=RestAirline123' -e 'MSSQL_PID=Developer' -p 1433:1433 -d microsoft/mssql-server-linux:2017-latest
+
+docker exec -it <container_id|container_name> /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P <your_password> -Q "select 1"
+
+npm install -g sql-cli
+mssql -p RestAirline123
+.help
+
+## Setup ElasticSearch and Kibana
+
+docker run --name elasticsearch -d -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -e "cluster.name=restairline-es" docker.elastic.co/elasticsearch/elasticsearch:7.2.0
+
+docker run -d --link elasticsearch -p 5601:5601 docker.elastic.co/kibana/kibana:7.2.0
+
+Kibana: http://localhost:5601
+
+
+## Clear up images
+docker images | grep "restairline" | awk '{print $1 ":" $2}' | xargs docker rmi
