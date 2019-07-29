@@ -27,9 +27,9 @@ namespace RestAirline.ReadModel.EntityFramework
 
         [ConcurrencyCheck] public long Version { get; set; }
 
-        public List<Passenger> Passengers { get; set; }
+        public virtual List<Passenger> Passengers { get; set; }
 
-        public List<Journey> Journeys { get; set; }
+        public virtual List<Journey> Journeys { get; set; }
 
         public void Apply(IReadModelContext context,
             IDomainEvent<Domain.Booking.Booking, BookingId, JourneysSelectedEvent> domainEvent)

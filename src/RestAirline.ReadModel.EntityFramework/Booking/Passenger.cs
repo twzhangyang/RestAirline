@@ -21,7 +21,7 @@ namespace RestAirline.ReadModel.EntityFramework.Booking
 
         public string Email { get; set; }
 
-        public BookingReadModel BookingReadModel { get; set; }
+        public virtual BookingReadModel BookingReadModel { get; set; }
     }
 
     public static class PassengerMapper

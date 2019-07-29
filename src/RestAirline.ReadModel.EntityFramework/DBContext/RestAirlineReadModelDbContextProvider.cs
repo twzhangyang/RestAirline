@@ -12,6 +12,7 @@ namespace RestAirline.ReadModel.EntityFramework.DBContext
         public RestAirlineReadModelDbContextProvider(IConfiguration configuration)
         {
             _options = new DbContextOptionsBuilder<RestAirlineReadModelContext>()
+                .UseLazyLoadingProxies()
                 .UseSqlServer(configuration["ReadModelConnectionString"])
                 .Options;
         }

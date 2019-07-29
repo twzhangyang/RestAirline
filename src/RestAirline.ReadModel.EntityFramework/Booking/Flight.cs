@@ -24,7 +24,7 @@ namespace RestAirline.ReadModel.EntityFramework.Booking
 
         public Aircraft Aircraft { get; set; }
         
-        public Journey Journey { get; set; }
+        public virtual Journey Journey { get; set; }
         
         public Guid JourneyId { get; set; }
     }

@@ -19,9 +19,9 @@ namespace RestAirline.ReadModel.EntityFramework.Booking
 
         public string Description { get; set; }
 
-        public Flight Flight { get; set; }
+        public virtual Flight Flight { get; set; }
 
-        public BookingReadModel BookingReadModel { get; set; }
+        public virtual BookingReadModel BookingReadModel { get; set; }
     }
 
     public static class JourneyMapper
