@@ -31,8 +31,6 @@ namespace RestAirline.ReadModel.EntityFramework
 
         public List<Journey> Journeys { get; set; }
 
-        public int Count { get; set; }
-
         public void Apply(IReadModelContext context,
             IDomainEvent<Domain.Booking.Booking, BookingId, JourneysSelectedEvent> domainEvent)
         {
@@ -44,7 +42,6 @@ namespace RestAirline.ReadModel.EntityFramework
         public void Apply(IReadModelContext context,
             IDomainEvent<Domain.Booking.Booking, BookingId, PassengerAddedEvent> domainEvent)
         {
-            Count++;
             Passengers.Add(domainEvent.AggregateEvent.Passenger.ToReadModel());
         }
 

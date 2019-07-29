@@ -3,10 +3,12 @@ using EventFlow;
 using EventFlow.Configuration;
 using EventFlow.DependencyInjection.Extensions;
 using EventFlow.EntityFramework;
+using EventFlow.Queries;
 using Microsoft.Extensions.DependencyInjection;
 using RestAirline.CommandHandlers;
 using RestAirline.Domain;
 using RestAirline.Domain.EventSourcing;
+using RestAirline.QueryHandlers;
 using RestAirline.ReadModel.EntityFramework.DBContext;
 using RestAirline.TestsHelper;
 
@@ -16,6 +18,7 @@ namespace RestAirline.ReadModel.EntityFramework.Tests
     {
         protected readonly IRootResolver Resolver;
         protected readonly ICommandBus CommandBus;
+        protected readonly IQueryProcessor QueryProcessor;
 
         public TestBase()
         {
@@ -28,6 +31,7 @@ namespace RestAirline.ReadModel.EntityFramework.Tests
                 .RegisterModule<CommandModule>()
                 .RegisterModule<CommandHandlersModule>()
                 .RegisterModule<EntityFrameworkReadModelModule>()
+                .RegisterModule<QueryHandlersModule>()
                 .RegisterServices(register =>
                 {
                     register.Register<IDbContextProvider<RestAirlineReadModelContext>, FakedEntityFramewokReadModelDbContextProvider>();
@@ -37,6 +41,7 @@ namespace RestAirline.ReadModel.EntityFramework.Tests
                 .CreateResolver();
 
             CommandBus = Resolver.Resolve<ICommandBus>();
+            QueryProcessor = Resolver.Resolve<IQueryProcessor>();
         }
 
         public void Dispose()
