@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="EventFlow" Version="0.74.3948" />
+      <PackageReference Include="EventFlow.DependencyInjection" Version="0.74.3948" />
+      <PackageReference Include="EventFlow.Elasticsearch" Version="0.74.3948" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
+      <PackageReference Include="xunit" Version="2.4.1" />
+      <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\RestAirline.CommandHandlers\RestAirline.CommandHandlers.csproj" />
+      <ProjectReference Include="..\..\src\RestAirline.Commands\RestAirline.Commands.csproj" />
+      <ProjectReference Include="..\..\src\RestAirline.Domain\RestAirline.Domain.csproj" />
+      <ProjectReference Include="..\..\src\RestAirline.QueryHandlers\RestAirline.QueryHandlers.csproj" />
+      <ProjectReference Include="..\..\src\RestAirline.ReadModel.Elasticsearch\RestAirline.ReadModel.Elasticsearch.csproj" />
+      <ProjectReference Include="..\RestAirline.TestsHelper\RestAirline.TestsHelper.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="unittest.json">
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+</Project>

@@ -7,7 +7,7 @@ namespace RestAirline.TestsHelper
 {
     public class ConfigurationRootCreator
     {
-        public static void Create(IServiceCollection services)
+        public static IConfiguration Create(IServiceCollection services)
         {
             services.AddOptions();
             
@@ -17,6 +17,8 @@ namespace RestAirline.TestsHelper
             
             var ConfigurationRoot = configurationBuilder.Build();
             services.AddSingleton((IConfiguration)ConfigurationRoot);
+
+            return ConfigurationRoot;
         }
     }
 }
