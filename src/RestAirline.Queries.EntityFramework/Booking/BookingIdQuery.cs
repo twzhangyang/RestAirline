@@ -2,7 +2,7 @@ using System;
 using EventFlow.Queries;
 using RestAirline.ReadModel.EntityFramework;
 
-namespace RestAirline.Queries.Booking
+namespace RestAirline.Queries.EntityFramework.Booking
 {
     public class BookingIdQuery : IQuery<BookingReadModel>
     {

@@ -9,6 +9,7 @@ using RestAirline.CommandHandlers;
 using RestAirline.Domain;
 using RestAirline.Domain.EventSourcing;
 using RestAirline.QueryHandlers;
+using RestAirline.QueryHandlers.EntityFramework;
 using RestAirline.ReadModel.EntityFramework.DBContext;
 using RestAirline.TestsHelper;
 
@@ -32,7 +33,7 @@ namespace RestAirline.ReadModel.EntityFramework.Tests
                 .RegisterModule<CommandModule>()
                 .RegisterModule<CommandHandlersModule>()
                 .RegisterModule<EntityFrameworkReadModelModule>()
-                .RegisterModule<QueryHandlersModule>()
+                .RegisterModule<EntityFrameworkQueryHandlersModule>()
                 .RegisterServices(register =>
                 {
                     register.Register<IDbContextProvider<RestAirlineReadModelContext>, FakedEntityFramewokReadModelDbContextProvider>();

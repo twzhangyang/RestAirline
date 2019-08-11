@@ -29,7 +29,6 @@ namespace RestAirline.ReadModel.Elasticsearch.Tests
                 .RegisterModule<BookingDomainModule>()
                 .RegisterModule<CommandModule>()
                 .RegisterModule<CommandHandlersModule>()
-                .RegisterModule<QueryHandlersModule>()
                 .ConfigureElasticsearch(elasticseachUrl)
                 .RegisterModule<ElasticsearchReadModelModule>()
                 .CreateResolver();

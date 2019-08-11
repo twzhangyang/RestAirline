@@ -14,6 +14,7 @@ using RestAirline.Api.Swagger;
 using RestAirline.CommandHandlers;
 using RestAirline.Domain;
 using RestAirline.QueryHandlers;
+using RestAirline.QueryHandlers.EntityFramework;
 using RestAirline.ReadModel.EntityFramework;
 using RestAirline.ReadModel.InMemory;
 using RestAirline.Shared.Extensions;
@@ -63,11 +64,11 @@ namespace RestAirline.Api
             var eventFlowOptions = EventFlowOptions.New
                 .UseServiceCollection(services)
                 .AddAspNetCore(options => { options.AddUserClaimsMetadata(); })
+                .RegisterModule<BookingDomainModule>()
                 .RegisterModule<CommandModule>()
                 .RegisterModule<CommandHandlersModule>()
-                .RegisterModule<QueryHandlersModule>()
+                .RegisterModule<EntityFrameworkQueryHandlersModule>()
                 .RegisterModule<EntityFrameworkEventStoreModule>()
-                .RegisterModule<InMemoryReadModelModule>()
                 .RegisterModule<EntityFrameworkReadModelModule>();
 
             return eventFlowOptions;

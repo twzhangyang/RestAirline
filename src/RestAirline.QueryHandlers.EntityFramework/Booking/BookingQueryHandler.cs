@@ -3,11 +3,11 @@ using System.Threading.Tasks;
 using EventFlow.EntityFramework;
 using EventFlow.Queries;
 using Microsoft.EntityFrameworkCore;
-using RestAirline.Queries.Booking;
+using RestAirline.Queries.EntityFramework.Booking;
 using RestAirline.ReadModel.EntityFramework;
 using RestAirline.ReadModel.EntityFramework.DBContext;
 
-namespace RestAirline.QueryHandlers.Booking
+namespace RestAirline.QueryHandlers.EntityFramework.Booking
 {
     public class BookingQueryHandler : IQueryHandler<BookingIdQuery, BookingReadModel>
     {
