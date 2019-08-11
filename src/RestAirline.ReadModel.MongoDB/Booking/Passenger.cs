@@ -5,11 +5,7 @@ namespace RestAirline.ReadModel.MongoDb.Booking
 {
     public class Passenger
     {
-        [Key]
         public Guid Id { get; set; }
-
-        [ConcurrencyCheck] 
-        public long Version { get; set; }
 
         public string PassengerKey { get; set; }
 
@@ -20,8 +16,6 @@ namespace RestAirline.ReadModel.MongoDb.Booking
         public int Age { get; set; }
 
         public string Email { get; set; }
-
-        public MongoDbBookingReadModel BookingReadModel { get; set; }
     }
 
     public static class PassengerMapper

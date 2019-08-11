@@ -55,7 +55,6 @@ namespace RestAirline.Api.Controllers
         [HttpGet]
         public async Task<BookingResource> GetBooking(string bookingId)
         {
-            
             var booking = await _queryProcessor.ProcessAsync(new BookingIdQuery(bookingId), CancellationToken.None);
 
             return new BookingResource(Url, booking);

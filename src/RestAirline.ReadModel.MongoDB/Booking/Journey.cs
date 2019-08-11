@@ -5,7 +5,7 @@ namespace RestAirline.ReadModel.MongoDb.Booking
 {
     public class Journey
     {
-        [Key] public Guid Id { get; set; }
+        public Guid Id { get; set; }
 
         public string JourneyKey { get; set; }
 
@@ -20,8 +20,6 @@ namespace RestAirline.ReadModel.MongoDb.Booking
         public string Description { get; set; }
 
         public Flight Flight { get; set; }
-
-        public MongoDbBookingReadModel BookingReadModel { get; set; }
     }
 
     public static class JourneyMapper

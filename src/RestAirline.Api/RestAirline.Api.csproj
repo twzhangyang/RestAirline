@@ -24,8 +24,8 @@
     <ProjectReference Include="..\RestAirline.CommandHandlers\RestAirline.CommandHandlers.csproj" />
     <ProjectReference Include="..\RestAirline.Commands\RestAirline.Commands.csproj" />
     <ProjectReference Include="..\RestAirline.Domain\RestAirline.Domain.csproj" />
-    <ProjectReference Include="..\RestAirline.Queries\RestAirline.Queries.csproj" />
-    <ProjectReference Include="..\RestAirline.QueryHandlers\RestAirline.QueryHandlers.csproj" />
+    <ProjectReference Include="..\RestAirline.Queries.EntityFramework\RestAirline.Queries.EntityFramework.csproj" />
+    <ProjectReference Include="..\RestAirline.QueryHandlers.EntityFramework\RestAirline.QueryHandlers.EntityFramework.csproj" />
     <ProjectReference Include="..\RestAirline.ReadModel.EntityFramework\RestAirline.ReadModel.EntityFramework.csproj" />
     <ProjectReference Include="..\RestAirline.Shared\RestAirline.Shared.csproj" />
   </ItemGroup>

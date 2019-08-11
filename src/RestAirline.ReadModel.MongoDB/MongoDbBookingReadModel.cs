@@ -34,6 +34,7 @@ namespace RestAirline.ReadModel.MongoDb
         public void Apply(IReadModelContext context,
             IDomainEvent<Domain.Booking.Booking, BookingId, JourneysSelectedEvent> domainEvent)
         {
+            Id = domainEvent.AggregateIdentity.Value;
             var journeys = domainEvent.AggregateEvent.Journeys.Select(j => j.ToReadModel());
 
             Journeys = journeys.ToList();
@@ -42,16 +43,17 @@ namespace RestAirline.ReadModel.MongoDb
         public void Apply(IReadModelContext context,
             IDomainEvent<Domain.Booking.Booking, BookingId, PassengerAddedEvent> domainEvent)
         {
+            Id = domainEvent.AggregateIdentity.Value;
             Passengers.Add(domainEvent.AggregateEvent.Passenger.ToReadModel());
         }
 
         public void Apply(IReadModelContext context,
             IDomainEvent<Domain.Booking.Booking, BookingId, PassengerNameUpdatedEvent> domainEvent)
         {
-            //TODO: Not sure why there is not element in passenger list
-//            var passenger = Passengers.Single(x => x.PassengerKey == domainEvent.AggregateEvent.PassengerKey);
+            Id = domainEvent.AggregateIdentity.Value;
 
-//            passenger.Name = domainEvent.AggregateEvent.Name;
+            var passenger = Passengers.Single(x => x.PassengerKey == domainEvent.AggregateEvent.PassengerKey);
+            passenger.Name = domainEvent.AggregateEvent.Name;
         }
     }
 }

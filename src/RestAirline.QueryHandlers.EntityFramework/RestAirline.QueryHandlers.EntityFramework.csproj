@@ -2,6 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp2.2</TargetFramework>
+        <RootNamespace>RestAirline.QueryHandlers</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -9,7 +10,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\RestAirline.Queries.EntityFramework\RestAirline.Queries.EntityFramework.csproj" />
       <ProjectReference Include="..\RestAirline.ReadModel.EntityFramework\RestAirline.ReadModel.EntityFramework.csproj" />
+      <ProjectReference Include="..\RestAirline.ReadModel.InMemory\RestAirline.ReadModel.InMemory.csproj" />
     </ItemGroup>
 
 </Project>
