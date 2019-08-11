@@ -17,6 +17,19 @@ docker run -d --link elasticsearch -p 5601:5601 docker.elastic.co/kibana/kibana:
 Kibana: http://localhost:5601
 
 
+## Setup MongoDB
+docker run --name mongodb -d -p 27017:27017 -v $PWD/mongo:/data/db mongo:4.0
+
+* Connect to mongodb instance in container
+docker exec -it mongodb bash
+mongo
+show dbs
+use test
+db.people.save({ firstname: "Nic", lastname: "Raboy" })
+db.people.save({ firstname: "Maria", lastname: "Raboy" })
+db.people.find({ firstname: "Nic" })
+
+
 ## Clear up images
 docker images | grep "restairline" | awk '{print $1 ":" $2}' | xargs docker rmi
 

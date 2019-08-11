@@ -53,6 +53,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.Elast
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.Elasticsearch.Tests", "tests\RestAirline.ReadModel.Elasticsearch.Tests\RestAirline.ReadModel.Elasticsearch.Tests.csproj", "{73FE4895-86C2-4954-A5D0-739F7DE58061}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.MongoDB", "src\RestAirline.ReadModel.MongoDB\RestAirline.ReadModel.MongoDB.csproj", "{6DAD502C-BC3C-46C5-A4F7-6300181A0C21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.MongoDB.Tests", "tests\RestAirline.ReadModel.MongoDB.Tests\RestAirline.ReadModel.MongoDB.Tests.csproj", "{DFDA8D2F-9ED0-4B6A-A5BB-1640692F1CB9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -131,6 +135,14 @@ Global
 		{73FE4895-86C2-4954-A5D0-739F7DE58061}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73FE4895-86C2-4954-A5D0-739F7DE58061}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73FE4895-86C2-4954-A5D0-739F7DE58061}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DAD502C-BC3C-46C5-A4F7-6300181A0C21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DAD502C-BC3C-46C5-A4F7-6300181A0C21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DAD502C-BC3C-46C5-A4F7-6300181A0C21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DAD502C-BC3C-46C5-A4F7-6300181A0C21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFDA8D2F-9ED0-4B6A-A5BB-1640692F1CB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFDA8D2F-9ED0-4B6A-A5BB-1640692F1CB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFDA8D2F-9ED0-4B6A-A5BB-1640692F1CB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFDA8D2F-9ED0-4B6A-A5BB-1640692F1CB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -158,5 +170,7 @@ Global
 		{299D174C-1ED3-4412-AEBB-D786B50714EB} = {2B26D045-2A96-41AE-B592-E2156AFED446}
 		{2D9F482B-AEB2-4D62-AB9C-F1F208DF3C23} = {2CF93039-EC81-4CB0-8940-9D0AB9C1FD38}
 		{73FE4895-86C2-4954-A5D0-739F7DE58061} = {2B26D045-2A96-41AE-B592-E2156AFED446}
+		{6DAD502C-BC3C-46C5-A4F7-6300181A0C21} = {2CF93039-EC81-4CB0-8940-9D0AB9C1FD38}
+		{DFDA8D2F-9ED0-4B6A-A5BB-1640692F1CB9} = {2B26D045-2A96-41AE-B592-E2156AFED446}
 	EndGlobalSection
 EndGlobal

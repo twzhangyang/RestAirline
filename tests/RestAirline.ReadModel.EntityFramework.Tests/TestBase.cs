@@ -28,6 +28,7 @@ namespace RestAirline.ReadModel.EntityFramework.Tests
             Resolver = EventFlowOptions.New
                 .UseServiceCollection(services)
                 .RegisterModule<BookingDomainModule>()
+                .RegisterModule<EntityFrameworkEventStoreModule>()
                 .RegisterModule<CommandModule>()
                 .RegisterModule<CommandHandlersModule>()
                 .RegisterModule<EntityFrameworkReadModelModule>()
@@ -35,7 +36,6 @@ namespace RestAirline.ReadModel.EntityFramework.Tests
                 .RegisterServices(register =>
                 {
                     register.Register<IDbContextProvider<RestAirlineReadModelContext>, FakedEntityFramewokReadModelDbContextProvider>();
-                    register.Register<FakedEntityFramewokReadModelDbContextProvider, FakedEntityFramewokReadModelDbContextProvider>();
                     register.Register<IDbContextProvider<EventStoreContext>, FakedEventStoreContextProvider>();
                 })
                 .CreateResolver();

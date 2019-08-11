@@ -66,7 +66,7 @@ namespace RestAirline.Api
                 .RegisterModule<CommandModule>()
                 .RegisterModule<CommandHandlersModule>()
                 .RegisterModule<QueryHandlersModule>()
-                .RegisterModule<BookingDomainModule>()
+                .RegisterModule<EntityFrameworkEventStoreModule>()
                 .RegisterModule<InMemoryReadModelModule>()
                 .RegisterModule<EntityFrameworkReadModelModule>();
 

@@ -27,7 +27,7 @@ namespace RestAirline.ReadModel.Tests
             
             Resolver = EventFlowOptions.New
                 .UseServiceCollection(services)
-                .RegisterModule<BookingDomainModule>()
+                .RegisterModule<EntityFrameworkEventStoreModule>()
                 .RegisterModule<CommandModule>()
                 .RegisterModule<InMemoryReadModelModule>()
                 .RegisterModule<EntityFrameworkReadModelModule>()
