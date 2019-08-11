@@ -18,3 +18,9 @@ services:
     - ACCEPT_EULA=Y
     ports:
     - "1433:1433"  
+      
+  mongodb.data:
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongo:/data/db

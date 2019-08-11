@@ -11,9 +11,13 @@ services:
       dockerfile: ./RestAirline.Api/Dockerfile
     depends_on:
       - mssql.data
+      - mongodb.data
     container_name: restairline_api
 
   mssql.data:
     image: microsoft/mssql-server-linux:2017-latest
-    container_name: restairline_mssql
+    
+  mongodb.data:
+    image: mongo:4.0
+    
     
