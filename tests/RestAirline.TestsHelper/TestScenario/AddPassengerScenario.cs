@@ -1,8 +1,9 @@
 using System.Threading;
 using System.Threading.Tasks;
 using EventFlow;
-using RestAirline.CommandHandlers.Passenger;
+using RestAirline.Commands.Passenger;
 using RestAirline.Domain.Booking;
+using RestAirline.Domain.Booking.Passenger;
 using RestAirline.Shared;
 using RestAirline.Shared.ModelBuilders;
 

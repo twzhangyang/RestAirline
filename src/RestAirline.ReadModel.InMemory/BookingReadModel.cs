@@ -3,7 +3,7 @@ using System.Linq;
 using EventFlow.Aggregates;
 using EventFlow.ReadStores;
 using RestAirline.Domain.Booking;
-using RestAirline.Domain.Booking.Events;
+using RestAirline.Domain.Booking.Passenger.Events;
 using RestAirline.Domain.Booking.Trip.Events;
 using RestAirline.ReadModel.InMemory.Booking;
 using Passenger = RestAirline.ReadModel.InMemory.Booking.Passenger;

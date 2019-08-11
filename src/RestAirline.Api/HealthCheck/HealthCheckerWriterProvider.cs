@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using RestAirline.Shared.Extensions;
 
-namespace RestAirline.Api
+namespace RestAirline.Api.HealthCheck
 {
     public class HealthCheckerResponseProvider
     {

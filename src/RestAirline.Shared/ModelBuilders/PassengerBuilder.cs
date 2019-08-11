@@ -1,5 +1,6 @@
 using System;
 using RestAirline.Domain.Booking;
+using RestAirline.Domain.Booking.Passenger;
 
 namespace RestAirline.Shared.ModelBuilders
 {

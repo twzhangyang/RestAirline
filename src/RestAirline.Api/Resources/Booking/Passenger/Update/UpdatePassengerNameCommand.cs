@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Controllers;
-using RestAirline.Api.Hypermedia;
+using RestAirline.Api.HyperMedia;
 
 namespace RestAirline.Api.Resources.Booking.Passenger.Update
 {

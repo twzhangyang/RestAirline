@@ -1,14 +1,14 @@
 using System;
 using EventFlow.Queries;
-using RestAirline.ReadModel.EntityFramework;
+using RestAirline.ReadModel.MongoDb;
 
-namespace RestAirline.Queries.EntityFramework.Booking
+namespace RestAirline.Queries.MongoDB.Booking
 {
-    public class BookingIdElasticsearchQuery : IQuery<BookingReadModel>
+    public class BookingIdQuery : IQuery<MongoDbBookingReadModel>
     {
         public string BookingId { get; }
 
-        public BookingIdElasticsearchQuery(string bookingId)
+        public BookingIdQuery(string bookingId)
         {
             if (string.IsNullOrEmpty(bookingId))
             {

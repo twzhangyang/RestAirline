@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using RestAirline.Domain.Booking;
+using RestAirline.Domain.Booking.Passenger;
 
 namespace RestAirline.Api.Resources.Booking.Passenger
 {

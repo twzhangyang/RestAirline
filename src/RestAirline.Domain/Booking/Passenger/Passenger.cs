@@ -1,7 +1,6 @@
-﻿using System;
-using EventFlow.ValueObjects;
+﻿using EventFlow.ValueObjects;
 
-namespace RestAirline.Domain.Booking
+namespace RestAirline.Domain.Booking.Passenger
 {
     public class Passenger : ValueObject
     {

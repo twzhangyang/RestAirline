@@ -10,18 +10,18 @@ namespace RestAirline.Domain.Booking.Snapshots
     {
         public IReadOnlyCollection<Journey> Journeys { get; private set; }
 
-        public IReadOnlyCollection<Passenger> Passengers { get; private set; }
+        public IReadOnlyCollection<Passenger.Passenger> Passengers { get; private set; }
 
         public BookingSnapshot()
         {
             Journeys = new List<Journey>();
-            Passengers = new List<Passenger>();
+            Passengers = new List<Passenger.Passenger>();
         }
 
-        public BookingSnapshot(IEnumerable<Journey> journeys, IEnumerable<Passenger> passengers)
+        public BookingSnapshot(IEnumerable<Journey> journeys, IEnumerable<Passenger.Passenger> passengers)
         {
             Journeys = (journeys ?? Enumerable.Empty<Journey>()).ToList();
-            Passengers = (passengers ?? Enumerable.Empty<Passenger>()).ToList();
+            Passengers = (passengers ?? Enumerable.Empty<Passenger.Passenger>()).ToList();
         }
     }
 }

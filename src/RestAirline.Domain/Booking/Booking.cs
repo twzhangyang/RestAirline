@@ -8,9 +8,10 @@ using EventFlow.Aggregates;
 using EventFlow.Extensions;
 using EventFlow.Snapshots;
 using EventFlow.Snapshots.Strategies;
-using RestAirline.Domain.Booking.Events;
 using RestAirline.Domain.Booking.Exceptions;
 using RestAirline.Domain.Booking.Extensions;
+using RestAirline.Domain.Booking.Passenger;
+using RestAirline.Domain.Booking.Passenger.Events;
 using RestAirline.Domain.Booking.Snapshots;
 using RestAirline.Domain.Booking.Specs;
 using RestAirline.Domain.Booking.Trip;
@@ -31,7 +32,7 @@ namespace RestAirline.Domain.Booking
 
         public IReadOnlyList<Journey> Journeys => _state.Journeys;
 
-        public IReadOnlyList<Passenger> Passengers => _state.Passengers;
+        public IReadOnlyList<Passenger.Passenger> Passengers => _state.Passengers;
 
         public void SelectJourneys(List<Journey> journeys)
         {
@@ -48,7 +49,7 @@ namespace RestAirline.Domain.Booking
             Emit(new JourneysSelectedEvent(journeys));
         }
 
-        public void AddPassenger(Passenger passenger)
+        public void AddPassenger(Passenger.Passenger passenger)
         {
             if (passenger == null)
             {

@@ -1,8 +1,9 @@
 using System;
 using EventFlow.Commands;
 using RestAirline.Domain.Booking;
+using RestAirline.Domain.Booking.Passenger;
 
-namespace RestAirline.CommandHandlers.Passenger
+namespace RestAirline.Commands.Passenger
 {
     public class AddPassengerCommand : Command<Booking, BookingId>
     {

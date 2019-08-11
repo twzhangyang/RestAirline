@@ -4,10 +4,13 @@ using EventFlow.Configuration;
 using EventFlow.DependencyInjection.Extensions;
 using EventFlow.MongoDB.Extensions;
 using EventFlow.MongoDB.ReadStores;
+using EventFlow.Queries;
 using Microsoft.Extensions.DependencyInjection;
 using Mongo2Go;
 using RestAirline.CommandHandlers;
+using RestAirline.Commands;
 using RestAirline.Domain;
+using RestAirline.QueryHandlers.MongoDB;
 
 namespace RestAirline.ReadModel.MongoDb.Tests
 {
@@ -16,7 +19,8 @@ namespace RestAirline.ReadModel.MongoDb.Tests
         protected readonly IRootResolver Resolver;
         protected readonly ICommandBus CommandBus;
         protected readonly IMongoDbReadModelStore<MongoDbBookingReadModel> ReadModel;
-
+        protected readonly IQueryProcessor QueryProcessor;
+        
         public TestBase()
         {
             var services = new ServiceCollection();
@@ -29,11 +33,12 @@ namespace RestAirline.ReadModel.MongoDb.Tests
                 .RegisterModule<CommandModule>()
                 .RegisterModule<CommandHandlersModule>()
                 .RegisterModule<MongoDbReadModelModule>()
+                .RegisterModule<MongoDbQueryHandlersModule>()
                 .ConfigureMongoDb(runner.ConnectionString, "restairline")
                 .CreateResolver();
 
             CommandBus = Resolver.Resolve<ICommandBus>();
-            ReadModel = Resolver.Resolve<IMongoDbReadModelStore<MongoDbBookingReadModel>>();
+            QueryProcessor = Resolver.Resolve<IQueryProcessor>();
         }
 
         public void Dispose()

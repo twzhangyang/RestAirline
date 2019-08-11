@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using EventFlow.Specifications;
 
-namespace RestAirline.Domain.Booking
+namespace RestAirline.Domain.Booking.Passenger
 {
     public class PassengerNameUpdateSpecification : Specification<IReadOnlyList<Passenger>>
     {

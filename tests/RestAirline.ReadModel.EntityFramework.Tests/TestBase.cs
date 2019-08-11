@@ -6,6 +6,7 @@ using EventFlow.EntityFramework;
 using EventFlow.Queries;
 using Microsoft.Extensions.DependencyInjection;
 using RestAirline.CommandHandlers;
+using RestAirline.Commands;
 using RestAirline.Domain;
 using RestAirline.Domain.EventSourcing;
 using RestAirline.QueryHandlers;

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using EventFlow.Aggregates;
-using RestAirline.Domain.Booking.Events;
+using RestAirline.Domain.Booking.Passenger.Events;
 using RestAirline.Domain.Booking.Snapshots;
 using RestAirline.Domain.Booking.Trip;
 using RestAirline.Domain.Booking.Trip.Events;
@@ -15,15 +15,15 @@ namespace RestAirline.Domain.Booking
     {
         public IReadOnlyList<Journey> Journeys => _journeys.AsReadOnly();
 
-        public IReadOnlyList<Passenger> Passengers => _passengers.AsReadOnly();
+        public IReadOnlyList<Passenger.Passenger> Passengers => _passengers.AsReadOnly();
 
         private List<Journey> _journeys;
 
-        private List<Passenger> _passengers;
+        private List<Passenger.Passenger> _passengers;
 
         public BookingState()
         {
-            _passengers = new List<Passenger>();
+            _passengers = new List<Passenger.Passenger>();
             _journeys = new List<Journey>();
         }
 

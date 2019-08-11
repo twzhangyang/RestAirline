@@ -1,7 +1,7 @@
 using EventFlow.Aggregates;
 using EventFlow.EventStores;
 
-namespace RestAirline.Domain.Booking.Events
+namespace RestAirline.Domain.Booking.Passenger.Events
 {
     [EventVersion("PassengerNameUpdated", 1)]
     public class PassengerNameUpdatedEvent : AggregateEvent<Booking, BookingId>

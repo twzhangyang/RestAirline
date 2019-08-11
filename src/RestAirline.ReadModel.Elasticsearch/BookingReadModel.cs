@@ -4,7 +4,7 @@ using EventFlow.Aggregates;
 using EventFlow.ReadStores;
 using Nest;
 using RestAirline.Domain.Booking;
-using RestAirline.Domain.Booking.Events;
+using RestAirline.Domain.Booking.Passenger.Events;
 using RestAirline.Domain.Booking.Trip.Events;
 using RestAirline.ReadModel.Elasticsearch.Booking;
 using Passenger = RestAirline.ReadModel.Elasticsearch.Booking.Passenger;

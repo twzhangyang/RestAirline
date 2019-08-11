@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using RestAirline.Api.Controllers;
-using RestAirline.Api.Hypermedia;
+using RestAirline.Api.HyperMedia;
 using RestAirline.Api.Resources.Booking.Journey;
 using RestAirline.Api.Resources.Booking.Passenger;
 using RestAirline.ReadModel.EntityFramework;

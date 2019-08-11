@@ -1,6 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using EventFlow.Commands;
+using RestAirline.Commands.Passenger;
 using RestAirline.Domain.Booking;
 
 namespace RestAirline.CommandHandlers.Passenger

@@ -12,6 +12,7 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using RestAirline.Api.HealthCheck;
 using RestAirline.Api.Swagger;
 using RestAirline.CommandHandlers;
+using RestAirline.Commands;
 using RestAirline.Domain;
 using RestAirline.QueryHandlers;
 using RestAirline.QueryHandlers.EntityFramework;

@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace RestAirline.Api.Hypermedia.Navigator
+namespace RestAirline.Api.HyperMedia.Navigator
 {
     public class ApiNavigator<TResource>
     {

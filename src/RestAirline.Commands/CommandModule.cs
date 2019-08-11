@@ -1,9 +1,8 @@
-using System.Reflection;
 using EventFlow;
 using EventFlow.Configuration;
 using EventFlow.Extensions;
 
-namespace RestAirline.CommandHandlers
+namespace RestAirline.Commands
 {
     public class CommandModule: IModule
     {

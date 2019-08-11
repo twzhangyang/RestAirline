@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RestAirline.Api.Hypermedia
+namespace RestAirline.Api.HyperMedia
 {
     public class Link<TResource>
     {

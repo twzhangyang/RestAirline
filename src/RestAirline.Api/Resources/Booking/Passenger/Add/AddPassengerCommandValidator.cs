@@ -1,5 +1,6 @@
 using FluentValidation;
 using RestAirline.Domain.Booking;
+using RestAirline.Domain.Booking.Passenger;
 
 namespace RestAirline.Api.Resources.Booking.Passenger.Add
 {

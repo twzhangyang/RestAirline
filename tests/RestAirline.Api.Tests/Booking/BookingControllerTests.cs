@@ -11,7 +11,7 @@ using RestAirline.Api.Resources.Booking.Passenger.Add;
 using RestAirline.Domain.Booking;
 using RestAirline.Shared.ModelBuilders;
 using Xunit;
-using PassengerType = RestAirline.Domain.Booking.PassengerType;
+using PassengerType = RestAirline.Domain.Booking.Passenger.PassengerType;
 
 namespace RestAirline.Api.Tests.Booking
 {

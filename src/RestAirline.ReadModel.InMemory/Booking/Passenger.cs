@@ -22,7 +22,7 @@ namespace RestAirline.ReadModel.InMemory.Booking
 
     public static class PassengerMapper
     {
-        public static Passenger ToReadModel(this Domain.Booking.Passenger passenger)
+        public static Passenger ToReadModel(this Domain.Booking.Passenger.Passenger passenger)
         {
             var model = new Passenger
             {

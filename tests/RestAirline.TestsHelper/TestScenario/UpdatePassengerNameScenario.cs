@@ -2,7 +2,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using EventFlow;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using RestAirline.CommandHandlers.Passenger;
+using RestAirline.Commands.Passenger;
 
 namespace RestAirline.TestsHelper.TestScenario
 {

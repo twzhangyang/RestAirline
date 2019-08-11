@@ -1,6 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using FluentAssertions;
-using MongoDB.Driver;
+using RestAirline.Queries.MongoDB.Booking;
 using RestAirline.TestsHelper.TestScenario;
 using Xunit;
 
@@ -19,8 +20,8 @@ namespace RestAirline.ReadModel.MongoDb.Tests.BookingReadModel
             var bookingId = selectJourneysScenario.BookingId;
 
             //Assert
-            var bookingCursor = await ReadModel.FindAsync(f => f.Id == bookingId.Value);
-            var booking = await bookingCursor.FirstOrDefaultAsync();
+            var query = new BookingIdQuery(bookingId.Value);
+            var booking = await QueryProcessor.ProcessAsync(query, CancellationToken.None); 
 
             booking.Journeys.Should().NotBeEmpty();
         }

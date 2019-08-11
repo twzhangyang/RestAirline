@@ -18,7 +18,7 @@ using RestAirline.Queries.EntityFramework.Booking;
 using RestAirline.ReadModel.EntityFramework.DBContext;
 using RestAirline.Shared.ModelBuilders;
 using BookingReadModel = RestAirline.ReadModel.InMemory.BookingReadModel;
-using UpdatePassengerNameCommand = RestAirline.CommandHandlers.Passenger.UpdatePassengerNameCommand;
+using UpdatePassengerNameCommand = RestAirline.Commands.Passenger.UpdatePassengerNameCommand;
 
 namespace RestAirline.Api.Controllers
 {
@@ -71,7 +71,7 @@ namespace RestAirline.Api.Controllers
         public async Task<PassengerAddedResource> AddPassenger(string bookingId,
             [FromBody] AddPassengerCommand addPassengerCommand)
         {
-            var command = new CommandHandlers.Passenger.AddPassengerCommand(new BookingId(bookingId))
+            var command = new Commands.Passenger.AddPassengerCommand(new BookingId(bookingId))
             {
                 Age = addPassengerCommand.Age,
                 Email = addPassengerCommand.Email,

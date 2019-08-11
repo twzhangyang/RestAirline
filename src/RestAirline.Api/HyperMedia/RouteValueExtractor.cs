@@ -5,7 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace RestAirline.Api.Hypermedia
+namespace RestAirline.Api.HyperMedia
 {
     public class RouteValueExtractor
     {

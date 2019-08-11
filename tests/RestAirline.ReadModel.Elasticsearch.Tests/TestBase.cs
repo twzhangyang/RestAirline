@@ -6,6 +6,7 @@ using EventFlow.Elasticsearch.Extensions;
 using EventFlow.Queries;
 using Microsoft.Extensions.DependencyInjection;
 using RestAirline.CommandHandlers;
+using RestAirline.Commands;
 using RestAirline.Domain;
 using RestAirline.QueryHandlers;
 using RestAirline.TestsHelper;

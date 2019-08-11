@@ -5,6 +5,7 @@ using EventFlow.DependencyInjection.Extensions;
 using EventFlow.EntityFramework;
 using Microsoft.Extensions.DependencyInjection;
 using RestAirline.CommandHandlers;
+using RestAirline.Commands;
 using RestAirline.Domain;
 using RestAirline.Domain.EventSourcing;
 using RestAirline.ReadModel.InMemory;

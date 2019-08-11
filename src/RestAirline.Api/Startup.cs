@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RestAirline.Api.Filters;
+using RestAirline.Api.HealthCheck;
 using RestAirline.Api.Resources.Booking.Passenger.Add;
 using RestAirline.CommandHandlers.Passenger;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;

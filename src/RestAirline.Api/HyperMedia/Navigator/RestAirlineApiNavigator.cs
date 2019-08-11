@@ -2,7 +2,7 @@
 using RestAirline.Api.Controllers;
 using RestAirline.Api.Resources;
 
-namespace RestAirline.Api.Hypermedia.Navigator
+namespace RestAirline.Api.HyperMedia.Navigator
 {
     public class RestAirlineApiNavigator : ApiNavigator<RestAirlineHomeResource>
     {

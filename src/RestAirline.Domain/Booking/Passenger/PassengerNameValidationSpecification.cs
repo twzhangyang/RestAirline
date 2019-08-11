@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using EventFlow.Specifications;
 
-namespace RestAirline.Domain.Booking
+namespace RestAirline.Domain.Booking.Passenger
 {
     public class PassengerNameValidationSpecification : Specification<IReadOnlyList<Passenger>>
     {

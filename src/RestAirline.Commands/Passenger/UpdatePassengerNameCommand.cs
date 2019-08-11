@@ -1,7 +1,7 @@
 using EventFlow.Commands;
 using RestAirline.Domain.Booking;
 
-namespace RestAirline.CommandHandlers.Passenger
+namespace RestAirline.Commands.Passenger
 {
     public class UpdatePassengerNameCommand : Command<Booking, BookingId>
     {

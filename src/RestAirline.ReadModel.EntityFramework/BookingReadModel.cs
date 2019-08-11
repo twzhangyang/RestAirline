@@ -4,7 +4,7 @@ using System.Linq;
 using EventFlow.Aggregates;
 using EventFlow.ReadStores;
 using RestAirline.Domain.Booking;
-using RestAirline.Domain.Booking.Events;
+using RestAirline.Domain.Booking.Passenger.Events;
 using RestAirline.Domain.Booking.Trip.Events;
 using RestAirline.ReadModel.EntityFramework.Booking;
 using Journey = RestAirline.ReadModel.EntityFramework.Booking.Journey;

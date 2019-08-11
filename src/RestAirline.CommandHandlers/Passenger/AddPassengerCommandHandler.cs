@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using EventFlow.Commands;
+using RestAirline.Commands.Passenger;
 using RestAirline.Domain.Booking;
 
 namespace RestAirline.CommandHandlers.Passenger
@@ -11,7 +12,7 @@ namespace RestAirline.CommandHandlers.Passenger
         public override Task ExecuteAsync(Booking aggregate, AddPassengerCommand command,
             CancellationToken cancellationToken)
         {
-            var passenger = new Domain.Booking.Passenger
+            var passenger = new Domain.Booking.Passenger.Passenger
             {
                 Age = command.Age,
                 Name = command.Name,
