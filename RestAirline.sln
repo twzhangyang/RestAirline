@@ -65,6 +65,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Queries.MongoDB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.QueryHandlers.MongoDB", "src\RestAirline.QueryHandlers.MongoDB\RestAirline.QueryHandlers.MongoDB.csproj", "{7ABBD1E4-6FF9-468F-8AE6-F3F71D04705A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Queries.Elasticsearch", "src\RestAirline.Queries.Elasticsearch\RestAirline.Queries.Elasticsearch.csproj", "{2C623B28-F9B8-40EC-AD85-B77CCA510672}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.QueryHandlers.Elasticsearch", "src\RestAirline.QueryHandlers.Elasticsearch\RestAirline.QueryHandlers.Elasticsearch.csproj", "{3F772CB1-7344-4D6C-9EF4-77229D7DE8B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -155,6 +159,14 @@ Global
 		{7ABBD1E4-6FF9-468F-8AE6-F3F71D04705A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7ABBD1E4-6FF9-468F-8AE6-F3F71D04705A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7ABBD1E4-6FF9-468F-8AE6-F3F71D04705A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C623B28-F9B8-40EC-AD85-B77CCA510672}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C623B28-F9B8-40EC-AD85-B77CCA510672}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C623B28-F9B8-40EC-AD85-B77CCA510672}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C623B28-F9B8-40EC-AD85-B77CCA510672}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F772CB1-7344-4D6C-9EF4-77229D7DE8B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F772CB1-7344-4D6C-9EF4-77229D7DE8B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F772CB1-7344-4D6C-9EF4-77229D7DE8B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F772CB1-7344-4D6C-9EF4-77229D7DE8B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -188,5 +200,7 @@ Global
 		{2D9F482B-AEB2-4D62-AB9C-F1F208DF3C23} = {BCDB6935-916D-4B07-815D-A71889BB1FDD}
 		{15145304-1546-42E0-BE44-8ABE5B9611A6} = {8407FADE-4B07-48AF-8456-366E143C8563}
 		{7ABBD1E4-6FF9-468F-8AE6-F3F71D04705A} = {8407FADE-4B07-48AF-8456-366E143C8563}
+		{2C623B28-F9B8-40EC-AD85-B77CCA510672} = {BCDB6935-916D-4B07-815D-A71889BB1FDD}
+		{3F772CB1-7344-4D6C-9EF4-77229D7DE8B3} = {BCDB6935-916D-4B07-815D-A71889BB1FDD}
 	EndGlobalSection
 EndGlobal

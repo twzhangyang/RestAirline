@@ -10,6 +10,7 @@ namespace RestAirline.ReadModel.MongoDb
     {
         public void Register(IEventFlowOptions eventFlowOptions)
         {
+            // TODO: read form config
             var client = new MongoClient("mongodb://localhost:27017");
 
             eventFlowOptions

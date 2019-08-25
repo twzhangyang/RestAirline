@@ -5,7 +5,7 @@ namespace RestAirline.ReadModel.Elasticsearch.Booking
 {
     public class Passenger
     {
-        [Text]
+        [Keyword]
         public Guid Id { get; set; }
 
         [Text]

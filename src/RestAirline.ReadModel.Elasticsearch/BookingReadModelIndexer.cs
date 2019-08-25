@@ -1,94 +1,76 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Reflection;
+using EventFlow.Elasticsearch.ReadStores;
 using Nest;
+using RestAirline.ReadModel.Elasticsearch.Booking;
 
 namespace RestAirline.ReadModel.Elasticsearch
 {
     public interface IElasticSearchReadModelIndexer
     {
-        void PrepareIndexes();
+        void PrepareIndex();
     }
-    
-    public class BookingReadModelIndexer: IElasticSearchReadModelIndexer
+
+    public class BookingReadModelIndexer : IElasticSearchReadModelIndexer
     {
         private readonly IElasticClient _elasticClient;
+        private readonly IReadModelDescriptionProvider _descriptionProvider;
 
-        public BookingReadModelIndexer(IElasticClient elasticClient)
+        public BookingReadModelIndexer(IElasticClient elasticClient, IReadModelDescriptionProvider descriptionProvider)
         {
             _elasticClient = elasticClient;
+            _descriptionProvider = descriptionProvider;
         }
 
-        public void PrepareIndexes()
+        public void PrepareIndex()
         {
-            var readModelTypes =
-                GetReadModelTypes<ElasticsearchTypeAttribute>(typeof(BookingReadModel).Assembly);
+            var modelDescription = _descriptionProvider.GetReadModelDescription<BookingReadModel>();
+            
+            var indexName = GetIndexName(modelDescription.IndexName.Value);
 
-            foreach (var readModelType in readModelTypes)
+            var isExist = _elasticClient.IndexExists(modelDescription.IndexName.Value).Exists;
+
+            if (isExist)
             {
-                var esType = readModelType.GetTypeInfo()
-                    .GetCustomAttribute<ElasticsearchTypeAttribute>();
-
-                var aliasResponse = _elasticClient.GetAlias(x => x.Name(esType.Name));
-
-                if (aliasResponse.ApiCall.Success)
-                {
-                    if (aliasResponse.Indices != null)
-                    {
-                        foreach (var indice in aliasResponse?.Indices)
-                        {
-                            _elasticClient.DeleteAlias(indice.Key, esType.Name);
-
-                            _elasticClient.DeleteIndex(indice.Key,
-                                d => d.RequestConfiguration(c => c.AllowedStatusCodes((int)HttpStatusCode.NotFound)));
-                        }
-
-                        _elasticClient.DeleteIndex(esType.Name,
-                            d => d.RequestConfiguration(c => c.AllowedStatusCodes((int)HttpStatusCode.NotFound)));
-                    }
-                }
-
-                var indexName = GetIndexName(esType.Name);
-
-                _elasticClient.CreateIndex(indexName, c => c
-                    .Settings(s => s
-                        .NumberOfShards(1)
-                        .NumberOfReplicas(0))
-                    .Aliases(a => a.Alias(esType.Name))
-                    .Mappings(m => m
-                        .Map(TypeName.Create(readModelType), d => d
-                            .AutoMap())));
+                return;
             }
+
+            _elasticClient.CreateIndex(indexName, c => c
+                .Settings(s => s
+                    .NumberOfShards(1)
+                    .NumberOfReplicas(0))
+                .Aliases(a => a.Alias(modelDescription.IndexName.Value))
+                .Mappings(m => m
+                    .Map<BookingReadModel>(map => map
+                        .AutoMap()
+                        .Properties(ps => ps
+                            .Keyword(k => k
+                                .Name(p => p.Id))
+                            .Nested<Passenger>(n => n
+                                .Name(p => p.Passengers.First())
+                                .AutoMap()
+                                .Properties(pps => pps
+                                    .Text(t => t
+                                        .Name(pn => pn.Name)
+                                        .Fielddata()
+                                        .Fields(fs => fs
+                                            .Keyword(ss => ss
+                                                .Name("raw")
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            );
         }
-        
+
         private string GetIndexName(string name)
         {
-            return $"restailine-{name}-{Guid.NewGuid():D}".ToLowerInvariant();
-        }
-
-        private IEnumerable<Type> GetReadModelTypes<T>(params Assembly[] assemblies)
-        {
-            IEnumerable<Type> availableTypes;
-
-            if (assemblies == null || !assemblies.Any()) throw new ArgumentNullException(nameof(assemblies));
-            try
-            {
-                availableTypes = assemblies.SelectMany(x => x.GetTypes());
-            }
-            catch (ReflectionTypeLoadException e)
-            {
-                availableTypes = e.Types.Where(t => t != null);
-            }
-
-            foreach (Type type in availableTypes)
-            {
-                if (type.GetCustomAttributes(typeof(T), true).Length > 0)
-                {
-                    yield return type;
-                }
-            }
+            return $"restailine-{name}-{001}".ToLowerInvariant();
         }
     }
 }

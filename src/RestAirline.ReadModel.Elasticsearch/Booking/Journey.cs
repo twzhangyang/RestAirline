@@ -5,9 +5,9 @@ namespace RestAirline.ReadModel.Elasticsearch.Booking
 {
     public class Journey
     {
-        [Text] public Guid Id { get; set; }
+        [Keyword] public Guid Id { get; set; }
 
-        [Text] public string JourneyKey { get; set; }
+        [Keyword] public string JourneyKey { get; set; }
 
         [Date] public DateTime DepartureDate { get; set; }
 
@@ -19,7 +19,7 @@ namespace RestAirline.ReadModel.Elasticsearch.Booking
 
         [Text] public string Description { get; set; }
 
-        [Object] public Flight Flight { get; set; }
+        [Nested] public Flight Flight { get; set; }
     }
 
     public static class JourneyMapper

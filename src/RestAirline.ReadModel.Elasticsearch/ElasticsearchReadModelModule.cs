@@ -11,11 +11,13 @@ namespace RestAirline.ReadModel.Elasticsearch
     {
         public void Register(IEventFlowOptions eventFlowOptions)
         {
-            var elasticsearchUrl = Environment.GetEnvironmentVariable("ELASTICSEARCH_URL");
+            //TODO: read from config
+            var elasticsearchUrl = "http://localhost:9200";
 
             eventFlowOptions
                 .ConfigureElasticsearch(elasticsearchUrl)
                 .AddDefaults(typeof(ElasticsearchReadModelModule).Assembly)
+                .RegisterServices(r=>r.Register<BookingReadModelIndexer, BookingReadModelIndexer>())
                 .UseElasticsearchReadModelFor<Domain.Booking.Booking, BookingId, BookingReadModel>();
         }
     }

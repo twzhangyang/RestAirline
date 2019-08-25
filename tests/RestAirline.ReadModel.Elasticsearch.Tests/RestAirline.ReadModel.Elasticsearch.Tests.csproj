@@ -18,6 +18,7 @@
       <ProjectReference Include="..\..\src\RestAirline.CommandHandlers\RestAirline.CommandHandlers.csproj" />
       <ProjectReference Include="..\..\src\RestAirline.Commands\RestAirline.Commands.csproj" />
       <ProjectReference Include="..\..\src\RestAirline.Domain\RestAirline.Domain.csproj" />
+      <ProjectReference Include="..\..\src\RestAirline.QueryHandlers.Elasticsearch\RestAirline.QueryHandlers.Elasticsearch.csproj" />
       <ProjectReference Include="..\..\src\RestAirline.QueryHandlers.EntityFramework\RestAirline.QueryHandlers.EntityFramework.csproj" />
       <ProjectReference Include="..\..\src\RestAirline.ReadModel.Elasticsearch\RestAirline.ReadModel.Elasticsearch.csproj" />
       <ProjectReference Include="..\RestAirline.TestsHelper\RestAirline.TestsHelper.csproj" />

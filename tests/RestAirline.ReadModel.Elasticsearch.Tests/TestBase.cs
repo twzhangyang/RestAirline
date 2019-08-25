@@ -5,10 +5,11 @@ using EventFlow.DependencyInjection.Extensions;
 using EventFlow.Elasticsearch.Extensions;
 using EventFlow.Queries;
 using Microsoft.Extensions.DependencyInjection;
+using Nest;
 using RestAirline.CommandHandlers;
 using RestAirline.Commands;
 using RestAirline.Domain;
-using RestAirline.QueryHandlers;
+using RestAirline.QueryHandlers.Elasticsearch;
 using RestAirline.TestsHelper;
 
 namespace RestAirline.ReadModel.Elasticsearch.Tests
@@ -23,19 +24,23 @@ namespace RestAirline.ReadModel.Elasticsearch.Tests
         {
             var services = new ServiceCollection();
             var configuration = ConfigurationRootCreator.Create(services);
-            var elasticseachUrl = configuration["Elasticsearch_url"];
-
+            var elasticsearchUrl = configuration["ElasticsearchUrl"];
+            
             Resolver = EventFlowOptions.New
                 .UseServiceCollection(services)
                 .RegisterModule<BookingDomainModule>()
                 .RegisterModule<CommandModule>()
                 .RegisterModule<CommandHandlersModule>()
-                .ConfigureElasticsearch(elasticseachUrl)
                 .RegisterModule<ElasticsearchReadModelModule>()
+                .RegisterModule<ElasticsearchQueryHandlersModule>()
+                .ConfigureElasticsearch(new ConnectionSettings(new Uri(elasticsearchUrl)))
                 .CreateResolver();
 
             CommandBus = Resolver.Resolve<ICommandBus>();
             QueryProcessor = Resolver.Resolve<IQueryProcessor>();
+
+            var indexer = Resolver.Resolve<BookingReadModelIndexer>();
+            indexer.PrepareIndex();
         }
 
         public void Dispose()

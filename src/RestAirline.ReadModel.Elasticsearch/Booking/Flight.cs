@@ -5,10 +5,10 @@ namespace RestAirline.ReadModel.Elasticsearch.Booking
 {
     public class Flight
     {
-        [Text]
+        [Keyword]
         public Guid Id { get; set; }
 
-        [Text]
+        [Keyword]
         public string FlightKey { get; set; }
 
         [Text]

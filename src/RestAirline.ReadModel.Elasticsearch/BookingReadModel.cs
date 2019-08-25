@@ -25,9 +25,9 @@ namespace RestAirline.ReadModel.Elasticsearch
 
         [Keyword(Index = true)] public string Id { get; protected set; }
 
-        [Object] public List<Passenger> Passengers { get; set; }
+        [Nested] public List<Passenger> Passengers { get; set; }
 
-        [Object] public List<Journey> Journeys { get; set; }
+        [Nested] public List<Journey> Journeys { get; set; }
 
         public void Apply(IReadModelContext context,
             IDomainEvent<Domain.Booking.Booking, BookingId, JourneysSelectedEvent> domainEvent)
