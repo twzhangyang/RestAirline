@@ -29,7 +29,7 @@ namespace RestAirline.QueryHandlers.Elasticsearch.Booking
                         .RequestConfiguration(c => c
                             .AllowedStatusCodes((int)HttpStatusCode.NotFound))
                         .Index(index.Value)
-                        .Query(q => q.Term(m => m.Id, query.BookingId)),
+                        .Query(q => q.Match(m=>m.Field(f=>f.Id).Query(query.BookingId))),
                     cancellationToken)
                 .ConfigureAwait(false);
 

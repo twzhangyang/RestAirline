@@ -45,8 +45,6 @@ namespace RestAirline.ReadModel.Elasticsearch
                     .Map<BookingReadModel>(map => map
                         .AutoMap()
                         .Properties(ps => ps
-                            .Keyword(k => k
-                                .Name(p => p.Id))
                             .Nested<Passenger>(n => n
                                 .Name(p => p.Passengers.First())
                                 .AutoMap()

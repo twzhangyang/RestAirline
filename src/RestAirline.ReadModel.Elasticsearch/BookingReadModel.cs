@@ -23,7 +23,9 @@ namespace RestAirline.ReadModel.Elasticsearch
             Journeys = new List<Journey>();
         }
 
-        [Keyword(Index = true)] public string Id { get; protected set; }
+        [Keyword] 
+        [PropertyName("_id")]
+        public string Id { get; protected set; }
 
         [Nested] public List<Passenger> Passengers { get; set; }
 

@@ -10,6 +10,7 @@ namespace RestAirline.ReadModel.Elasticsearch.Tests.BookingReadModel
     [Collection("elasticsearch read model tests")]
     public class AfterSelectedJourneysTest : TestBase
     {
+        [Fact]
         public async Task AfterSelectedJourneysShouldAddJourneysToReadModel()
         {
             //Arrange
