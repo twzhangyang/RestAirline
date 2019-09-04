@@ -18,7 +18,7 @@ namespace RestAirline.ReadModel.Elasticsearch.Tests.BookingReadModel
             //Act
             await selectJourneysScenario.Execute();
             var bookingId = selectJourneysScenario.BookingId;
-
+            
             //Assert
             var query = new BookingIdQuery(bookingId.Value);
             var booking = await QueryProcessor.ProcessAsync(query, CancellationToken.None); 

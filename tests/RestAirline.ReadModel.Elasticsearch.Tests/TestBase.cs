@@ -1,4 +1,5 @@
 using System;
+using Elasticsearch.Net;
 using EventFlow;
 using EventFlow.Configuration;
 using EventFlow.DependencyInjection.Extensions;
@@ -25,6 +26,8 @@ namespace RestAirline.ReadModel.Elasticsearch.Tests
             var services = new ServiceCollection();
             var configuration = ConfigurationRootCreator.Create(services);
             var elasticsearchUrl = configuration["ElasticsearchUrl"];
+            var connection = new ConnectionSettings(new Uri(elasticsearchUrl));
+            connection.DisableDirectStreaming(true);
             
             Resolver = EventFlowOptions.New
                 .UseServiceCollection(services)
@@ -33,7 +36,7 @@ namespace RestAirline.ReadModel.Elasticsearch.Tests
                 .RegisterModule<CommandHandlersModule>()
                 .RegisterModule<ElasticsearchReadModelModule>()
                 .RegisterModule<ElasticsearchQueryHandlersModule>()
-                .ConfigureElasticsearch(new ConnectionSettings(new Uri(elasticsearchUrl)))
+                .ConfigureElasticsearch(connection)
                 .CreateResolver();
 
             CommandBus = Resolver.Resolve<ICommandBus>();

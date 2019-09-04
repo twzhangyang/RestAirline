@@ -18,7 +18,7 @@ namespace RestAirline.ReadModel.Elasticsearch
                 .ConfigureElasticsearch(elasticsearchUrl)
                 .AddDefaults(typeof(ElasticsearchReadModelModule).Assembly)
                 .RegisterServices(r=>r.Register<BookingReadModelIndexer, BookingReadModelIndexer>())
-                .UseElasticsearchReadModelFor<Domain.Booking.Booking, BookingId, BookingReadModel>();
+                .UseElasticsearchReadModel<BookingReadModel>();
         }
     }
 }
