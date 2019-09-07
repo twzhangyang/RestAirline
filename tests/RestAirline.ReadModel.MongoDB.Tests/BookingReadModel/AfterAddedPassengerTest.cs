@@ -12,7 +12,6 @@ namespace RestAirline.ReadModel.MongoDb.Tests.BookingReadModel
     [Collection("mongodb read model tests")]
     public class AfterAddedPassengerTest : TestBase
     {
-        [Fact]
         public async Task AfterAddedPassengerShouldAddPassengerToReadModel()
         {
             //Arrange
@@ -29,7 +28,6 @@ namespace RestAirline.ReadModel.MongoDb.Tests.BookingReadModel
             booking.Passengers.Should().HaveCount(1);
         }
 
-        [Fact]
         public async Task AfterAddedPassengerTwiceShouldAddTwoPassengersToReadModel()
         {
             //Arrange
