@@ -1,13 +1,27 @@
 ﻿using System;
+using EventFlow.Configuration;
+using EventFlow.DependencyInjection.Extensions;
+using EventFlow.EntityFramework;
+using EventFlow.Queries;
+using EventFlow.Subscribers;
 using GreenPipes;
 using MassTransit;
+using MassTransit.Scoping;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RestAirline.CommandHandlers;
+using RestAirline.Commands;
+using RestAirline.Domain;
+using RestAirline.Domain.EventSourcing;
+using RestAirline.ReadModel.InMemory;
+using RestAirline.TestsHelper;
 
 namespace EventFlow.AsynchronousBus.MassTransit.Tests
 {
     public class TestBase 
     {
+        protected readonly IRootResolver Resolver;
+        protected readonly ICommandBus CommandBus;
         protected IServiceProvider ServiceProvider { get; }
         
         protected IHostedService HostedService { get; }
@@ -15,39 +29,25 @@ namespace EventFlow.AsynchronousBus.MassTransit.Tests
         public TestBase()
         {
             var services = new ServiceCollection();
-            
-            ConfigBus(services);
+            var configuration = ConfigurationRootCreator.Create(services);
+            services.Configure<RabbitMqOption>(configuration);
+            services.ConfigureBus();
+            services.AddSingleton<ISubscribeSynchronousToAll, RabbitMqEventPublisher>();
 
+            EventFlowOptions.New
+                .UseServiceCollection(services)
+                .RegisterModule<BookingDomainModule>()
+                .RegisterModule<CommandModule>()
+                .RegisterModule<CommandHandlersModule>()
+                .RegisterModule<InMemoryReadModelModule>()
+                .RegisterServices(register =>
+                {
+                    register.Register<IDbContextProvider<EventStoreContext>, FakedEventStoreContextProvider>();
+                });
+                
             ServiceProvider = services.BuildServiceProvider();
             HostedService = ServiceProvider.GetService<IHostedService>();
-        }
-        
-        public void ConfigBus(IServiceCollection services)
-        {
-            services.AddScoped<OrderCommittedConsumer>();
-            services.AddMassTransit(x =>
-            {
-                x.AddConsumer<OrderCommittedConsumer>();
-
-                x.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(cfg =>
-                {
-                    var host = cfg.Host(new Uri("rabbitmq://localhost"), hostConfigurator => 
-                    { 
-                        hostConfigurator.Username("rabbitmq");
-                        hostConfigurator.Password("rabbitmq");
-                    });
-
-                    cfg.ReceiveEndpoint(host, "submit-order", ep =>
-                    {
-                        ep.PrefetchCount = 16;
-                        ep.UseMessageRetry(r => r.Interval(2, 100));
-                        EndpointConvention.Map<OrderCommittedConsumer>(ep.InputAddress);
-                        ep.ConfigureConsumer<OrderCommittedConsumer>(provider);
-                    });
-                }));
-            });
-            
-            services.AddSingleton<IHostedService, BusService>();
+            CommandBus = ServiceProvider.GetService<ICommandBus>();
         }
     }
 }

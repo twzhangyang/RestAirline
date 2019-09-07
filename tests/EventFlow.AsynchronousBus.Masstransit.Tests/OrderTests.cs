@@ -15,6 +15,7 @@ namespace EventFlow.AsynchronousBus.MassTransit.Tests
             _bus = ServiceProvider.GetService<IBusControl>();
         }
         
+        [Fact]
         public async void WhenPublishOrderCommittedEventShouldUpdateOrderState()
         {
             //Arrange
