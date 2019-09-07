@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="EventFlow.DependencyInjection" Version="0.74.3948" />
+      <PackageReference Include="FluentAssertions" Version="5.9.0" />
+      <PackageReference Include="MassTransit.Extensions.DependencyInjection" Version="5.5.5" />
+      <PackageReference Include="MassTransit.RabbitMQ" Version="5.5.5" />
+      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+      <PackageReference Include="xunit" Version="2.4.1" />
+      <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Microsoft.Extensions.Hosting.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+        <HintPath>..\..\..\..\..\..\..\usr\local\share\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.hosting.abstractions\2.2.0\lib\netstandard2.0\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>
