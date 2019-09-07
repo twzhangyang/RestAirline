@@ -30,6 +30,14 @@ db.people.save({ firstname: "Nic", lastname: "Raboy" })
 db.people.save({ firstname: "Maria", lastname: "Raboy" })
 db.people.find({ firstname: "Nic" })
 
+## Setup RabbitMQ
+http://localhost:15672/#/
+login as: rabbitmq/rabbitmq
+
+To verify it works:
+docker exec {containerId} -it bash
+rabbitmqadmin --username=rabbitmq --password=rabbitmq list exchanges
+
 
 ## Clear up images
 docker images | grep "restairline" | awk '{print $1 ":" $2}' | xargs docker rmi

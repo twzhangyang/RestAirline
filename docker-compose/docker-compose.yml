@@ -28,6 +28,10 @@ services:
   elasticsearch6:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.1.4
     container_name: elasticsearch
+    
+  rabbitmq:
+    image: rabbitmq:3.7-management
+    hostname: rabbitmq
 
     
     
