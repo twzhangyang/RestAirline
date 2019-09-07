@@ -10,7 +10,6 @@
         <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     </PropertyGroup>
     <ItemGroup>
-        <None Include="docker-compose-es.yml" />
         <None Include="docker-compose.override.yml">
             <DependentUpon>docker-compose.yml</DependentUpon>
         </None>

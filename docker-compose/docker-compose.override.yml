@@ -10,7 +10,6 @@ services:
       - ReadModelConnectionString=${READ_MODEL_DB:-Server=mssql.data;Database=RestAirlineRead;User Id=sa;Password=RestAirline123}
     ports:
       - "61200:80"
-      
 
   mssql.data:
     environment:
@@ -24,3 +23,17 @@ services:
       - "27017:27017"
     volumes:
       - ./mongo:/data/db
+
+  kibana6:
+    environment:
+      SERVER_NAME: kibana.example.org
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+    ports:
+      - "5601:5601"
+
+  elasticsearch6:
+    ports:
+      - 9200:9200
+      - 9300:9300
+    volumes:
+      - ./esdata:/usr/share/elasticsearch/data

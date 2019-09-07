@@ -20,4 +20,14 @@ services:
   mongodb.data:
     image: mongo:4.0
     
+  kibana6:
+    image: docker.elastic.co/kibana/kibana:6.1.4
+    depends_on:
+      - elasticsearch6
+
+  elasticsearch6:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.1.4
+    container_name: elasticsearch
+
+    
     
