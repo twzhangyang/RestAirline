@@ -1,10 +1,9 @@
 using System.Threading;
 using FluentAssertions;
 using MassTransit;
-using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-namespace EventFlow.AsynchronousBus.MassTransit.Tests
+namespace RestAirline.AsynchronousBus.MassTransit.Tests
 {
     public class OrderTests : TestBase
     {
@@ -12,7 +11,7 @@ namespace EventFlow.AsynchronousBus.MassTransit.Tests
 
         public OrderTests()
         {
-            _bus = ServiceProvider.GetService<IBusControl>();
+            _bus = Resolver.Resolve<IBusControl>();
         }
         
         [Fact]

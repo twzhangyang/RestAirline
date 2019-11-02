@@ -34,9 +34,12 @@ db.people.find({ firstname: "Nic" })
 http://localhost:15672/#/
 login as: rabbitmq/rabbitmq
 
+docker run -d --hostname rabbitmq --name rabbitmq -p 15672:15672 -p 5672:5672 -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=admin rabbitmq:3-management
+
 To verify it works:
 docker exec {containerId} -it bash
 rabbitmqadmin --username=rabbitmq --password=rabbitmq list exchanges
+
 
 
 ## Clear up images

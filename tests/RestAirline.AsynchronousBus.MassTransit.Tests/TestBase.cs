@@ -1,31 +1,26 @@
-﻿using System;
+using System;
+using System.Threading;
+using EventFlow;
 using EventFlow.Configuration;
 using EventFlow.DependencyInjection.Extensions;
 using EventFlow.EntityFramework;
-using EventFlow.Queries;
 using EventFlow.Subscribers;
-using GreenPipes;
-using MassTransit;
-using MassTransit.Scoping;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RestAirline.CommandHandlers;
 using RestAirline.Commands;
 using RestAirline.Domain;
 using RestAirline.Domain.EventSourcing;
-using RestAirline.ReadModel.InMemory;
 using RestAirline.TestsHelper;
 
-namespace EventFlow.AsynchronousBus.MassTransit.Tests
+namespace RestAirline.AsynchronousBus.MassTransit.Tests
 {
-    public class TestBase 
+    public class TestBase : IDisposable
     {
         protected readonly IRootResolver Resolver;
         protected readonly ICommandBus CommandBus;
-        protected IServiceProvider ServiceProvider { get; }
-        
         protected IHostedService HostedService { get; }
-        
+
         public TestBase()
         {
             var services = new ServiceCollection();
@@ -34,20 +29,21 @@ namespace EventFlow.AsynchronousBus.MassTransit.Tests
             services.ConfigureBus();
             services.AddSingleton<ISubscribeSynchronousToAll, RabbitMqEventPublisher>();
 
-            EventFlowOptions.New
+            Resolver = EventFlowOptions.New
                 .UseServiceCollection(services)
                 .RegisterModule<BookingDomainModule>()
                 .RegisterModule<CommandModule>()
                 .RegisterModule<CommandHandlersModule>()
-                .RegisterModule<InMemoryReadModelModule>()
-                .RegisterServices(register =>
-                {
-                    register.Register<IDbContextProvider<EventStoreContext>, FakedEventStoreContextProvider>();
-                });
-                
-            ServiceProvider = services.BuildServiceProvider();
-            HostedService = ServiceProvider.GetService<IHostedService>();
-            CommandBus = ServiceProvider.GetService<ICommandBus>();
+                .RegisterServices(r => r.Register<IDbContextProvider<EventStoreContext>, FakedEventStoreContextProvider>())
+                .CreateResolver(false);
+
+            CommandBus = Resolver.Resolve<ICommandBus>();
+            HostedService = Resolver.Resolve<IHostedService>();    
+        }
+
+        public void Dispose()
+        {
+            Resolver?.Dispose();
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using RestAirline.TestsHelper.TestScenario;
 using Xunit;
 
-namespace EventFlow.AsynchronousBus.MassTransit.Tests.BookingReadModel
+namespace RestAirline.AsynchronousBus.MassTransit.Tests.Journey
 {
     public class AfterSelectedJourneysTest : TestBase
     {
@@ -13,7 +13,10 @@ namespace EventFlow.AsynchronousBus.MassTransit.Tests.BookingReadModel
             var selectJourneysScenario = new SelectJourneysScenario(CommandBus);
 
             //Act
+            await HostedService.StartAsync(CancellationToken.None);
             await selectJourneysScenario.Execute();
+            await HostedService.StopAsync(CancellationToken.None);
+
             var bookingId = selectJourneysScenario.BookingId;
         }
     }

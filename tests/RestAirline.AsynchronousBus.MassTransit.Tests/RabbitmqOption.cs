@@ -1,4 +1,4 @@
-namespace EventFlow.AsynchronousBus.MassTransit.Tests
+namespace RestAirline.AsynchronousBus.MassTransit.Tests
 {
     public class RabbitMqOption
     {

@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using MassTransit;
 using Microsoft.Extensions.Hosting;
 
-namespace EventFlow.AsynchronousBus.MassTransit.Tests
+namespace RestAirline.AsynchronousBus.MassTransit.Tests
 {
     public class BusService :
         IHostedService

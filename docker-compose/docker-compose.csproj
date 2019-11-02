@@ -14,6 +14,10 @@
             <DependentUpon>docker-compose.yml</DependentUpon>
         </None>
         <None Include="docker-compose.yml" />
+        <None Include="rabbitmq.override.yml">
+          <DependentUpon>rabbitmq.yml</DependentUpon>
+        </None>
+        <None Include="rabbitmq.yml" />
     </ItemGroup>
     <ItemGroup>
       <Content Include="docker.txt" />

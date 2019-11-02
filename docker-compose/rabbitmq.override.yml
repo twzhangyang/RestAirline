@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  rabbitmq:
+    environment:
+      RABBITMQ_DEFAULT_USER: admin 
+      RABBITMQ_DEFAULT_PASS: admin 
+    ports:
+      - 15672:15672

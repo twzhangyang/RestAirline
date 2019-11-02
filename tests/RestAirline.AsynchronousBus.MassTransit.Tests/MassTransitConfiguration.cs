@@ -4,8 +4,10 @@ using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+using RestAirline.AsynchronousBus.MassTransit.Tests.Journey;
+using RestAirline.Domain.Booking.Trip.Events;
 
-namespace EventFlow.AsynchronousBus.MassTransit.Tests
+namespace RestAirline.AsynchronousBus.MassTransit.Tests
 {
     public static class MassTransitConfiguration
     {
@@ -15,7 +17,7 @@ namespace EventFlow.AsynchronousBus.MassTransit.Tests
         {
             services.AddMassTransit(x =>
             {
-                x.AddConsumersFromNamespaceContaining<OrderCommittedConsumer>();
+                x.AddConsumersFromNamespaceContaining<JourneySelectedConsumer>();
 
                 x.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(cfg =>
                 {
@@ -31,7 +33,7 @@ namespace EventFlow.AsynchronousBus.MassTransit.Tests
                     {
                         ep.PrefetchCount = 16;
                         ep.UseMessageRetry(r => r.Interval(2, 100));
-                        ep.ConfigureConsumer<OrderCommittedConsumer>(provider);
+                        ep.ConfigureConsumer<JourneySelectedConsumer>(provider);
                     });
                 }));
             });

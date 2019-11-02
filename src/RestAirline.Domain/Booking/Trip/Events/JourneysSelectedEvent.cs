@@ -7,11 +7,16 @@ namespace RestAirline.Domain.Booking.Trip.Events
     [EventVersion("JourneysSelected", 1)]
     public class JourneysSelectedEvent : AggregateEvent<Booking, BookingId>
     {
+        public JourneysSelectedEvent()
+        {
+            
+        }
+        
         public JourneysSelectedEvent(List<Journey> journeys)
         {
             Journeys = journeys;
         }
         
-        public List<Journey> Journeys { get; }
+        public List<Journey> Journeys { get; set; }
     }
 }
