@@ -9,8 +9,9 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace RestAirline.Api.Controllers
 {
+    [ApiController]
     [Route("api/home")]
-    public class HomeController : Controller
+    public class HomeController : ControllerBase 
     {
         private readonly IConfiguration _configuration;
 

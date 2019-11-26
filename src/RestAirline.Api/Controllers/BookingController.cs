@@ -13,13 +13,13 @@ using RestAirline.Domain.Booking;
 using RestAirline.Queries.EntityFramework.Booking;
 using RestAirline.ReadModel.EntityFramework.DBContext;
 using RestAirline.Shared.ModelBuilders;
-using BookingReadModel = RestAirline.ReadModel.InMemory.BookingReadModel;
 using UpdatePassengerNameCommand = RestAirline.Commands.Passenger.UpdatePassengerNameCommand;
 
 namespace RestAirline.Api.Controllers
 {
+    [ApiController]
     [Route("api/booking")]
-    public class BookingController : Controller
+    public class BookingController : ControllerBase 
     {
         private readonly ICommandBus _commandBus;
         private readonly IQueryProcessor _queryProcessor;

@@ -16,18 +16,20 @@ namespace RestAirline.Api
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration, IHostingEnvironment environment)
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
             Environment = environment;
         }
 
         public IConfiguration Configuration { get; }
-        public IHostingEnvironment Environment { get; }
+        
+        public IWebHostEnvironment Environment { get; }
 
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddApplicationInsightsTelemetry();
+            services.AddControllers();
 
             services.AddMvc(options =>
                 {
@@ -53,14 +55,14 @@ namespace RestAirline.Api
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseRouting();
+
             app.UseCors(policy =>
             {
                 policy.AllowAnyOrigin()
                     .AllowAnyHeader()
                     .AllowAnyMethod();
             });
-
-            app.UseMvc();
 
             var healthCheckResponseWriterProvider = new HealthCheckerResponseProvider(env);
             app.UseHealthChecks("/health/ready", new HealthCheckOptions
@@ -76,6 +78,11 @@ namespace RestAirline.Api
             });
             app.UseSwagger();
             app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
+            
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 }
