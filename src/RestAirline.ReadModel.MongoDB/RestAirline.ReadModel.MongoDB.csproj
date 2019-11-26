@@ -8,9 +8,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="EventFlow" Version="0.74.3948" />
-      <PackageReference Include="EventFlow.MongoDB" Version="0.74.3948" />
-      <PackageReference Include="MongoDB.Driver" Version="2.8.1" />
+      <PackageReference Include="EventFlow" Version="0.76.4014" />
+      <PackageReference Include="EventFlow.MongoDB" Version="0.76.4014" />
+      <PackageReference Include="MongoDB.Driver" Version="2.9.3" />
     </ItemGroup>
 
     <ItemGroup>

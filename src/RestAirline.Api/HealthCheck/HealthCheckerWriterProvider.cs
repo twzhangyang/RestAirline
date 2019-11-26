@@ -9,9 +9,9 @@ namespace RestAirline.Api.HealthCheck
 {
     public class HealthCheckerResponseProvider
     {
-        private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly IWebHostEnvironment _hostingEnvironment;
 
-        public HealthCheckerResponseProvider(IHostingEnvironment hostingEnvironment)
+        public HealthCheckerResponseProvider(IWebHostEnvironment hostingEnvironment)
         {
             _hostingEnvironment = hostingEnvironment;
         }
