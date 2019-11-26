@@ -7,6 +7,5 @@ namespace RestAirline.Api.HyperMedia.Navigator
     public class RestAirlineApiNavigator : ApiNavigator<RestAirlineHomeResource>
     {
         public RestAirlineApiNavigator(IUrlHelper urlHelper) : base(urlHelper.Link((HomeController c) => c.Index())) { }
-
     }
 }
