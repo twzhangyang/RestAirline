@@ -60,7 +60,7 @@ namespace RestAirline.Api
         {
             services.AddHttpContextAccessor();
             RegisterHealthCheck(services);
-            SwaggerServicesConfiguration.Confirure(services);
+            SwaggerServicesConfiguration.Configure(services);
 
             var eventFlowOptions = EventFlowOptions.New
                 .UseServiceCollection(services)

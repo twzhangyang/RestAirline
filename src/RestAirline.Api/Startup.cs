@@ -23,19 +23,21 @@ namespace RestAirline.Api
         }
 
         public IConfiguration Configuration { get; }
-        
+
         public IWebHostEnvironment Environment { get; }
 
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddApplicationInsightsTelemetry();
 
-            services.AddMvc(options =>
+            services.AddControllers(options =>
                 {
                     options.Filters.Add<UnhandledExceptionFilter>();
                     options.Filters.Add<ModelValidationFilter>();
                 })
-                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<AddPassengerCommandValidator>());;
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<AddPassengerCommandValidator>())
+                .AddNewtonsoftJson();
+
 
             services.AddCors();
 
@@ -77,11 +79,8 @@ namespace RestAirline.Api
             });
             app.UseSwagger();
             app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
-            
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }
