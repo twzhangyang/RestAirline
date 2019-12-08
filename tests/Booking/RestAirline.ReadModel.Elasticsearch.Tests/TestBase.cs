@@ -8,9 +8,9 @@ using EventFlow.Queries;
 using Microsoft.Extensions.DependencyInjection;
 using Nest;
 using RestAirline.CommandHandlers;
-using RestAirline.Commands;
-using RestAirline.Domain;
-using RestAirline.QueryHandlers.Elasticsearch;
+using RestAirline.Booking.Commands;
+using RestAirline.Booking.Domain;
+using RestAirline.Booking.QueryHandlers.Elasticsearch;
 using RestAirline.TestsHelper;
 
 namespace RestAirline.ReadModel.Elasticsearch.Tests

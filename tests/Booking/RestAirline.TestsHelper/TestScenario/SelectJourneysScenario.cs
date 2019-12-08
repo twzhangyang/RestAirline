@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using EventFlow;
-using RestAirline.Commands.Journey;
-using RestAirline.Domain.Booking;
-using RestAirline.Domain.Booking.Trip;
+using RestAirline.Booking.Commands.Journey;
+using RestAirline.Booking.Domain.Booking;
+using RestAirline.Booking.Domain.Booking.Trip;
 using RestAirline.Shared.ModelBuilders;
 
 namespace RestAirline.TestsHelper.TestScenario

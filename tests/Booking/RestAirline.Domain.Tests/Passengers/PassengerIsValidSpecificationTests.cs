@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using FluentAssertions;
-using RestAirline.Domain.Booking;
-using RestAirline.Domain.Booking.Passenger;
+using RestAirline.Booking.Domain.Booking;
+using RestAirline.Booking.Domain.Booking.Passenger;
 using RestAirline.Shared;
 using RestAirline.Shared.Extensions;
 using RestAirline.Shared.ModelBuilders;

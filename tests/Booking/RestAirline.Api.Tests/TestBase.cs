@@ -8,8 +8,8 @@ using EventFlow.EntityFramework;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
-using RestAirline.Domain.EventSourcing;
-using RestAirline.ReadModel.EntityFramework.DBContext;
+using RestAirline.Booking.Domain.EventSourcing;
+using RestAirline.Booking.ReadModel.EntityFramework.DBContext;
 using RestAirline.Shared.Extensions;
 
 namespace RestAirline.Api.Tests

@@ -8,8 +8,8 @@ using EventFlow.Core;
 using EventFlow.DependencyInjection.Extensions;
 using EventFlow.EntityFramework;
 using Microsoft.Extensions.DependencyInjection;
-using RestAirline.Domain.Booking;
-using RestAirline.Domain.EventSourcing;
+using RestAirline.Booking.Domain.Booking;
+using RestAirline.Booking.Domain.EventSourcing;
 using RestAirline.TestsHelper;
 
 namespace RestAirline.Domain.Tests

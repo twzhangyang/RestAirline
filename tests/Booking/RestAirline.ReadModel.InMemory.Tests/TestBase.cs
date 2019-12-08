@@ -5,10 +5,10 @@ using EventFlow.DependencyInjection.Extensions;
 using EventFlow.EntityFramework;
 using Microsoft.Extensions.DependencyInjection;
 using RestAirline.CommandHandlers;
-using RestAirline.Commands;
-using RestAirline.Domain;
-using RestAirline.Domain.EventSourcing;
-using RestAirline.ReadModel.InMemory;
+using RestAirline.Booking.Commands;
+using RestAirline.Booking.Domain;
+using RestAirline.Booking.Domain.EventSourcing;
+using RestAirline.Booking.ReadModel.InMemory;
 using RestAirline.TestsHelper;
 
 namespace RestAirline.ReadModel.Tests

@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 using EventFlow.EntityFramework.ReadStores;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
-using RestAirline.Queries.EntityFramework.Booking;
-using RestAirline.ReadModel.EntityFramework.DBContext;
+using RestAirline.Booking.Queries.EntityFramework.Booking;
+using RestAirline.Booking.ReadModel.EntityFramework.DBContext;
 using RestAirline.TestsHelper.TestScenario;
 using Xunit;
 

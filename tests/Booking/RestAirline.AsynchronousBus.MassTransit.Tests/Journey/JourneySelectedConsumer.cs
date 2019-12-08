@@ -1,7 +1,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using MassTransit;
-using RestAirline.Domain.Booking.Trip.Events;
+using RestAirline.Booking.Domain.Booking.Trip.Events;
 
 namespace RestAirline.AsynchronousBus.MassTransit.Tests.Journey
 {

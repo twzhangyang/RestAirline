@@ -1,5 +1,5 @@
 using FluentAssertions;
-using RestAirline.Api.Resources;
+using RestAirline.Booking.Api.Resources;
 using Xunit;
 
 namespace RestAirline.Api.Tests.Home

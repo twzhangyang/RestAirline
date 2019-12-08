@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="EventFlow" Version="0.74.3948" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\RestAirline.Booking.ReadModel.EntityFramework\RestAirline.Booking.ReadModel.EntityFramework.csproj" />
+    </ItemGroup>
+
+</Project>

@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using RestAirline.AsynchronousBus.MassTransit.Tests.Journey;
-using RestAirline.Domain.Booking.Trip.Events;
+using RestAirline.Booking.Domain.Booking.Trip.Events;
 
 namespace RestAirline.AsynchronousBus.MassTransit.Tests
 {

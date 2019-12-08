@@ -8,9 +8,9 @@ using EventFlow.Queries;
 using Microsoft.Extensions.DependencyInjection;
 using Mongo2Go;
 using RestAirline.CommandHandlers;
-using RestAirline.Commands;
-using RestAirline.Domain;
-using RestAirline.QueryHandlers.MongoDB;
+using RestAirline.Booking.Commands;
+using RestAirline.Booking.Domain;
+using RestAirline.Booking.QueryHandlers.MongoDB;
 
 namespace RestAirline.ReadModel.MongoDb.Tests
 {

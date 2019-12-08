@@ -3,8 +3,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using EventFlow.ReadStores.InMemory;
 using FluentAssertions;
-using RestAirline.Commands.Journey;
-using RestAirline.Domain.Booking;
+using RestAirline.Booking.Commands.Journey;
+using RestAirline.Booking.Domain.Booking;
 using RestAirline.TestsHelper;
 using RestAirline.TestsHelper.TestScenario;
 using Xunit;
@@ -13,11 +13,11 @@ namespace RestAirline.ReadModel.Tests.BookingReadModel
 {
     public class AfterSelectedJourneysTest : TestBase
     {
-        private readonly IInMemoryReadStore<InMemory.BookingReadModel> _bookingReadModel;
+        private readonly IInMemoryReadStore<Booking.ReadModel.InMemory.BookingReadModel> _bookingReadModel;
 
         public AfterSelectedJourneysTest()
         {
-            _bookingReadModel = Resolver.Resolve<IInMemoryReadStore<InMemory.BookingReadModel>>();
+            _bookingReadModel = Resolver.Resolve<IInMemoryReadStore<Booking.ReadModel.InMemory.BookingReadModel>>();
         }
 
         [Fact]

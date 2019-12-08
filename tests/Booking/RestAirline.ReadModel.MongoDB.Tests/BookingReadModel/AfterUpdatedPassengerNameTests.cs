@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using EventFlow.ReadStores.InMemory;
 using FluentAssertions;
-using RestAirline.Queries.MongoDB.Booking;
+using RestAirline.Booking.Queries.MongoDB.Booking;
 using RestAirline.TestsHelper.TestScenario;
 using Xunit;
 

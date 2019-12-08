@@ -4,14 +4,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using EventFlow;
 using FluentAssertions;
-using RestAirline.Api.Resources.Booking;
-using RestAirline.Api.Resources.Booking.Journey;
-using RestAirline.Api.Resources.Booking.Passenger;
-using RestAirline.Api.Resources.Booking.Passenger.Add;
-using RestAirline.Domain.Booking;
+using RestAirline.Booking.Api.Resources.Booking;
+using RestAirline.Booking.Api.Resources.Booking.Journey;
+using RestAirline.Booking.Api.Resources.Booking.Passenger;
+using RestAirline.Booking.Api.Resources.Booking.Passenger.Add;
+using RestAirline.Booking.Domain.Booking;
 using RestAirline.Shared.ModelBuilders;
 using Xunit;
-using PassengerType = RestAirline.Domain.Booking.Passenger.PassengerType;
+using PassengerType = RestAirline.Booking.Domain.Booking.Passenger.PassengerType;
 
 namespace RestAirline.Api.Tests.Booking
 {
@@ -81,7 +81,7 @@ namespace RestAirline.Api.Tests.Booking
         {
             var journeys = new JourneysBuilder().BuildJourneys();
             var bookingId = BookingId.New;
-            var selectJourneysCommand = new Commands.Journey.SelectJourneysCommand(bookingId, journeys);
+            var selectJourneysCommand = new RestAirline.Booking.Commands.Journey.SelectJourneysCommand(bookingId, journeys);
 
             //Act
             await CommandBus.PublishAsync(selectJourneysCommand, CancellationToken.None);

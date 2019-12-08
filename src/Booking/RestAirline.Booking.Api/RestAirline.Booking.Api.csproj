@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="2.2.1" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.4.0" />
+    <PackageReference Include="EventFlow.AspNetCore" Version="0.73.3933" />
+    <PackageReference Include="EventFlow.Autofac" Version="0.73.3933" />
+    <PackageReference Include="EventFlow.DependencyInjection" Version="0.74.3948" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="8.4.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.7.1" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.2.1" />
+    <PackageReference Include="NLog" Version="4.6.5" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="4.8.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="4.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\RestAirline.Shared\RestAirline.Shared.csproj" />
+    <ProjectReference Include="..\RestAirline.Booking.CommandHandlers\RestAirline.Booking.CommandHandlers.csproj" />
+    <ProjectReference Include="..\RestAirline.Booking.Commands\RestAirline.Booking.Commands.csproj" />
+    <ProjectReference Include="..\RestAirline.Booking.Domain\RestAirline.Booking.Domain.csproj" />
+    <ProjectReference Include="..\RestAirline.Booking.Queries.EntityFramework\RestAirline.Booking.Queries.EntityFramework.csproj" />
+    <ProjectReference Include="..\RestAirline.Booking.QueryHandlers.EntityFramework\RestAirline.Booking.QueryHandlers.EntityFramework.csproj" />
+    <ProjectReference Include="..\RestAirline.Booking.ReadModel.EntityFramework\RestAirline.Booking.ReadModel.EntityFramework.csproj" />
+    <ProjectReference Include="..\RestAirline.CommandHandlers\RestAirline.CommandHandlers.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="nlog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+
+</Project>

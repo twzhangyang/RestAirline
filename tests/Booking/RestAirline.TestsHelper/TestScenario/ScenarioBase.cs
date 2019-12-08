@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 using EventFlow;
-using RestAirline.Domain.Booking;
+using RestAirline.Booking.Domain.Booking;
 
 namespace RestAirline.TestsHelper.TestScenario
 {

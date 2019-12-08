@@ -26,33 +26,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Booking", "Booking", "{868C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FlightAvailability", "FlightAvailability", "{9C51C92B-B3EE-407D-9A8D-8A4F3124ABEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Api", "src\Booking\RestAirline.Api\RestAirline.Api.csproj", "{981EB65F-215C-4CCB-AD9D-08038FAF9EE5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Booking.Api", "src\Booking\RestAirline.Booking.Api\RestAirline.Booking.Api.csproj", "{981EB65F-215C-4CCB-AD9D-08038FAF9EE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.CommandHandlers", "src\Booking\RestAirline.CommandHandlers\RestAirline.CommandHandlers.csproj", "{C067A4E8-D5B7-4D4F-98B8-01C9D5AC74A9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Booking.Commands", "src\Booking\RestAirline.Booking.Commands\RestAirline.Booking.Commands.csproj", "{B85B994F-E1A4-486F-BBFF-1B7718BB2AA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Commands", "src\Booking\RestAirline.Commands\RestAirline.Commands.csproj", "{B85B994F-E1A4-486F-BBFF-1B7718BB2AA0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Booking.Domain", "src\Booking\RestAirline.Booking.Domain\RestAirline.Booking.Domain.csproj", "{A15182A1-9EAD-4892-A083-74621E5B70F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Domain", "src\Booking\RestAirline.Domain\RestAirline.Domain.csproj", "{A15182A1-9EAD-4892-A083-74621E5B70F2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Booking.Queries.Elasticsearch", "src\Booking\RestAirline.Booking.Queries.Elasticsearch\RestAirline.Booking.Queries.Elasticsearch.csproj", "{984843B8-C55A-4136-94C1-BAD3F27CB295}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Queries.Elasticsearch", "src\Booking\RestAirline.Queries.Elasticsearch\RestAirline.Queries.Elasticsearch.csproj", "{984843B8-C55A-4136-94C1-BAD3F27CB295}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Booking.QueryHandlers.Elasticsearch", "src\Booking\RestAirline.Booking.QueryHandlers.Elasticsearch\RestAirline.Booking.QueryHandlers.Elasticsearch.csproj", "{A17DB0AF-88D6-4268-B8CB-D67D9F5C16D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.QueryHandlers.Elasticsearch", "src\Booking\RestAirline.QueryHandlers.Elasticsearch\RestAirline.QueryHandlers.Elasticsearch.csproj", "{A17DB0AF-88D6-4268-B8CB-D67D9F5C16D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Booking.ReadModel.Elasticsearch", "src\Booking\RestAirline.Booking.ReadModel.Elasticsearch\RestAirline.Booking.ReadModel.Elasticsearch.csproj", "{5F0E615D-25D2-40B9-818C-FA8F60B9D8CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.Elasticsearch", "src\Booking\RestAirline.ReadModel.Elasticsearch\RestAirline.ReadModel.Elasticsearch.csproj", "{5F0E615D-25D2-40B9-818C-FA8F60B9D8CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Booking.Queries.EntityFramework", "src\Booking\RestAirline.Booking.Queries.EntityFramework\RestAirline.Booking.Queries.EntityFramework.csproj", "{0F74C688-8A16-4062-9A54-916D0A64D6F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Queries.EntityFramework", "src\Booking\RestAirline.Queries.EntityFramework\RestAirline.Queries.EntityFramework.csproj", "{0F74C688-8A16-4062-9A54-916D0A64D6F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Booking.QueryHandlers.EntityFramework", "src\Booking\RestAirline.Booking.QueryHandlers.EntityFramework\RestAirline.Booking.QueryHandlers.EntityFramework.csproj", "{380D41A5-8263-4D15-9AD3-7F5F4B66DA09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.QueryHandlers.EntityFramework", "src\Booking\RestAirline.QueryHandlers.EntityFramework\RestAirline.QueryHandlers.EntityFramework.csproj", "{380D41A5-8263-4D15-9AD3-7F5F4B66DA09}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Booking.ReadModel.EntityFramework", "src\Booking\RestAirline.Booking.ReadModel.EntityFramework\RestAirline.Booking.ReadModel.EntityFramework.csproj", "{98F190BA-B6CC-4A81-9053-705AD0A21AFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.EntityFramework", "src\Booking\RestAirline.ReadModel.EntityFramework\RestAirline.ReadModel.EntityFramework.csproj", "{98F190BA-B6CC-4A81-9053-705AD0A21AFB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Booking.Queries.MongoDB", "src\Booking\RestAirline.Booking.Queries.MongoDB\RestAirline.Booking.Queries.MongoDB.csproj", "{DC2850C4-DA2F-4421-A3A6-2FE3CFD0EA3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Queries.MongoDB", "src\Booking\RestAirline.Queries.MongoDB\RestAirline.Queries.MongoDB.csproj", "{DC2850C4-DA2F-4421-A3A6-2FE3CFD0EA3A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Booking.QueryHandlers.MongoDB", "src\Booking\RestAirline.Booking.QueryHandlers.MongoDB\RestAirline.Booking.QueryHandlers.MongoDB.csproj", "{7AA64DF7-0661-42F3-A69F-372BBB48BC74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.QueryHandlers.MongoDB", "src\Booking\RestAirline.QueryHandlers.MongoDB\RestAirline.QueryHandlers.MongoDB.csproj", "{7AA64DF7-0661-42F3-A69F-372BBB48BC74}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Booking.ReadModel.MongoDB", "src\Booking\RestAirline.Booking.ReadModel.MongoDB\RestAirline.Booking.ReadModel.MongoDB.csproj", "{D7E83E07-9648-4D49-965E-4FF47B7579E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.MongoDB", "src\Booking\RestAirline.ReadModel.MongoDB\RestAirline.ReadModel.MongoDB.csproj", "{D7E83E07-9648-4D49-965E-4FF47B7579E3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.InMemory", "src\Booking\RestAirline.ReadModel.InMemory\RestAirline.ReadModel.InMemory.csproj", "{216AE2D3-5286-42A9-8304-D29DAF6975A2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Booking.ReadModel.InMemory", "src\Booking\RestAirline.Booking.ReadModel.InMemory\RestAirline.Booking.ReadModel.InMemory.csproj", "{216AE2D3-5286-42A9-8304-D29DAF6975A2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Shared", "src\Shared\RestAirline.Shared\RestAirline.Shared.csproj", "{EF022652-259C-4CF6-89A4-B850BA4AD00C}"
 EndProject
@@ -78,6 +76,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Api.Tests", "te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.TestsHelper", "tests\Booking\RestAirline.TestsHelper\RestAirline.TestsHelper.csproj", "{08991202-73E6-486F-8407-D1623849C910}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Booking.CommandHandlers", "src\Booking\RestAirline.Booking.CommandHandlers\RestAirline.Booking.CommandHandlers.csproj", "{6197C7E9-21DB-4570-8FBA-1CDF0B467C8F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -88,10 +88,6 @@ Global
 		{981EB65F-215C-4CCB-AD9D-08038FAF9EE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{981EB65F-215C-4CCB-AD9D-08038FAF9EE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{981EB65F-215C-4CCB-AD9D-08038FAF9EE5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C067A4E8-D5B7-4D4F-98B8-01C9D5AC74A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C067A4E8-D5B7-4D4F-98B8-01C9D5AC74A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C067A4E8-D5B7-4D4F-98B8-01C9D5AC74A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C067A4E8-D5B7-4D4F-98B8-01C9D5AC74A9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B85B994F-E1A4-486F-BBFF-1B7718BB2AA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B85B994F-E1A4-486F-BBFF-1B7718BB2AA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B85B994F-E1A4-486F-BBFF-1B7718BB2AA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -180,6 +176,10 @@ Global
 		{08991202-73E6-486F-8407-D1623849C910}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08991202-73E6-486F-8407-D1623849C910}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08991202-73E6-486F-8407-D1623849C910}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6197C7E9-21DB-4570-8FBA-1CDF0B467C8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6197C7E9-21DB-4570-8FBA-1CDF0B467C8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6197C7E9-21DB-4570-8FBA-1CDF0B467C8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6197C7E9-21DB-4570-8FBA-1CDF0B467C8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -195,7 +195,6 @@ Global
 		{7785D77A-D5F5-4591-ADD4-00993192872D} = {868C7BB9-B6A9-4C24-93A9-EE35F70382B8}
 		{8407FADE-4B07-48AF-8456-366E143C8563} = {868C7BB9-B6A9-4C24-93A9-EE35F70382B8}
 		{981EB65F-215C-4CCB-AD9D-08038FAF9EE5} = {868C7BB9-B6A9-4C24-93A9-EE35F70382B8}
-		{C067A4E8-D5B7-4D4F-98B8-01C9D5AC74A9} = {868C7BB9-B6A9-4C24-93A9-EE35F70382B8}
 		{B85B994F-E1A4-486F-BBFF-1B7718BB2AA0} = {868C7BB9-B6A9-4C24-93A9-EE35F70382B8}
 		{A15182A1-9EAD-4892-A083-74621E5B70F2} = {868C7BB9-B6A9-4C24-93A9-EE35F70382B8}
 		{984843B8-C55A-4136-94C1-BAD3F27CB295} = {BCDB6935-916D-4B07-815D-A71889BB1FDD}
@@ -220,5 +219,6 @@ Global
 		{CAD65648-6EAF-48D2-BC2B-812C017400DB} = {3016AAA8-07E6-4A21-8BB4-514C81760198}
 		{6E231D61-8483-46D9-8B00-77C85B228FA1} = {3016AAA8-07E6-4A21-8BB4-514C81760198}
 		{08991202-73E6-486F-8407-D1623849C910} = {3016AAA8-07E6-4A21-8BB4-514C81760198}
+		{6197C7E9-21DB-4570-8FBA-1CDF0B467C8F} = {868C7BB9-B6A9-4C24-93A9-EE35F70382B8}
 	EndGlobalSection
 EndGlobal

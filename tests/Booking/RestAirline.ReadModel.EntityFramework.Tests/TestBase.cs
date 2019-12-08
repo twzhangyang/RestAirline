@@ -6,12 +6,12 @@ using EventFlow.EntityFramework;
 using EventFlow.Queries;
 using Microsoft.Extensions.DependencyInjection;
 using RestAirline.CommandHandlers;
-using RestAirline.Commands;
-using RestAirline.Domain;
-using RestAirline.Domain.EventSourcing;
+using RestAirline.Booking.Commands;
+using RestAirline.Booking.Domain;
+using RestAirline.Booking.Domain.EventSourcing;
 using RestAirline.QueryHandlers;
-using RestAirline.QueryHandlers.EntityFramework;
-using RestAirline.ReadModel.EntityFramework.DBContext;
+using RestAirline.Booking.QueryHandlers.EntityFramework;
+using RestAirline.Booking.ReadModel.EntityFramework.DBContext;
 using RestAirline.TestsHelper;
 
 namespace RestAirline.ReadModel.EntityFramework.Tests

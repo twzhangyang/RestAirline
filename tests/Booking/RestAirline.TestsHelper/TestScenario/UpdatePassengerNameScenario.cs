@@ -1,7 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using EventFlow;
-using RestAirline.Commands.Passenger;
+using RestAirline.Booking.Commands.Passenger;
 
 namespace RestAirline.TestsHelper.TestScenario
 {

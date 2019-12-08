@@ -1,8 +1,8 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
-using RestAirline.Commands.Journey;
-using RestAirline.Domain.Booking;
+using RestAirline.Booking.Commands.Journey;
+using RestAirline.Booking.Domain.Booking;
 using RestAirline.Shared.ModelBuilders;
 using Xunit;
 

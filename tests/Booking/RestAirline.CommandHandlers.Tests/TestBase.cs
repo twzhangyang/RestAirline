@@ -5,9 +5,9 @@ using EventFlow.Configuration;
 using EventFlow.DependencyInjection.Extensions;
 using EventFlow.EntityFramework;
 using Microsoft.Extensions.DependencyInjection;
-using RestAirline.Commands;
-using RestAirline.Domain;
-using RestAirline.Domain.EventSourcing;
+using RestAirline.Booking.Commands;
+using RestAirline.Booking.Domain;
+using RestAirline.Booking.Domain.EventSourcing;
 using RestAirline.TestsHelper;
 
 namespace RestAirline.CommandHandlers.Tests

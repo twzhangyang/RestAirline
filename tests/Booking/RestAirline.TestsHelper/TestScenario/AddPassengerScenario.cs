@@ -1,9 +1,9 @@
 using System.Threading;
 using System.Threading.Tasks;
 using EventFlow;
-using RestAirline.Commands.Passenger;
-using RestAirline.Domain.Booking;
-using RestAirline.Domain.Booking.Passenger;
+using RestAirline.Booking.Commands.Passenger;
+using RestAirline.Booking.Domain.Booking;
+using RestAirline.Booking.Domain.Booking.Passenger;
 using RestAirline.Shared.ModelBuilders;
 
 namespace RestAirline.TestsHelper.TestScenario

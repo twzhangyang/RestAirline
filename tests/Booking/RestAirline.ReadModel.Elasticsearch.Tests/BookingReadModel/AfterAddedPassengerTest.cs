@@ -1,7 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
-using RestAirline.Queries.Elasticsearch.Booking;
+using RestAirline.Booking.Queries.Elasticsearch.Booking;
 using RestAirline.Shared.ModelBuilders;
 using RestAirline.TestsHelper.TestScenario;
 using Xunit;

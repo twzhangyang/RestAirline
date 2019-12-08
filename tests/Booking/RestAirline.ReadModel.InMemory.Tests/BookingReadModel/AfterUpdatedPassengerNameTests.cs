@@ -10,11 +10,11 @@ namespace RestAirline.ReadModel.Tests.BookingReadModel
 {
     public class AfterUpdatedPassengerNameTests : TestBase
     {
-        private readonly IInMemoryReadStore<InMemory.BookingReadModel> _bookingReadModel;
+        private readonly IInMemoryReadStore<Booking.ReadModel.InMemory.BookingReadModel> _bookingReadModel;
 
         public AfterUpdatedPassengerNameTests()
         {
-            _bookingReadModel = Resolver.Resolve<IInMemoryReadStore<InMemory.BookingReadModel>>();
+            _bookingReadModel = Resolver.Resolve<IInMemoryReadStore<Booking.ReadModel.InMemory.BookingReadModel>>();
         }
 
         [Fact]

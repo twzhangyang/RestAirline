@@ -5,10 +5,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\src\Booking\RestAirline.Api\RestAirline.Api.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="FluentAssertions" Version="5.7.0" />
       <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="2.2.0" />
       <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
@@ -20,6 +16,10 @@
       <None Update="xunit.runner.json">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\src\Booking\RestAirline.Booking.Api\RestAirline.Booking.Api.csproj" />
     </ItemGroup>
 
 </Project>

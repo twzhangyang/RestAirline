@@ -5,8 +5,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\src\Booking\RestAirline.Commands\RestAirline.Commands.csproj" />
-      <ProjectReference Include="..\..\..\src\Booking\RestAirline.Domain\RestAirline.Domain.csproj" />
+      <ProjectReference Include="..\..\..\src\Booking\RestAirline.Booking.Commands\RestAirline.Booking.Commands.csproj" />
+      <ProjectReference Include="..\..\..\src\Booking\RestAirline.Booking.Domain\RestAirline.Booking.Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>

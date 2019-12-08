@@ -15,12 +15,12 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\..\src\Booking\RestAirline.Booking.Commands\RestAirline.Booking.Commands.csproj" />
+      <ProjectReference Include="..\..\..\src\Booking\RestAirline.Booking.Domain\RestAirline.Booking.Domain.csproj" />
+      <ProjectReference Include="..\..\..\src\Booking\RestAirline.Booking.QueryHandlers.Elasticsearch\RestAirline.Booking.QueryHandlers.Elasticsearch.csproj" />
+      <ProjectReference Include="..\..\..\src\Booking\RestAirline.Booking.QueryHandlers.EntityFramework\RestAirline.Booking.QueryHandlers.EntityFramework.csproj" />
+      <ProjectReference Include="..\..\..\src\Booking\RestAirline.Booking.ReadModel.Elasticsearch\RestAirline.Booking.ReadModel.Elasticsearch.csproj" />
       <ProjectReference Include="..\..\..\src\Booking\RestAirline.CommandHandlers\RestAirline.CommandHandlers.csproj" />
-      <ProjectReference Include="..\..\..\src\Booking\RestAirline.Commands\RestAirline.Commands.csproj" />
-      <ProjectReference Include="..\..\..\src\Booking\RestAirline.Domain\RestAirline.Domain.csproj" />
-      <ProjectReference Include="..\..\..\src\Booking\RestAirline.QueryHandlers.Elasticsearch\RestAirline.QueryHandlers.Elasticsearch.csproj" />
-      <ProjectReference Include="..\..\..\src\Booking\RestAirline.QueryHandlers.EntityFramework\RestAirline.QueryHandlers.EntityFramework.csproj" />
-      <ProjectReference Include="..\..\..\src\Booking\RestAirline.ReadModel.Elasticsearch\RestAirline.ReadModel.Elasticsearch.csproj" />
       <ProjectReference Include="..\RestAirline.TestsHelper\RestAirline.TestsHelper.csproj" />
     </ItemGroup>
 
