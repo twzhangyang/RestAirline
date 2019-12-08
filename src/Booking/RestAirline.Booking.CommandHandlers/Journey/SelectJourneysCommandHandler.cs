@@ -4,7 +4,7 @@ using EventFlow.Commands;
 using RestAirline.Booking.Commands.Journey;
 using RestAirline.Booking.Domain.Booking;
 
-namespace RestAirline.CommandHandlers.Journey
+namespace RestAirline.Booking.CommandHandlers.Journey
 {
     public class SelectJourneysCommandHandler : CommandHandler<Booking.Domain.Booking.Booking, BookingId, SelectJourneysCommand>
     {

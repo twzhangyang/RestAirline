@@ -28,7 +28,6 @@
     <ProjectReference Include="..\RestAirline.Booking.Queries.EntityFramework\RestAirline.Booking.Queries.EntityFramework.csproj" />
     <ProjectReference Include="..\RestAirline.Booking.QueryHandlers.EntityFramework\RestAirline.Booking.QueryHandlers.EntityFramework.csproj" />
     <ProjectReference Include="..\RestAirline.Booking.ReadModel.EntityFramework\RestAirline.Booking.ReadModel.EntityFramework.csproj" />
-    <ProjectReference Include="..\RestAirline.CommandHandlers\RestAirline.CommandHandlers.csproj" />
   </ItemGroup>
 
   <ItemGroup>

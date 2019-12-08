@@ -4,7 +4,7 @@ using EventFlow.Commands;
 using RestAirline.Booking.Commands.Passenger;
 using RestAirline.Booking.Domain.Booking;
 
-namespace RestAirline.CommandHandlers.Passenger
+namespace RestAirline.Booking.CommandHandlers.Passenger
 {
     public class UpdatePassengerNameCommandHandler : CommandHandler<Booking.Domain.Booking.Booking, BookingId, UpdatePassengerNameCommand>
     {

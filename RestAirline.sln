@@ -58,23 +58,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Booking", "Booking", "{3016
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FlightAvailability", "FlightAvailability", "{202D3A32-CDE5-45F2-915C-A38191B5C6EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.MongoDB.Tests", "tests\Booking\RestAirline.ReadModel.MongoDB.Tests\RestAirline.ReadModel.MongoDB.Tests.csproj", "{B1EEFD18-C877-48D7-8DBC-3F456BC9F811}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Booking.ReadModel.MongoDB.Tests", "tests\Booking\RestAirline.Booking.ReadModel.MongoDB.Tests\RestAirline.Booking.ReadModel.MongoDB.Tests.csproj", "{B1EEFD18-C877-48D7-8DBC-3F456BC9F811}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.InMemory.Tests", "tests\Booking\RestAirline.ReadModel.InMemory.Tests\RestAirline.ReadModel.InMemory.Tests.csproj", "{352241A5-C7E0-4F86-90F5-72F0F971C30C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Booking.ReadModel.InMemory.Tests", "tests\Booking\RestAirline.Booking.ReadModel.InMemory.Tests\RestAirline.Booking.ReadModel.InMemory.Tests.csproj", "{352241A5-C7E0-4F86-90F5-72F0F971C30C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.EntityFramework.Tests", "tests\Booking\RestAirline.ReadModel.EntityFramework.Tests\RestAirline.ReadModel.EntityFramework.Tests.csproj", "{D83BDEAB-9A77-4D90-AAF4-0B74A5BC13BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Booking.ReadModel.EntityFramework.Tests", "tests\Booking\RestAirline.Booking.ReadModel.EntityFramework.Tests\RestAirline.Booking.ReadModel.EntityFramework.Tests.csproj", "{D83BDEAB-9A77-4D90-AAF4-0B74A5BC13BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.ReadModel.Elasticsearch.Tests", "tests\Booking\RestAirline.ReadModel.Elasticsearch.Tests\RestAirline.ReadModel.Elasticsearch.Tests.csproj", "{216BE127-6947-4035-A394-9562181C8D43}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Booking.ReadModel.Elasticsearch.Tests", "tests\Booking\RestAirline.Booking.ReadModel.Elasticsearch.Tests\RestAirline.Booking.ReadModel.Elasticsearch.Tests.csproj", "{216BE127-6947-4035-A394-9562181C8D43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Domain.Tests", "tests\Booking\RestAirline.Domain.Tests\RestAirline.Domain.Tests.csproj", "{2DCE012B-7794-4EEC-8EBC-F767E91EA415}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Booking.Domain.Tests", "tests\Booking\RestAirline.Booking.Domain.Tests\RestAirline.Booking.Domain.Tests.csproj", "{2DCE012B-7794-4EEC-8EBC-F767E91EA415}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.CommandHandlers.Tests", "tests\Booking\RestAirline.CommandHandlers.Tests\RestAirline.CommandHandlers.Tests.csproj", "{D9FE8F24-E027-4E98-B98E-6AF6F834F029}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Booking.CommandHandlers.Tests", "tests\Booking\RestAirline.Booking.CommandHandlers.Tests\RestAirline.Booking.CommandHandlers.Tests.csproj", "{D9FE8F24-E027-4E98-B98E-6AF6F834F029}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.AsynchronousBus.MassTransit.Tests", "tests\Booking\RestAirline.AsynchronousBus.MassTransit.Tests\RestAirline.AsynchronousBus.MassTransit.Tests.csproj", "{CAD65648-6EAF-48D2-BC2B-812C017400DB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Booking.AsynchronousBus.MassTransit.Tests", "tests\Booking\RestAirline.Booking.AsynchronousBus.MassTransit.Tests\RestAirline.Booking.AsynchronousBus.MassTransit.Tests.csproj", "{CAD65648-6EAF-48D2-BC2B-812C017400DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Api.Tests", "tests\Booking\RestAirline.Api.Tests\RestAirline.Api.Tests.csproj", "{6E231D61-8483-46D9-8B00-77C85B228FA1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Booking.Api.Tests", "tests\Booking\RestAirline.Booking.Api.Tests\RestAirline.Booking.Api.Tests.csproj", "{6E231D61-8483-46D9-8B00-77C85B228FA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.TestsHelper", "tests\Booking\RestAirline.TestsHelper\RestAirline.TestsHelper.csproj", "{08991202-73E6-486F-8407-D1623849C910}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Booking.TestsHelper", "tests\Booking\RestAirline.Booking.TestsHelper\RestAirline.Booking.TestsHelper.csproj", "{08991202-73E6-486F-8407-D1623849C910}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Booking.CommandHandlers", "src\Booking\RestAirline.Booking.CommandHandlers\RestAirline.Booking.CommandHandlers.csproj", "{6197C7E9-21DB-4570-8FBA-1CDF0B467C8F}"
 EndProject

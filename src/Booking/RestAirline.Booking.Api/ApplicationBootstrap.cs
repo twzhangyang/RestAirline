@@ -11,13 +11,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using RestAirline.Booking.Api.HealthCheck;
 using RestAirline.Booking.Api.Swagger;
+using RestAirline.Booking.CommandHandlers;
 using RestAirline.Booking.Commands;
 using RestAirline.Booking.Domain;
 using RestAirline.Booking.QueryHandlers;
 using RestAirline.Booking.QueryHandlers.EntityFramework;
 using RestAirline.Booking.ReadModel.EntityFramework;
 using RestAirline.Booking.ReadModel.InMemory;
-using RestAirline.CommandHandlers;
 using RestAirline.Shared.Extensions;
 
 namespace RestAirline.Booking.Api

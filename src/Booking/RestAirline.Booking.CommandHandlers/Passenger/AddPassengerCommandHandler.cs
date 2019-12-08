@@ -1,11 +1,10 @@
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 using EventFlow.Commands;
 using RestAirline.Booking.Commands.Passenger;
 using RestAirline.Booking.Domain.Booking;
 
-namespace RestAirline.CommandHandlers.Passenger
+namespace RestAirline.Booking.CommandHandlers.Passenger
 {
     public class AddPassengerCommandHandler : CommandHandler<Booking.Domain.Booking.Booking, BookingId, AddPassengerCommand>
     {

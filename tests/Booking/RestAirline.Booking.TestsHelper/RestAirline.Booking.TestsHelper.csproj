@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <RootNamespace>RestAirline.TestsHelper</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\src\Booking\RestAirline.Booking.Commands\RestAirline.Booking.Commands.csproj" />
+      <ProjectReference Include="..\..\..\src\Booking\RestAirline.Booking.Domain\RestAirline.Booking.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="EventFlow" Version="0.74.3948" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
+    </ItemGroup>
+
+</Project>
