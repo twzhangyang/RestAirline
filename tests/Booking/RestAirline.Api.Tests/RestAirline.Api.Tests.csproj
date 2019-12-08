@@ -5,12 +5,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\RestAirline.Api\RestAirline.Api.csproj" />
+      <ProjectReference Include="..\..\..\src\Booking\RestAirline.Api\RestAirline.Api.csproj" />
     </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="FluentAssertions" Version="5.7.0" />
       <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="2.2.0" />
+      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
       <PackageReference Include="xunit" Version="2.4.1" />
       <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
     </ItemGroup>
