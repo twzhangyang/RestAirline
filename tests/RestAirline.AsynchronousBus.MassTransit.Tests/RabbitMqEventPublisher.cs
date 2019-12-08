@@ -18,19 +18,11 @@ namespace RestAirline.AsynchronousBus.MassTransit.Tests
         
         public async Task HandleAsync(IReadOnlyCollection<IDomainEvent> domainEvents, CancellationToken cancellationToken)
         {
-            var evt = new OrderCommittedEvent
-            {
-                Id = "1",
-                Name = "order",
-                Price = 10
-            };
-            
-            await _busControl.Publish(evt, cancellationToken);
-            
             foreach (var domainEvent in domainEvents)
             {
                 var e = domainEvent.GetAggregateEvent();
-               await _busControl.Publish(e, cancellationToken);
+
+               await _busControl.Publish(e, domainEvent.EventType, cancellationToken);
             }
         }
     }

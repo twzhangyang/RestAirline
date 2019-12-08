@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using FluentAssertions;
 using RestAirline.TestsHelper.TestScenario;
 using Xunit;
 
@@ -7,6 +8,7 @@ namespace RestAirline.AsynchronousBus.MassTransit.Tests.Journey
 {
     public class AfterSelectedJourneysTest : TestBase
     {
+        [Fact]
         public async Task AfterSelectedJourneysShouldAddJourneysToReadModel()
         {
             //Arrange
@@ -18,6 +20,8 @@ namespace RestAirline.AsynchronousBus.MassTransit.Tests.Journey
             await HostedService.StopAsync(CancellationToken.None);
 
             var bookingId = selectJourneysScenario.BookingId;
+            JourneySelectedConsumer.Origin.Should().Be("MEL");
+            JourneySelectedConsumer.Destination.Should().Be("SYD");
         }
     }
 }

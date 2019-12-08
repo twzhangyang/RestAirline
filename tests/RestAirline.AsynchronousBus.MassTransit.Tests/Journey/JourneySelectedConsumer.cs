@@ -7,9 +7,9 @@ namespace RestAirline.AsynchronousBus.MassTransit.Tests.Journey
 {
     public class JourneySelectedConsumer : IConsumer<JourneysSelectedEvent>
     {
-        public string Origin { get; private set; }
+        public static string Origin { get; private set; }
         
-        public string Destination { get; private set; }
+        public static string Destination { get; private set; }
         
         public Task Consume(ConsumeContext<JourneysSelectedEvent> context)
         {

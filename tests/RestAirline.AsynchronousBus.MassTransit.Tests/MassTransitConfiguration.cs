@@ -17,6 +17,7 @@ namespace RestAirline.AsynchronousBus.MassTransit.Tests
         {
             services.AddMassTransit(x =>
             {
+                x.AddConsumersFromNamespaceContaining<OrderCommittedConsumer>();
                 x.AddConsumersFromNamespaceContaining<JourneySelectedConsumer>();
 
                 x.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(cfg =>
@@ -33,6 +34,7 @@ namespace RestAirline.AsynchronousBus.MassTransit.Tests
                     {
                         ep.PrefetchCount = 16;
                         ep.UseMessageRetry(r => r.Interval(2, 100));
+                        ep.ConfigureConsumer<OrderCommittedConsumer>(provider);
                         ep.ConfigureConsumer<JourneySelectedConsumer>(provider);
                     });
                 }));
