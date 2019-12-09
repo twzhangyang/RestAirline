@@ -78,6 +78,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Booking.TestsHe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Booking.CommandHandlers", "src\Booking\RestAirline.Booking.CommandHandlers\RestAirline.Booking.CommandHandlers.csproj", "{6197C7E9-21DB-4570-8FBA-1CDF0B467C8F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.FlightAvailability.Domain", "src\FlightAvailability\RestAirline.FlightAvailability.Domain\RestAirline.FlightAvailability.Domain.csproj", "{B7BCAB55-0596-4A22-B702-11F116AA7905}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.FlightAvailability.Domain.Tests", "tests\FlightAvailability\RestAirline.FlightAvailability.Domain.Tests\RestAirline.FlightAvailability.Domain.Tests.csproj", "{AB46FA1E-2CB7-4121-9BDD-282E317707B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -180,6 +184,14 @@ Global
 		{6197C7E9-21DB-4570-8FBA-1CDF0B467C8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6197C7E9-21DB-4570-8FBA-1CDF0B467C8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6197C7E9-21DB-4570-8FBA-1CDF0B467C8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7BCAB55-0596-4A22-B702-11F116AA7905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7BCAB55-0596-4A22-B702-11F116AA7905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7BCAB55-0596-4A22-B702-11F116AA7905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7BCAB55-0596-4A22-B702-11F116AA7905}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB46FA1E-2CB7-4121-9BDD-282E317707B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB46FA1E-2CB7-4121-9BDD-282E317707B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB46FA1E-2CB7-4121-9BDD-282E317707B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB46FA1E-2CB7-4121-9BDD-282E317707B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -220,5 +232,7 @@ Global
 		{6E231D61-8483-46D9-8B00-77C85B228FA1} = {3016AAA8-07E6-4A21-8BB4-514C81760198}
 		{08991202-73E6-486F-8407-D1623849C910} = {3016AAA8-07E6-4A21-8BB4-514C81760198}
 		{6197C7E9-21DB-4570-8FBA-1CDF0B467C8F} = {868C7BB9-B6A9-4C24-93A9-EE35F70382B8}
+		{B7BCAB55-0596-4A22-B702-11F116AA7905} = {9C51C92B-B3EE-407D-9A8D-8A4F3124ABEC}
+		{AB46FA1E-2CB7-4121-9BDD-282E317707B0} = {202D3A32-CDE5-45F2-915C-A38191B5C6EE}
 	EndGlobalSection
 EndGlobal
