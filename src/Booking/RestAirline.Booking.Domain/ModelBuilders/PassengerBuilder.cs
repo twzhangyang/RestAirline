@@ -1,8 +1,7 @@
 using System;
-using RestAirline.Booking.Domain.Booking;
 using RestAirline.Booking.Domain.Booking.Passenger;
 
-namespace RestAirline.Shared.ModelBuilders
+namespace RestAirline.Booking.Domain.ModelBuilders
 {
     public class PassengerBuilder
     {

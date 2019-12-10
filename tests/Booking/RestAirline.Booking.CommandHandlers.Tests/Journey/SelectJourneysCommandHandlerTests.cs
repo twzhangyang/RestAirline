@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using FluentAssertions;
 using RestAirline.Booking.Commands.Journey;
 using RestAirline.Booking.Domain.Booking;
-using RestAirline.Shared.ModelBuilders;
+using RestAirline.Booking.Domain.ModelBuilders;
 using Xunit;
 
 namespace RestAirline.Booking.CommandHandlers.Tests.Journey

@@ -9,7 +9,7 @@ using RestAirline.Booking.Api.Resources.Booking.Journey;
 using RestAirline.Booking.Api.Resources.Booking.Passenger;
 using RestAirline.Booking.Api.Resources.Booking.Passenger.Add;
 using RestAirline.Booking.Domain.Booking;
-using RestAirline.Shared.ModelBuilders;
+using RestAirline.Booking.Domain.ModelBuilders;
 using Xunit;
 using PassengerType = RestAirline.Booking.Domain.Booking.Passenger.PassengerType;
 

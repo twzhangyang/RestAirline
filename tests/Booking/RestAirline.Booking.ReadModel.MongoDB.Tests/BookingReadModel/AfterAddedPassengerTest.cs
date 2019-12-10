@@ -1,8 +1,8 @@
 using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
+using RestAirline.Booking.Domain.ModelBuilders;
 using RestAirline.Booking.Queries.MongoDB.Booking;
-using RestAirline.Shared.ModelBuilders;
 using RestAirline.TestsHelper.TestScenario;
 using Xunit;
 

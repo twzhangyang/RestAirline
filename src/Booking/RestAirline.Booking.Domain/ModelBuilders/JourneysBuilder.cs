@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using RestAirline.Booking.Domain.Booking.Trip;
 
-namespace RestAirline.Shared.ModelBuilders
+namespace RestAirline.Booking.Domain.ModelBuilders
 {
     public class JourneysBuilder
     {

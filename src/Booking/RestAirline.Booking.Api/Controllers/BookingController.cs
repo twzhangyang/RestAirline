@@ -14,9 +14,9 @@ using RestAirline.Booking.Api.Resources.Booking.Journey;
 using RestAirline.Booking.Api.Resources.Booking.Passenger.Add;
 using RestAirline.Booking.Api.Resources.Booking.Passenger.Update;
 using RestAirline.Booking.Domain.Booking;
+using RestAirline.Booking.Domain.ModelBuilders;
 using RestAirline.Booking.Queries.EntityFramework.Booking;
 using RestAirline.Booking.ReadModel.EntityFramework.DBContext;
-using RestAirline.Shared.ModelBuilders;
 using BookingReadModel = RestAirline.Booking.ReadModel.InMemory.BookingReadModel;
 using UpdatePassengerNameCommand = RestAirline.Booking.Commands.Passenger.UpdatePassengerNameCommand;
 

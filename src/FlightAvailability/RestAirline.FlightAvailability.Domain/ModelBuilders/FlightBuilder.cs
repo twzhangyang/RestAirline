@@ -1,7 +1,6 @@
 using System;
-using RestAirline.Booking.Domain.Booking.Trip;
 
-namespace RestAirline.Booking.Domain.ModelBuilders
+namespace RestAirline.FlightAvailability.Domain.ModelBuilders
 {
     public class FlightBuilder
     {
