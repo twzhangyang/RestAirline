@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="EventFlow.DependencyInjection" Version="0.74.3948" />
+        <PackageReference Include="FluentAssertions" Version="5.9.0" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
+        <PackageReference Include="xunit" Version="2.4.1" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="unittest.json">
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\src\FlightAvailability\RestAirline.FlightAvailability.CommandHandlers\RestAirline.FlightAvailability.CommandHandlers.csproj" />
+      <ProjectReference Include="..\..\..\src\FlightAvailability\RestAirline.FlightAvailability.Commands\RestAirline.FlightAvailability.Commands.csproj" />
+      <ProjectReference Include="..\..\..\src\FlightAvailability\RestAirline.FlightAvailability.Domain\RestAirline.FlightAvailability.Domain.csproj" />
+    </ItemGroup>
+
+</Project>

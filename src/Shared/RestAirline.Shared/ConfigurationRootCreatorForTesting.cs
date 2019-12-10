@@ -1,9 +1,9 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace RestAirline.TestsHelper
+namespace RestAirline.Shared
 {
-    public class ConfigurationRootCreator
+    public class ConfigurationRootCreatorForTesting
     {
         public static IConfiguration Create(IServiceCollection services)
         {
