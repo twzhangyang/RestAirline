@@ -23,17 +23,3 @@ services:
       - "27017:27017"
     volumes:
       - ./mongo:/data/db
-
-  kibana6:
-    environment:
-      SERVER_NAME: kibana.example.org
-      ELASTICSEARCH_URL: http://elasticsearch:9200
-    ports:
-      - "5601:5601"
-
-  elasticsearch6:
-    ports:
-      - 9200:9200
-      - 9300:9300
-    volumes:
-      - ./esdata:/usr/share/elasticsearch/data

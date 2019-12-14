@@ -88,6 +88,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.FlightAvailabil
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.FlightAvailability.CommandHandlers.Tests", "tests\FlightAvailability\RestAirline.FlightAvailability.CommandHandlers.Tests\RestAirline.FlightAvailability.CommandHandlers.Tests.csproj", "{EE8D72A6-1C42-4109-AC7F-AFC5B8010153}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.FlightAvailability.ReadModel.Elasticsearch", "src\FlightAvailability\RestAirline.FlightAvailability.ReadModel.Elasticsearch\RestAirline.FlightAvailability.ReadModel.Elasticsearch.csproj", "{AE91EEFC-4BB0-49A5-875D-709B0CFA599D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -210,6 +212,10 @@ Global
 		{EE8D72A6-1C42-4109-AC7F-AFC5B8010153}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE8D72A6-1C42-4109-AC7F-AFC5B8010153}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE8D72A6-1C42-4109-AC7F-AFC5B8010153}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE91EEFC-4BB0-49A5-875D-709B0CFA599D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE91EEFC-4BB0-49A5-875D-709B0CFA599D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE91EEFC-4BB0-49A5-875D-709B0CFA599D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE91EEFC-4BB0-49A5-875D-709B0CFA599D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -255,5 +261,6 @@ Global
 		{FB777AD7-EFC8-4EF0-828B-DDF7D7AC2498} = {9C51C92B-B3EE-407D-9A8D-8A4F3124ABEC}
 		{25B73FB6-56C4-43A7-A37D-D002F2CA28C1} = {9C51C92B-B3EE-407D-9A8D-8A4F3124ABEC}
 		{EE8D72A6-1C42-4109-AC7F-AFC5B8010153} = {202D3A32-CDE5-45F2-915C-A38191B5C6EE}
+		{AE91EEFC-4BB0-49A5-875D-709B0CFA599D} = {9C51C92B-B3EE-407D-9A8D-8A4F3124ABEC}
 	EndGlobalSection
 EndGlobal

@@ -9,11 +9,11 @@ mssql -p RestAirline123
 .help
 
 ## Setup ElasticSearch and Kibana 7.*
-docker run -d --name elasticsearch -d -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -e "cluster.name=restairline-es" docker.elastic.co/elasticsearch/elasticsearch:7.2.0
-docker run -d --link elasticsearch -p 5601:5601 docker.elastic.co/kibana/kibana:7.2.0
+## docker run -d --name elasticsearch -d -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -e "cluster.name=restairline-es" docker.elastic.co/elasticsearch/elasticsearch:7.2.0
+## docker run -d --link elasticsearch -p 5601:5601 docker.elastic.co/kibana/kibana:7.2.0
 
 ## Setup ElasticSearch and Kibana 6.*
-docker-compose -f docker-compose-es.yml up
+docker-compose -f elasticsearch.yml up
 
 Kibana: http://localhost:5601
 

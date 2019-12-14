@@ -14,6 +14,7 @@
             <DependentUpon>docker-compose.yml</DependentUpon>
         </None>
         <None Include="docker-compose.yml" />
+        <None Include="elasticsearch.yml" />
         <None Include="rabbitmq.override.yml">
           <DependentUpon>rabbitmq.yml</DependentUpon>
         </None>
