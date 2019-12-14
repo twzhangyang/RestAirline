@@ -1,7 +1,6 @@
 version: '3.4'
 
 services:
-
   restairline.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
@@ -9,17 +8,18 @@ services:
       - EventStoreConnectionString=${EVENT_STORE_DB:-Server=mssql.data;Database=RestAirline;User Id=sa;Password=RestAirline123}
       - ReadModelConnectionString=${READ_MODEL_DB:-Server=mssql.data;Database=RestAirlineRead;User Id=sa;Password=RestAirline123}
     ports:
-      - "61200:80"
+      - 61200:80
 
   mssql.data:
     environment:
     - SA_PASSWORD=RestAirline123
     - ACCEPT_EULA=Y
     ports:
-    - "1433:1433"  
+    - 1433:1433  
       
   mongodb.data:
     ports:
-      - "27017:27017"
+      - 27017:27017
     volumes:
       - ./mongo:/data/db
+  

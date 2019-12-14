@@ -1,17 +1,17 @@
 version: '3.4'
 
 services:
-
   restairline.api:
     image: restairline:${TAG:-latest}
     build:
       args:
         Version: "1"
-      context: ../src
-      dockerfile: ./Booking/RestAirline.Api/Dockerfile
+      context: ../
+      dockerfile: src/Booking/RestAirline.Booking.Api/Dockerfile
     depends_on:
       - mssql.data
       - mongodb.data
+      - elasticsearch
     container_name: restairline_api
 
   mssql.data:
@@ -19,12 +19,4 @@ services:
     
   mongodb.data:
     image: mongo:4.0
-    
-  kibana6:
-    image: docker.elastic.co/kibana/kibana:6.1.4
-    depends_on:
-      - elasticsearch6
 
-  elasticsearch6:
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.1.4
-    container_name: elasticsearch
