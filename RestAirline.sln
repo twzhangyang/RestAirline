@@ -90,6 +90,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.FlightAvailabil
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.FlightAvailability.ReadModel.Elasticsearch", "src\FlightAvailability\RestAirline.FlightAvailability.ReadModel.Elasticsearch\RestAirline.FlightAvailability.ReadModel.Elasticsearch.csproj", "{AE91EEFC-4BB0-49A5-875D-709B0CFA599D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.FlightAvailability.ReadModel.Elasticsearch.Tests", "tests\FlightAvailability\RestAirline.FlightAvailability.ReadModel.Elasticsearch.Tests\RestAirline.FlightAvailability.ReadModel.Elasticsearch.Tests.csproj", "{6B1AA2DD-1237-47B5-A8F4-150E761E2DC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.FlightAvailability.TestsHelper", "tests\FlightAvailability\RestAirline.FlightAvailability.TestsHelper\RestAirline.FlightAvailability.TestsHelper.csproj", "{3CE206AA-0C46-41CA-A995-C4274D31B3DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.FlightAvailability.Queries.Elasticsearch", "src\FlightAvailability\RestAirline.FlightAvailability.Queries.Elasticsearch\RestAirline.FlightAvailability.Queries.Elasticsearch.csproj", "{ADC71D89-2054-49DA-8C04-93FBE7F8A1B0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ElasticSearch", "ElasticSearch", "{7CE33BCC-CED9-40A5-8CE6-9EB8EC49B1C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.FlightAvailability.QueryHandlers.Elasticsearch", "src\FlightAvailability\RestAirline.FlightAvailability.QueryHandlers.Elasticsearch\RestAirline.FlightAvailability.QueryHandlers.Elasticsearch.csproj", "{EA56F28F-FCDD-41E5-9E48-F2988B0112CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -216,6 +226,22 @@ Global
 		{AE91EEFC-4BB0-49A5-875D-709B0CFA599D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE91EEFC-4BB0-49A5-875D-709B0CFA599D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE91EEFC-4BB0-49A5-875D-709B0CFA599D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B1AA2DD-1237-47B5-A8F4-150E761E2DC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B1AA2DD-1237-47B5-A8F4-150E761E2DC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B1AA2DD-1237-47B5-A8F4-150E761E2DC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B1AA2DD-1237-47B5-A8F4-150E761E2DC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CE206AA-0C46-41CA-A995-C4274D31B3DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CE206AA-0C46-41CA-A995-C4274D31B3DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CE206AA-0C46-41CA-A995-C4274D31B3DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CE206AA-0C46-41CA-A995-C4274D31B3DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADC71D89-2054-49DA-8C04-93FBE7F8A1B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADC71D89-2054-49DA-8C04-93FBE7F8A1B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADC71D89-2054-49DA-8C04-93FBE7F8A1B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADC71D89-2054-49DA-8C04-93FBE7F8A1B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA56F28F-FCDD-41E5-9E48-F2988B0112CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA56F28F-FCDD-41E5-9E48-F2988B0112CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA56F28F-FCDD-41E5-9E48-F2988B0112CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA56F28F-FCDD-41E5-9E48-F2988B0112CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -261,6 +287,11 @@ Global
 		{FB777AD7-EFC8-4EF0-828B-DDF7D7AC2498} = {9C51C92B-B3EE-407D-9A8D-8A4F3124ABEC}
 		{25B73FB6-56C4-43A7-A37D-D002F2CA28C1} = {9C51C92B-B3EE-407D-9A8D-8A4F3124ABEC}
 		{EE8D72A6-1C42-4109-AC7F-AFC5B8010153} = {202D3A32-CDE5-45F2-915C-A38191B5C6EE}
-		{AE91EEFC-4BB0-49A5-875D-709B0CFA599D} = {9C51C92B-B3EE-407D-9A8D-8A4F3124ABEC}
+		{6B1AA2DD-1237-47B5-A8F4-150E761E2DC3} = {202D3A32-CDE5-45F2-915C-A38191B5C6EE}
+		{3CE206AA-0C46-41CA-A995-C4274D31B3DF} = {202D3A32-CDE5-45F2-915C-A38191B5C6EE}
+		{7CE33BCC-CED9-40A5-8CE6-9EB8EC49B1C6} = {9C51C92B-B3EE-407D-9A8D-8A4F3124ABEC}
+		{ADC71D89-2054-49DA-8C04-93FBE7F8A1B0} = {7CE33BCC-CED9-40A5-8CE6-9EB8EC49B1C6}
+		{AE91EEFC-4BB0-49A5-875D-709B0CFA599D} = {7CE33BCC-CED9-40A5-8CE6-9EB8EC49B1C6}
+		{EA56F28F-FCDD-41E5-9E48-F2988B0112CA} = {7CE33BCC-CED9-40A5-8CE6-9EB8EC49B1C6}
 	EndGlobalSection
 EndGlobal

@@ -20,6 +20,7 @@
       <ProjectReference Include="..\..\..\src\FlightAvailability\RestAirline.FlightAvailability.CommandHandlers\RestAirline.FlightAvailability.CommandHandlers.csproj" />
       <ProjectReference Include="..\..\..\src\FlightAvailability\RestAirline.FlightAvailability.Commands\RestAirline.FlightAvailability.Commands.csproj" />
       <ProjectReference Include="..\..\..\src\FlightAvailability\RestAirline.FlightAvailability.Domain\RestAirline.FlightAvailability.Domain.csproj" />
+      <ProjectReference Include="..\RestAirline.FlightAvailability.TestsHelper\RestAirline.FlightAvailability.TestsHelper.csproj" />
     </ItemGroup>
 
 </Project>

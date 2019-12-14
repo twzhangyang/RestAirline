@@ -1,9 +1,8 @@
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
-using RestAirline.FlightAvailability.Commands;
 using RestAirline.FlightAvailability.Domain;
+using RestAirline.FlightAvailability.TestsHelper;
 using Xunit;
 
 namespace RestAirline.FlightAvailability.CommandHandlers.Tests
@@ -14,23 +13,14 @@ namespace RestAirline.FlightAvailability.CommandHandlers.Tests
         public async Task WhenSendAddFlightCommandShouldAddFlight()
         {
             //Arrange
-            var id = FlightAvailabilityId.New;
-            var command = new AddFlightCommand(id)
-            {
-                Aircraft = Aircraft.A320,
-                Number = "FD320",
-                Price = 120.00m,
-                ArriveDate = DateTime.Now.AddDays(2),
-                ArriveStation = "SYD",
-                DepartureDate = DateTime.Now,
-                DepartureStation = "MEL",
-                FlightKey = Guid.NewGuid().ToString()
-            };
+            var scenario = new AddFlightScenario(CommandBus);
             
             //Act
-            await CommandBus.PublishAsync(command, CancellationToken.None);
-
+            await scenario.Execute();
+            
             //Assert
+            var id = scenario.Id;
+    
             var flightAvailability = await AggregateStore.LoadAsync<Domain.FlightAvailability, FlightAvailabilityId>(id, CancellationToken.None);
             flightAvailability.Flights.Count.Should().Be(1);
         }

@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Content Include="unittest.json">
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="5.0.1" />
+      <PackageReference Include="EventFlow" Version="0.74.3948" />
+      <PackageReference Include="EventFlow.DependencyInjection" Version="0.74.3948" />
+      <PackageReference Include="EventFlow.Elasticsearch" Version="0.74.3948" />
+      <PackageReference Include="FluentAssertions" Version="5.9.0" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
+      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
+      <PackageReference Include="xunit" Version="2.4.1" />
+      <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\src\FlightAvailability\RestAirline.FlightAvailability.CommandHandlers\RestAirline.FlightAvailability.CommandHandlers.csproj" />
+      <ProjectReference Include="..\..\..\src\FlightAvailability\RestAirline.FlightAvailability.Commands\RestAirline.FlightAvailability.Commands.csproj" />
+      <ProjectReference Include="..\..\..\src\FlightAvailability\RestAirline.FlightAvailability.Domain\RestAirline.FlightAvailability.Domain.csproj" />
+      <ProjectReference Include="..\..\..\src\FlightAvailability\RestAirline.FlightAvailability.Queries.Elasticsearch\RestAirline.FlightAvailability.Queries.Elasticsearch.csproj" />
+      <ProjectReference Include="..\..\..\src\FlightAvailability\RestAirline.FlightAvailability.QueryHandlers.Elasticsearch\RestAirline.FlightAvailability.QueryHandlers.Elasticsearch.csproj" />
+      <ProjectReference Include="..\..\..\src\FlightAvailability\RestAirline.FlightAvailability.ReadModel.Elasticsearch\RestAirline.FlightAvailability.ReadModel.Elasticsearch.csproj" />
+      <ProjectReference Include="..\..\..\src\Shared\RestAirline.Shared\RestAirline.Shared.csproj" />
+      <ProjectReference Include="..\RestAirline.FlightAvailability.TestsHelper\RestAirline.FlightAvailability.TestsHelper.csproj" />
+    </ItemGroup>
+
+</Project>

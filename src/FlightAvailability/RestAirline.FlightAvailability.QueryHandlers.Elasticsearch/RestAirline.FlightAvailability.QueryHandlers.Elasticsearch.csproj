@@ -6,11 +6,10 @@
 
     <ItemGroup>
       <PackageReference Include="EventFlow" Version="0.74.3948" />
-      <PackageReference Include="EventFlow.Elasticsearch" Version="0.74.3948" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\RestAirline.FlightAvailability.Domain\RestAirline.FlightAvailability.Domain.csproj" />
+      <ProjectReference Include="..\RestAirline.FlightAvailability.Queries.Elasticsearch\RestAirline.FlightAvailability.Queries.Elasticsearch.csproj" />
     </ItemGroup>
 
 </Project>

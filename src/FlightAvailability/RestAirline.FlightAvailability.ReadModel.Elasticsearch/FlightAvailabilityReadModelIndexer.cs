@@ -36,17 +36,12 @@ namespace RestAirline.FlightAvailability.ReadModel.Elasticsearch
                     .Map<FlightAvailabilityReadModel>(map => map
                         .AutoMap()
                         .Properties(ps => ps
-                            .Nested<Flight>(n => n
-                                .Name(p => p.Flights.First())
-                                .AutoMap()
-                                .Properties(pps => pps
-                                    .Text(t => t
-                                        .Name(pn => pn.Number)
-                                        .Fielddata()
-                                        .Fields(fs => fs
-                                            .Keyword(ss => ss
-                                                .Name("raw")))))))))
-            );
+                            .Text(t => t
+                                .Name(pn => pn.Number)
+                                .Fielddata()
+                                .Fields(fs => fs
+                                    .Keyword(ss => ss
+                                        .Name("raw"))))))));
         }
 
         private string GetIndexName(string name)

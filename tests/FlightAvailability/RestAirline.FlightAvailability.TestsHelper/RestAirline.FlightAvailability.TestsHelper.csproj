@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\src\FlightAvailability\RestAirline.FlightAvailability.Commands\RestAirline.FlightAvailability.Commands.csproj" />
+      <ProjectReference Include="..\..\..\src\FlightAvailability\RestAirline.FlightAvailability.Domain\RestAirline.FlightAvailability.Domain.csproj" />
+      <ProjectReference Include="..\..\..\src\Shared\RestAirline.Shared\RestAirline.Shared.csproj" />
+    </ItemGroup>
+
+</Project>
