@@ -20,8 +20,7 @@ namespace RestAirline.FlightAvailability.ReadModel.Elasticsearch
         {
             var modelDescription = _descriptionProvider.GetReadModelDescription<FlightAvailabilityReadModel>();
             var indexName = GetIndexName(modelDescription.IndexName.Value);
-
-            var isExist = _elasticClient.IndexExists(modelDescription.IndexName.Value).Exists;
+            var isExist = _elasticClient.IndexExists(indexName).Exists;
             if (isExist)
             {
                 return;
@@ -34,14 +33,7 @@ namespace RestAirline.FlightAvailability.ReadModel.Elasticsearch
                 .Aliases(a => a.Alias(modelDescription.IndexName.Value))
                 .Mappings(m => m
                     .Map<FlightAvailabilityReadModel>(map => map
-                        .AutoMap()
-                        .Properties(ps => ps
-                            .Text(t => t
-                                .Name(pn => pn.Number)
-                                .Fielddata()
-                                .Fields(fs => fs
-                                    .Keyword(ss => ss
-                                        .Name("raw"))))))));
+                        .AutoMap())));
         }
 
         private string GetIndexName(string name)

@@ -22,21 +22,21 @@ namespace RestAirline.FlightAvailability.Domain.Events
             DepartureDate = flight.DepartureDate;
             DepartureStation = flight.DepartureStation;
         }
-        
-        public string FlightKey { get; private set; }
 
-        public string Number { get; private set; }
+        public string FlightKey { get; set; }
 
-        public DateTime DepartureDate { get; private set; }
+        public string Number { get; set; }
 
-        public string DepartureStation { get; private set; }
+        public DateTime DepartureDate { get; set; }
 
-        public DateTime ArriveDate { get; private set; }
+        public string DepartureStation { get; set; }
 
-        public string ArriveStation { get; private set; }
+        public DateTime ArriveDate { get; set; }
 
-        public decimal Price { get; private set; }
+        public string ArriveStation { get; set; }
 
-        public Aircraft Aircraft { get; private set; }
+        public decimal Price { get; set; }
+
+        public Aircraft Aircraft { get; set; }
     }
 }

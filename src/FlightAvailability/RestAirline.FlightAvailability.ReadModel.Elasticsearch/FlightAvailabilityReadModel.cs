@@ -11,8 +11,6 @@ namespace RestAirline.FlightAvailability.ReadModel.Elasticsearch
     public class FlightAvailabilityReadModel : IReadModel,
         IAmReadModelFor<Domain.FlightAvailability,FlightAvailabilityId, FlightAddedEvent>
     {
-        [Keyword]
-        [PropertyName("_id")]
         public string Id { get; set; }
         
         public string FlightKey { get; set; }

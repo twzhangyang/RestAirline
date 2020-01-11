@@ -29,7 +29,7 @@ namespace RestAirline.Booking.ReadModel.Elasticsearch
             
             var indexName = GetIndexName(modelDescription.IndexName.Value);
 
-            var isExist = _elasticClient.IndexExists(modelDescription.IndexName.Value).Exists;
+            var isExist = _elasticClient.IndexExists(indexName).Exists;
 
             if (isExist)
             {
