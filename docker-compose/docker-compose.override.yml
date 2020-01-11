@@ -22,4 +22,35 @@ services:
       - 27017:27017
     volumes:
       - ./mongo:/data/db
-  
+      
+  elasticsearch:
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - esdata1:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+
+  kibana:
+    environment:
+      SERVER_NAME: kibana
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+    ports:
+      - 5601:5601
+
+  rabbitmq:
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin
+    ports:
+      - 15672:15672
+          
+volumes:
+  esdata1:
+    driver: local
