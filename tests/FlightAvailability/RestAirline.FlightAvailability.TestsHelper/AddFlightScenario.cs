@@ -16,8 +16,8 @@ namespace RestAirline.FlightAvailability.TestsHelper
 
         public override async Task Execute()
         {
-            var id = FlightAvailabilityId.New;
-            var command = new AddFlightCommand(id)
+            Id = FlightAvailabilityId.New;
+            var command = new AddFlightCommand(Id)
             {
                 Aircraft = Aircraft.A320,
                 Number = "FD320",
