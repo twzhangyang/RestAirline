@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace RestAirline.FlightAvailability.Api.HyperMedia.Navigator
+namespace RestAirline.FlightAvailability.Api.Hypermedia
 {
-    public class RestAirlineApiClient
+    public class FlightAvailabilityApiClient
     {
-        private readonly RestAirlineApiNavigator _restAirlineApiNavigator;
+        private readonly FlightAvailabilityApiNavigator _flightAvailabilityApiNavigator;
 
-        public RestAirlineApiClient(RestAirlineApiNavigator restAirlineApiNavigator)
+        public FlightAvailabilityApiClient(FlightAvailabilityApiNavigator flightAvailabilityApiNavigator)
         {
-            _restAirlineApiNavigator = restAirlineApiNavigator;
+            _flightAvailabilityApiNavigator = flightAvailabilityApiNavigator;
         }
 
         public Task<Guid> CreateBooking()

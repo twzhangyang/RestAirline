@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace RestAirline.FlightAvailability.Api.HyperMedia.Navigator
+namespace RestAirline.Web.Hypermedia.Navigator
 {
     public class SubApiNavigator<TResource, TParentResource> : ApiNavigator<TResource>
     {

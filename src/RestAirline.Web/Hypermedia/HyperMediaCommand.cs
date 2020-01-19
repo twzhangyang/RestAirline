@@ -1,4 +1,4 @@
-﻿namespace RestAirline.FlightAvailability.Api.HyperMedia
+﻿namespace RestAirline.Web.Hypermedia
 {
     public class HypermediaCommand<TResponse>
     {

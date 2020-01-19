@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace RestAirline.FlightAvailability.Api.HyperMedia
+namespace RestAirline.Web.Hypermedia
 {
     public static class TypedUrlHelper
     {

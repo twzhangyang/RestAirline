@@ -1,7 +1,8 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using RestAirline.FlightAvailability.Api.Controllers;
-using RestAirline.FlightAvailability.Api.HyperMedia;
+using RestAirline.Web;
+using RestAirline.Web.Hypermedia;
 
 namespace RestAirline.FlightAvailability.Api.Resources
 {

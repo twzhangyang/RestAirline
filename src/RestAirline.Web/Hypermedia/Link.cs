@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RestAirline.FlightAvailability.Api.HyperMedia
+namespace RestAirline.Web.Hypermedia
 {
     public class Link<TResource>
     {

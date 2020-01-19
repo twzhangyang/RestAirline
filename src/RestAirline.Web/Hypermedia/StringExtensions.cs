@@ -1,4 +1,4 @@
-﻿namespace RestAirline.FlightAvailability.Api.HyperMedia
+﻿namespace RestAirline.Web.Hypermedia
 {
     public static class StringExtensions
     {

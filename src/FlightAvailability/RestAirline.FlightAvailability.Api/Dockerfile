@@ -8,7 +8,7 @@ WORKDIR /src
 ARG Version
 
 COPY . .
-WORKDIR src/Booking/RestAirline.Booking.Api
+WORKDIR src/FlightAvailability/RestAirline.FlightAvailability.Api
 
 RUN dotnet restore
 RUN dotnet build /p:Version=$Version -c Release -o /app
@@ -20,4 +20,4 @@ RUN dotnet publish /p:Version=$Version -c Release -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "RestAirline.Booking.Api.dll"]
+ENTRYPOINT ["dotnet", "RestAirline.FlightAvailability.Api.dll"]
