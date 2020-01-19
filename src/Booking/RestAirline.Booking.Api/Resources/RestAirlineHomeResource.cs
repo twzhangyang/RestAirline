@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using RestAirline.Booking.Api.Controllers;
 using RestAirline.Booking.Api.HyperMedia;
 using RestAirline.Booking.Api.Resources.Booking.Journey;
+using RestAirline.Web.Hypermedia;
 
 namespace RestAirline.Booking.Api.Resources
 {

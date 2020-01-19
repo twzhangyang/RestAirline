@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using RestAirline.Booking.Api.HyperMedia;
 using RestAirline.Booking.Api.Controllers;
+using RestAirline.Web.Hypermedia;
 
 namespace RestAirline.Booking.Api.Resources.Booking.Journey
 {
-    public class SelectJourneysCommand : HyperMedia.HypermediaCommand<JourneysSelectedResource>
+    public class SelectJourneysCommand : HypermediaCommand<JourneysSelectedResource>
     {
         public SelectJourneysCommand()
         {

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using RestAirline.Booking.Api.Controllers;
 using RestAirline.Booking.Api.HyperMedia;
 using RestAirline.Booking.Api.Resources.Booking.Passenger.Update;
+using RestAirline.Web.Hypermedia;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace RestAirline.Booking.Api.Resources.Booking.Passenger.Add

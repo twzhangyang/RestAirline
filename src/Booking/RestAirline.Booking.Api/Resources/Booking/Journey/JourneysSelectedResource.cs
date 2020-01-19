@@ -4,6 +4,7 @@ using RestAirline.Booking.Api.Resources.Booking.Passenger;
 using RestAirline.Booking.Api.Controllers;
 using RestAirline.Booking.Api.HyperMedia;
 using RestAirline.Booking.Api.Resources.Booking.Passenger.Add;
+using RestAirline.Web.Hypermedia;
 
 
 namespace RestAirline.Booking.Api.Resources.Booking.Journey

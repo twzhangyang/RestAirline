@@ -1,10 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using RestAirline.Booking.Api.HyperMedia;
 using RestAirline.Booking.Api.Controllers;
+using RestAirline.Web.Hypermedia;
 
 namespace RestAirline.Booking.Api.Resources.Booking.Passenger.Update
 {
-    public class UpdatePassengerNameCommand : HyperMedia.HypermediaCommand<PassengerNameUpdatedResource>
+    public class UpdatePassengerNameCommand : HypermediaCommand<PassengerNameUpdatedResource>
     {
         public UpdatePassengerNameCommand(){}
 

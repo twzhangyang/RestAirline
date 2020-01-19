@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:61100",
+      "applicationUrl": "http://localhost:62100",
       "sslPort": 0
     }
   },
@@ -16,14 +16,14 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "RestAireline.Api": {
+    "RestAirline.FlightAvailability.Api": {
       "commandName": "Project",
       "launchBrowser": false,
       "launchUrl": "swagger/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:61100"
+      "applicationUrl": "http://localhost:62100"
     }
   }
 }

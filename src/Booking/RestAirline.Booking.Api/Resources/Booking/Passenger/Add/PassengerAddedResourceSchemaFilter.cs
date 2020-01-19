@@ -3,6 +3,7 @@ using RestAirline.Booking.Api.HyperMedia;
 using RestAirline.Booking.Api.Resources.Booking.Passenger.Update;
 using RestAirline.Booking.Domain.Booking;
 using RestAirline.Booking.Domain.Booking.Passenger;
+using RestAirline.Web.Hypermedia;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 

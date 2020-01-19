@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "RestAireline.Api": {
+    "RestAirline.Booking.Api": {
       "commandName": "Project",
       "launchBrowser": false,
       "launchUrl": "swagger/",

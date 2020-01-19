@@ -3,10 +3,11 @@ using RestAirline.Booking.Api.HyperMedia;
 using RestAirline.Booking.Api.Controllers;
 using RestAirline.Booking.Domain.Booking;
 using RestAirline.Booking.Domain.Booking.Passenger;
+using RestAirline.Web.Hypermedia;
 
 namespace RestAirline.Booking.Api.Resources.Booking.Passenger.Add
 {
-    public class AddPassengerCommand : HyperMedia.HypermediaCommand<PassengerAddedResource>
+    public class AddPassengerCommand : HypermediaCommand<PassengerAddedResource>
     {
         public AddPassengerCommand(){}
 

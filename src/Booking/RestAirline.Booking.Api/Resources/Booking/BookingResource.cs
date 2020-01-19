@@ -7,6 +7,7 @@ using RestAirline.Booking.Api.Resources.Booking.Passenger;
 using RestAirline.Booking.Api.Controllers;
 using RestAirline.Booking.Api.HyperMedia;
 using RestAirline.Booking.ReadModel.EntityFramework;
+using RestAirline.Web.Hypermedia;
 
 namespace RestAirline.Booking.Api.Resources.Booking
 {
