@@ -1,0 +1,4 @@
+{
+  "EventStoreConnectionString": "Server=tcp:127.0.0.1,1433;Database=RestAirline;User Id=sa;Password=RestAirline123",
+  "ReadModelConnectionString": "Server=tcp:127.0.0.1,1433;Database=RestAirlineRead;User Id=sa;Password=RestAirline123"
+}

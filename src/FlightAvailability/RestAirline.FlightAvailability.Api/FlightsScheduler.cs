@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -8,7 +7,7 @@ using EventFlow.Aggregates.ExecutionResults;
 using RestAirline.FlightAvailability.Commands;
 using RestAirline.FlightAvailability.Domain;
 
-namespace RestAirline.FlightAvailability.Management
+namespace RestAirline.FlightAvailability.Api
 {
     public class FlightsScheduler
     {

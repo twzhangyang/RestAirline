@@ -1,9 +1,9 @@
 using EventFlow;
 using EventFlow.Configuration;
 
-namespace RestAirline.FlightAvailability.Management
+namespace RestAirline.FlightAvailability.Api
 {
-    public class ManagementModule : IModule
+    public class ApiModule : IModule
     {
         public void Register(IEventFlowOptions eventFlowOptions)
         {
