@@ -102,7 +102,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.FlightAvailabil
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.FlightAvailability.Api", "src\FlightAvailability\RestAirline.FlightAvailability.Api\RestAirline.FlightAvailability.Api.csproj", "{AD4FE9E8-6197-45FF-8014-9F38341B28E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Web", "src\RestAirline.Web\RestAirline.Web.csproj", "{3F51E66B-3EB7-4749-AA4A-24C65ED4F9CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAirline.Web", "src\Shared\RestAirline.Web\RestAirline.Web.csproj", "{A3A07F4E-D61B-45FA-BE70-D5BFACC34A08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -250,10 +250,10 @@ Global
 		{AD4FE9E8-6197-45FF-8014-9F38341B28E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD4FE9E8-6197-45FF-8014-9F38341B28E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD4FE9E8-6197-45FF-8014-9F38341B28E8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3F51E66B-3EB7-4749-AA4A-24C65ED4F9CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3F51E66B-3EB7-4749-AA4A-24C65ED4F9CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3F51E66B-3EB7-4749-AA4A-24C65ED4F9CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3F51E66B-3EB7-4749-AA4A-24C65ED4F9CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3A07F4E-D61B-45FA-BE70-D5BFACC34A08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3A07F4E-D61B-45FA-BE70-D5BFACC34A08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3A07F4E-D61B-45FA-BE70-D5BFACC34A08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3A07F4E-D61B-45FA-BE70-D5BFACC34A08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -306,6 +306,6 @@ Global
 		{AE91EEFC-4BB0-49A5-875D-709B0CFA599D} = {7CE33BCC-CED9-40A5-8CE6-9EB8EC49B1C6}
 		{EA56F28F-FCDD-41E5-9E48-F2988B0112CA} = {7CE33BCC-CED9-40A5-8CE6-9EB8EC49B1C6}
 		{AD4FE9E8-6197-45FF-8014-9F38341B28E8} = {9C51C92B-B3EE-407D-9A8D-8A4F3124ABEC}
-		{3F51E66B-3EB7-4749-AA4A-24C65ED4F9CF} = {2CF93039-EC81-4CB0-8940-9D0AB9C1FD38}
+		{A3A07F4E-D61B-45FA-BE70-D5BFACC34A08} = {2CF93039-EC81-4CB0-8940-9D0AB9C1FD38}
 	EndGlobalSection
 EndGlobal
