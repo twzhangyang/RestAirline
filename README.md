@@ -11,26 +11,26 @@
 * [Wiki](https://github.com/twzhangyang/RestAirline/wiki) is in progress
 
 # The Idea of this project
-**CQRS** helps modelling pure domain by separating command and query logic
-**Event Sourcing** helps decoupling domain models and persistence
-**Combining CQRS and Event Sourcing** make the domain model more reasonable and pure
-At the same time, different Bounded contexts can evolve into different Microservices, and different Microservices can interact through asynchronous **Message Bus** and **Event**
-In the end, we got a Microservices architecture based on DDD. A single Microservices ensures the purity of the domain model through CQRS and Event Sourcing. Different Microservices can interact through the message bus. Finally, all services can be based on cloud and k8s.
+* *CQRS** helps modelling pure domain by separating command and query logic
+* *Event Sourcing** helps decoupling domain models and persistence
+* *Combining CQRS and Event Sourcing** make the domain model more reasonable and pure
+* At the same time, different Bounded contexts can evolve into different Microservices, and different Microservices can interact through asynchronous **Message Bus** and **Event**
+* In the end, we got a Microservices architecture based on DDD. A single Microservices ensures the purity of the domain model through CQRS and Event Sourcing. Different Microservices can interact through the message bus. Finally, all services can be based on cloud and k8s.
 
 # The Domain and Bounded context
 The example is regarding online booking/checkin for an airline company. An airline company named 'RestAirline' is offering online booking/checkin. 
 There are four possible Bounded context for above business: 
-`Booking` is a bounded context that focusing on online booking;
-`Flight Availability` is a bounded context that focusing searching available flights and flight schedule;
-`Checkin` is a bounded context that focusing on online checkin;
-`Seat Availability` is a bounded context that maintaining seat for each flight;
+* `Booking` is a bounded context that focusing on online booking;
+* `Flight Availability` is a bounded context that focusing searching available flights and flight schedule;
+* `Checkin` is a bounded context that focusing on online checkin;
+* `Seat Availability` is a bounded context that maintaining seat for each flight;
 ![domain](https://user-images.githubusercontent.com/22952792/59654892-bbb2f680-91ca-11e9-8465-a628a57e13b2.png)
 
 ## The Microservices and communication
 Generally each bounded context can be build as a standalone Microservice, For now I just created two Microservices: `Booking` and `FlightAvailability`.
 There are some interactions between these two Microservices, the obvious action is when passenger selected flight in `Booking` Microservice,
 The available amount of flights in `FlightAvailability` Microservice should subtract corresponding amount. The idea is when passenger selected a flight in `Booking`
-Service, A event named `JourneysSelectedEvent` will be published to message bus, Any Microservices who are interested in this event can subscribe this event 
+service, A event named `JourneysSelectedEvent` will be published to message bus, Any Microservices who are interested in this event can subscribe this event 
 and handle it. 
 
 # How to Run
