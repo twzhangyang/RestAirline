@@ -6,7 +6,7 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace RestAirline.FlightAvailability.Api.Controllers
 {
-    [Route("availability/home")]
+    [Route("availability")]
     public class HomeController : Controller
     {
         private readonly IConfiguration _configuration;
@@ -21,6 +21,7 @@ namespace RestAirline.FlightAvailability.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [Route("home")]
         [ProducesResponseType(typeof(FlightAvailabilityHomeResource), 200)]
         [SwaggerOperation(Description = "The home api for restairline")]
         public Task<FlightAvailabilityHomeResource> Index()

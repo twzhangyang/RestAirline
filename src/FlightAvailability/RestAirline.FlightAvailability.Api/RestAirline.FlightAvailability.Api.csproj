@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Booking\RestAirline.Booking.Queries.Elasticsearch\RestAirline.Booking.Queries.Elasticsearch.csproj" />
     <ProjectReference Include="..\..\Shared\RestAirline.Web\RestAirline.Web.csproj" />
     <ProjectReference Include="..\..\Shared\RestAirline.Shared\RestAirline.Shared.csproj" />
     <ProjectReference Include="..\RestAirline.FlightAvailability.CommandHandlers\RestAirline.FlightAvailability.CommandHandlers.csproj" />

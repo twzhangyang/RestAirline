@@ -1,6 +1,5 @@
 using System;
 using EventFlow;
-using EventFlow.AspNetCore.Extensions;
 using EventFlow.DependencyInjection.Extensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -52,17 +51,14 @@ namespace RestAirline.FlightAvailability.Api
             services.AddHttpContextAccessor();
             SwaggerServicesConfiguration.Confirure(services);
 
-            services.AddHttpContextAccessor();
-
             var eventFlowOptions = EventFlowOptions.New
                 .UseServiceCollection(services)
                 .RegisterModule<FlightAvailabilityDomainModule>()
                 .RegisterModule<CommandModule>()
                 .RegisterModule<CommandHandlersModule>()
                 .RegisterModule<ElasticsearchReadModelModule>()
-                .RegisterModule<ElasticsearchQueryHandlersModule>();
-//                .ConfigureElasticsearch(_connectionSettings)
-//                .RegisterModule<ApiModule>()
+                .RegisterModule<ElasticsearchQueryHandlersModule>()
+                .RegisterModule<ApiModule>();
             return eventFlowOptions;
         }
     }

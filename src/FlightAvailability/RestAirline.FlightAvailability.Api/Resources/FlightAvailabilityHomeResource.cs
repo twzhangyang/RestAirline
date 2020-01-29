@@ -52,9 +52,12 @@ namespace RestAirline.FlightAvailability.Api.Resources
             {
                 _urlHelper = urlHelper;
                 Self = _urlHelper.Link((HomeController c) => c.Index());
+                FlightAvailability = _urlHelper.Link((AvailabilityController c) => c.GetFlightAvailability("MEL"));
             }
 
             public Link<FlightAvailabilityHomeResource> Self { get; set; }
+            
+            public Link<FlightAvailabilityResource> FlightAvailability { get; set; }
         }
     }
 }
