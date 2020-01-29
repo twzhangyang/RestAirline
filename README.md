@@ -10,10 +10,10 @@
 * Event driven Microservices integration (in progress)
 * [Wiki](https://github.com/twzhangyang/RestAirline/wiki) is in progress
 
-# The Idea of this project
-* *CQRS** helps modelling pure domain by separating command and query logic
-* *Event Sourcing** helps decoupling domain models and persistence
-* *Combining CQRS and Event Sourcing** make the domain model more reasonable and pure
+# The idea of this project
+* **CQRS** helps modelling pure domain by separating command and query logic
+* **Event Sourcing** helps decoupling domain models and persistence
+* **Combining CQRS and Event Sourcing** make the domain model more reasonable and pure
 * At the same time, different Bounded contexts can evolve into different Microservices, and different Microservices can interact through asynchronous **Message Bus** and **Event**
 * In the end, we got a Microservices architecture based on DDD. A single Microservices ensures the purity of the domain model through CQRS and Event Sourcing. Different Microservices can interact through the message bus. Finally, all services can be based on cloud and k8s.
 
