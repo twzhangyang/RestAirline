@@ -10,10 +10,12 @@ namespace RestAirline.FlightAvailability.Api.Controllers
     public class AvailabilityController : Controller
     {
         private readonly IQueryProcessor _queryProcessor;
+        private readonly FlightsScheduler _flightsScheduler;
 
-        public AvailabilityController(IQueryProcessor queryProcessor)
+        public AvailabilityController(IQueryProcessor queryProcessor, FlightsScheduler flightsScheduler)
         {
             _queryProcessor = queryProcessor;
+            _flightsScheduler = flightsScheduler;
         }
         
         [Route("availability")]
@@ -25,6 +27,16 @@ namespace RestAirline.FlightAvailability.Api.Controllers
             var flightAvailability = await _queryProcessor.ProcessAsync(query, CancellationToken.None);
             
             return new FlightAvailabilityResource(Url, flightAvailability);
+        }
+        
+        [Route("schedule")]
+        [HttpPost]
+        public async Task<FlightAvailabilityResource> ScheduleFlights()
+        {
+            var results = _flightsScheduler.AddFlights();
+            Task.WaitAll(results);
+
+            return await GetFlightAvailability("MEL");
         }
     }
 }

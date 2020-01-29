@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using RestAirline.FlightAvailability.Api.Controllers;
 using RestAirline.FlightAvailability.ReadModel.Elasticsearch;
+using RestAirline.Web.Hypermedia;
 
 namespace RestAirline.FlightAvailability.Api.Resources
 {
@@ -32,7 +34,13 @@ namespace RestAirline.FlightAvailability.Api.Resources
 
             public Links(IUrlHelper urlHelper)
             {
+                Self = urlHelper.Link((AvailabilityController c) => c.GetFlightAvailability("MEL"));
+                Home = urlHelper.Link((HomeController c) => c.Index());
             }
+            
+            public Link<FlightAvailabilityResource> Self { get; set; }
+            
+            public Link<FlightAvailabilityHomeResource> Home { get; set; }
         }
         
         public class Commands
@@ -42,9 +50,10 @@ namespace RestAirline.FlightAvailability.Api.Resources
 
             public Commands(IUrlHelper urlHelper)
             {
-                
+                ScheduleFlights = new ScheduleFlightsCommand(urlHelper);
             }
                 
+            public ScheduleFlightsCommand ScheduleFlights { get; set; }
         }
         
     }

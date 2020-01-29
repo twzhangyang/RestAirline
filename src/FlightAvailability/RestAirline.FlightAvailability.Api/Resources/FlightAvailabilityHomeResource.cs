@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using RestAirline.FlightAvailability.Api.Controllers;
-using RestAirline.Web;
 using RestAirline.Web.Hypermedia;
 
 namespace RestAirline.FlightAvailability.Api.Resources
@@ -26,8 +25,6 @@ namespace RestAirline.FlightAvailability.Api.Resources
 
         public class Commands
         {
-            private readonly IUrlHelper _urlHelper;
-
             [Obsolete("For serialization")]
             public Commands()
             {
@@ -35,8 +32,10 @@ namespace RestAirline.FlightAvailability.Api.Resources
 
             public Commands(IUrlHelper urlHelper)
             {
-                _urlHelper = urlHelper;
+                ScheduleFlights = new ScheduleFlightsCommand(urlHelper);
             }
+            
+            public ScheduleFlightsCommand ScheduleFlights { get; set; }
         }
 
         public class Links

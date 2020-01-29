@@ -18,8 +18,6 @@ namespace RestAirline.FlightAvailability.Api
 
         private static Action<IEventFlowOptions> _testingServicesRegistrar;
 
-        public static IServiceProvider ServiceProvider => _serviceProvider;
-
         public static IServiceProvider RegisterServices(IServiceCollection services, IConfiguration configuration)
         {
             var eventFlowOptions = RegisterCommonServices(services);
@@ -28,11 +26,6 @@ namespace RestAirline.FlightAvailability.Api
             services.AddScoped(typeof(IServiceProvider), _ => _serviceProvider);
 
             return _serviceProvider;
-        }
-
-        public static void AddTestingServicesRegistrar(Action<IEventFlowOptions> registrar)
-        {
-            _testingServicesRegistrar = registrar;
         }
 
         public static IServiceProvider RegisterServicesForTesting(IServiceCollection services)

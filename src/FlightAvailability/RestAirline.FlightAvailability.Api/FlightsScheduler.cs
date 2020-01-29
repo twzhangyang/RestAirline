@@ -19,7 +19,7 @@ namespace RestAirline.FlightAvailability.Api
             _commandBus = commandBus;
         }
 
-        public Task<IExecutionResult>[] AddFlights =>
+        public Task<IExecutionResult>[] AddFlights() =>
             Enumerable.Range(1, 10)
                 .Select(x => _commandBus.PublishAsync(Create(x), CancellationToken.None))
                 .ToArray();
