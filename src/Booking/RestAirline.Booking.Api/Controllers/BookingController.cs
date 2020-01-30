@@ -1,14 +1,10 @@
-﻿using System;
-using System.Linq;
-using System.Linq.Expressions;
+﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EventFlow;
 using EventFlow.EntityFramework;
 using EventFlow.Queries;
-using Microsoft.AspNetCore.Hosting.Internal;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using RestAirline.Booking.Api.Resources.Booking;
 using RestAirline.Booking.Api.Resources.Booking.Journey;
 using RestAirline.Booking.Api.Resources.Booking.Passenger.Add;
@@ -17,13 +13,13 @@ using RestAirline.Booking.Domain.Booking;
 using RestAirline.Booking.Domain.ModelBuilders;
 using RestAirline.Booking.Queries.EntityFramework.Booking;
 using RestAirline.Booking.ReadModel.EntityFramework.DBContext;
-using BookingReadModel = RestAirline.Booking.ReadModel.InMemory.BookingReadModel;
 using UpdatePassengerNameCommand = RestAirline.Booking.Commands.Passenger.UpdatePassengerNameCommand;
 
 namespace RestAirline.Booking.Api.Controllers
 {
+    [ApiController]
     [Route("api/booking")]
-    public class BookingController : Controller
+    public class BookingController : ControllerBase 
     {
         private readonly ICommandBus _commandBus;
         private readonly IQueryProcessor _queryProcessor;

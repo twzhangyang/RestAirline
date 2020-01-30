@@ -8,7 +8,7 @@ namespace RestAirline.Web.Hypermedia
     public static class TypedUrlHelper
     {
         public static Link<TResult> Link<TController, TResult>(this IUrlHelper @this, Expression<Func<TController, Task<TResult>>> actionSelector)
-            where TController : Controller
+            where TController : ControllerBase 
         {
             return new Link<TResult>(GenerateLinkUrl(@this, actionSelector));
         }
@@ -19,7 +19,7 @@ namespace RestAirline.Web.Hypermedia
 //            return new LinkTemplate1<TResult, TArgument1>(GenerateLinkUrl<TController, TResult>(@this, actionSelector));
 //        }
 
-        private static string GenerateLinkUrl<TController, TResult>(IUrlHelper helper, Expression<Func<TController, Task<TResult>>> actionSelector) where TController : Controller
+        private static string GenerateLinkUrl<TController, TResult>(IUrlHelper helper, Expression<Func<TController, Task<TResult>>> actionSelector) where TController : ControllerBase 
         {
             var controllerName = GetControllerName(typeof(TController));
             var methodCallExpression = GetMethodCallExpression(actionSelector);
