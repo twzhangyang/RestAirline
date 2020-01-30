@@ -4,7 +4,7 @@
 
 * A classic DDD with CQRS-ES, Hypermedia API and Ubiquitous unit test project based on EventFlow. It's targeted to ASP.NET Core 2.2 and can be deployed to docker and k8s
 * Based on [EventFlow](https://github.com/eventflow/EventFlow)
-* Based ASP.NET Core3.1
+* Based on ASP.NET Core3.1
 * Implement read model by EntityFramework, MongoDB, Elasticsearch
 * Integrate RabbitMQ and used [MassTransit](https://github.com/MassTransit) as Message bus (in progress)
 * Event driven Microservices integration (in progress)
