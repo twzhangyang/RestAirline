@@ -2,7 +2,7 @@
 
 # Overview
 
-* A classic DDD with CQRS-ES, Hypermedia API and Ubiquitous unit test project based on EventFlow. It's targeted to ASP.NET Core 2.2 and can be deployed to docker and k8s.
+* A classic DDD with CQRS-ES, Hypermedia API and Ubiquitous unit test project based on EventFlow. It's targeted to ASP.NET Core 2.2 and can be deployed to docker and k8s
 * Based on [EventFlow](https://github.com/eventflow/EventFlow)
 * Based .NET Core2.2, plan to migrate .NET Core3.1 after [EventFlow was fixed](https://github.com/eventflow/EventFlow/pull/686)
 * Implement read model by EntityFramework, MongoDB, Elasticsearch
@@ -14,8 +14,8 @@
 * **CQRS** helps modelling pure domain by separating command and query logic
 * **Event Sourcing** helps decoupling domain models and persistence
 * **Combining CQRS and Event Sourcing** make the domain model more reasonable and pure
-* At the same time, different Bounded contexts can evolve into different Microservices, and different Microservices can interact through asynchronous **Message Bus** and **Event**
-* In the end, we got a Microservices architecture based on DDD. A single Microservices ensures the purity of the domain model through CQRS and Event Sourcing. Different Microservices can interact through the message bus. Finally, all services can be based on cloud and k8s.
+* At the same time, different Bounded contexts can evolve into different Microservices and different Microservices can interact through asynchronous **Message Bus** and **events**
+* In the end, we got a Microservices architecture based on DDD. A single Microservices ensures the purity of the domain model through CQRS and Event Sourcing. Different Microservices can interact through the message bus. Finally, all services can be deployed to cloud and k8s
 
 # The Domain and Bounded context
 The example is regarding online booking/checkin for an airline company. An airline company named 'RestAirline' is offering online booking/checkin. 
