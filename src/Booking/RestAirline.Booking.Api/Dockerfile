@@ -1,17 +1,16 @@
-FROM microsoft/dotnet:2.2.1-aspnetcore-runtime AS base
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS base
 
-WORKDIR /app
-EXPOSE 80
-
-FROM microsoft/dotnet:2.2.103-sdk AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
 WORKDIR /src
 ARG Version
 
 COPY . .
-WORKDIR src/Booking/RestAirline.Booking.Api
+WORKDIR Booking/RestAirline.Booking.Api
+
+#RUN pwd
+#RUN ls
 
 RUN dotnet restore
-RUN dotnet build /p:Version=$Version -c Release -o /app
 
 FROM build AS publish
 ARG Version
