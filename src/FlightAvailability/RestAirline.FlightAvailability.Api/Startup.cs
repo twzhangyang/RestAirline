@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using RestAirline.FlightAvailability.Api.Filters;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
@@ -10,20 +11,20 @@ namespace RestAirline.FlightAvailability.Api
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration, IHostingEnvironment environment)
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
             Environment = environment;
         }
 
         public IConfiguration Configuration { get; }
-        public IHostingEnvironment Environment { get; }
+        public IWebHostEnvironment Environment { get; }
 
-        public IServiceProvider ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
         {
             services.AddApplicationInsightsTelemetry();
 
-            services.AddMvc(options =>
+            services.AddControllers(options =>
             {
                 options.Filters.Add<UnhandledExceptionFilter>();
                 options.Filters.Add<ModelValidationFilter>();
@@ -33,13 +34,13 @@ namespace RestAirline.FlightAvailability.Api
 
             if (Environment.IsEnvironment("UnitTest"))
             {
-                return ApplicationBootstrap.RegisterServicesForTesting(services);
+                ApplicationBootstrap.RegisterServicesForTesting(services);
             }
 
-            return ApplicationBootstrap.RegisterServices(services, Configuration);
+            ApplicationBootstrap.RegisterServices(services, Configuration);
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -53,10 +54,14 @@ namespace RestAirline.FlightAvailability.Api
                     .AllowAnyMethod();
             });
 
-            app.UseMvc();
-
-            app.UseSwagger();
-            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+            
+//            app.UseSwagger();
+//            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
         }
     }
 }

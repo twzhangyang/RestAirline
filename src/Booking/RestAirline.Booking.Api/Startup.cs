@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using RestAirline.Booking.Api.Filters;
 using RestAirline.Booking.Api.HealthCheck;
 using RestAirline.Booking.Api.Resources.Booking.Passenger.Add;
@@ -14,20 +15,20 @@ namespace RestAirline.Booking.Api
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration, IHostingEnvironment environment)
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
             Environment = environment;
         }
 
         public IConfiguration Configuration { get; }
-        public IHostingEnvironment Environment { get; }
+        public IWebHostEnvironment Environment { get; }
 
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddApplicationInsightsTelemetry();
 
-            services.AddMvc(options =>
+            services.AddControllers(options =>
                 {
                     options.Filters.Add<UnhandledExceptionFilter>();
                     options.Filters.Add<ModelValidationFilter>();
@@ -44,7 +45,7 @@ namespace RestAirline.Booking.Api
             return ApplicationBootstrap.RegisterServices(services, Configuration);
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -57,8 +58,6 @@ namespace RestAirline.Booking.Api
                     .AllowAnyHeader()
                     .AllowAnyMethod();
             });
-
-            app.UseMvc();
 
             var healthCheckResponseWriterProvider = new HealthCheckerResponseProvider(env);
             app.UseHealthChecks("/health/ready", new HealthCheckOptions

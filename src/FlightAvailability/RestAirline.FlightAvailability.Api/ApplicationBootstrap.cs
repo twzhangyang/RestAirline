@@ -16,13 +16,11 @@ namespace RestAirline.FlightAvailability.Api
     {
         private static IServiceProvider _serviceProvider;
 
-        private static Action<IEventFlowOptions> _testingServicesRegistrar;
-
         public static IServiceProvider RegisterServices(IServiceCollection services, IConfiguration configuration)
         {
             var eventFlowOptions = RegisterCommonServices(services);
 
-            _serviceProvider = eventFlowOptions.CreateServiceProvider();
+            _serviceProvider = eventFlowOptions.CreateServiceProvider(false);
             services.AddScoped(typeof(IServiceProvider), _ => _serviceProvider);
 
             return _serviceProvider;
@@ -32,7 +30,6 @@ namespace RestAirline.FlightAvailability.Api
         {
             var eventFlowOptions = RegisterCommonServices(services);
 
-            _testingServicesRegistrar?.Invoke(eventFlowOptions);
             _serviceProvider = eventFlowOptions.CreateServiceProvider();
             services.AddScoped(typeof(IServiceProvider), _ => _serviceProvider);
 
