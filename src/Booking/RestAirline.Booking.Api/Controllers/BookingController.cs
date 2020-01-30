@@ -18,7 +18,7 @@ using UpdatePassengerNameCommand = RestAirline.Booking.Commands.Passenger.Update
 namespace RestAirline.Booking.Api.Controllers
 {
     [ApiController]
-    [Route("api/booking")]
+    [Route("booking")]
     public class BookingController : ControllerBase 
     {
         private readonly ICommandBus _commandBus;

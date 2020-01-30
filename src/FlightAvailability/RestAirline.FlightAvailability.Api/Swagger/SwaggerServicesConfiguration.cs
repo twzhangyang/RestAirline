@@ -14,8 +14,6 @@ namespace RestAirline.FlightAvailability.Api.Swagger
             services.AddSwaggerGen(
                 options =>
                 {
-                    options.DescribeAllEnumsAsStrings();
-
                     options.EnableAnnotations();
 
                     options.CustomSchemaIds(t => t.FullName.Replace("+", "."));
