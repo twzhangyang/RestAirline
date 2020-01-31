@@ -1,19 +1,15 @@
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS base
-
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
 WORKDIR /src
 ARG Version
 
 COPY . .
-WORKDIR FlightAvailability/RestAirline.FlightAvailability.Api
 
+WORKDIR Booking/RestAirline.FlightAvailability.Api
 RUN dotnet restore
 
-FROM build AS publish
-ARG Version
 RUN dotnet publish /p:Version=$Version -c Release -o /app
 
-FROM base AS final
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS runtime
 WORKDIR /app
-COPY --from=publish /app .
+COPY --from=build /app .
 ENTRYPOINT ["dotnet", "RestAirline.FlightAvailability.Api.dll"]
