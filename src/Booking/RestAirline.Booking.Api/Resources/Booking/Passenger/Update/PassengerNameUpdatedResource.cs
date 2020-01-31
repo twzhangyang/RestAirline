@@ -12,7 +12,8 @@ namespace RestAirline.Booking.Api.Resources.Booking.Passenger.Update
         {
         }
 
-        public PassengerNameUpdatedResource(IUrlHelper urlHelper, string bookingId, RestAirline.Booking.ReadModel.EntityFramework.Booking.Passenger passenger)
+        public PassengerNameUpdatedResource(IUrlHelper urlHelper, string bookingId,
+            RestAirline.ReadModel.MongoDb.Booking.Passenger passenger)
         {
             ResourceLinks = new Links(urlHelper, bookingId);
             ResourceCommands = new Commands(urlHelper, bookingId, passenger.PassengerKey);

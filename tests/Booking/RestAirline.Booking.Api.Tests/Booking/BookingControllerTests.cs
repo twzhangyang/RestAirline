@@ -32,7 +32,7 @@ namespace RestAirline.Booking.Api.Tests.Booking
             var command = new SelectJourneysCommand();
 
             //Act
-            var resource = await _apiTestClient.Post<SelectJourneysCommand, JourneysSelectedResource>("api/booking/journeys", command);
+            var resource = await _apiTestClient.Post<SelectJourneysCommand, JourneysSelectedResource>("booking/journeys", command);
             
             //Assert
             resource.ResourceLinks.Should().NotBeNull();
@@ -46,7 +46,7 @@ namespace RestAirline.Booking.Api.Tests.Booking
             var bookingId = await SelectJourney();
             
             //Act
-            var booking = await _apiTestClient.Get<BookingResource>($"api/booking/{bookingId}");
+            var booking = await _apiTestClient.Get<BookingResource>($"booking/{bookingId}");
             
             //Assert
             booking.Id.Should().NotBeNull();
@@ -70,7 +70,7 @@ namespace RestAirline.Booking.Api.Tests.Booking
             };
 
             //Act
-            var resource = await _apiTestClient.Post<AddPassengerCommand, PassengerAddedResource>( $"api/booking/{bookingId.Value}/passenger", addPassengerCommand);
+            var resource = await _apiTestClient.Post<AddPassengerCommand, PassengerAddedResource>( $"booking/{bookingId.Value}/passenger", addPassengerCommand);
             
             //Assert
             resource.ResourceLinks.Should().NotBeNull();

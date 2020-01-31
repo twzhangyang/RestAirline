@@ -4,7 +4,7 @@ using RestAirline.ReadModel.MongoDb;
 
 namespace RestAirline.Booking.Queries.MongoDB.Booking
 {
-    public class BookingIdQuery : IQuery<MongoDbBookingReadModel>
+    public class BookingIdQuery : IQuery<BookingReadModel>
     {
         public string BookingId { get; }
 

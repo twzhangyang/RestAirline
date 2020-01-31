@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using RestAirline.ReadModel.MongoDb;
 
 namespace RestAirline.Booking.Api.Resources.Booking.Journey
 {
@@ -25,7 +26,7 @@ namespace RestAirline.Booking.Api.Resources.Booking.Journey
 
     public static class JourneyMapper
     {
-        public static Journey ToResource(this RestAirline.Booking.ReadModel.EntityFramework.Booking.Journey journey)
+        public static Journey ToResource(this RestAirline.ReadModel.MongoDb.Booking.Journey journey)
         {
             var model = new Journey
             {

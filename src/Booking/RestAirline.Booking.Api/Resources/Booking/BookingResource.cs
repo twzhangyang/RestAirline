@@ -5,9 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using RestAirline.Booking.Api.Resources.Booking.Journey;
 using RestAirline.Booking.Api.Resources.Booking.Passenger;
 using RestAirline.Booking.Api.Controllers;
-using RestAirline.Booking.Api.HyperMedia;
-using RestAirline.Booking.ReadModel.EntityFramework;
 using RestAirline.Web.Hypermedia;
+using BookingReadModel = RestAirline.ReadModel.MongoDb.BookingReadModel;
 
 namespace RestAirline.Booking.Api.Resources.Booking
 {
@@ -18,7 +17,7 @@ namespace RestAirline.Booking.Api.Resources.Booking
         {
         }
 
-        public BookingResource(IUrlHelper urlHelper, BookingReadModel booking)
+        public BookingResource(IUrlHelper urlHelper,  BookingReadModel booking)
         {
             Id = booking.Id;
             ResourceLinks = new Links(urlHelper, Id);

@@ -18,7 +18,7 @@ namespace RestAirline.ReadModel.MongoDb.Tests
     {
         protected readonly IRootResolver Resolver;
         protected readonly ICommandBus CommandBus;
-        protected readonly IMongoDbReadModelStore<MongoDbBookingReadModel> ReadModel;
+        protected readonly IMongoDbReadModelStore<MongoDb.BookingReadModel> ReadModel;
         protected readonly IQueryProcessor QueryProcessor;
         
         public TestBase()

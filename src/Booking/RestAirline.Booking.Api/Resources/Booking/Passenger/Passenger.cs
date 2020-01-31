@@ -21,7 +21,7 @@ namespace RestAirline.Booking.Api.Resources.Booking.Passenger
 
     public static class PassengerMapper
     {
-        public static Passenger ToResource(this RestAirline.Booking.ReadModel.EntityFramework.Booking.Passenger passenger)
+        public static Passenger ToResource(this RestAirline.ReadModel.MongoDb.Booking.Passenger passenger)
         {
             var model = new Passenger
             {

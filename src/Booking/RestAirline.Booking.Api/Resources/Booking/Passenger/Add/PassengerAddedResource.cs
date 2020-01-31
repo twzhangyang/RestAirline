@@ -15,7 +15,7 @@ namespace RestAirline.Booking.Api.Resources.Booking.Passenger.Add
         }
 
         public PassengerAddedResource(IUrlHelper urlHelper, string bookingId,
-            RestAirline.Booking.ReadModel.EntityFramework.Booking.Passenger passenger
+            RestAirline.ReadModel.MongoDb.Booking.Passenger passenger
         )
         {
             ResourceLinks = new Links(urlHelper, bookingId);

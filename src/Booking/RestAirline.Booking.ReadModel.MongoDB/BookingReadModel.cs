@@ -12,12 +12,12 @@ using Passenger = RestAirline.ReadModel.MongoDb.Booking.Passenger;
 
 namespace RestAirline.ReadModel.MongoDb
 {
-    public class MongoDbBookingReadModel : IMongoDbReadModel,
+    public class BookingReadModel : IMongoDbReadModel,
         IAmReadModelFor<RestAirline.Booking.Domain.Booking.Booking, BookingId, JourneysSelectedEvent>,
         IAmReadModelFor<RestAirline.Booking.Domain.Booking.Booking, BookingId, PassengerAddedEvent>,
         IAmReadModelFor<RestAirline.Booking.Domain.Booking.Booking, BookingId, PassengerNameUpdatedEvent>
     {
-        public MongoDbBookingReadModel()
+        public BookingReadModel()
         {
             Passengers = new List<Passenger>();
             Journeys = new List<Journey>();

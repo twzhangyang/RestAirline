@@ -27,7 +27,7 @@ namespace RestAirline.Booking.Api.Resources.Booking.Journey
 
     public static class FlightMapper
     {
-        public static Flight ToResource(this RestAirline.Booking.ReadModel.EntityFramework.Booking.Flight flight)
+        public static Flight ToResource(this RestAirline.ReadModel.MongoDb.Booking.Flight flight)
         {
             var model = new Flight
             {

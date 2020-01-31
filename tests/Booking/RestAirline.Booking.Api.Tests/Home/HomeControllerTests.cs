@@ -18,7 +18,7 @@ namespace RestAirline.Booking.Api.Tests.Home
         public async void ShouldGetHome()
         {
             //Act
-            var home = await _apiTestClient.Get<RestAirlineHomeResource>("api/home");
+            var home = await _apiTestClient.Get<RestAirlineHomeResource>("booking/home");
 
             //Assert
             home.ResourceLinks.Should().NotBeNull();

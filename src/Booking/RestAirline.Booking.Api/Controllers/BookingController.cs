@@ -2,7 +2,6 @@
 using System.Threading;
 using System.Threading.Tasks;
 using EventFlow;
-using EventFlow.EntityFramework;
 using EventFlow.Queries;
 using Microsoft.AspNetCore.Mvc;
 using RestAirline.Booking.Api.Resources.Booking;
@@ -11,8 +10,7 @@ using RestAirline.Booking.Api.Resources.Booking.Passenger.Add;
 using RestAirline.Booking.Api.Resources.Booking.Passenger.Update;
 using RestAirline.Booking.Domain.Booking;
 using RestAirline.Booking.Domain.ModelBuilders;
-using RestAirline.Booking.Queries.EntityFramework.Booking;
-using RestAirline.Booking.ReadModel.EntityFramework.DBContext;
+using RestAirline.Booking.Queries.MongoDB.Booking;
 using UpdatePassengerNameCommand = RestAirline.Booking.Commands.Passenger.UpdatePassengerNameCommand;
 
 namespace RestAirline.Booking.Api.Controllers
@@ -23,13 +21,11 @@ namespace RestAirline.Booking.Api.Controllers
     {
         private readonly ICommandBus _commandBus;
         private readonly IQueryProcessor _queryProcessor;
-        private readonly IDbContextProvider<RestAirlineReadModelContext> _contextProvider;
-
-        public BookingController(ICommandBus commandBus, IQueryProcessor queryProcessor, IDbContextProvider<RestAirlineReadModelContext> contextProvider)
+        
+        public BookingController(ICommandBus commandBus, IQueryProcessor queryProcessor)
         {
             _commandBus = commandBus;
             _queryProcessor = queryProcessor;
-            _contextProvider = contextProvider;
         }
 
         [Route("journeys")]

@@ -48,6 +48,7 @@ namespace RestAirline.FlightAvailability.Api
                 .RegisterModule<CommandHandlersModule>()
                 .RegisterModule<ElasticsearchReadModelModule>()
                 .RegisterModule<ElasticsearchQueryHandlersModule>()
+                .RegisterModule<MongoDBEventStoreModule>()
                 .RegisterModule<ApiModule>();
             return eventFlowOptions;
         }
