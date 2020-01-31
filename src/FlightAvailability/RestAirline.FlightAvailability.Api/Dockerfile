@@ -4,7 +4,7 @@ ARG Version
 
 COPY . .
 
-WORKDIR Booking/RestAirline.FlightAvailability.Api
+WORKDIR RestAirline.FlightAvailability.Api
 RUN dotnet restore
 
 RUN dotnet publish /p:Version=$Version -c Release -o /app
