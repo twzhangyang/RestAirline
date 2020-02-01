@@ -48,24 +48,16 @@ Note: add a `-d` to run the container in background
 An API service and mssql will run in docker
 
 ## Run in local
-This project based on .NET Core SDK 2.2.103, please install corresponding SDK for your operating system:
+This project based on .NET Core 3.1, please install corresponding SDK for your operating system:
 
- * [Window](https://dotnet.microsoft.com/download/thank-you/dotnet-sdk-2.2.103-windows-x64-installer)
-
- * [Mac](https://dotnet.microsoft.com/download/thank-you/dotnet-sdk-2.2.103-macos-x64-installer)
-
-After installing, please run below command to make sure current .NET Core version is 2.2.103
+After installing, please run below command to make sure current .NET Core version is 3.1.101
 `dotnet --version`
-
-The EventStore and ReadModel are based on EF Core and connect to MSSQL, before run this service please update EventStore connect string and
-ReadModel connect string in `settings.json` under `RestAirline.Api` project.
-After set connect string two database will be migrated automatically by the API service.
 
 ## Run the API
 
 ### 1. Try to input home api link in Postman:
 
-> GET http://localhost:61200/api/home/
+> GET http://localhost:61200/booking/home/
 
 ---
 
@@ -73,7 +65,7 @@ After set connect string two database will be migrated automatically by the API 
 Journey items should come from another micro-service named flight availability, for now let's build a 
 journey in the api automatically for convenience. So you need not pass any journey id to this api.
 
-> POST api/booking/journeys
+> POST /booking/journeys
 
 ![add journey](https://user-images.githubusercontent.com/22952792/61993523-7625fb00-b09f-11e9-98a4-5fdd52774996.png)
 ---
@@ -90,13 +82,13 @@ The api definition is totally described by last api response under `resourceComm
     "age": 0,
     "email": null,
     "postUrl": {
-        "uri": "/api/booking/booking-352cb1f3-0f68-4e04-a2f7-24036eb53ce7/passenger"
+        "uri": "/booking/booking-352cb1f3-0f68-4e04-a2f7-24036eb53ce7/passenger"
     }
 }
 ```
 Obviously the endpoint is: 
 
-> http://localhost:61100/api/booking/booking-352cb1f3-0f68-4e04-a2f7-24036eb53ce7/passenger
+> http://localhost:61100/booking/booking-352cb1f3-0f68-4e04-a2f7-24036eb53ce7/passenger
 
 The payload schema is:
 ```
@@ -120,7 +112,7 @@ The payload schema is:
 ```
 Send request:
 
-> POST api/{bookingId}/passenger
+> POST booking/{bookingId}/passenger
 
 ![add booking](https://user-images.githubusercontent.com/22952792/61993532-b8e7d300-b09f-11e9-9567-75ba0ea0a8d9.png)
 ---
@@ -128,7 +120,7 @@ Send request:
 ### 4. Get booking
 According to response of last api, you can either get the booking by `resourceLinks` or post data by `resourceCommand`.
 
-> GET api/booking/{bookingId}
+> GET /booking/{bookingId}
 
 ![get booking](https://user-images.githubusercontent.com/22952792/61993549-ffd5c880-b09f-11e9-9679-e708a7f087d3.png)
 ---
