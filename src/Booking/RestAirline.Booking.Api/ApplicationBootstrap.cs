@@ -79,7 +79,7 @@ namespace RestAirline.Booking.Api
 
         private static void RegisterHealthCheck(IServiceCollection services)
         {
-            services.AddHostedService<StartupHostedService>();
+//            services.AddHostedService<StartupHostedService>();
             services.AddSingleton<StartupHostedServiceHealthCheck>();
 
             services.AddHealthChecks()

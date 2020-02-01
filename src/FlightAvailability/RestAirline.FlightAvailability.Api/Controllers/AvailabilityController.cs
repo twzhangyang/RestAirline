@@ -29,7 +29,7 @@ namespace RestAirline.FlightAvailability.Api.Controllers
             return new FlightAvailabilityResource(Url, flightAvailability);
         }
         
-        [Route("schedule")]
+        [Route("availability/schedule")]
         [HttpPost]
         public async Task<FlightAvailabilityResource> ScheduleFlights()
         {
