@@ -12,8 +12,8 @@ services:
       - mssql.data
       - mongodb.data
       - elasticsearch
-    container_name: booking_api 
-    
+    container_name: booking_api
+
   flight.availability.api:
     image: flightavailability:${TAG:-latest}
     build:
@@ -25,7 +25,7 @@ services:
       - mssql.data
       - mongodb.data
       - elasticsearch
-    container_name: flightavailability_api 
+    container_name: flightavailability_api
 
   mssql.data:
     image: microsoft/mssql-server-linux:2017-latest

@@ -1,7 +1,7 @@
 version: '3.4'
 
 services:
-  booking.api:
+  restairline.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://0.0.0.0:80
@@ -9,7 +9,7 @@ services:
       - ReadModelConnectionString=${READ_MODEL_DB:-Server=mssql.data;Database=RestAirlineRead;User Id=sa;Password=RestAirline123}
     ports:
       - 61200:80
-    
+
   flight.availability.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
@@ -28,7 +28,7 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - ./mongo:/data/db
+      - mongodata1:/data/db
       
   elasticsearch:
     environment:
@@ -61,4 +61,7 @@ services:
           
 volumes:
   esdata1:
+    driver: local
+    
+  mongodata1:
     driver: local
