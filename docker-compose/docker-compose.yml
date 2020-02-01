@@ -1,18 +1,31 @@
 version: '3.4'
 
 services:
-  restairline.api:
-    image: restairline:${TAG:-latest}
+  booking.api:
+    image: booking:${TAG:-latest}
     build:
       args:
         Version: "1"
-      context: ../
-      dockerfile: src/Booking/RestAirline.Booking.Api/Dockerfile
+      context: ../src
+      dockerfile: Booking/RestAirline.Booking.Api/Dockerfile
     depends_on:
       - mssql.data
       - mongodb.data
       - elasticsearch
-    container_name: restairline_api
+    container_name: booking_api 
+    
+  flight.availability.api:
+    image: flightavailability:${TAG:-latest}
+    build:
+      args:
+        Version: "1"
+      context: ../src
+      dockerfile: FlightAvailability/RestAirline.FlightAvailability.Api/Dockerfile
+    depends_on:
+      - mssql.data
+      - mongodb.data
+      - elasticsearch
+    container_name: flightavailability_api 
 
   mssql.data:
     image: microsoft/mssql-server-linux:2017-latest
