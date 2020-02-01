@@ -44,7 +44,7 @@ namespace RestAirline.Booking.Api
             var eventFlowOptions = RegisterCommonServices(services);
 
             _testingServicesRegistrar?.Invoke(eventFlowOptions);
-            _serviceProvider = eventFlowOptions.CreateServiceProvider();
+            _serviceProvider = eventFlowOptions.CreateServiceProvider(false);
             services.AddScoped(typeof(IServiceProvider), _ => _serviceProvider);
 
             return _serviceProvider;

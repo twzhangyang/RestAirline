@@ -24,6 +24,9 @@ namespace RestAirline.FlightAvailability.Api
                 .Select(x => _commandBus.PublishAsync(Create(x), CancellationToken.None))
                 .ToArray();
 
+        public async Task<IExecutionResult> AddFlight() => await _commandBus.PublishAsync(Create(1), CancellationToken.None);
+        
+
         private AddFlightCommand Create(int id)
         {
             var flightAvailabilityId = FlightAvailabilityId.With(_id);

@@ -30,7 +30,7 @@ namespace RestAirline.FlightAvailability.Api
         {
             var eventFlowOptions = RegisterCommonServices(services);
 
-            _serviceProvider = eventFlowOptions.CreateServiceProvider();
+            _serviceProvider = eventFlowOptions.CreateServiceProvider(false);
             services.AddScoped(typeof(IServiceProvider), _ => _serviceProvider);
 
             return _serviceProvider;
