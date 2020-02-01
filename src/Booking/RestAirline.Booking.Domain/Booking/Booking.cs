@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
 using System.Threading.Tasks;
-using EventFlow.Aggregates;
 using EventFlow.Extensions;
 using EventFlow.Snapshots;
 using EventFlow.Snapshots.Strategies;
@@ -14,8 +12,6 @@ using RestAirline.Booking.Domain.Booking.Snapshots;
 using RestAirline.Booking.Domain.Booking.Specs;
 using RestAirline.Booking.Domain.Booking.Trip;
 using RestAirline.Booking.Domain.Booking.Trip.Events;
-using RestAirline.Booking.Domain.Booking.Exceptions;
-using RestAirline.Booking.Domain.Booking.Extensions;
 
 namespace RestAirline.Booking.Domain.Booking
 {
