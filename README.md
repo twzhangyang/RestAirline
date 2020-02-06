@@ -2,7 +2,7 @@
 
 # Overview
 
-* A classic DDD with CQRS-ES, Hypermedia API and Ubiquitous unit test project based on EventFlow. It's targeted to ASP.NET Core 2.2 and can be deployed to docker and k8s
+* A classic DDD with CQRS-ES, Hypermedia API and Ubiquitous unit test project based on EventFlow. It's targeted to ASP.NET Core 3.1 and can be deployed to docker and k8s
 * Based on [EventFlow](https://github.com/eventflow/EventFlow)
 * Based on ASP.NET Core3.1
 * Implement read model by EntityFramework, MongoDB, Elasticsearch
