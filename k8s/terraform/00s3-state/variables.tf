@@ -1,15 +1,15 @@
 variable "region" {
-  type = string
+  type = string 
+  default = "ap-east-1" 
 }
 
-variable "availability_zones" {
-  type = list(string)
-}
 
 variable "name" {
   type = string
+  default = "restairline"
 }
 
 variable "env" {
   type = string
+  default = "dev"
 }

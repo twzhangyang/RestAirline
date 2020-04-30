@@ -3,7 +3,6 @@ provider "aws" {
 }
 
 module "vpc" {
-#   source     = "git::https://github.com/cloudposse/terraform-aws-vpc.git?ref=master"
   source     = "git::https://github.com/terraform-aws-modules/terraform-aws-vpc.git?ref=master"
   name       = var.name
   cidr = "10.0.0.0/16"
@@ -18,42 +17,41 @@ module "vpc" {
 
   public_subnet_tags = {
       name = "restairline-vpc-public"
-      env = var.environment
+      env = var.env
   }
 
   public_route_table_tags = {
-      env = var.environment
+      env = var.env
   }
 
   private_subnet_tags = {
       name = "reastairline-vpc-private"
-      env = var.environment
+      env = var.env
   }
 
   private_route_table_tags = {
-      env = var.environment
+      env = var.env
   }
 
   default_network_acl_name = var.name
   default_network_acl_tags = {
-      env = var.environment
+      env = var.env
   }
 
   igw_tags = {
-      env = var.environment
+      env = var.env
   }
 
   nat_eip_tags = {
-      env = var.environment
+      env = var.env
   }
 
   nat_gateway_tags = {
-      env = var.environment
+      env = var.env
   }
 
-
   tags = {
-      env = var.environment 
+      env = var.env 
   }
 }
 
