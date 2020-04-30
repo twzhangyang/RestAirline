@@ -2,6 +2,14 @@ provider "aws" {
     region = var.region
 }
 
+terraform {
+  backend "s3" {
+    bucket = "restairline-terraform-state-s3"
+    key    = "dev/vpc.tfstate"
+    region = "ap-east-1"
+  }
+}
+
 module "vpc" {
   source     = "git::https://github.com/terraform-aws-modules/terraform-aws-vpc.git?ref=master"
   name       = var.name
@@ -12,7 +20,7 @@ module "vpc" {
   public_subnets = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
 
   enable_ipv6 = false
-  enable_nat_gateway = true
+  enable_nat_gateway = false 
   single_nat_gateway = true
 
   public_subnet_tags = {

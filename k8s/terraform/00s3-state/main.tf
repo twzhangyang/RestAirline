@@ -2,7 +2,6 @@ provider "aws" {
   region = var.region 
 }
 
-
 locals {
   bucket_name = "${var.name}-terraform-state-s3"
 }
@@ -33,11 +32,14 @@ data "aws_iam_policy_document" "bucket_policy" {
     }
 
     actions = [
+      "s3:GetObject",
       "s3:ListBucket",
+      "s3:PutObject"
     ]
 
     resources = [
       "arn:aws:s3:::${local.bucket_name}",
+      "arn:aws:s3:::${local.bucket_name}/*"
     ]
   }
 }
