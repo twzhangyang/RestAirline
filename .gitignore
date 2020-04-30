@@ -5,3 +5,4 @@ bin/
 .idea/
 **/.idea/
 docker-compose/mongo/
+.terraform
