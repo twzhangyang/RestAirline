@@ -9,3 +9,7 @@ variable "availability_zones" {
 variable "name" {
   type = string
 }
+
+variable "environment" {
+  type = string
+}

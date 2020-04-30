@@ -18,19 +18,42 @@ module "vpc" {
 
   public_subnet_tags = {
       name = "restairline-vpc-public"
+      env = var.environment
+  }
+
+  public_route_table_tags = {
+      env = var.environment
   }
 
   private_subnet_tags = {
       name = "reastairline-vpc-private"
+      env = var.environment
   }
 
-  vpc_tags = {
-      name = "restairline-vpc"
+  private_route_table_tags = {
+      env = var.environment
   }
+
+  default_network_acl_name = var.name
+  default_network_acl_tags = {
+      env = var.environment
+  }
+
+  igw_tags = {
+      env = var.environment
+  }
+
+  nat_eip_tags = {
+      env = var.environment
+  }
+
+  nat_gateway_tags = {
+      env = var.environment
+  }
+
 
   tags = {
-      Environment = "dev"
-      name = "restairline"
+      env = var.environment 
   }
 }
 
