@@ -44,7 +44,7 @@ module "ec2" {
 
   instance_count = 1
 
-  name          = "reastairline-${var.name}"
+  name          = "restairline-${var.name}"
   ami           = var.ami
   instance_type = var.instance_type
   subnet_id     = var.subnet_id
@@ -54,5 +54,25 @@ module "ec2" {
 
   tags = {
     env      =  var.env
+  }
+}
+
+resource "null_resource" "provisioner" {
+  triggers = {
+    public_ip = module.ec2.public_ip
+  }
+
+  connection {
+    type  = "ssh"
+    host  = module.ec2.public_ip
+    user  = var.ssh_user
+    port  = 22
+    agent = true
+  }
+
+  provisioner "remote-exec" {
+    scripts = [
+      "docker.sh"
+    ]
   }
 }

@@ -34,11 +34,8 @@ variable "key_name" {
 }
 
 variable "ssh_user" {
-  type = string 
-  default = "ubuntu"
+  type = string
 }
-
-
 
 
 
