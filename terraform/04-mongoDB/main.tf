@@ -5,7 +5,7 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket = "restairline-terraform-state-s3"
-    key    = "dev/bastion.tfstate"
+    key    = "dev/mongoDB.tfstate"
     region = "ap-east-1"
   }
 }
@@ -13,11 +13,18 @@ terraform {
 module "security_group" {
   source  = "git::https://github.com/terraform-aws-modules/terraform-aws-security-group.git?ref=master"
 
-  name        = "restairline-bastion-sg"
-  description = "Security group for bastion"
+  name        = "restairline-mongoDB-sg"
+  description = "Security group for mongoDB"
   vpc_id      =  var.vpc_id
 
   ingress_with_cidr_blocks = [
+      {
+        from_port   = 27017 
+        to_port     = 27017 
+        protocol    = "tcp"
+        description = "mongo DB"
+        cidr_blocks = "0.0.0.0/0"
+      },
       {
         from_port   = 22 
         to_port     = 22  
@@ -26,16 +33,6 @@ module "security_group" {
         cidr_blocks = "0.0.0.0/0"
       }
     ]
-
-  # egress_with_cidr_blocks = [
-  #   {
-  #     from_port   = 0
-  #     to_port     = 65535
-  #     protocol    = "tcp"
-  #     description = "all tcp"
-  #     cidr_blocks = "0.0.0.0/0"
-  #   }
-  # ]
 
   tags = {
     env = var.env

@@ -1,0 +1,8 @@
+region = "ap-east-1"
+key_name = "restairline"
+env = "dev"
+name = "bastion"
+vpc_id = "vpc-0a7a8ac8fa92833ff"
+subnet_id = "subnet-039a22209dda403fa"
+ami = "ami-dd7731ac"
+instance_type = "t3.micro"
