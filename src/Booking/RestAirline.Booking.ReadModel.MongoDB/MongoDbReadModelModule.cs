@@ -2,7 +2,7 @@ using EventFlow;
 using EventFlow.Configuration;
 using EventFlow.Extensions;
 using EventFlow.MongoDB.Extensions;
-using MongoDB.Driver;
+using RestAirline.Shared.Extensions;
 
 namespace RestAirline.ReadModel.MongoDb
 {
@@ -10,12 +10,9 @@ namespace RestAirline.ReadModel.MongoDb
     {
         public void Register(IEventFlowOptions eventFlowOptions)
         {
-            // TODO: read form config
-            var client = new MongoClient("mongodb://localhost:27017");
-
             eventFlowOptions
                 .AddDefaults(typeof(MongoDbReadModelModule).Assembly)
-                .ConfigureMongoDb(client, "restairline-booking-read")
+                .RegisterMongoDb("restairline-booking-read")
                 .UseMongoDbReadModel<BookingReadModel>();
         }
     }

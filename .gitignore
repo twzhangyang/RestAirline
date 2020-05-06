@@ -6,3 +6,4 @@ bin/
 **/.idea/
 docker-compose/mongo/
 .terraform
+.DS_Store

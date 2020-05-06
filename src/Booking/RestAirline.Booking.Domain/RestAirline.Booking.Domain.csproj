@@ -12,4 +12,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\RestAirline.Shared\RestAirline.Shared.csproj" />
+  </ItemGroup>
 </Project>

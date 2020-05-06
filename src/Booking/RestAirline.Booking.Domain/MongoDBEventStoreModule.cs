@@ -1,7 +1,8 @@
+using System;
 using EventFlow;
 using EventFlow.Configuration;
 using EventFlow.MongoDB.Extensions;
-using MongoDB.Driver;
+using RestAirline.Shared.Extensions;
 
 namespace RestAirline.Booking.Domain
 {
@@ -9,11 +10,8 @@ namespace RestAirline.Booking.Domain
     {
         public void Register(IEventFlowOptions eventFlowOptions)
         {
-            // TODO: read form config
-            var client = new MongoClient("mongodb://localhost:27017");
-
             eventFlowOptions
-                .ConfigureMongoDb(client, "restairline-booking-events")
+                .RegisterMongoDb("restairline-booking-events")
                 .UseMongoDbEventStore()
                 .UseMongoDbSnapshotStore();
         }
