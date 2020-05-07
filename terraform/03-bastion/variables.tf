@@ -32,3 +32,16 @@ variable "subnet_id" {
 variable "key_name" {
   type = string 
 }
+
+variable "ssh_user" {
+  type = string 
+  default = "ubuntu"
+}
+
+variable "zone_name" {
+  type = string 
+}
+
+variable "cname" {
+ type = string
+}
