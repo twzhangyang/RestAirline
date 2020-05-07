@@ -70,6 +70,20 @@ resource "aws_instance" "es"{
   }
 }
 
+data "aws_route53_zone" "reactlife" {
+    name = var.zone_name
+    private_zone = false
+}
+
+resource "aws_route53_record" "elasticsearch" {
+  zone_id = data.aws_route53_zone.reactlife.zone_id
+  name    = var.cname
+  type    = "A"
+  ttl     = "300"
+  records = [aws_instance.es.public_ip]
+  allow_overwrite = true
+}
+
 resource "null_resource" "provisioner" {
   triggers = {
     public_ip = aws_instance.es.public_ip

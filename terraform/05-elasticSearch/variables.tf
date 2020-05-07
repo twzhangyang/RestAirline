@@ -37,5 +37,15 @@ variable "ssh_user" {
   type = string
 }
 
+variable "zone_name" {
+  type = string 
+}
+
+variable "cname" {
+ type = string
+}
+
+
+
 
 

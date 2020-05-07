@@ -38,7 +38,13 @@ variable "ssh_user" {
   default = "ubuntu"
 }
 
+variable "zone_name" {
+  type = string 
+}
 
+variable "cname" {
+ type = string
+}
 
 
 

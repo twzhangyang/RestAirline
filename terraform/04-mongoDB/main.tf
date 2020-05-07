@@ -57,6 +57,20 @@ module "ec2" {
   }
 }
 
+data "aws_route53_zone" "reactlife" {
+    name = var.zone_name
+    private_zone = false
+}
+
+resource "aws_route53_record" "elasticsearch" {
+  zone_id = data.aws_route53_zone.reactlife.zone_id
+  name    = var.cname
+  type    = "A"
+  ttl     = "300"
+  records = [module.ec2.public_ip]
+  allow_overwrite = true
+}
+
 resource "null_resource" "provisioner" {
   triggers = {
     public_ip = module.ec2.public_ip
