@@ -5,7 +5,7 @@ variable "region" {
 
 variable "name" {
   type = string
-  default = "restairline" 
+  default = "booking" 
 }
 
 variable "env" {

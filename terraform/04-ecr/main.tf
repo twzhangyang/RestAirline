@@ -10,7 +10,7 @@ terraform {
   }
 }
 
-resource "aws_ecr_repository" "restairline" {
+resource "aws_ecr_repository" "booking" {
     name = var.name
     image_tag_mutability = "MUTABLE" 
 
@@ -25,7 +25,7 @@ resource "aws_ecr_repository" "restairline" {
 }
 
 resource "aws_ecr_lifecycle_policy" "name" {
-  repository = aws_ecr_repository.restairline.name
+  repository = aws_ecr_repository.booking.name
 
   policy = <<EOF
 {
@@ -66,7 +66,7 @@ data "aws_iam_policy_document" "resource_readonly_access" {
     effect = "Allow"
 
     principals {
-      type = "AWS"
+      type = "*"
 
       identifiers = ["*"]
     }
@@ -92,7 +92,7 @@ data "aws_iam_policy_document" "resource_full_access" {
     effect = "Allow"
 
     principals {
-      type = "AWS"
+      type = "*"
       identifiers = ["*"]
     }
 
@@ -119,7 +119,7 @@ data "aws_iam_policy_document" "resource_full_access" {
   }
 }
 
-resource "aws_ecr_repository_policy" "restairline" {
-  repository = aws_ecr_repository.restairline.name
+resource "aws_ecr_repository_policy" "booking" {
+  repository = aws_ecr_repository.booking.name
   policy     = data.aws_iam_policy_document.resource_full_access.json
 }

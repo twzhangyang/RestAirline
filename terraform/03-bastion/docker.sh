@@ -9,3 +9,6 @@ sudo chmod 666 /var/run/docker.sock
 
 echo "docker was installed"
 
+# install awscli
+sudo apt install awscli -y
+
