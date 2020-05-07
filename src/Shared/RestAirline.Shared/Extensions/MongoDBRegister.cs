@@ -7,7 +7,7 @@ using MongoDB.Driver;
 
 namespace RestAirline.Shared.Extensions
 {
-    public static class MongoDBEventStoreRegister
+    public static class MongoDBRegister
     {
         public static IEventFlowOptions RegisterMongoDb(
             this IEventFlowOptions eventFlowOptions,

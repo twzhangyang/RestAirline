@@ -4,6 +4,7 @@ using EventFlow.Configuration;
 using EventFlow.Elasticsearch.Extensions;
 using EventFlow.Extensions;
 using RestAirline.Booking.Domain.Booking;
+using RestAirline.Shared.Extensions;
 
 namespace RestAirline.Booking.ReadModel.Elasticsearch
 {
@@ -11,11 +12,8 @@ namespace RestAirline.Booking.ReadModel.Elasticsearch
     {
         public void Register(IEventFlowOptions eventFlowOptions)
         {
-            //TODO: read from config
-            var elasticsearchUrl = "http://localhost:9200";
-
             eventFlowOptions
-                .ConfigureElasticsearch(elasticsearchUrl)
+                .RegisterElasticsearch()
                 .AddDefaults(typeof(ElasticsearchReadModelModule).Assembly)
                 .RegisterServices(r=>r.Register<BookingReadModelIndexer, BookingReadModelIndexer>())
                 .UseElasticsearchReadModel<BookingReadModel>();
