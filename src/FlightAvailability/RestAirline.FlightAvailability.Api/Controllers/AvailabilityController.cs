@@ -33,9 +33,6 @@ namespace RestAirline.FlightAvailability.Api.Controllers
         [HttpPost]
         public async Task<FlightAvailabilityResource> ScheduleFlights()
         {
-//            var results = _flightsScheduler.AddFlights();
-//            Task.WaitAll(results);
-
             await _flightsScheduler.AddFlight();
             return await GetFlightAvailability("MEL");
         }

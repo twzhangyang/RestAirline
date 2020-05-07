@@ -70,13 +70,13 @@ resource "aws_instance" "es"{
   }
 }
 
-data "aws_route53_zone" "reactlife" {
+data "aws_route53_zone" "default" {
     name = var.zone_name
     private_zone = false
 }
 
 resource "aws_route53_record" "elasticsearch" {
-  zone_id = data.aws_route53_zone.reactlife.zone_id
+  zone_id = data.aws_route53_zone.default.zone_id
   name    = var.cname
   type    = "A"
   ttl     = "300"

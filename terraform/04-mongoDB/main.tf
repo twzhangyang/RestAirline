@@ -34,6 +34,16 @@ module "security_group" {
       }
     ]
 
+    egress_with_cidr_blocks = [
+      {
+        from_port   = 0 
+        to_port     = 65535  
+        protocol    = "tcp"
+        description = "all tcp"
+        cidr_blocks = "0.0.0.0/0"
+      }
+  ]
+
   tags = {
     env = var.env
   }
@@ -57,28 +67,28 @@ module "ec2" {
   }
 }
 
-data "aws_route53_zone" "reactlife" {
+data "aws_route53_zone" "default" {
     name = var.zone_name
     private_zone = false
 }
 
 resource "aws_route53_record" "elasticsearch" {
-  zone_id = data.aws_route53_zone.reactlife.zone_id
+  zone_id = data.aws_route53_zone.default.zone_id
   name    = var.cname
   type    = "A"
   ttl     = "300"
-  records = [module.ec2.public_ip]
+  records = [module.ec2.public_ip[0]]
   allow_overwrite = true
 }
 
 resource "null_resource" "provisioner" {
   triggers = {
-    public_ip = module.ec2.public_ip
+    public_ip = module.ec2.public_ip[0]
   }
 
   connection {
     type  = "ssh"
-    host  = module.ec2.public_ip
+    host  = module.ec2.public_ip[0]
     user  = var.ssh_user
     port  = 22
     agent = true
