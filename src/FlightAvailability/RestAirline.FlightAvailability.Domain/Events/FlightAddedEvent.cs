@@ -4,7 +4,7 @@ using EventFlow.EventStores;
 
 namespace RestAirline.FlightAvailability.Domain.Events
 {
-    [EventVersion("FLightAdded", 1)]
+    [EventVersion("FlightAdded", 1)]
     public class FlightAddedEvent : AggregateEvent<FlightAvailability, FlightAvailabilityId>
     {
         public FlightAddedEvent()

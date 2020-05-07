@@ -1,12 +1,16 @@
 using System;
 using EventFlow;
+using EventFlow.Aggregates;
+using EventFlow.AspNetCore.Extensions;
 using EventFlow.DependencyInjection.Extensions;
+using EventFlow.EntityFramework;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RestAirline.FlightAvailability.Api.Swagger;
 using RestAirline.FlightAvailability.CommandHandlers;
 using RestAirline.FlightAvailability.Commands;
 using RestAirline.FlightAvailability.Domain;
+using RestAirline.FlightAvailability.Domain.EventSourcing;
 using RestAirline.FlightAvailability.QueryHandlers.Elasticsearch;
 using RestAirline.FlightAvailability.ReadModel.Elasticsearch;
 
@@ -20,7 +24,7 @@ namespace RestAirline.FlightAvailability.Api
         {
             var eventFlowOptions = RegisterCommonServices(services);
 
-            _serviceProvider = eventFlowOptions.CreateServiceProvider(false);
+            _serviceProvider = eventFlowOptions.CreateServiceProvider();
             services.AddScoped(typeof(IServiceProvider), _ => _serviceProvider);
 
             return _serviceProvider;
@@ -43,13 +47,15 @@ namespace RestAirline.FlightAvailability.Api
 
             var eventFlowOptions = EventFlowOptions.New
                 .UseServiceCollection(services)
+                .AddAspNetCore(options => { options.AddUserClaimsMetadata(); })
                 .RegisterModule<FlightAvailabilityDomainModule>()
+                // .RegisterModule<MongoDBEventStoreModule>()
                 .RegisterModule<CommandModule>()
                 .RegisterModule<CommandHandlersModule>()
                 .RegisterModule<ElasticsearchReadModelModule>()
                 .RegisterModule<ElasticsearchQueryHandlersModule>()
-                .RegisterModule<MongoDBEventStoreModule>()
                 .RegisterModule<ApiModule>();
+            
             return eventFlowOptions;
         }
     }

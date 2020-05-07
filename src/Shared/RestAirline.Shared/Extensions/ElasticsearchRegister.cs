@@ -19,11 +19,11 @@ namespace RestAirline.Shared.Extensions
                     var connectionString = f.Resolver.Resolve<IConfiguration>()["elasticsearch"];
                     var connection = new ConnectionSettings(new Uri(connectionString));
                     connection.DisableDirectStreaming(true);
-                    var elasticClient = new ElasticClient(connection);
-                    return eventFlowOptions.ConfigureElasticsearch(() => elasticClient);
+                    IElasticClient elasticClient = new ElasticClient(connection);
+                    return elasticClient;
  
                 }, Lifetime.Singleton);
-                sr.Register<IReadModelDescriptionProvider, ReadModelDescriptionProvider>(Lifetime.Singleton, true);
+                sr.Register<EventFlow.Elasticsearch.ReadStores.IReadModelDescriptionProvider, EventFlow.Elasticsearch.ReadStores.ReadModelDescriptionProvider>(Lifetime.Singleton, true);
             });
         }
     }

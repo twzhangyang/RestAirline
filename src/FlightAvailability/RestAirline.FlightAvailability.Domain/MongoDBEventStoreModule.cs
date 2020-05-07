@@ -1,7 +1,6 @@
 using EventFlow;
 using EventFlow.Configuration;
 using EventFlow.MongoDB.Extensions;
-using MongoDB.Driver;
 using RestAirline.Shared.Extensions;
 
 namespace RestAirline.FlightAvailability.Domain
