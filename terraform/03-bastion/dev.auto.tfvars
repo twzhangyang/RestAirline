@@ -1,7 +1,7 @@
 region = "ap-east-1"
 key_name = "restairline"
 env = "dev"
-name = "bastion"
+name = "restairline"
 vpc_id = "vpc-0a7a8ac8fa92833ff"
 subnet_id = "subnet-039a22209dda403fa"
 ami = "ami-c790d6b6"

@@ -1,5 +1,5 @@
 provider "aws" {
-    region = var.region 
+  region = var.region
 }
 
 terraform {
@@ -10,22 +10,26 @@ terraform {
   }
 }
 
-module "security_group" {
-  source  = "git::https://github.com/terraform-aws-modules/terraform-aws-security-group.git?ref=master"
+locals {
+  name = "${var.name}-${var.env}-bastion"
+}
 
-  name        = "restairline-bastion-sg"
+module "security_group" {
+  source = "git::https://github.com/terraform-aws-modules/terraform-aws-security-group.git?ref=master"
+
+  name        = local.name
   description = "Security group for bastion"
-  vpc_id      =  var.vpc_id
+  vpc_id      = var.vpc_id
 
   ingress_with_cidr_blocks = [
-      {
-        from_port   = 22 
-        to_port     = 22  
-        protocol    = "tcp"
-        description = "ssh"
-        cidr_blocks = "0.0.0.0/0"
-      }
-    ]
+    {
+      from_port   = 22
+      to_port     = 22
+      protocol    = "tcp"
+      description = "ssh"
+      cidr_blocks = "0.0.0.0/0"
+    }
+  ]
 
   egress_with_cidr_blocks = [
     {
@@ -38,7 +42,8 @@ module "security_group" {
   ]
 
   tags = {
-    env = var.env
+    env  = var.env
+    name = local.name
   }
 }
 
@@ -47,30 +52,31 @@ module "ec2" {
 
   instance_count = 1
 
-  name          = "reastairline-${var.name}"
-  ami           = var.ami
-  instance_type = var.instance_type
-  subnet_id     = var.subnet_id
+  name                        = local.name
+  ami                         = var.ami
+  instance_type               = var.instance_type
+  subnet_id                   = var.subnet_id
   vpc_security_group_ids      = [module.security_group.this_security_group_id]
   associate_public_ip_address = true
-  key_name = var.key_name
+  key_name                    = var.key_name
 
   tags = {
-    env      =  var.env
+    env  = var.env
+    name = local.name
   }
 }
 
 data "aws_route53_zone" "default" {
-    name = var.zone_name
-    private_zone = false
+  name         = var.zone_name
+  private_zone = false
 }
 
 resource "aws_route53_record" "elasticsearch" {
-  zone_id = data.aws_route53_zone.default.zone_id
-  name    = var.cname
-  type    = "A"
-  ttl     = "300"
-  records = [module.ec2.public_ip[0]]
+  zone_id         = data.aws_route53_zone.default.zone_id
+  name            = var.cname
+  type            = "A"
+  ttl             = "300"
+  records         = [module.ec2.public_ip[0]]
   allow_overwrite = true
 }
 
