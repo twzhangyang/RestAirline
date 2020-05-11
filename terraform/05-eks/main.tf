@@ -33,9 +33,13 @@ provider "kubernetes" {
   version                = "~> 1.11"
 }
 
+locals {
+  cluster_name = "${var.name}-${var.env}-eks"
+}
+
 module "eks" {
   source       = "git::https://github.com/terraform-aws-modules/terraform-aws-eks.git?ref=v11.1.0"
-  cluster_name = "${var.name}-${var.env}-eks"
+  cluster_name = local.cluster_name
   subnets      = var.subnets
   vpc_id       = var.vpc_id
 
@@ -58,6 +62,19 @@ module "eks" {
       asg_max_size                  = 3
       asg_min_size                  = 1
       additional_security_group_ids = [module.security_group.this_security_group_id]
+
+      tags = [
+        {
+          "key"                 = "k8s.io/cluster-autoscaler/enabled"
+          "propagate_at_launch" = "false"
+          "value"               = "true"
+        },
+        {
+          "key"                 = "k8s.io/cluster-autoscaler/${local.cluster_name}"
+          "propagate_at_launch" = "false"
+          "value"               = "true"
+        }
+      ]
     }
   ]
 
