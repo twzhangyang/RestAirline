@@ -27,34 +27,28 @@ module "vpc" {
   private_subnets = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
   public_subnets  = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
 
-  enable_ipv6        = false
-  enable_nat_gateway = false 
-  single_nat_gateway = true
+  enable_nat_gateway   = true
+  single_nat_gateway   = true
   enable_dns_hostnames = true
-  enable_dns_support = true
+  enable_dns_support   = true
 
 
   public_subnet_tags = merge({
-    name                     = "${local.name}-public"
     env                      = var.env
     "kubernetes.io/role/elb" = "1"
   }, local.eks_tag)
 
   public_route_table_tags = {
-    env  = var.env
-    name = "${local.name}-public"
-
+    env = var.env
   }
 
   private_subnet_tags = merge({
-    name                              = "${local.name}-private"
     env                               = var.env
     "kubernetes.io/role/internal-elb" = 1
   }, local.eks_tag)
 
   private_route_table_tags = {
-    env  = var.env
-    name = "${local.name}-private"
+    env = var.env
   }
 
   default_network_acl_name = local.name
@@ -63,22 +57,19 @@ module "vpc" {
   }
 
   igw_tags = {
-    env  = var.env
-    name = local.name
+    env = var.env
   }
 
   nat_eip_tags = {
-    env  = var.env
-    name = local.name
+    env = var.env
   }
 
   nat_gateway_tags = {
-    env  = var.env
-    name = local.name
+    env = var.env
   }
 
   tags = merge({
-    env  = var.env
+    env = var.env
   }, local.eks_tag)
 }
 
