@@ -50,11 +50,9 @@ module "eks" {
   worker_ami_owner_id    = "800184023465"
   wait_for_cluster_cmd   = "for i in `seq 1 60`; do curl -k -s $ENDPOINT/healthz >/dev/null && exit 0 || true; sleep 5; done; echo TIMEOUT && exit 1"
 
-  manage_aws_auth = true
-
   worker_groups = [
     {
-      name                          = "worker-group-1"
+      name                          = "group-1"
       instance_type                 = var.instance_type
       key_name                      = var.key_name
       additional_userdata           = "echo foo bar"
@@ -66,12 +64,12 @@ module "eks" {
       tags = [
         {
           "key"                 = "k8s.io/cluster-autoscaler/enabled"
-          "propagate_at_launch" = "false"
+          "propagate_at_launch" = "true"
           "value"               = "true"
         },
         {
           "key"                 = "k8s.io/cluster-autoscaler/${local.cluster_name}"
-          "propagate_at_launch" = "false"
+          "propagate_at_launch" = "true"
           "value"               = "true"
         }
       ]
