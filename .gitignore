@@ -7,3 +7,4 @@ bin/
 docker-compose/mongo/
 .terraform
 .DS_Store
+.env
