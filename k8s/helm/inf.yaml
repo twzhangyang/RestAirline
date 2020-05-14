@@ -1,0 +1,8 @@
+inf:
+  sql:
+    eventStoreConnectionString: "sqlConnectionString"
+    readModelConnectionString: "readModelConnectionString"
+  mongodb:
+    connectionString: "mongodb://localhost:27017"
+  elasticsearch:
+    connectionString: "http://localhost:9200"

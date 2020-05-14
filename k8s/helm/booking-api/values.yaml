@@ -1,0 +1,91 @@
+replicaCount: 1
+
+image:
+  # repository: 332679337602.dkr.ecr.ap-east-1.amazonaws.com/booking 
+  # pullPolicy: IfNotPresent
+  # tag: "v1"
+  repository: richieyangs/booking
+  pullPolicy: IfNotPresent
+  tag: "v1"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+probes:
+  liveness:
+    path: /booking/home
+    initialDelaySeconds: 10
+    periodSeconds: 15
+    port: 80
+  readiness:
+    path: /booking/home
+    timeoutSeconds: 5
+    initialDelaySeconds: 90
+    periodSeconds: 60
+    port: 80
+
+
+env:
+  # configmap declares variables which value is taken from the config map defined in template configmap.yaml (name is name of var and key the key in configmap).
+  configmap:
+    - name: EventStoreConnectionString
+      key: eventStoreConnectionString
+    - name: ReadModelConnectionString
+      key: readModelConnectionString
+    - name: mongodb 
+      key: mongodb
+    - name: elasticsearch
+      key: elasticsearch
+  # v
+  # values define environment variables with a fixed value (no configmap involved) (name is name of var, and value is its value)
+  values:
+    - name: OrchestratorType
+      value: 'K8S'
+    - name: ASPNETCORE_ENVIRONMENT
+      value: Test

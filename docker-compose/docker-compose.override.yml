@@ -4,16 +4,12 @@ services:
 #  booking.api:
 #    environment:
 #      - ASPNETCORE_ENVIRONMENT=Development
-#      - ASPNETCORE_URLS=http://0.0.0.0:80
-#      - EventStoreConnectionString=${EVENT_STORE_DB:-Server=mssql.data;Database=RestAirline;User Id=sa;Password=RestAirline123}
-#      - ReadModelConnectionString=${READ_MODEL_DB:-Server=mssql.data;Database=RestAirlineRead;User Id=sa;Password=RestAirline123}
 #    ports:
 #      - 61200:80
 #
 #  flight.availability.api:
 #    environment:
 #      - ASPNETCORE_ENVIRONMENT=Development
-#      - ASPNETCORE_URLS=http://0.0.0.0:80
 #    ports:
 #      - 62200:80
 #    

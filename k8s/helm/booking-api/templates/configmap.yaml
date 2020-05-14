@@ -1,0 +1,16 @@
+{{- $name := include "booking-api.fullname" . -}}
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "cfg-{{ $name }}"
+  labels:
+    app: {{ template "booking-api.name" . }}
+    chart: {{ template "booking-api.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+data:
+  eventStoreConnectionString: {{ .Values.inf.sql.eventStoreConnectionString}}
+  readModelConnectionString: {{ .Values.inf.sql.readModelConnectionString}}
+  mongodb: {{ .Values.inf.mongodb.connectionString}}
+  elasticsearch: {{ .Values.inf.elasticsearch.connectionString}}

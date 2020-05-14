@@ -49,3 +49,8 @@ docker images | grep "restairline" | awk '{print $1 ":" $2}' | xargs docker rmi
 ## Migration:
 dotnet ef database update create_readmodel
 dotnet ef migrations remove
+
+##
+docker build --build-arg Version=1 -f ./src/Booking/RestAirline.Booking.Api/Dockerfile -t booking:v1 ./src
+docker run -d -e mongodb="mongodb://localhost:27017" -e elasticsearch="http://localhost:9200" -p 61200:80 booking:v1
+docker run -d -e ASPNETCORE_ENVIRONMENT="Development" -p 61200:80 booking:v1
