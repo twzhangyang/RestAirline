@@ -12,5 +12,5 @@ docker build --build-arg Version=$LABEL -f ./src/FlightAvailability/RestAirline.
 
 
 echo "Cleaning docker images..."
-# docker image ls | grep $REPOSITORY | awk '{print $1":"$2}' | xargs docker rmi
-docker system prune 
+docker image ls | grep $REPOSITORY | awk '{print $1":"$2}' | xargs docker rmi
+# docker system prune 
