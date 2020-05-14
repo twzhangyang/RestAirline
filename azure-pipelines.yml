@@ -46,4 +46,4 @@ steps:
   - task: Bash@3
     displayName: Build
     inputs:
-      filePath: './buildscript/build.bash'
+      filePath: './buildscript/build-booking.bash'
