@@ -4,11 +4,15 @@ metadata:
   name: {{ include "booking-api.fullname" . }}
   labels:
     {{- include "booking-api.labels" . | nindent 4 }}
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-type: nlb
+    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+
 spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: http
+      targetPort: {{ .Values.service.targetPort }} 
       protocol: TCP
       name: http
   selector:

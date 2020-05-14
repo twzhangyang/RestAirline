@@ -26,7 +26,13 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: ClusterIP
+  # type: ClusterIP
+  # targetPort: 3000
+  # port: 80
+
+  # Using CLusterIP if you want deploy this application in minikube
+  type: LoadBalancer
+  targetPort: 3000
   port: 80
 
 ingress:
@@ -82,7 +88,6 @@ env:
       key: mongodb
     - name: elasticsearch
       key: elasticsearch
-  # v
   # values define environment variables with a fixed value (no configmap involved) (name is name of var, and value is its value)
   values:
     - name: OrchestratorType

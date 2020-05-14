@@ -1,11 +1,9 @@
 variable "env" {
-  type        = string
-  default     = "dev"
+  type    = string
 }
 
 variable "name" {
-  type = string 
-  default = "restairline"
+  type    = string
 }
 
 variable "vpc_id" {
@@ -14,7 +12,6 @@ variable "vpc_id" {
 
 variable "region" {
   type        = string
-  description = "ap-east-1"
 }
 
 variable "subnets" {
@@ -23,11 +20,11 @@ variable "subnets" {
 }
 
 variable "instance_type" {
-  type = string 
+  type = string
 }
 
 variable "key_name" {
-  type = string 
+  type = string
 }
 
 variable "map_accounts" {

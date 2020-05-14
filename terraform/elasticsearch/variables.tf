@@ -31,13 +31,13 @@ variable "key_name" {
 }
 
 variable "ssh_user" {
-  type = string
+  type    = string
+  default = "ubuntu"
 }
 
 variable "create_cname" {
-  type = bool 
+  type = bool
 }
-
 
 variable "zone_name" {
   type = string
