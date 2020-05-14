@@ -47,3 +47,7 @@ steps:
     displayName: Build
     inputs:
       filePath: './buildscript/build-booking.bash'
+
+  - task: BatchScript@1
+    inputs:
+      filename: './buildscript/build-flight-availability.bash'
