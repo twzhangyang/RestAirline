@@ -44,10 +44,11 @@ steps:
   - bash: printenv | sort
 
   - task: Bash@3
-    displayName: Build
+    displayName: Build booking
     inputs:
       filePath: './buildscript/build-booking.bash'
 
-  - task: BatchScript@1
+  - task: Bash@3
+    displayName: Build flight availability
     inputs:
-      filename: './buildscript/build-flight-availability.bash'
+      filePath: './buildscript/build-flight-availability.bash'
