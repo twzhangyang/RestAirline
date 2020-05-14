@@ -8,6 +8,7 @@
 * Implement read model by EntityFramework, MongoDB, Elasticsearch
 * Integrate RabbitMQ and used [MassTransit](https://github.com/MassTransit) as Message bus (in progress)
 * Event driven Microservices integration (in progress)
+* Infrastructure as code by Terraform, AWS eks was created for shipping this application
 * [Wiki](https://github.com/twzhangyang/RestAirline/wiki) is in progress
 
 # The idea of this project

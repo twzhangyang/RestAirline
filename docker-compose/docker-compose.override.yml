@@ -1,18 +1,18 @@
 version: '3.4'
 
 services:
-#  booking.api:
-#    environment:
-#      - ASPNETCORE_ENVIRONMENT=Development
-#    ports:
-#      - 61200:80
-#
-#  flight.availability.api:
-#    environment:
-#      - ASPNETCORE_ENVIRONMENT=Development
-#    ports:
-#      - 62200:80
-#    
+  booking.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - 61200:80
+
+  flight.availability.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - 62200:80
+
   mssql.data:
     environment:
     - SA_PASSWORD=RestAirline123
