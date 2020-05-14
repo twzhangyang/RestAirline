@@ -1,20 +1,17 @@
 variable "region" {
-    type = string
-    default = "ap-east-1"
+  type = string
 }
 
 variable "name" {
   type = string
-  default = "restairline" 
 }
 
 variable "vpc_id" {
-    type = string
+  type = string
 }
 
 variable "env" {
-  type = string 
-  default = "dev" 
+  type = string
 }
 
 variable "ami" {
@@ -22,7 +19,7 @@ variable "ami" {
 }
 
 variable "instance_type" {
-  type = string 
+  type = string
 }
 
 variable "subnet_id" {
@@ -30,19 +27,24 @@ variable "subnet_id" {
 }
 
 variable "key_name" {
-  type = string 
+  type = string
 }
 
 variable "ssh_user" {
   type = string
 }
 
+variable "create_cname" {
+  type = bool 
+}
+
+
 variable "zone_name" {
-  type = string 
+  type = string
 }
 
 variable "cname" {
- type = string
+  type = string
 }
 
 

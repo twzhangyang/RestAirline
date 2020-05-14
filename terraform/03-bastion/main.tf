@@ -71,7 +71,9 @@ data "aws_route53_zone" "default" {
   private_zone = false
 }
 
-resource "aws_route53_record" "elasticsearch" {
+resource "aws_route53_record" "bastion" {
+  count = var.create_cname ? 1 : 0
+
   zone_id         = data.aws_route53_zone.default.zone_id
   name            = var.cname
   type            = "A"

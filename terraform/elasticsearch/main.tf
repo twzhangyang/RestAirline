@@ -80,6 +80,8 @@ data "aws_route53_zone" "default" {
 }
 
 resource "aws_route53_record" "elasticsearch" {
+  count = var.create_cname ? 1 : 0
+
   zone_id         = data.aws_route53_zone.default.zone_id
   name            = var.cname
   type            = "A"

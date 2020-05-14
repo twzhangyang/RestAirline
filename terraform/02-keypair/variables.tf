@@ -1,11 +1,9 @@
 variable "region" {
-  type = string 
-  default = "ap-east-1" 
+  type = string
 }
 
 variable "key_name" {
-    type = string
-    default = "restairline"
+  type = string
 }
 
 variable "public_key_path" {
@@ -15,10 +13,8 @@ Ensure this keypair is added to your local SSH agent so provisioners can
 connect.
 Example: ~/.ssh/terraform.pub
 DESCRIPTION
-  default     = "~/.ssh/id_rsa.pub"
 }
 
 variable "env" {
   type = string
-  default = "dev" 
 }
