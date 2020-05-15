@@ -4,8 +4,8 @@ env = "dev"
 name = "mongoDB"
 
 // change these values accoridng you VPC
-vpc_id = "vpc-0a7a8ac8fa92833ff"
-subnet_id = "subnet-039a22209dda403fa"
+vpc_id = "vpc-03a5ef036341129a9"
+subnet_id = "subnet-088057dbcc814b53b"
 
 ami = "ami-c790d6b6"
 instance_type = "t3.micro"

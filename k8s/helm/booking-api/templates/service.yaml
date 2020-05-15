@@ -6,7 +6,7 @@ metadata:
     {{- include "booking-api.labels" . | nindent 4 }}
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-type: nlb
-    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+    # service.beta.kubernetes.io/aws-load-balancer-internal: "true"
 
 spec:
   type: {{ .Values.service.type }}
