@@ -2,7 +2,7 @@ region = "ap-east-1"
 name = "restairline"
 env = "dev"
 vpc_id = "vpc-03a5ef036341129a9"
-subnets = ["subnet-05a952cd2bf2d73d2", "subnet-0c5e6e823005c310e", "subnet-003bd0b004d4b22db"]
+subnets = ["subnet-0837525fc3ad85ba2", "subnet-088057dbcc814b53b", "subnet-0ab8c8eb16ffcb06d"]
 instance_type = "t3.small"
 key_name = "restairline"
 

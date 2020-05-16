@@ -27,12 +27,12 @@ securityContext: {}
 
 service:
   # type: ClusterIP
-  # targetPort: 3000
+  # targetPort: 80
   # port: 80
 
   # Using CLusterIP if you want deploy this application in minikube
   type: LoadBalancer
-  targetPort: 3000
+  targetPort: 80
   port: 80
 
 ingress:
