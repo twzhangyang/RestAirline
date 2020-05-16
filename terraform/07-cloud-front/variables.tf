@@ -14,11 +14,24 @@ variable "vpc_id" {
   type = string
 }
 
-variable "alb_name" {
+variable "api_gateway_domain" {
+ type = string 
+}
+
+variable "cname" {
+ type = string 
+}
+
+variable "acm_certificate_arn" {
   type = string
 }
 
-variable "booking_home_uri" {
+variable "zone_name" {
  type = string 
 }
+
+
+
+
+
 

@@ -78,6 +78,6 @@ resource "aws_api_gateway_deployment" "booking" {
   ]
 
   rest_api_id = aws_api_gateway_rest_api.booking.id
-  stage_name  = "test"
+  stage_name  = var.env
 }
 
