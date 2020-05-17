@@ -10,6 +10,7 @@ namespace RestAirline.ReadModel.MongoDb.Tests.BookingReadModel
     [Collection("mongodb read model tests")]
     public class AfterSelectedJourneysTest : TestBase
     {
+        [Fact]
         public async Task AfterSelectedJourneysShouldAddJourneysToReadModel()
         {
             //Arrange

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using EventFlow.Aggregates;
 using EventFlow.ReadStores;
@@ -23,7 +24,9 @@ namespace RestAirline.Booking.ReadModel.EntityFramework
             Journeys = new List<Booking.Journey>();
         }
 
-        [Key] public string Id { get; protected set; }
+        [Key] 
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public string Id { get; protected set; }
 
         [ConcurrencyCheck] public long Version { get; set; }
 

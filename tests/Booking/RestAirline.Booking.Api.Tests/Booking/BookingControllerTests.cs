@@ -1,12 +1,8 @@
-using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using EventFlow;
 using FluentAssertions;
 using RestAirline.Booking.Api.Resources.Booking;
 using RestAirline.Booking.Api.Resources.Booking.Journey;
-using RestAirline.Booking.Api.Resources.Booking.Passenger;
 using RestAirline.Booking.Api.Resources.Booking.Passenger.Add;
 using RestAirline.Booking.Domain.Booking;
 using RestAirline.Booking.Domain.ModelBuilders;
