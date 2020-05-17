@@ -21,7 +21,7 @@ locals {
 resource "aws_cloudfront_distribution" "default" {
   comment = "The cdn of the restariline apis"
   enabled = true
-  aliases = ["${var.cname}"]
+  # aliases = ["${var.cname}"]
 
   origin {
     domain_name = var.api_gateway_domain

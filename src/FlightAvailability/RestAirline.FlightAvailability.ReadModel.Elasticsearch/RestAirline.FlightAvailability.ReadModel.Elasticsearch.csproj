@@ -5,8 +5,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="EventFlow" Version="0.77.4077" />
-      <PackageReference Include="EventFlow.Elasticsearch" Version="0.77.4077" />
+      <PackageReference Include="EventFlow" Version="0.79.4216" />
+      <PackageReference Include="EventFlow.Elasticsearch" Version="0.79.4216" />
     </ItemGroup>
 
     <ItemGroup>

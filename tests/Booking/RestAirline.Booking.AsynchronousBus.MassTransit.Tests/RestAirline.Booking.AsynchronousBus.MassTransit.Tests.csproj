@@ -11,7 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="EventFlow.DependencyInjection" Version="0.77.4077" />
+      <PackageReference Include="EventFlow.DependencyInjection" Version="0.79.4216" />
       <PackageReference Include="FluentAssertions" Version="5.10.0" />
       <PackageReference Include="MassTransit.Extensions.DependencyInjection" Version="6.0.2" />
       <PackageReference Include="MassTransit.RabbitMQ" Version="6.0.2" />
