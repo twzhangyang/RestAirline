@@ -52,3 +52,10 @@ steps:
     displayName: Build flight availability
     inputs:
       filePath: './buildscript/build-flight-availability.bash'
+
+  - task: Bash@3
+    displayName: Booking unit tests
+    inputs:
+      filePath: './buildscript/unitTest-booking.sh'
+
+
