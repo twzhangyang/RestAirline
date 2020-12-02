@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="5.0.0" />
     <PackageReference Include="EventFlow" Version="0.79.4216" />
     <PackageReference Include="EventFlow.EntityFramework" Version="0.79.4216" />
     <PackageReference Include="EventFlow.MongoDB" Version="0.79.4216" />

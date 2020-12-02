@@ -1,10 +1,7 @@
-using System.Reflection;
+using Autofac;
 using EventFlow;
 using EventFlow.Configuration;
-using EventFlow.EntityFramework;
-using EventFlow.EntityFramework.Extensions;
 using EventFlow.Extensions;
-using RestAirline.Booking.Domain.EventSourcing;
 
 namespace RestAirline.Booking.Domain
 {
@@ -14,6 +11,27 @@ namespace RestAirline.Booking.Domain
         {
             eventFlowOptions
                 .AddDefaults(typeof(BookingDomainModule).Assembly);
+        }
+    }
+
+    public interface IDog
+    {
+        string SayHello();
+    }
+
+    public class Dog : IDog
+    {
+        public string SayHello()
+        {
+            return "Hello";
+        }
+    }
+
+    public class AutoFactModuleA : Module
+    {
+        protected override void Load(ContainerBuilder builder)
+        {
+            builder.RegisterType<Dog>().As<IDog>().InstancePerRequest();
         }
     }
 }

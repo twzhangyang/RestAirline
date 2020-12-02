@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Autofac;
 using EventFlow;
 using EventFlow.Configuration;
 using EventFlow.EntityFramework;
@@ -51,12 +52,12 @@ namespace RestAirline.Booking.Api.Tests
 
             _server = new TestServer(hostBuilder);
             HttpClient = _server.CreateClient();
-            CommandBus = ServiceProvider.GetService<ICommandBus>();
+            CommandBus = ServiceProvider.Resolve<ICommandBus>();
         }
 
         protected readonly HttpClient HttpClient;
 
-        protected IServiceProvider ServiceProvider => ApplicationBootstrap.ServiceProvider;
+        protected ILifetimeScope ServiceProvider => ApplicationBootstrap.AutofacContainer;
 
         protected ICommandBus CommandBus { get; private set; }
 

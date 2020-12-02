@@ -1,7 +1,9 @@
 ﻿using System;
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NLog.Web;
 
@@ -16,7 +18,7 @@ namespace RestAirline.Booking.Api
             try
             {
                 logger.Debug("init main");
-                CreateWebHostBuilder(args).Build().Run(); 
+                CreateWebHostBuilder(args).Build().Run();
             }
             catch (Exception ex)
             {
@@ -31,15 +33,19 @@ namespace RestAirline.Booking.Api
             }
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
+        public static IHostBuilder CreateWebHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .UseServiceProviderFactory(new AutofacServiceProviderFactory())
                 .ConfigureAppConfiguration((buildContext, config) =>
                 {
                     config.AddJsonFile("settings.json");
                     config.AddEnvironmentVariables();
 
                 })
-                .UseStartup<Startup>()
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                })
                 .ConfigureLogging(logging =>
                 {
                     logging.ClearProviders();

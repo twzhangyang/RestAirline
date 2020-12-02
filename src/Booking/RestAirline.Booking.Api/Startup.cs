@@ -1,15 +1,18 @@
 ﻿using System;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using RestAirline.Booking.Api.Filters;
 using RestAirline.Booking.Api.HealthCheck;
 using RestAirline.Booking.Api.Resources.Booking.Passenger.Add;
-using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
+using RestAirline.Booking.Api.Swagger;
 
 namespace RestAirline.Booking.Api
 {
@@ -24,29 +27,52 @@ namespace RestAirline.Booking.Api
         public IConfiguration Configuration { get; }
         public IWebHostEnvironment Environment { get; }
 
-        public IServiceProvider ConfigureServices(IServiceCollection services)
+        public ILifetimeScope AutofacContainer { get; private set; }
+
+        public void ConfigureContainer(ContainerBuilder containerBuilder)
+        {
+            if (Environment.IsEnvironment("UnitTest"))
+            {
+                ApplicationBootstrap.RegisterServicesForTesting(containerBuilder);
+            }
+
+            ApplicationBootstrap.RegisterServices(containerBuilder);
+        }
+
+        public void ConfigureServices(IServiceCollection services)
         {
             services.AddApplicationInsightsTelemetry();
-
             services.AddControllers(options =>
                 {
                     options.Filters.Add<UnhandledExceptionFilter>();
                     options.Filters.Add<ModelValidationFilter>();
                 })
-                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<AddPassengerCommandValidator>());;
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<AddPassengerCommandValidator>());
 
             services.AddCors();
 
-            if (Environment.IsEnvironment("UnitTest"))
-            {
-                return ApplicationBootstrap.RegisterServicesForTesting(services);
-            }
+            services.AddHttpContextAccessor();
+            RegisterHealthCheck(services);
+            SwaggerServicesConfiguration.Confirure(services);
+        }
 
-            return ApplicationBootstrap.RegisterServices(services, Configuration);
+        private static void RegisterHealthCheck(IServiceCollection services)
+        {
+            services.AddHostedService<StartupHostedService>();
+            services.AddSingleton<StartupHostedServiceHealthCheck>();
+
+            services.AddHealthChecks()
+                .AddCheck<StartupHostedServiceHealthCheck>(
+                    "hosted_service_startup",
+                    failureStatus: HealthStatus.Degraded,
+                    tags: new[] {"ready"});
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            AutofacContainer = app.ApplicationServices.GetAutofacRoot();
+            ApplicationBootstrap.SetAutofacContainer(AutofacContainer);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -75,10 +101,7 @@ namespace RestAirline.Booking.Api
             app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
 
             app.UseRouting();
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }

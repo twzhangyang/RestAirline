@@ -1,6 +1,8 @@
 using System;
+using Autofac;
 using EventFlow;
 using EventFlow.AspNetCore.Extensions;
+using EventFlow.Autofac.Extensions;
 using EventFlow.DependencyInjection.Extensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,6 +12,7 @@ using RestAirline.Booking.Api.Swagger;
 using RestAirline.Booking.CommandHandlers;
 using RestAirline.Booking.Commands;
 using RestAirline.Booking.Domain;
+using RestAirline.Booking.QueryHandlers.EntityFramework;
 using RestAirline.Booking.QueryHandlers.MongoDB;
 using RestAirline.Booking.ReadModel.EntityFramework;
 using RestAirline.ReadModel.MongoDb;
@@ -18,20 +21,13 @@ namespace RestAirline.Booking.Api
 {
     public class ApplicationBootstrap
     {
-        private static IServiceProvider _serviceProvider;
-
         private static Action<IEventFlowOptions> _testingServicesRegistrar;
 
-        public static IServiceProvider ServiceProvider => _serviceProvider;
+        public static ILifetimeScope AutofacContainer { get; private set; }
 
-        public static IServiceProvider RegisterServices(IServiceCollection services, IConfiguration configuration)
+        public static void RegisterServices(ContainerBuilder containerBuilder)
         {
-            var eventFlowOptions = RegisterCommonServices(services);
-
-            _serviceProvider = eventFlowOptions.CreateServiceProvider();
-            services.AddScoped(typeof(IServiceProvider), _ => _serviceProvider);
-
-            return _serviceProvider;
+            RegisterCommonServices(containerBuilder);
         }
 
         public static void AddTestingServicesRegistrar(Action<IEventFlowOptions> registrar)
@@ -39,35 +35,32 @@ namespace RestAirline.Booking.Api
             _testingServicesRegistrar = registrar;
         }
 
-        public static IServiceProvider RegisterServicesForTesting(IServiceCollection services)
+        public static void  RegisterServicesForTesting(ContainerBuilder containerBuilder)
         {
-            var eventFlowOptions = RegisterCommonServices(services);
+            var eventFlowOptions = RegisterCommonServices(containerBuilder);
 
             _testingServicesRegistrar?.Invoke(eventFlowOptions);
-            _serviceProvider = eventFlowOptions.CreateServiceProvider(false);
-            services.AddScoped(typeof(IServiceProvider), _ => _serviceProvider);
-
-            return _serviceProvider;
         }
 
-        public static IEventFlowOptions RegisterCommonServices(IServiceCollection services)
+        public static void SetAutofacContainer(ILifetimeScope container)
         {
-            services.AddHttpContextAccessor();
-            RegisterHealthCheck(services);
-            SwaggerServicesConfiguration.Confirure(services);
+            AutofacContainer = container;
+        }
 
+        public static IEventFlowOptions RegisterCommonServices(ContainerBuilder container)
+        {
             var eventFlowOptions = EventFlowOptions.New
-                .UseServiceCollection(services)
+                    .UseAutofacContainerBuilder(container)
                 .AddAspNetCore(options => { options.AddUserClaimsMetadata(); })
                 .RegisterModule<BookingDomainModule>()
                 .RegisterModule<CommandModule>()
                 .RegisterModule<CommandHandlersModule>()
                 // EntityFramework was broken after upgrade to .NET3.1
                 // https://github.com/eventflow/EventFlow/issues/718
-//                .RegisterModule<EntityFrameworkQueryHandlersModule>()
-//                .RegisterModule<EntityFrameworkEventStoreModule>()
-//                .RegisterModule<EntityFrameworkReadModelModule>();
-                
+                .RegisterModule<EntityFrameworkQueryHandlersModule>()
+                .RegisterModule<EntityFrameworkEventStoreModule>()
+                .RegisterModule<EntityFrameworkReadModelModule>()
+
                 // MongoDB event store and read model
                 .RegisterModule<MongoDBEventStoreModule>()
                 .RegisterModule<MongoDbReadModelModule>()
@@ -75,18 +68,6 @@ namespace RestAirline.Booking.Api
                 ;
 
             return eventFlowOptions;
-        }
-
-        private static void RegisterHealthCheck(IServiceCollection services)
-        {
-//            services.AddHostedService<StartupHostedService>();
-            services.AddSingleton<StartupHostedServiceHealthCheck>();
-
-            services.AddHealthChecks()
-                .AddCheck<StartupHostedServiceHealthCheck>(
-                    "hosted_service_startup",
-                    failureStatus: HealthStatus.Degraded,
-                    tags: new[] {"ready"});
         }
     }
 }

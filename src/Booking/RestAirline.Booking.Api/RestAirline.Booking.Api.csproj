@@ -26,6 +26,7 @@
     <ProjectReference Include="..\RestAirline.Booking.Commands\RestAirline.Booking.Commands.csproj" />
     <ProjectReference Include="..\RestAirline.Booking.Domain\RestAirline.Booking.Domain.csproj" />
     <ProjectReference Include="..\RestAirline.Booking.Queries.MongoDB\RestAirline.Booking.Queries.MongoDB.csproj" />
+    <ProjectReference Include="..\RestAirline.Booking.QueryHandlers.EntityFramework\RestAirline.Booking.QueryHandlers.EntityFramework.csproj" />
     <ProjectReference Include="..\RestAirline.Booking.QueryHandlers.MongoDB\RestAirline.Booking.QueryHandlers.MongoDB.csproj" />
     <ProjectReference Include="..\RestAirline.Booking.ReadModel.EntityFramework\RestAirline.Booking.ReadModel.EntityFramework.csproj" />
   </ItemGroup>
