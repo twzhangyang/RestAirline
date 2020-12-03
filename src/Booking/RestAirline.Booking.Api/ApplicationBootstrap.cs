@@ -35,7 +35,7 @@ namespace RestAirline.Booking.Api
             _testingServicesRegistrar = registrar;
         }
 
-        public static void  RegisterServicesForTesting(ContainerBuilder containerBuilder)
+        public static void RegisterServicesForTesting(ContainerBuilder containerBuilder)
         {
             var eventFlowOptions = RegisterCommonServices(containerBuilder);
 
@@ -51,20 +51,21 @@ namespace RestAirline.Booking.Api
         {
             var eventFlowOptions = EventFlowOptions.New
                     .UseAutofacContainerBuilder(container)
-                .AddAspNetCore(options => { options.AddUserClaimsMetadata(); })
-                .RegisterModule<BookingDomainModule>()
-                .RegisterModule<CommandModule>()
-                .RegisterModule<CommandHandlersModule>()
+                    .AddAspNetCore(options => { options.AddUserClaimsMetadata(); })
+                    .RegisterModule<BookingDomainModule>()
+                    .RegisterModule<CommandModule>()
+                    .RegisterModule<CommandHandlersModule>()
 
-                // Entity Framework Core
-                // .RegisterModule<EntityFrameworkQueryHandlersModule>()
-                // .RegisterModule<EntityFrameworkEventStoreModule>()
-                // .RegisterModule<EntityFrameworkReadModelModule>()
+                    // Entity Framework Cor
+                    // https://github.com/eventflow/EventFlow/issues/669
+                    // .RegisterModule<EntityFrameworkQueryHandlersModule>()
+                    .RegisterModule<EntityFrameworkEventStoreModule>()
+                    // .RegisterModule<EntityFrameworkReadModelModule>()
 
-                // MongoDB event store and read model
-                .RegisterModule<MongoDBEventStoreModule>()
-                .RegisterModule<MongoDbReadModelModule>()
-                .RegisterModule<MongoDbQueryHandlersModule>()
+                    // MongoDB event store and read model
+                    .RegisterModule<MongoDBEventStoreModule>()
+                    .RegisterModule<MongoDbReadModelModule>()
+                    .RegisterModule<MongoDbQueryHandlersModule>()
                 ;
 
             return eventFlowOptions;

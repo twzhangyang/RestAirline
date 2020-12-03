@@ -14,17 +14,17 @@ namespace RestAirline.Booking.Api.HealthCheck
         private readonly ILogger _logger;
         private readonly StartupHostedServiceHealthCheck _startupHostedServiceHealthCheck;
         private readonly IDbContextProvider<EventStoreContext> _eventStoreContextProvider;
-        private readonly IDbContextProvider<RestAirlineReadModelContext> _readModelContextProvider;
+        // private readonly IDbContextProvider<RestAirlineReadModelContext> _readModelContextProvider;
 
         public StartupHostedService(ILogger<StartupHostedService> logger,
             StartupHostedServiceHealthCheck startupHostedServiceHealthCheck,
-            IDbContextProvider<EventStoreContext> eventStoreContextProvider,
-            IDbContextProvider<RestAirlineReadModelContext> readModelContextProvider)
+            // IDbContextProvider<RestAirlineReadModelContext> readModelContextProvider,
+            IDbContextProvider<EventStoreContext> eventStoreContextProvider)
         {
             _logger = logger;
             _startupHostedServiceHealthCheck = startupHostedServiceHealthCheck;
             _eventStoreContextProvider = eventStoreContextProvider;
-            _readModelContextProvider = readModelContextProvider;
+            // _readModelContextProvider = readModelContextProvider;
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
@@ -34,7 +34,7 @@ namespace RestAirline.Booking.Api.HealthCheck
             Task.Run(() =>
             {
                 _eventStoreContextProvider.CreateContext();
-                _readModelContextProvider.CreateContext();
+                // _readModelContextProvider.CreateContext();
 
                 _startupHostedServiceHealthCheck.StartupTaskCompleted = true;
 
