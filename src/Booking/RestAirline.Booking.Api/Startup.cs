@@ -58,7 +58,8 @@ namespace RestAirline.Booking.Api
 
         private static void RegisterHealthCheck(IServiceCollection services)
         {
-            services.AddHostedService<StartupHostedService>();
+            // This StartupHostedService including EF database initialization
+            // services.AddHostedService<StartupHostedService>();
             services.AddSingleton<StartupHostedServiceHealthCheck>();
 
             services.AddHealthChecks()

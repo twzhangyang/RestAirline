@@ -55,11 +55,11 @@ namespace RestAirline.Booking.Api
                 .RegisterModule<BookingDomainModule>()
                 .RegisterModule<CommandModule>()
                 .RegisterModule<CommandHandlersModule>()
-                // EntityFramework was broken after upgrade to .NET3.1
-                // https://github.com/eventflow/EventFlow/issues/718
-                .RegisterModule<EntityFrameworkQueryHandlersModule>()
-                .RegisterModule<EntityFrameworkEventStoreModule>()
-                .RegisterModule<EntityFrameworkReadModelModule>()
+
+                // Entity Framework Core
+                // .RegisterModule<EntityFrameworkQueryHandlersModule>()
+                // .RegisterModule<EntityFrameworkEventStoreModule>()
+                // .RegisterModule<EntityFrameworkReadModelModule>()
 
                 // MongoDB event store and read model
                 .RegisterModule<MongoDBEventStoreModule>()
