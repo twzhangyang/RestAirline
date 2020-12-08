@@ -1,0 +1,51 @@
+version: '3.4'
+
+services:
+  mssql.data:
+    environment:
+    - SA_PASSWORD=RestAirline123
+    - ACCEPT_EULA=Y
+    ports:
+    - 1433:1433
+
+  mongodb.data:
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodata1:/data/db
+
+  elasticsearch:
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - esdata1:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+
+  kibana:
+    environment:
+      SERVER_NAME: kibana
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+    ports:
+      - 5601:5601
+
+  rabbitmq:
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin
+    ports:
+      - 15672:15672
+      - 5672:5672
+
+volumes:
+  esdata1:
+    driver: local
+
+  mongodata1:
+    driver: local

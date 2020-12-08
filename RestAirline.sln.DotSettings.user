@@ -14,4 +14,7 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=1b0e6288_002Dc9bb_002D4de2_002Dbdac_002D69560c33d7a3/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="All tests from Solution" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
   &lt;Solution /&gt;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=eea1a7c0_002D12f3_002D4fac_002Da661_002Df01505b12b0a/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="All tests from &amp;lt;tests&amp;gt;\&amp;lt;Booking&amp;gt;" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
+  &lt;Project Location="/Users/yrzhang/Documents/dotnet/RestAirline" Presentation="&amp;lt;tests&amp;gt;\&amp;lt;Booking&amp;gt;" /&gt;
+&lt;/SessionState&gt;</s:String>
 	</wpf:ResourceDictionary>

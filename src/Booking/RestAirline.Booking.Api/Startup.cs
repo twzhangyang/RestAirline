@@ -35,8 +35,10 @@ namespace RestAirline.Booking.Api
             {
                 ApplicationBootstrap.RegisterServicesForTesting(containerBuilder);
             }
-
-            ApplicationBootstrap.RegisterServices(containerBuilder);
+            else
+            {
+                ApplicationBootstrap.RegisterServices(containerBuilder);
+            }
         }
 
         public void ConfigureServices(IServiceCollection services)
